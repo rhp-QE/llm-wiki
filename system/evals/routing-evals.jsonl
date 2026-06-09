@@ -1,0 +1,9 @@
+{"intent":"今天学了 Go defer，帮我沉淀到 wiki","expected_workflow":"Ingest","expected_domains":["sources/learning","wiki/tech","wiki/learning","wiki/qa"]}
+{"intent":"分析我过去几年最重要的人生事件","expected_workflow":"Query","expected_domains":["wiki/events","wiki/themes","wiki/people"]}
+{"intent":"处理 inbox 里的新文章","expected_workflow":"Ingest","expected_domains":["sources/articles","wiki/tech","wiki/themes","wiki/qa"]}
+{"intent":"检查 wiki 有没有断链和重复实体","expected_workflow":"Lint","expected_domains":["wiki","system/evals"]}
+{"intent":"把这个产品想法加入我的想法池","expected_workflow":"Ingest","expected_domains":["wiki/projects","wiki/writing"]}
+{"intent":"给我出几道 Go defer 复习题","expected_workflow":"Query","expected_domains":["wiki/tech","wiki/learning","wiki/qa"]}
+{"intent":"今天构建 wiki","expected_workflow":null,"expected_domains":[]}
+{"intent":"把我旧 Obsidian 里的 600 篇日记迁移成 llm_wiki","expected_workflow":"Setup / Migration","expected_domains":["sources/diary","wiki/people","wiki/events","wiki/themes","wiki/reports"]}
+{"intent":"生成本周 wiki 维护报告","expected_workflow":"Report","expected_domains":["wiki/reports","wiki/log"]}
