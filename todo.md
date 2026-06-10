@@ -16,6 +16,7 @@ None.
 
 ## Open
 
+- [ ] [[wiki/tasks/2026-06-11-maintain-early-sleep-early-wake-routine|Maintain daily early sleep and wake routine]]
 - [ ] [[wiki/tasks/2026-06-10-add-real-notes-and-sample-ingest|Add 10-20 real notes and run first sample ingest]]
 - [ ] [[wiki/tasks/2026-06-10-decide-first-priority-domains|Decide first priority wiki domains]]
 - [ ] [[wiki/tasks/2026-06-10-open-obsidian-vault|Open this directory as an Obsidian vault if desired]]
@@ -24,7 +25,6 @@ None.
 ## Review Queue
 
 - [ ] [[wiki/tasks/2026-06-10-first-lint-after-sample-ingest|Run first lint after sample ingest]]
-- [ ] [[wiki/tasks/2026-06-10-clarify-sleep-target-notation|Clarify whether sleep targets `13点` and `13.30` mean 01:00 and 01:30]]
 
 ## Waiting / Blocked
 
@@ -32,4 +32,5 @@ None.
 
 ## Recently Done
 
+- [x] Completed [[wiki/tasks/2026-06-10-clarify-sleep-target-notation|Clarify whether sleep targets `13点` and `13.30` mean 01:00 and 01:30]] — user clarified the stable routine as sleep before 01:30 and wake before 08:30.
 - [x] Dropped [[wiki/tasks/2026-06-10-prepare-xiaoheihe-interview|Prepare for the 2026-06-10 afternoon 小黑盒 client development interview]] — user declined the second interview on 2026-06-10.
