@@ -51,7 +51,9 @@ Run maintenance when:
 - Pages with `updated` older than the review horizon are inspected.
 - Active learning paths and projects have current status.
 - Open task pages and `todo.md` dashboard entries are consistent.
+- Task page `progress_*` fields, `## Progress Snapshot`, `todo.md`, and `wiki/tasks/任务.md` aggregate snapshots are consistent and not stale for the requested review horizon.
 - Source-backed task pages have existing `source_records`; long-term task execution evidence is not trapped only in `wiki/tasks/`.
+- Diary, learning, project, event, and reflection pages with task-progress language have `Related Tasks`, task updates, or explicit `needs_user_review` notes.
 - Canonical task pages are not being created for every tiny one-off action; lightweight dashboard-only todos remain in `todo.md` unless they need serious tracking.
 - Multi-step shared-goal todos are grouped under parent task checklists when appropriate.
 - Past-due, blocked, waiting, and stale tasks are visible for review.

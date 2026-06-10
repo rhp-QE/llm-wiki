@@ -4,10 +4,14 @@ title: Decide first priority wiki domains
 status: open
 priority: medium
 area: wiki
+progress_state: not-started
+progress_percent: unknown
+progress_updated: 2026-06-11
+progress_summary: "No explicit first-priority domain decision is recorded yet."
 due:
 scheduled:
 created: 2026-06-10
-updated: 2026-06-10
+updated: 2026-06-11
 completed:
 source: todo.md legacy item
 evidence_policy: task-page-only
@@ -29,6 +33,13 @@ Decide first priority domains: personal diary, technical learning, writing, or p
 
 - Status: open
 - Priority: medium
+
+## Progress Snapshot
+
+- State: not-started
+- Percent: unknown
+- Updated: 2026-06-11
+- Summary: No explicit first-priority domain decision is recorded yet.
 
 ## Context
 

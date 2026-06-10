@@ -37,6 +37,10 @@ Task Evidence Gate: after a task passes the Task Granularity Gate, decide whethe
 
 Task Granularity Gate: tiny one-off actions with no due date, no waiting/blocking state, no durable context, and no clear linked page should remain plain checkboxes in `todo.md`. Create `wiki/tasks/` pages only for serious tracked tasks: important, high priority, due/scheduled, multi-step, waiting/blocked, source-backed, review-worthy, report-worthy, or linked to a project, learning path, event, theme, source, or report. Multiple small todos with one shared goal should become a checklist under one parent task unless separate tracking is explicitly needed.
 
+Task progress cache: canonical task pages maintain `progress_state`, `progress_percent`, `progress_updated`, `progress_summary`, and `## Progress Snapshot`. The active dashboard `todo.md` and Obsidian index `wiki/tasks/任务.md` maintain aggregate progress snapshots. Query task progress from those snapshots first; deep-read task pages or linked domains only when the snapshot is stale, ambiguous, missing, or evidence is requested.
+
+Task Impact Pass during Ingest: after preserving raw sources and before finalizing compiled pages, the agent must check whether diary, learning, project, reflection, or event material changes any tracked task. If the source records completion, progress, missed routine, blocker, unblock condition, or a new serious action, update the matching task page, `todo.md`, and `wiki/tasks/任务.md`; add task backlinks in the compiled event/learning/project page. Ambiguous task impacts must be reported under `needs_user_review`, not silently skipped.
+
 Diary classification is explicit: use `Type: diary`, `日记`, `diary` in the title/filename, or direct wording like "按日记处理". Ingest must not infer diary from emotion, routine, first-person writing, or "today" alone.
 
 Inbox ingest aggregates before source creation. The agent should inventory pending fragments, group compatible fragments, then create or update sources. It should not blindly create one source per fragment. Do not merge different source types; diary and learning must stay separate unless explicitly instructed otherwise.

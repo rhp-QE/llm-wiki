@@ -4,6 +4,10 @@ title: Prepare for the 2026-06-10 afternoon 小黑盒 client development intervi
 status: dropped
 priority: high
 area: career
+progress_state: dropped
+progress_percent: unknown
+progress_updated: 2026-06-11
+progress_summary: "Dropped after the user declined the Xiaoheihe second interview on 2026-06-10."
 due: 2026-06-10
 scheduled:
 created: 2026-06-10
@@ -32,6 +36,13 @@ Prepare for the 2026-06-10 afternoon 小黑盒 client development interview.
 - Status: dropped
 - Priority: high
 - Due: 2026-06-10
+
+## Progress Snapshot
+
+- State: dropped
+- Percent: unknown
+- Updated: 2026-06-11
+- Summary: Dropped after the user declined the Xiaoheihe second interview on 2026-06-10.
 
 ## Context
 

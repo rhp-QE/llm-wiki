@@ -50,6 +50,13 @@ The 2026-06-10 diary also records opening ChatGPT Pro at the user-stated price o
 - Identify which repeated wiki operations are stable enough to become explicit [[loop-engineering|Loop Engineering]] workflows.
 - Decide whether ChatGPT Pro spend should be tracked under a future finance/tool-budget page.
 
+## Task Progress Signals
+
+- [[wiki/tasks/2026-06-10-add-real-notes-and-sample-ingest|Add 10-20 real notes and run first sample ingest]]: partial progress; real diary, learning, task, and URL-reference material exists, but the explicit 10-20 note target is not marked complete.
+- [[wiki/tasks/2026-06-10-decide-first-priority-domains|Decide first priority wiki domains]]: not started; no explicit priority-domain decision is recorded.
+- [[wiki/tasks/2026-06-10-first-lint-after-sample-ingest|Run first lint after sample ingest]]: waiting for the next meaningful sample ingest.
+- [[wiki/tasks/2026-06-10-open-obsidian-vault|Open this directory as an Obsidian vault if desired]]: no evidence recorded that the preferred vault path has been opened and verified.
+
 ## Related Knowledge
 
 - [[wiki/events/2026-06-09-beijing-work-wiki-career|2026-06-09 Beijing work, personal wiki, and career anxiety]]

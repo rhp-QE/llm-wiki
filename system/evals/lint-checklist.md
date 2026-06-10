@@ -52,6 +52,7 @@ Use this checklist during `llm-wiki Lint`.
 - [ ] Skill-tree sources distinguish `active-study`, `future-reference`, `background-reading`, `review`, `archive-only`, or `unknown` intent when relevant.
 - [ ] Saved-for-later, not-started, and skimmed skill materials use `counts_as_progress: false` and are not listed as real learning progress.
 - [ ] Source-worthy long-term task evidence is preserved under `sources/tasks/` with `source_type: task_evidence`.
+- [ ] Source-derived task evidence in diary, learning, project, event, or reflection sources links to affected tasks or is marked `needs-review`.
 - [ ] Lightweight task state, dashboard reordering, and mechanical status changes are not archived as sources.
 
 ## Schema
@@ -62,6 +63,7 @@ Use this checklist during `llm-wiki Lint`.
 - [ ] Task pages use valid task status, priority, area, source, and linked page fields.
 - [ ] Task pages use valid `evidence_policy` values: `none`, `task-page-only`, or `source-backed`.
 - [ ] Source-backed task pages list existing `source_records` under `sources/tasks/`.
+- [ ] Source-derived pages with task-progress language have `Related Tasks` links or an explicit `needs_user_review` note.
 - [ ] Canonical `todo.md` dashboard entries link to task pages; lightweight one-off checkboxes are clearly dashboard-only or marked for migration.
 - [ ] Tiny one-off todos are not over-promoted into `wiki/tasks/`, and multi-step shared-goal todos are grouped under parent task checklists when appropriate.
 - [ ] Learning paths separate `Saved For Later` from `Recently Learned`.

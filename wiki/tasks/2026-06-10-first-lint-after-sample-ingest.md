@@ -4,10 +4,14 @@ title: Run first lint after sample ingest
 status: open
 priority: medium
 area: wiki
+progress_state: waiting
+progress_percent: unknown
+progress_updated: 2026-06-11
+progress_summary: "Waiting for the next meaningful sample ingest before running lint."
 due:
 scheduled:
 created: 2026-06-10
-updated: 2026-06-10
+updated: 2026-06-11
 completed:
 source: todo.md legacy item
 evidence_policy: task-page-only
@@ -30,6 +34,13 @@ Run the first lint after sample ingest.
 
 - Status: open
 - Priority: medium
+
+## Progress Snapshot
+
+- State: waiting
+- Percent: unknown
+- Updated: 2026-06-11
+- Summary: Waiting for the next meaningful sample ingest before running lint.
 
 ## Context
 

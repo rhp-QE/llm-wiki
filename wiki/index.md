@@ -37,7 +37,7 @@ Use these routing hints:
 | A new thing learned | `learning/`, `tech/`, `qa/` |
 | A writing task | `writing/`, then related `themes/`, `models/`, `craft/` |
 | A personal principle | `reflections/`, then linked `events/` |
-| Todos, tasks, due items, or "我今天该做什么" | `todo.md`, then `wiki/tasks/` |
+| Todos, tasks, due items, completion progress, or "我今天该做什么" | `todo.md` Progress Snapshot, then `wiki/tasks/任务.md`, then specific task pages only when needed |
 | A report, pulse, migration summary, or health check result | `reports/`, then linked source domains |
 | Obsidian browsing, graph, visual map, or MOC | `wiki/首页.md`, `wiki/maps/` |
 | Maintenance | `wiki/log.md`, `wiki/logs/`, `system/maintenance.md`, `system/evals/lint-checklist.md` |

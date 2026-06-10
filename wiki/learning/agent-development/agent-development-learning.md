@@ -63,6 +63,10 @@ These are saved references only. They do not count as learning progress until th
 - Build a small diary ingest helper that fills date/location/weather metadata and routes entries into the wiki.
 - Build a tiny agent that reads a source note and proposes target wiki pages without mutating files.
 
+## Related Tasks
+
+- [[wiki/tasks/2026-06-10-define-agent-development-plan|Define a 3-month Agent development learning plan]]: open tracked task; current learning path still lacks target role, capability map, weekly plan, and applied project.
+
 ## Linked Knowledge
 
 - [[agent-development-internal-transfer]]

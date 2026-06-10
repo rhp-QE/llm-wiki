@@ -18,6 +18,8 @@ This is an audit gate. Each item must be satisfied, marked not applicable, or li
 - [ ] Subtasks, if any, were added to a parent task checklist or next step instead of separate task pages.
 - [ ] Source-worthy long-term task goals or execution updates, if any, were preserved under `sources/tasks/` before or alongside task page updates.
 - [ ] `todo.md` was updated when task state or priority affects the active dashboard.
+- [ ] Task progress cache was updated when status, checklist state, blocker/waiting state, meaningful execution evidence, or user-requested progress review changed the task.
+- [ ] `todo.md` and `wiki/tasks/任务.md` aggregate progress snapshots were refreshed when task progress changed.
 - [ ] The active monthly log under `wiki/logs/YYYY-MM.md` was updated for meaningful task mutations.
 
 ## Task Fields
@@ -26,6 +28,8 @@ This is an audit gate. Each item must be satisfied, marked not applicable, or li
 - [ ] For canonical task pages, `status` is one of `open`, `doing`, `waiting`, `scheduled`, `blocked`, `done`, or `dropped`.
 - [ ] For canonical task pages, `priority` is `low`, `medium`, `high`, or `unknown`; priority was not invented.
 - [ ] For canonical task pages, `area` is one of `life`, `learning`, `project`, `career`, `wiki`, `health`, `relationship`, `finance`, or `other`.
+- [ ] For canonical task pages, `progress_state`, `progress_percent`, `progress_updated`, and `progress_summary` reflect the latest supported progress snapshot.
+- [ ] `progress_percent` is `unknown` unless backed by explicit user evidence, a checklist denominator, or a mechanical completion signal.
 - [ ] For canonical task pages, `due` and `scheduled` are absolute dates when present; relative dates were resolved at capture time.
 - [ ] For canonical task pages, `source` records direct user request, source path, or linked wiki evidence.
 - [ ] For canonical task pages, `evidence_policy` is `none`, `task-page-only`, or `source-backed`.
@@ -55,6 +59,7 @@ This is an audit gate. Each item must be satisfied, marked not applicable, or li
 - [ ] Open or doing tasks appear in `todo.md` under Today, Next, Scheduled, Waiting / Blocked, or Review Queue.
 - [ ] Done or dropped tasks are removed from active sections or moved to Recently Done when useful.
 - [ ] Canonical `todo.md` entries link to task pages; lightweight one-off checkboxes are clearly dashboard-only.
+- [ ] Aggregate progress snapshots in `todo.md` and `wiki/tasks/任务.md` are consistent with task page progress fields.
 - [ ] Project-local tasks and learning practice tasks are promoted to `wiki/tasks/` only when serious tracking is requested.
 - [ ] Source-backed task pages link evidence records in `source_records`; `todo.md` remains a dashboard, not the only record of durable task history.
 

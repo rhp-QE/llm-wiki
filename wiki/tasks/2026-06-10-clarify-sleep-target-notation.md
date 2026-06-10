@@ -4,6 +4,10 @@ title: Clarify whether sleep targets `13点` and `13.30` mean 01:00 and 01:30
 status: done
 priority: medium
 area: health
+progress_state: done
+progress_percent: 100
+progress_updated: 2026-06-11
+progress_summary: "Completed after the user clarified the stable target as sleep before 01:30 and wake before 08:30."
 due:
 scheduled:
 created: 2026-06-10
@@ -30,6 +34,13 @@ Clarify whether the diary sleep targets written as `13点` and `13.30` mean 01:0
 
 - Status: done
 - Priority: medium
+
+## Progress Snapshot
+
+- State: done
+- Percent: 100
+- Updated: 2026-06-11
+- Summary: Completed after the user clarified the stable target as sleep before 01:30 and wake before 08:30.
 
 ## Context
 

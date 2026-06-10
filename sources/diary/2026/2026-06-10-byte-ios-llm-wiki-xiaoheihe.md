@@ -13,6 +13,11 @@ diary_date: 2026-06-10
 location: Beijing
 weather: sunny
 importance: normal
+task_impact: updates-existing
+related_tasks:
+  - wiki/tasks/2026-06-10-prepare-xiaoheihe-interview.md
+  - wiki/tasks/2026-06-10-add-real-notes-and-sample-ingest.md
+  - wiki/tasks/2026-06-10-define-agent-development-plan.md
 tags:
   - diary
   - beijing

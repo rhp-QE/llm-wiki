@@ -67,6 +67,12 @@ This event connects work execution, personal knowledge infrastructure, and caree
 - Updated [[career-direction]] with the Xiaoheihe second-interview decision.
 - Updated the tracked Xiaoheihe interview task to `dropped`.
 
+## Related Tasks
+
+- [[wiki/tasks/2026-06-10-prepare-xiaoheihe-interview|Prepare for the 2026-06-10 afternoon 小黑盒 client development interview]]: dropped because the user declined the second interview on 2026-06-10.
+- [[wiki/tasks/2026-06-10-add-real-notes-and-sample-ingest|Add 10-20 real notes and run first sample ingest]]: partial progress signal because the personal LLM-wiki became basically usable and this diary was later ingested as real material.
+- [[wiki/tasks/2026-06-10-define-agent-development-plan|Define a 3-month Agent development learning plan]]: readiness-gap signal; the source strengthened the need for a concrete learning map and story bank but did not complete the plan.
+
 ## Related Themes
 
 - [[career-direction]]

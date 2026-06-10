@@ -7,6 +7,10 @@ title:
 status: open
 priority: unknown
 area: other
+progress_state: unknown
+progress_percent: unknown
+progress_updated:
+progress_summary:
 due:
 scheduled:
 created:
@@ -24,6 +28,13 @@ tags: []
 ## Task
 
 ## Status
+
+## Progress Snapshot
+
+- State:
+- Percent:
+- Updated:
+- Summary:
 
 ## Context
 

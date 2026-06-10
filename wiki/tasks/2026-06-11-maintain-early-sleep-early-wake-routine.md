@@ -4,6 +4,10 @@ title: Maintain daily early sleep and wake routine
 status: open
 priority: unknown
 area: health
+progress_state: in-progress
+progress_percent: unknown
+progress_updated: 2026-06-11
+progress_summary: "Routine target is defined and source-backed; no actual post-creation sleep/wake check-ins are recorded yet."
 due:
 scheduled:
 created: 2026-06-11
@@ -36,6 +40,13 @@ Maintain a daily early sleep and wake routine:
 - Status: open
 - Priority: unknown
 - Scope: long-term open task and active todo.
+
+## Progress Snapshot
+
+- State: in-progress
+- Percent: unknown
+- Updated: 2026-06-11
+- Summary: Routine target is defined and source-backed; no actual post-creation sleep/wake check-ins are recorded yet.
 
 ## Context
 

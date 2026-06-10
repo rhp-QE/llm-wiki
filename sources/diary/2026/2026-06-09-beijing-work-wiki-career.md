@@ -9,6 +9,11 @@ captured: 2026-06-10
 status: ingested
 location: Beijing
 weather: sunny
+task_impact: updates-existing
+related_tasks:
+  - wiki/tasks/2026-06-10-prepare-xiaoheihe-interview.md
+  - wiki/tasks/2026-06-10-define-agent-development-plan.md
+  - wiki/tasks/2026-06-10-clarify-sleep-target-notation.md
 tags:
   - diary
   - beijing

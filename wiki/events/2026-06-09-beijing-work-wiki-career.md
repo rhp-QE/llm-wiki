@@ -16,7 +16,7 @@ tags:
   - codex
   - interview
 created: 2026-06-10
-updated: 2026-06-10
+updated: 2026-06-11
 ---
 
 # 2026-06-09 Beijing work, personal wiki, and career anxiety
@@ -66,6 +66,12 @@ This event connects three active threads:
 - Added and linked project pages for [[personal-llm-wiki]] and [[agent-development-internal-transfer]].
 - Added sleep and routine as a tracked theme.
 - Added a near-term task to prepare for the 2026-06-10 afternoon 小黑盒 client development interview.
+
+## Related Tasks
+
+- [[wiki/tasks/2026-06-10-prepare-xiaoheihe-interview|Prepare for the 2026-06-10 afternoon 小黑盒 client development interview]]: created from the upcoming interview signal.
+- [[wiki/tasks/2026-06-10-define-agent-development-plan|Define a 3-month Agent development learning plan]]: created from the three-month Agent development/internal-transfer direction.
+- [[wiki/tasks/2026-06-10-clarify-sleep-target-notation|Clarify whether sleep targets `13点` and `13.30` mean 01:00 and 01:30]]: created from ambiguous sleep target notation.
 
 ## Related Themes
 

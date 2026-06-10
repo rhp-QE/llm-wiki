@@ -4,10 +4,14 @@ title: Add 10-20 real notes and run first sample ingest
 status: open
 priority: medium
 area: wiki
+progress_state: partial
+progress_percent: unknown
+progress_updated: 2026-06-11
+progress_summary: "Some real diary, learning, task, and URL-reference material exists; the explicit 10-20 note target and first sample ingest are not marked complete."
 due:
 scheduled:
 created: 2026-06-10
-updated: 2026-06-10
+updated: 2026-06-11
 completed:
 source: todo.md legacy item
 evidence_policy: task-page-only
@@ -29,6 +33,13 @@ Add 10-20 real notes to `inbox/` or `sources/`, then run the first sample ingest
 
 - Status: open
 - Priority: medium
+
+## Progress Snapshot
+
+- State: partial
+- Percent: unknown
+- Updated: 2026-06-11
+- Summary: Some real diary, learning, task, and URL-reference material exists; the explicit 10-20 note target and first sample ingest are not marked complete.
 
 ## Context
 

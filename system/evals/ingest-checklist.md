@@ -14,6 +14,7 @@ Do not finish an ingest unless these are true:
 - [ ] `system/resolver.md` was used to choose workflow and target domains.
 - [ ] The nearest target-domain `AGENTS.md` files were read before writing compiled pages.
 - [ ] Concrete action items were routed to `wiki/tasks/` only when they are real todos or the user wants serious task tracking.
+- [ ] Task Impact Pass was run: task progress/completion/blocker signals in the source were matched to existing tasks, promoted to tasks, or listed under `needs_user_review`.
 - [ ] Existing pages and aliases were checked before creating new person, concept, event, project, or theme pages.
 - [ ] Every new durable `wiki/` page has frontmatter matching its domain schema.
 - [ ] Every non-trivial compiled claim has a source path, explicit user statement, `Inference`, or `Needs evidence` marker.
@@ -67,6 +68,7 @@ Use `system/templates/ingest-plan.md` for complex or multi-domain ingest before 
 
 - [ ] Durable entities are extracted: people, projects, concepts, tools, places, organizations.
 - [ ] Durable relationships are extracted: person-event, concept-concept, theme-event, model-example, project-task.
+- [ ] Task impact signals are extracted: completed goals, partial progress, missed routines, blockers, unblock conditions, failures, dropped work, and new serious actions.
 - [ ] Timeline entries are captured when chronology matters.
 - [ ] Aliases and nicknames are added to frontmatter instead of creating duplicate pages.
 - [ ] Durable questions are routed to `wiki/qa/` only when they are reusable.
@@ -78,6 +80,8 @@ Use `system/templates/ingest-plan.md` for complex or multi-domain ingest before 
 - [ ] Existing pages are updated instead of creating duplicates.
 - [ ] New pages use the nearest domain `AGENTS.md` and the closest template in `system/templates/`.
 - [ ] Cross-domain pages link to each other with `[[wikilink]]` where it helps future queries.
+- [ ] Compiled source-derived pages that affect tasks include `## Related Tasks` or equivalent task backlinks.
+- [ ] Existing canonical tasks affected by the source have updated progress cache, task log, `todo.md`, and `wiki/tasks/任务.md`.
 - [ ] New durable pages have at least one incoming or outgoing internal link unless deliberately orphaned.
 - [ ] Domain README or `wiki/index.md` is updated when the new page changes discoverability.
 
@@ -96,6 +100,7 @@ Use `system/templates/ingest-plan.md` for complex or multi-domain ingest before 
 - [ ] Check duplicate entity risk for people, concepts, projects, events, and themes.
 - [ ] Check whether `todo.md`, learning review queues, or project tasks need updates.
 - [ ] Check whether any extracted serious todos need canonical `wiki/tasks/` pages and `todo.md` dashboard entries.
+- [ ] Check whether source-derived task impacts updated task pages and aggregate task progress snapshots, or were explicitly listed under `needs_user_review`.
 - [ ] Check that learning path updates separate `Saved For Later` from `Recently Learned`.
 - [ ] Check that `inbox/` contains no processed content after ingest.
 - [ ] Update the active monthly log with operation, inputs, created, updated, links added, and open questions.

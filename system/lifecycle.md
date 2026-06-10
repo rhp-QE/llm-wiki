@@ -76,6 +76,7 @@ Rules:
 
 - Canonical task records live under `wiki/tasks/`.
 - The root `todo.md` is the active dashboard. Canonical tracked items should link to task pages; lightweight one-off todos may remain plain checkboxes.
+- Task pages and task dashboards maintain cached progress snapshots so ordinary task progress queries do not need to scan all linked project, learning, and theme pages.
 - Direct todo commands do not create `inbox/` files. Use the direct user request as task-page evidence for ordinary canonical tasks. For source-worthy long-term tasks and meaningful execution updates, create or update `sources/tasks/` according to the Task Evidence Gate.
 - Apply the Task Granularity Gate before creating a canonical task page.
 - Small one-step, one-off actions with no due date, no blocking/waiting state, no durable context, and no clear relationship to other wiki pages should remain lightweight checkboxes in `todo.md`.
@@ -84,7 +85,7 @@ Rules:
 - A task must be actionable. If no action is supplied, ask for clarification instead of creating a blank task.
 - Resolve relative due or scheduled dates to absolute dates when recording the task.
 - Do not invent priority, due date, project, or linked pages.
-- Task state changes must update both the task page and `todo.md`.
+- Task state changes must update the task page, its progress cache, `todo.md`, and `wiki/tasks/任务.md`.
 - Learning practice tasks and project-local tasks can remain in their owning pages, but promote them to `wiki/tasks/` when the user wants serious todo tracking.
 - Long-term task goals, recurring routines, habit tracking, project/learning execution history, milestone outcomes, blockers, failures, and reviews can be source evidence. Preserve the user's raw task/update wording under `sources/tasks/` when the Task Evidence Gate fires; do not archive lightweight dashboard state.
 
@@ -106,6 +107,8 @@ Rules:
 - Preserve original fragment boundaries inside grouped sources with fragment IDs, capture timestamps when available, and original inbox paths.
 - Do not merge different source types just because they arrived together. Keep diary and learning separate unless explicitly instructed otherwise.
 - Update compiled pages under `wiki/`.
+- Run the Task Impact Pass before finalizing compiled pages: diary, learning, project, reflection, and event sources can update existing task state or progress. Match task signals against `todo.md`, `wiki/tasks/任务.md`, and relevant task pages; update the task page, progress cache, dashboard, and task index when supported by source evidence.
+- Compiled source-derived pages should link affected tasks under `## Related Tasks` or an equivalent section. If the source appears task-relevant but the matching task or outcome is ambiguous, record it under `needs_user_review` instead of guessing.
 - Log the operation in the active monthly log under `wiki/logs/YYYY-MM.md`.
 - Never treat an unsourced model guess as user knowledge.
 
@@ -122,6 +125,7 @@ Enrich with:
 - Aliases.
 - Open threads and review tasks.
 - Concrete tracked tasks.
+- Task progress signals: completed goals, partial progress, missed routines, blockers, unblock conditions, and new serious actions that should update existing task pages or create/promote tasks.
 - Source-worthy long-term task evidence, when task execution history itself is durable evidence.
 
 ### Citation Fixing
@@ -149,6 +153,7 @@ Check:
 - Pages without source evidence.
 - Index pages that do not mention new durable pages.
 - Source-backed long-term tasks whose `source_records` are missing, broken, or stale.
+- Source-derived pages with task-progress language but no `Related Tasks`, task update, or `needs_user_review` note.
 
 ### Report
 
@@ -164,6 +169,8 @@ Examples:
 - Learning review.
 
 Reports should include what was checked, what changed, what matters, and what the user should do next.
+
+Task reports should refresh task progress caches when they compute a new supported completion snapshot.
 
 ## Stock Scenario
 

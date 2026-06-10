@@ -36,6 +36,8 @@ The framework should behave like a personal knowledge and task operating system:
 | Todo workflow | User-originated | The wiki should be usable as a serious personal todo system. Direct todo commands should not go through inbox or ingest. | Implemented |
 | Task granularity | User-originated | Tiny one-off actions should not automatically create canonical task pages. Multiple related todos can map to one parent task checklist. | Implemented |
 | Long-term task evidence | User-originated | Some long-term tasks and their execution history should be counted into `sources/`, especially when they represent durable life/project/learning evidence rather than lightweight operational state. | Implemented |
+| Task progress cache | User-originated | Task pages and task dashboards should cache completion progress so ordinary task-progress queries do not rescan every linked page. | Implemented |
+| Ingest task impact pass | User-originated | Diary, learning, and project ingest should update related task status/progress caches and backlink compiled pages to affected tasks. | Implemented |
 | Query behavior | User-originated | Later query should use local evidence packages first and avoid repeatedly fetching live URLs unless explicitly asked or local evidence is missing. | Implemented |
 
 ## AI-Proposed Improvement Areas

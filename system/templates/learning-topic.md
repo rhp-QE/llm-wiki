@@ -32,6 +32,8 @@ updated:
 
 ## Practice Tasks
 
+## Related Tasks
+
 ## Linked Knowledge
 
 ## Sources

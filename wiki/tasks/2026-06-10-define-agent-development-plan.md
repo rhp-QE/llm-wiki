@@ -4,10 +4,14 @@ title: Define a 3-month Agent development learning plan
 status: open
 priority: high
 area: learning
+progress_state: not-started
+progress_percent: unknown
+progress_updated: 2026-06-11
+progress_summary: "The three-month Agent direction is recorded, but target role, capability map, weekly plan, and applied project are not defined."
 due:
 scheduled:
 created: 2026-06-10
-updated: 2026-06-10
+updated: 2026-06-11
 completed:
 source: sources/diary/2026/2026-06-09-beijing-work-wiki-career.md
 evidence_policy: task-page-only
@@ -30,6 +34,13 @@ Define a 3-month Agent development learning plan for possible internal transfer.
 
 - Status: open
 - Priority: high
+
+## Progress Snapshot
+
+- State: not-started
+- Percent: unknown
+- Updated: 2026-06-11
+- Summary: The three-month Agent direction is recorded, but target role, capability map, weekly plan, and applied project are not defined.
 
 ## Context
 

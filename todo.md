@@ -12,6 +12,16 @@ Task Evidence Gate: long-term, recurring, habit-forming, important, review-worth
 
 Task index for Obsidian: `wiki/tasks/任务.md`.
 
+## Progress Snapshot
+
+- Updated: 2026-06-11.
+- Active tracked tasks: 6 total: 5 open and 1 review-queue item.
+- Source-backed long-term task: [[wiki/tasks/2026-06-11-maintain-early-sleep-early-wake-routine|Maintain daily early sleep and wake routine]] is in-progress with unknown percent; target is defined, but no post-creation sleep/wake check-ins are recorded yet.
+- Wiki build tasks: [[wiki/tasks/2026-06-10-add-real-notes-and-sample-ingest|Add 10-20 real notes and run first sample ingest]] is partial with unknown percent; [[wiki/tasks/2026-06-10-decide-first-priority-domains|Decide first priority wiki domains]] is not-started; [[wiki/tasks/2026-06-10-first-lint-after-sample-ingest|Run first lint after sample ingest]] is waiting for the next meaningful sample ingest.
+- Agent/career learning task: [[wiki/tasks/2026-06-10-define-agent-development-plan|Define a 3-month Agent development learning plan]] is not-started; the direction exists, but target role, capability map, weekly plan, and applied project are not defined.
+- Recently closed: sleep target notation was completed; Xiaoheihe interview preparation was dropped.
+- Query rule: use this snapshot first for task-progress questions; deep-read task pages only when evidence, stale cache review, or detailed history is needed.
+
 ## Today
 
 None.

@@ -84,12 +84,16 @@ Optional URL-backed source fields:
 - `task_page`
 - `task_event: created | check-in | execution-log | milestone | missed | blocked | unblocked | review | completed | dropped`
 - `task_evidence_scope: goal | routine | habit | project | learning | life | review | other`
+- `task_impact: none | possible | updates-existing | creates-task | needs-review`
+- `related_tasks: []`
 
 Original payload preservation is a hard source gate. When a source comes from user-provided pasted text, uploaded file content, imported notes, inbox captures, diary, learning notes, chat excerpts, reflections, project notes, or other durable personal material, use `raw_preservation: verbatim` and preserve the exact payload in `## Raw Material` before compiled wiki updates. Preserve wording, line breaks, order, and fragment boundaries. Do not summarize, translate, normalize, clean up, omit, or rewrite inside the raw block. Minimal metadata, archival notes, AI extraction, and compiled summaries may appear outside the raw block.
 
 Direct lightweight todos or small task commands unrelated to durable personal growth, knowledge, projects, events, or sources are exempt from source archival and should remain in the task system.
 
 Long-term task evidence is the exception to the direct-task shortcut. If a task or task update is source-worthy under the Task Evidence Gate, create or update a `sources/tasks/` record with `source_type: task_evidence` before or alongside updating the compiled task page. This keeps durable task goals and execution history rebuildable from sources while keeping lightweight operational state out of `sources/`.
+
+When task evidence appears inside another preserved source, such as a diary, learning note, project note, or event source, the original source can support the task update directly. Do not duplicate raw text into `sources/tasks/` unless a task-specific grouped record is useful; instead link the task page to the original preserved source and set `task_impact` / `related_tasks` metadata when useful.
 
 A URL is an origin/delivery mechanism, not a source type and not a domain route. Classify URL-backed sources by their fetched or user-provided content. Do not assume a link is `tech`, `learning`, or `article` without inspecting the content or user context.
 
@@ -205,6 +209,10 @@ Task frontmatter should use:
 - `status: open | doing | waiting | scheduled | blocked | done | dropped`
 - `priority: low | medium | high | unknown`
 - `area: life | learning | project | career | wiki | health | relationship | finance | other`
+- `progress_state: not-started | in-progress | partial | waiting | blocked | done | dropped | unknown`
+- `progress_percent: 0-100 | unknown`
+- `progress_updated`
+- `progress_summary`
 - `due`
 - `scheduled`
 - `created`
@@ -222,11 +230,43 @@ Rules:
 - Do not invent priority, due date, or linked pages. Use `unknown`, blank fields, or `Needs review` when absent.
 - Resolve relative dates such as `今天`, `明天`, or `下周三` to absolute dates at capture time.
 - A task must have evidence: direct user request, an existing source path, or a linked wiki page that explains why the task exists.
+- A task must maintain a progress cache: `progress_state`, `progress_percent`, `progress_updated`, `progress_summary`, and a `## Progress Snapshot` section.
+- Use `progress_percent: unknown` unless explicit user evidence, a clear checklist denominator, or a mechanical completion signal supports a number. Do not invent precise percentages from general impressions.
+- `progress_summary` is a cache, not source evidence. It must be supported by the task log, checklist, source records, or linked pages, and should say when progress is missing or stale.
 - Every canonical task must declare an `evidence_policy`. Use `task-page-only` for ordinary canonical tasks whose direct request or linked page is enough. Use `source-backed` when the Task Evidence Gate says the goal or execution history is durable source evidence. Use `none` only for example or placeholder-free operational pages that should not count as real personal evidence.
 - Source-backed tasks must list existing `sources/tasks/` paths in `source_records`. If the source-worthy raw user update cannot be preserved yet, do not pretend the task is fully sourced; mark the missing source under `Needs review` or the task log.
 - Open questions are not automatically tasks. Convert them only when there is a concrete action.
 - Saved links and learning backlog items are not tasks unless the user explicitly asks to do something with them.
-- Completion, cancellation, deferral, or priority changes must update both the task page and `todo.md`.
+- Completion, cancellation, deferral, progress check-ins, or priority changes must update the task page progress cache, `todo.md`, and `wiki/tasks/任务.md`.
+
+## Task Progress Cache
+
+Task progress exists to make ordinary task queries fast. Agents should answer from `todo.md` and `wiki/tasks/任务.md` progress snapshots first, then deep-read individual task pages only when the cached snapshot is missing, stale, contradictory, or the user asks for evidence.
+
+Progress cache rules:
+
+- Each canonical task should have a `## Progress Snapshot` section with the same current state as its frontmatter fields.
+- `todo.md` should contain a compact `## Progress Snapshot` section for quick CLI/query use.
+- `wiki/tasks/任务.md` should contain the same aggregate snapshot for Obsidian browsing.
+- Any Task Capture / Update, task report, weekly review, or scheduled task review that changes status, checklist state, blocker/waiting state, or meaningful execution evidence must refresh the relevant task progress cache and aggregate snapshots.
+- If no new evidence exists, refresh `progress_updated` only during an explicit progress review and say that no new evidence was found.
+- Scheduled or cron-driven refreshes should update cached summaries from task pages and linked source-backed task evidence; they should not synthesize new task evidence without user-provided observations.
+- Ordinary Query should not scan all task-linked project, learning, and theme pages just to answer "completion progress"; it should rely on cached task snapshots unless the cache says `unknown`, `needs-review`, or is out of date for the user's requested horizon.
+
+## Ingest Task Impact Schema
+
+Source-derived compiled pages that affect tasks should include `## Related Tasks` or an equivalent section. Each entry should name the task, the source-supported signal, and the effect on task status or progress cache.
+
+Task impact signals include:
+
+- completion or explicit abandonment of a tracked task
+- partial progress on a tracked goal or checklist item
+- missed routine with reason
+- blocker or unblock condition
+- repeated practice, learning progress, or project execution tied to a task
+- a new serious action that passes the Task Granularity Gate
+
+If a source contains one of these signals but the task match or status effect is unclear, mark it as `needs_user_review`; do not silently skip it and do not invent completion.
 
 ## Task Granularity Gate
 

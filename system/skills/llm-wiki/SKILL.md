@@ -181,7 +181,9 @@ Use when the user asks to create, remember, list, update, complete, drop, block,
 - Do not invent due date, priority, area, or linked pages.
 - Resolve relative dates such as today, tomorrow, or next week to absolute dates at capture time.
 - Keep `todo.md` as the active dashboard; canonical details live in task pages.
-- Task state changes must update both the task page and `todo.md`.
+- Task state changes must update the task page, task progress cache, `todo.md`, and `wiki/tasks/任务.md`.
+- Canonical task pages maintain `progress_state`, `progress_percent`, `progress_updated`, `progress_summary`, and a `## Progress Snapshot` section. Use `progress_percent: unknown` unless explicit evidence, a checklist denominator, or a mechanical completion signal supports a number.
+- `todo.md` and `wiki/tasks/任务.md` maintain compact aggregate progress snapshots for fast task queries.
 - Task state changes update `sources/tasks/` only when the change includes durable source-worthy context, such as a milestone, check-in, blocker, failure, review, or completion outcome.
 - If a similar open task already exists, update it or ask before creating a duplicate.
 
@@ -265,6 +267,7 @@ Use only when the user explicitly asks to process `inbox/`, says `ingest`, "沉�
    - Preserve the raw material under `sources/` unless it already lives there; for user-provided material this means verbatim preservation, not a paraphrase or extraction.
    - For `inbox/` inputs, archive the raw material into `sources/` first, then remove the processed inbox file after citation and maintenance checks pass.
    - Read `system/evals/ingest-checklist.md`.
+   - Run the Task Impact Pass for diary, learning, project, reflection, event, and other personal-progress sources before finalizing the ingest.
 
 2. **Route**
    - Read `system/resolver.md`.
@@ -282,6 +285,8 @@ Use only when the user explicitly asks to process `inbox/`, says `ingest`, "沉�
    - Add `[[wikilink]]` relationships.
    - Update indexes and learning paths when relevant. For learning paths, route `future-reference`, `not-started`, and `saved` material to `Saved For Later`; route only real study, practice, application, or validation into `Recently Learned`, `Weak Spots`, `Review Queue`, or `Practice Tasks`.
    - Apply the Task Granularity Gate before promoting extracted action items. Promote only serious tracked todos to `wiki/tasks/`; keep micro-actions as lightweight dashboard items or subtasks when appropriate.
+   - Run the Task Impact Pass against `todo.md`, `wiki/tasks/任务.md`, and related task pages. If the source records task completion, progress, checklist movement, missed routine, blocker, unblock condition, or a new serious action, update the matching task page, progress cache, `todo.md`, and `wiki/tasks/任务.md`.
+   - Add `## Related Tasks` or an equivalent task backlink section to compiled source-derived pages when the source affects existing tasks or creates/promotes task work.
    - Prefer updating existing pages over creating duplicate pages.
 
 5. **Citation fixing**
@@ -291,6 +296,7 @@ Use only when the user explicitly asks to process `inbox/`, says `ingest`, "沉�
 
 6. **Maintenance**
    - Check links, frontmatter, aliases, duplicates, orphan pages, and stale status.
+   - Check that every detected task impact has a task update or an explicit `needs_user_review` note.
    - Update indexes or derived pages when new durable knowledge was added.
    - Complete the ingest checklist and list any failed or not-applicable items.
 
@@ -312,6 +318,8 @@ files_updated:
 sources_created_or_used:
 pages_created:
 pages_updated:
+tasks_created:
+tasks_updated:
 links_added:
 questions_added:
 citations_fixed:
@@ -329,7 +337,7 @@ Use when the user asks to consume the wiki.
 
 1. Read `wiki/index.md`.
 2. Select the smallest relevant domain set.
-3. Read compiled pages first.
+3. Read compiled pages first. For task progress queries, read `todo.md` and `wiki/tasks/任务.md` progress snapshots before deep-reading individual task pages.
 4. Read local `sources/` only when evidence, quotes, or ambiguity matter.
 5. For URL-backed sources, use the locally preserved source snapshot first. Do not re-fetch the live URL during ordinary Query unless the user explicitly asks to refresh/re-read the link, or the local source is missing and the answer requires the original content.
 6. Answer with links or file references where useful.

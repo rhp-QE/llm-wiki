@@ -44,6 +44,11 @@ Saved references captured on 2026-06-11 cover [[llm-wiki-pattern]], [[loop-engin
 - Track weekly progress in [[wiki/learning/agent-development/agent-development-learning|Agent Development Learning]].
 - Turn the 小黑盒 readiness gap into a small set of reusable interview stories and technical narratives.
 
+## Task Progress Signals
+
+- [[wiki/tasks/2026-06-10-define-agent-development-plan|Define a 3-month Agent development learning plan]]: open tracked task; target role, capability map, weekly plan, and applied project are not defined yet.
+- [[wiki/tasks/2026-06-10-prepare-xiaoheihe-interview|Prepare for the 2026-06-10 afternoon 小黑盒 client development interview]]: dropped after the user declined the Xiaoheihe second interview on 2026-06-10.
+
 ## Related Knowledge
 
 - [[career-direction]]

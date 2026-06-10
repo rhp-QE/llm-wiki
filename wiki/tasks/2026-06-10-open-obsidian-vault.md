@@ -4,10 +4,14 @@ title: Open this directory as an Obsidian vault if desired
 status: open
 priority: low
 area: wiki
+progress_state: not-started
+progress_percent: unknown
+progress_updated: 2026-06-11
+progress_summary: "No evidence is recorded that the preferred Obsidian vault path has been opened and verified."
 due:
 scheduled:
 created: 2026-06-10
-updated: 2026-06-10
+updated: 2026-06-11
 completed:
 source: todo.md legacy item
 evidence_policy: task-page-only
@@ -29,6 +33,13 @@ Open this directory as an Obsidian vault if desired.
 
 - Status: open
 - Priority: low
+
+## Progress Snapshot
+
+- State: not-started
+- Percent: unknown
+- Updated: 2026-06-11
+- Summary: No evidence is recorded that the preferred Obsidian vault path has been opened and verified.
 
 ## Context
 

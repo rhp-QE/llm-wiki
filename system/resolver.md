@@ -32,6 +32,7 @@ Use this file to decide which workflow and domain rules apply.
 | Principle, value, self-observation | `wiki/reflections/` |
 | Ongoing initiative with state | `wiki/projects/` |
 | Concrete todo, action item, reminder, next action, follow-up task | `wiki/tasks/` plus root `todo.md` |
+| Diary, learning, project, or event material that records task progress, completion, missed routine, blocker, unblock, or new serious action | run Ingest Task Impact Pass, then `wiki/tasks/` plus root `todo.md` |
 | Briefing, pulse, task report, migration report, health check output | `wiki/reports/` |
 
 ## Source Type Classification
@@ -79,7 +80,7 @@ Rules:
 9. Apply the Task Evidence Gate after granularity classification. If the task or update is source-worthy, preserve the raw user task/update text under `sources/tasks/` with `source_type: task_evidence` and link that path from the task page's `source_records`.
 10. If a similar open task exists, update it or ask before creating a duplicate.
 11. Completing, dropping, blocking, waiting, or rescheduling a canonical task must update both the task page and `todo.md`; also update task evidence only when the state change carries durable source-worthy context.
-12. Querying todos is read-only: read `todo.md` first, then relevant `wiki/tasks/` pages, then linked project or learning pages only when needed.
+12. Querying todos is read-only: read the `todo.md` progress snapshot first, then `wiki/tasks/任务.md`, then relevant `wiki/tasks/` pages only when the snapshot is missing, stale, ambiguous, or the user asks for evidence; read linked project or learning pages only when needed.
 
 Task Granularity Gate:
 
@@ -106,6 +107,24 @@ Task vs other records:
 - Learning `Practice Tasks` are learning exercises; promote one to `wiki/tasks/` only if the user wants it tracked as a todo and it passes the Task Granularity Gate.
 - A saved link, future-reference item, or learning backlog item is not a todo unless the user says to do something with it.
 - Source-worthy long-term task evidence belongs in `sources/tasks/`; the task page remains compiled operational state and should link back to the source record.
+
+Task progress cache:
+
+- Canonical task pages should cache latest completion state in frontmatter `progress_state`, `progress_percent`, `progress_updated`, and `progress_summary`, plus a `## Progress Snapshot` section.
+- `todo.md` and `wiki/tasks/任务.md` should cache aggregate progress snapshots for fast task queries.
+- Task Capture / Update, scheduled task review, task report, and weekly review should refresh the relevant progress cache.
+- Do not infer exact percentages without explicit evidence, a checklist denominator, or a mechanical completion signal. Use `unknown` and a concise reason instead.
+
+## Ingest Task Impact Pass
+
+Run this pass during every Ingest after source preservation and before final reporting.
+
+1. Read `todo.md` and `wiki/tasks/任务.md`; deep-read relevant task pages when titles, aliases, linked pages, tags, or source content overlap.
+2. Detect task impact signals in diary, learning, project, reflection, event, and article/chat sources: completion, partial progress, checklist movement, missed routine, blocker, unblock condition, failure, abandonment reason, weekly/monthly review, or new serious action.
+3. If a signal clearly maps to an existing canonical task, update that task's status/progress cache, log, source/source_records as appropriate, `todo.md`, and `wiki/tasks/任务.md`.
+4. If a source creates a serious tracked action, apply the Task Granularity Gate and create/promote a task when warranted.
+5. Add `## Related Tasks` or an equivalent task backlink section to compiled source-derived pages that affect tasks.
+6. If the task match or outcome is ambiguous, list it under `needs_user_review` and do not invent completion.
 
 ## Skill / Learning Progress Classification
 

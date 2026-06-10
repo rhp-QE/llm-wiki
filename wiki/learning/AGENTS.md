@@ -20,7 +20,8 @@ Use `Saved For Later` for learning-adjacent links or materials the user has not 
 4. Update the relevant `wiki/tech/` page only when the note contains reusable technical knowledge, and do not raise tech mastery status without practice/application evidence.
 5. Add durable recurring questions to `wiki/qa/`.
 6. Update the learning path's recent progress, weak spots, review queue, and practice tasks only when `counts_as_progress: true` or when a weak spot/review item is explicitly supported.
-7. Keep example or scaffold material marked as `status: example` and do not count it as real progress.
+7. Run the Task Impact Pass for learning material that advances, completes, blocks, or creates tracked learning tasks. Update related task pages and caches when the learning source supports it.
+8. Keep example or scaffold material marked as `status: example` and do not count it as real progress.
 
 ## Page Location
 
@@ -64,6 +65,8 @@ updated:
 
 ## Practice Tasks
 
+## Related Tasks
+
 ## Linked Knowledge
 
 ## Sources
@@ -79,6 +82,7 @@ For new learning notes:
 4. Add durable questions to `wiki/qa/`.
 5. Update this learning path. Saved-for-later material belongs in `Saved For Later`; only actual study, practice, application, or validation belongs in `Recently Learned`.
 6. Add review tasks to `todo.md` when useful. Promote a practice item to `wiki/tasks/` only when the user wants it tracked as a serious todo.
+7. If the learning source affects existing tracked tasks, update the task page, progress cache, `todo.md`, and `wiki/tasks/任务.md`, then list the task under `## Related Tasks`.
 
 ## Anti-Patterns
 
@@ -87,3 +91,4 @@ For new learning notes:
 - Do not apply learning progress fields to objective facts such as diary events, people, relationships, or ordinary life records.
 - Do not generate too many review tasks; focus on weak spots and high-value concepts.
 - Do not confuse learning exercises with tracked todos. Use `wiki/tasks/` only for practice work the user wants to execute and track.
+- Do not leave task-progress signals only in learning prose. Link and update affected task pages through the Task Impact Pass.
