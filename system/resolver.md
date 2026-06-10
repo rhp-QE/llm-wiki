@@ -12,6 +12,7 @@ Use this file to decide which workflow and domain rules apply.
 | "迁移", "初始化", "导入旧笔记", "全量导入", "setup" | Setup / Migration | `system/lifecycle.md`, `system/templates/migration-report.md` |
 | "生成报告", "briefing", "pulse", "task report", "周报" | Report | `system/lifecycle.md`, `wiki/reports/AGENTS.md` |
 | "新增领域", "改 schema", "调整目录" | Schema change | `AGENTS.md`, `system/conventions.md`, existing domain rules |
+| "Obsidian", "图谱", "MOC", "可视化", "地图页" | Schema change or maintenance | `system/obsidian.md`, `wiki/首页.md`, `wiki/maps/AGENTS.md` |
 
 ## Domain Routing
 
@@ -30,12 +31,18 @@ Use this file to decide which workflow and domain rules apply.
 | Ongoing initiative with state | `wiki/projects/` |
 | Briefing, pulse, task report, migration report, health check output | `wiki/reports/` |
 
+## View Routing
+
+Use `wiki/首页.md` and `wiki/maps/` for Obsidian navigation, MOC pages, and visual browsing.
+
+These are view-layer pages, not source or domain truth. If a map needs factual detail, link to the owning domain page instead of duplicating the claim.
+
 ## Tie-Breaking
 
 1. Prefer the primary subject, not the source format.
 2. Prefer updating an existing page over creating a duplicate.
 3. If one note touches multiple domains, archive once in `sources/`, then update multiple compiled pages.
-4. If uncertain, create a `needs-review` note and list the ambiguity in `wiki/log.md`.
+4. If uncertain, create a `needs-review` note and list the ambiguity in the active monthly log under `wiki/logs/YYYY-MM.md`.
 
 ## Mutating Preflight
 

@@ -8,6 +8,8 @@ description: >
   learning note/diary/article/idea and wants it remembered. This skill bootstraps
   fresh Codex sessions by locating the wiki root, reading its local operating
   files, and running Query, Ingest, Lint, Setup/Migration, or Report workflows.
+  It also covers Obsidian browsing, graph, MOC, and visual map maintenance for
+  this wiki.
   Shortcut commands: /wiki-ingest, /wiki-query, /wiki-lint, /wiki-migrate,
   /wiki-report.
 ---
@@ -23,8 +25,10 @@ This skill operates the user's local personal LLM-wiki. It exists so the user do
 - Do not ask the user to paste startup instructions. This skill is the startup instruction.
 - Before mutating the wiki, read the local operating files listed below.
 - Preserve raw material in `sources/` and compiled knowledge in `wiki/`.
-- Update `wiki/log.md` after meaningful mutations.
+- Update the active monthly log under `wiki/logs/YYYY-MM.md` after meaningful mutations.
+- Keep `wiki/log.md` as the short log index.
 - For mutating work, run the relevant audit checklist under `system/evals/`.
+- For Obsidian or graph navigation work, read `system/obsidian.md`, `wiki/首页.md`, and `wiki/maps/AGENTS.md`.
 - Query is read-only. Ingest, Lint, Setup/Migration, and persisted Reports may mutate files.
 
 ## Bootstrap
@@ -70,7 +74,7 @@ For new material:
 6. Enrich durable entities, relationships, timeline entries, concepts, Q&A, aliases, and review tasks.
 7. Fix citations enough that future agents can trace claims.
 8. Run the relevant maintenance checks and complete the ingest checklist.
-9. Update `wiki/log.md`.
+9. Update the active monthly log under `wiki/logs/YYYY-MM.md`.
 10. Return an auditable summary.
 
 ## Migration Minimum Bar
@@ -126,5 +130,5 @@ suggested_followups:
 - Do not treat generic model knowledge as the user's knowledge unless the user supplied, accepted, or applied it.
 - Do not rewrite raw notes in place.
 - Do not full-import historical data before sample validation.
-- Do not silently mutate the wiki without `wiki/log.md`.
+- Do not silently mutate the wiki without a monthly log entry.
 - Do not create many domain-specific skills when one local wiki skill plus directory `AGENTS.md` files is enough.

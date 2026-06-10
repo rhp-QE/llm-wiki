@@ -4,6 +4,8 @@ Use this file only as a fallback when the global `llm-wiki` Codex skill is not a
 
 Normally, the global skill at `/root/.codex/skills/llm-wiki/SKILL.md` should bootstrap fresh sessions automatically when you mention `llm_wiki`, `处理 inbox`, `ingest`, `沉淀到 wiki`, or use shortcut prompts like `/wiki-ingest`, `/wiki-query`, `/wiki-lint`, `/wiki-migrate`, or `/wiki-report`.
 
+For Obsidian browsing or visual graph work, start from `wiki/首页.md` and `wiki/maps/地图.md`.
+
 ## New Session Bootstrap Prompt
 
 If the skill does not trigger, copy this into a new Codex session opened at `/root/llm_wiki`:
@@ -22,6 +24,11 @@ If the skill does not trigger, copy this into a new Codex session opened at `/ro
 - Ingest 或 query-derived update：system/evals/ingest-checklist.md
 - Lint：system/evals/lint-checklist.md
 
+如果我提到 Obsidian、图谱、MOC、地图页或可视化浏览，还要阅读：
+- system/obsidian.md
+- wiki/首页.md
+- wiki/maps/AGENTS.md
+
 之后根据我的请求选择：
 - Query：只读消费已有知识，不改文件
 - Ingest：处理 inbox 或我贴给你的新材料，沉淀到 sources/ 和 wiki/
@@ -29,7 +36,7 @@ If the skill does not trigger, copy this into a new Codex session opened at `/ro
 - Setup / Migration：迁移历史资料，必须先 inventory、mapping、小样本导入、样本验证，再全量导入
 - Report：生成 briefing、pulse、task report、migration report 等产物
 
-除非我明确要求，否则不要跳过 source 保存、路由声明、已有页面/aliases 检查、引用修复、维护检查和 wiki/log.md 记录。
+除非我明确要求，否则不要跳过 source 保存、路由声明、已有页面/aliases 检查、引用修复、维护检查和当月 `wiki/logs/YYYY-MM.md` 记录。
 ```
 
 ## Common Commands To Tell Codex

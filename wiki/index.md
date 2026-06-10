@@ -8,6 +8,8 @@ Read this page first, then deep-read the most relevant domain pages. Do not scan
 
 ## Domains
 
+- [[wiki/首页|首页]]: human-facing entry point for visual browsing.
+- [[wiki/maps/地图|地图]]: Obsidian-facing 内容地图 for cross-domain navigation.
 - [[wiki/people/README|People]]: family, friends, colleagues, mentors, important relationships, and aliases.
 - [[wiki/events/README|Events]]: life events, work changes, turning points, decisions, and memorable episodes.
 - [[wiki/themes/README|Themes]]: long-running personal themes such as career, learning, relationships, health, money, creativity, and self-understanding.
@@ -35,7 +37,8 @@ Use these routing hints:
 | A writing task | `writing/`, then related `themes/`, `models/`, `craft/` |
 | A personal principle | `reflections/`, then linked `events/` |
 | A report, pulse, migration summary, or health check result | `reports/`, then linked source domains |
-| Maintenance | `wiki/log.md`, `system/maintenance.md`, `system/evals/lint-checklist.md` |
+| Obsidian browsing, graph, visual map, or MOC | `wiki/首页.md`, `wiki/maps/` |
+| Maintenance | `wiki/log.md`, `wiki/logs/`, `system/maintenance.md`, `system/evals/lint-checklist.md` |
 
 ## Current Status
 
@@ -44,4 +47,5 @@ Use these routing hints:
 - First real diary ingest: `sources/diary/2026/2026-06-09-beijing-work-wiki-career.md` -> `wiki/events/2026-06-09-beijing-work-wiki-career.md`
 - Example path: `inbox/example-go-defer.md` -> `sources/learning/go/2026-06-09-go-defer-example.md` -> `wiki/tech/go/syntax/defer.md`
 - First real learning sample: `sources/learning/cpp/2026-06-09-cpp-template-explicit-instantiation.md` -> `wiki/tech/cpp/templates/explicit-instantiation.md`
+- Obsidian entry: `wiki/首页.md` -> `wiki/maps/地图.md`
 - Next action: add more raw notes, then run `llm-wiki Ingest` to continue building durable learning paths

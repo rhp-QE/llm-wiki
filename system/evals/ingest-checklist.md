@@ -14,7 +14,7 @@ Do not finish an ingest unless these are true:
 - [ ] Existing pages and aliases were checked before creating new person, concept, event, project, or theme pages.
 - [ ] Every new durable `wiki/` page has frontmatter matching its domain schema.
 - [ ] Every non-trivial compiled claim has a source path, explicit user statement, `Inference`, or `Needs evidence` marker.
-- [ ] `wiki/log.md` was updated for meaningful mutations.
+- [ ] The active monthly log under `wiki/logs/YYYY-MM.md` was updated for meaningful mutations.
 
 ## Preflight
 
@@ -66,7 +66,7 @@ Use `system/templates/ingest-plan.md` for complex or multi-domain ingest before 
 - [ ] Check new frontmatter `type` and status values against the owning domain schema.
 - [ ] Check duplicate entity risk for people, concepts, projects, events, and themes.
 - [ ] Check whether `todo.md`, learning review queues, or project tasks need updates.
-- [ ] Update `wiki/log.md` with operation, inputs, created, updated, links added, and open questions.
+- [ ] Update the active monthly log with operation, inputs, created, updated, links added, and open questions.
 
 ## Final Response
 

@@ -47,7 +47,8 @@ When using this skill:
 - Put compiled knowledge in `wiki/`.
 - Follow `system/lifecycle.md` to distinguish incremental work from stock setup/migration.
 - Read the relevant `AGENTS.md` before editing a domain.
-- Maintain links, aliases, source references, and `wiki/log.md`.
+- Maintain links, aliases, source references, and the active monthly log under `wiki/logs/YYYY-MM.md`.
+- Maintain `wiki/首页.md` and `wiki/maps/` when changes affect Obsidian navigation.
 - Prefer a small, reviewable update over a broad rewrite.
 - Use workflow gates and audit checklists for mutating work.
 - For bulk historical material, run inventory, mapping, sample import, validation, full import, derived rebuild, health check, and migration report. Do not skip the sample validation step.
@@ -74,7 +75,7 @@ After mutating files:
 
 1. Run the relevant checklist from `system/evals/`.
 2. Confirm introduced source paths and wikilinks are traceable.
-3. Update `wiki/log.md`.
+3. Update the active monthly log under `wiki/logs/YYYY-MM.md`.
 4. Return the workflow's auditable output fields.
 
 ## Phases
@@ -165,7 +166,7 @@ Use when the user gives new notes, asks to process `inbox/`, or says a topic sho
 
 7. **Report**
    - Summarize what was ingested, enriched, fixed, and left open.
-   - Update `wiki/log.md`.
+   - Update the active monthly log under `wiki/logs/YYYY-MM.md`.
 
 ### Ingest Output
 
@@ -224,7 +225,7 @@ Use when checking health, after batch ingest, or before relying on the wiki for 
 4. For recent ingest issues, cross-check `system/evals/ingest-checklist.md`.
 5. Fix mechanical issues directly when safe.
 6. List subjective issues for user review.
-7. Update `wiki/log.md`.
+7. Update the active monthly log under `wiki/logs/YYYY-MM.md`.
 
 ### Lint Output
 
@@ -348,7 +349,7 @@ suggested_followups:
 
 Before declaring a mutating task complete, check:
 
-- `wiki/log.md` has an entry.
+- The active monthly log under `wiki/logs/YYYY-MM.md` has an entry.
 - New pages have frontmatter.
 - New pages have at least one source or explicit inference marker.
 - New pages are discoverable from `wiki/index.md` or a domain README/index.

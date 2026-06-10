@@ -13,6 +13,10 @@ These are cross-cutting rules for all wiki operations.
 - Use `[[wikilink]]` for internal knowledge links.
 - Every new durable page should have at least one incoming or outgoing link unless it is a deliberate orphan.
 - Prefer links between concepts, people, events, themes, and models over only linking source files.
+- For Obsidian browsing, maintain `wiki/首页.md` and focused 内容地图 under `wiki/maps/`.
+- Avoid linking README, AGENTS, and agent `index.md` files from Obsidian-facing maps.
+- Prefer path-qualified wikilinks for map targets, for example `[[wiki/maps/地图|地图]]`.
+- Keep source evidence as plain paths unless the source should intentionally appear in the Obsidian graph.
 
 ## Naming
 
@@ -45,7 +49,9 @@ For more than 20 source files:
 
 ## Logging
 
-Update `wiki/log.md` after meaningful changes.
+Update the active monthly log under `wiki/logs/YYYY-MM.md` after meaningful changes.
+
+Use `wiki/log.md` as the short log index. Do not append detailed entries there unless updating the index itself.
 
 Minimum log fields:
 

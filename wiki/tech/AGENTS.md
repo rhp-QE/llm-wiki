@@ -52,7 +52,7 @@ If the user learns a Go syntax point such as `defer`, update or create:
 - `sources/learning/go/{date}-{topic}.md`
 - `wiki/tech/go/syntax/{topic}.md`
 - `wiki/qa/{topic-question}.md` when there is a durable question
-- `wiki/learning/go/index.md` for progress
+- `wiki/learning/go/go-learning.md` for progress
 
 ## Anti-Patterns
 

@@ -1,0 +1,52 @@
+{
+  "collapse-filter": false,
+  "search": "-path:AGENTS -path:README -path:index -path:log -path:logs",
+  "showTags": false,
+  "showAttachments": false,
+  "hideUnresolved": true,
+  "showOrphans": false,
+  "collapse-color-groups": false,
+  "colorGroups": [
+    {
+      "query": "path:maps OR path:home",
+      "color": {
+        "a": 1,
+        "rgb": 3447003
+      }
+    },
+    {
+      "query": "path:themes OR path:projects",
+      "color": {
+        "a": 1,
+        "rgb": 11403055
+      }
+    },
+    {
+      "query": "path:tech OR path:learning OR path:qa",
+      "color": {
+        "a": 1,
+        "rgb": 3581519
+      }
+    },
+    {
+      "query": "path:events OR path:people",
+      "color": {
+        "a": 1,
+        "rgb": 15158332
+      }
+    }
+  ],
+  "collapse-display": false,
+  "showArrow": false,
+  "textFadeMultiplier": 0,
+  "nodeSizeMultiplier": 1,
+  "lineSizeMultiplier": 1,
+  "lineOpacity": 0.6,
+  "collapse-forces": false,
+  "centerStrength": 0.518713248970312,
+  "repelStrength": 10,
+  "linkStrength": 1,
+  "linkDistance": 250,
+  "scale": 1,
+  "close": false
+}

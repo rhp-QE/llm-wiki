@@ -36,7 +36,7 @@ User-stated for 2026-06-09: the user feels some career-planning anxiety and plan
 - Define the target transfer role or team.
 - Break "Agent development" into a concrete 3-month learning map.
 - Identify one small agent project that can be built and demonstrated.
-- Track weekly progress in [[wiki/learning/agent-development/index|Agent Development Learning]].
+- Track weekly progress in [[wiki/learning/agent-development/agent-development-learning|Agent Development Learning]].
 
 ## Related Knowledge
 

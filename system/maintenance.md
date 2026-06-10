@@ -14,6 +14,11 @@ Run maintenance when:
 
 - Required top-level directories exist.
 - `wiki/index.md` links to major domains.
+- `wiki/首页.md` exists for Obsidian browsing.
+- `wiki/maps/地图.md` and `wiki/maps/AGENTS.md` exist for visual maps.
+- `wiki/log.md` exists as the log index.
+- `wiki/logs/AGENTS.md` exists for monthly log rules.
+- The active monthly log under `wiki/logs/YYYY-MM.md` exists.
 - Each active domain has `README.md` and `AGENTS.md`.
 - Mutating workflow checklists exist under `system/evals/`.
 
@@ -22,6 +27,7 @@ Run maintenance when:
 - Internal wikilinks point to existing or intentionally planned pages.
 - New pages have at least one relevant link.
 - Important people/events/themes have backlinks.
+- Map pages link to canonical domain pages and avoid duplicating source summaries.
 
 ### 3. Source Check
 
@@ -59,7 +65,7 @@ After meaningful ingest, also check `system/evals/ingest-checklist.md`:
 - Routing and target domains were recorded.
 - Existing pages and aliases were checked.
 - New pages followed domain schemas and templates.
-- Source paths, wikilinks, and `wiki/log.md` were updated.
+- Source paths, wikilinks, and the active monthly log were updated.
 - Failed, skipped, or subjective items are listed under `needs_user_review`.
 
 ## Derived Structure Rebuild
@@ -67,10 +73,11 @@ After meaningful ingest, also check `system/evals/ingest-checklist.md`:
 After migration or large ingest, rebuild:
 
 - `wiki/index.md` domain links and current status.
+- `wiki/首页.md` and `wiki/maps/` when Obsidian navigation changes.
 - Domain README/index pages.
 - Alias notes or alias frontmatter.
 - Timeline pages when event volume justifies them.
 - Review queues in `wiki/learning/`.
 - Reports under `wiki/reports/`.
 
-Log every rebuild in `wiki/log.md`.
+Log every rebuild in the active monthly log under `wiki/logs/YYYY-MM.md`.

@@ -17,6 +17,12 @@ For broad tasks, also read:
 - `system/resolver.md`
 - `system/maintenance.md`
 
+For Obsidian browsing, graph, MOC, or visual navigation tasks, also read:
+
+- `system/obsidian.md`
+- `wiki/首页.md`
+- `wiki/maps/AGENTS.md`
+
 For mutating workflows, also read the relevant audit checklist:
 
 - Ingest or query-derived update: `system/evals/ingest-checklist.md`
@@ -46,7 +52,9 @@ Use the `llm-wiki` skill for:
 - Every non-trivial compiled claim should point to a source, log entry, or clearly marked inference.
 - Prefer `[[wikilink]]` style internal links in wiki content.
 - Update `wiki/index.md` when adding a new major page or domain.
-- Update `wiki/log.md` after each meaningful ingest, query-derived update, lint repair, or schema change.
+- Update `wiki/首页.md` or `wiki/maps/` when a new page changes Obsidian navigation.
+- Update the active monthly log under `wiki/logs/YYYY-MM.md` after each meaningful ingest, query-derived update, lint repair, report, migration step, or schema change.
+- Update `wiki/log.md` only as the log index when a new month starts or recent summary changes.
 - Avoid creating a new directory or page type before checking whether an existing domain owns it.
 
 ## Workflow Gates
@@ -62,7 +70,7 @@ After mutating files:
 
 - Run the relevant checklist from `system/evals/`.
 - Confirm source paths and wikilinks introduced by the change.
-- Update `wiki/log.md` for every meaningful ingest, lint repair, report, migration step, or schema change.
+- Update the active monthly log under `wiki/logs/YYYY-MM.md`.
 - End with the auditable output fields required by the active workflow.
 
 ## Agent Behavior

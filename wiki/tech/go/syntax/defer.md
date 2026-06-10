@@ -51,7 +51,7 @@ The deferred call receives `i` as an argument when the `defer` statement is exec
 ## Related Concepts
 
 - [[go-defer-return-order]]
-- [[wiki/learning/go/index|Go Learning]]
+- [[wiki/learning/go/go-learning|Go Learning]]
 
 ## Q&A
 

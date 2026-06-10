@@ -56,7 +56,7 @@ Rules:
 
 - Preserve raw material under `sources/`.
 - Update compiled pages under `wiki/`.
-- Log the operation in `wiki/log.md`.
+- Log the operation in the active monthly log under `wiki/logs/YYYY-MM.md`.
 - Never treat an unsourced model guess as user knowledge.
 
 ### Enrichment

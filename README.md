@@ -13,8 +13,9 @@ Start here:
 
 1. Drop new material into `inbox/`.
 2. Ask the agent: `处理 inbox，按 llm-wiki ingest 入库。`
-3. Query through `wiki/index.md`, then deep-read linked pages.
-4. Run lint periodically to check links, sources, duplicate entities, and stale pages.
+3. Browse in Obsidian from `wiki/首页.md`.
+4. Query through `wiki/index.md`, then deep-read linked pages.
+5. Run lint periodically to check links, sources, duplicate entities, stale pages, and map pages.
 
 Ingest is gated by `system/evals/ingest-checklist.md`: the agent should preserve sources, declare routing, check existing pages and aliases, follow domain schemas, fix citations, update links, and log the mutation.
 
@@ -76,3 +77,26 @@ setup / migration -> inventory -> mapping -> sample import -> validation -> full
 ```
 
 This wiki currently contains the scaffolding and operating system. It does not yet contain your full personal notes. Add raw materials under `inbox/` or `sources/`, then run the ingest workflow.
+
+## Obsidian
+
+For daily reading, open `/root/llm_wiki/wiki` as the vault. This is the cleaner Obsidian view.
+
+Open `/root/llm_wiki` as the vault only when you want to browse sources and system rules too.
+
+Use:
+
+- `首页.md` as the human-facing start page when using the clean `wiki/` vault.
+- `maps/地图.md` for 内容地图.
+- `index.md` for agent routing and domain discovery.
+- `log.md` for the log index; detailed operation logs live under `logs/YYYY-MM.md`.
+
+The `wiki/` vault has `wiki/.obsidian/app.json` configured to hide `AGENTS.md`, `README.md`, `index.md`, `log.md`, and `logs/` from Obsidian's file explorer.
+
+Recommended graph filters:
+
+```text
+-path:AGENTS -path:README -path:index -path:log -path:logs
+```
+
+See `system/obsidian.md` for the full browsing convention.

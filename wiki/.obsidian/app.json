@@ -1,0 +1,11 @@
+{
+  "userIgnoreFilters": [
+    "AGENTS.md",
+    "**/AGENTS.md",
+    "README.md",
+    "**/README.md",
+    "index.md",
+    "log.md",
+    "logs/"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "userIgnoreFilters": [
+    "AGENTS.md",
+    "README.md",
+    "START_HERE.md",
+    "system/",
+    "sources/",
+    "inbox/",
+    "todo.md",
+    "wiki/AGENTS.md",
+    "wiki/**/AGENTS.md",
+    "wiki/**/README.md",
+    "wiki/index.md",
+    "wiki/log.md",
+    "wiki/logs/"
+  ]
+}

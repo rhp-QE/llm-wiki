@@ -6,7 +6,12 @@ Use this checklist during `llm-wiki Lint`.
 
 - [ ] Top-level `AGENTS.md` exists.
 - [ ] `wiki/index.md` exists.
+- [ ] `wiki/首页.md` exists.
 - [ ] `wiki/log.md` exists.
+- [ ] `wiki/logs/AGENTS.md` exists.
+- [ ] Active monthly log exists under `wiki/logs/YYYY-MM.md`.
+- [ ] `wiki/maps/地图.md` exists.
+- [ ] `wiki/maps/AGENTS.md` exists.
 - [ ] Active domains have `README.md` and `AGENTS.md`.
 - [ ] `system/skills/llm-wiki/SKILL.md` exists.
 - [ ] `system/evals/ingest-checklist.md` exists.
@@ -23,6 +28,7 @@ Use this checklist during `llm-wiki Lint`.
 
 - [ ] New pages have internal links.
 - [ ] Domain README files are discoverable from `wiki/index.md`.
+- [ ] Obsidian maps are discoverable from `wiki/首页.md` and `wiki/index.md`.
 - [ ] Important aliases point to canonical pages.
 - [ ] No obvious broken path links.
 
@@ -41,6 +47,7 @@ Use this checklist during `llm-wiki Lint`.
 ## Quality
 
 - [ ] Pages contain enough detail to be useful later.
+- [ ] Map pages act as navigation, not duplicate summaries.
 - [ ] The page is not a generic summary detached from the user.
 - [ ] Open questions are captured.
-- [ ] `wiki/log.md` was updated.
+- [ ] The active monthly log was updated.

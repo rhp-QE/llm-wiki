@@ -68,7 +68,7 @@ With this shape, callers can use `add<int>` and `add<double>` without seeing the
 
 ## Related Concepts
 
-- [[wiki/learning/cpp/index|C++ Learning]]
+- [[wiki/learning/cpp/cpp-learning|C++ Learning]]
 - [[cpp-template-explicit-instantiation-cc]]
 
 ## Q&A

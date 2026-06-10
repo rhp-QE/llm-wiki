@@ -6,7 +6,9 @@ Learning pages should help the user resume, review, and compound learning. They 
 
 ## Page Location
 
-`wiki/learning/{domain}/index.md`
+`wiki/learning/{domain}/{domain}-learning.md`
+
+Use descriptive filenames for Obsidian graph readability. Avoid generic `index.md` learning pages.
 
 ## Body
 

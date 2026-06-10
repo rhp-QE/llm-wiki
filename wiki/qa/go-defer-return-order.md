@@ -47,7 +47,7 @@ The deferred call's argument is evaluated when `defer fmt.Println(i)` runs, so i
 ## Related Pages
 
 - [[defer]]
-- [[wiki/learning/go/index|Go Learning]]
+- [[wiki/learning/go/go-learning|Go Learning]]
 
 ## Sources
 

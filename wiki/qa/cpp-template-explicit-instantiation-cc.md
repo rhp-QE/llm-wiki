@@ -41,7 +41,7 @@ template int add<int>(int, int);
 ## Related Pages
 
 - [[explicit-instantiation|C++ template explicit instantiation]]
-- [[wiki/learning/cpp/index|C++ Learning]]
+- [[wiki/learning/cpp/cpp-learning|C++ Learning]]
 
 ## Sources
 
