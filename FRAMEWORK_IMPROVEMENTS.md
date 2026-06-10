@@ -35,6 +35,7 @@ The framework should behave like a personal knowledge and task operating system:
 | Learning progress | User-originated | Skill-tree material must distinguish active study, saved-for-later, not-started, skimmed, practiced, applied, and validated states. Objective facts do not need this classification. | Implemented |
 | Todo workflow | User-originated | The wiki should be usable as a serious personal todo system. Direct todo commands should not go through inbox or ingest. | Implemented |
 | Task granularity | User-originated | Tiny one-off actions should not automatically create canonical task pages. Multiple related todos can map to one parent task checklist. | Implemented |
+| Long-term task evidence | User-originated | Some long-term tasks and their execution history should be counted into `sources/`, especially when they represent durable life/project/learning evidence rather than lightweight operational state. | Proposed |
 | Query behavior | User-originated | Later query should use local evidence packages first and avoid repeatedly fetching live URLs unless explicitly asked or local evidence is missing. | Implemented |
 
 ## AI-Proposed Improvement Areas
@@ -60,6 +61,7 @@ The framework should behave like a personal knowledge and task operating system:
 | Recurring routines | AI-proposed | Personal management needs routines without duplicating task pages manually. | Add `wiki/tasks/routines.md` with recurrence, next due date, and generated dashboard entries. |
 | Task dependency fields | AI-proposed | Waiting/blocked states need clear cause and unblock condition. | Extend task template with optional `blocked_by`, `waiting_on`, and `unblock_condition`. |
 | Task report template | AI-proposed | Makes weekly planning and review consistent. | Add `system/templates/task-report.md` and report workflow for today/weekly/overdue/waiting. |
+| Long-term task source records | User-originated | Long-term tasks can become important evidence of habits, projects, learning, and life changes. If execution history only lives in task pages, future agents may miss it when rebuilding or querying from sources. | Define a policy for when long-term task goals, check-ins, execution logs, failures, and reviews should create or update `sources/tasks/` or another source-backed record. Keep lightweight task state out of sources. |
 
 ### 3. Learning And Skill Tree
 
@@ -111,6 +113,7 @@ The framework should behave like a personal knowledge and task operating system:
 - Add an automated lint script for wikilinks, source paths, frontmatter, task status, task dashboard consistency, and learning progress fields.
 - Add generated source manifest and task indexes.
 - Add task stale review and lightweight todo aging policy.
+- Define when long-term task goals and execution history should be archived as source evidence.
 - Add report templates for task review and learning review.
 
 ### P1: Improve Personal Understanding
@@ -141,6 +144,7 @@ The framework should behave like a personal knowledge and task operating system:
 - Should generated indexes be committed Markdown files, generated JSON files, or both?
 - Should `wiki/indexes/` be a new wiki domain, or should generated indexes live under `system/indexes/`?
 - Should task recurrence be modeled in Markdown only, or should a generated calendar-style view exist?
+- Which long-term task events count as source-worthy: task creation, daily check-ins, missed days, weekly reviews, milestone completion, or all of these?
 - Should personal claims be centralized in one ledger or remain distributed across themes/reflections with a generated index?
 - What review cadence should be default for tasks, learning, links, and personal themes?
 
