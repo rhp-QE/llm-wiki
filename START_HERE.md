@@ -18,6 +18,10 @@ If the skill does not trigger, copy this into a new Codex session opened at `/ro
 4. system/resolver.md
 5. wiki/index.md
 
+如果要修改文件，还要阅读相关 checklist：
+- Ingest 或 query-derived update：system/evals/ingest-checklist.md
+- Lint：system/evals/lint-checklist.md
+
 之后根据我的请求选择：
 - Query：只读消费已有知识，不改文件
 - Ingest：处理 inbox 或我贴给你的新材料，沉淀到 sources/ 和 wiki/
@@ -25,7 +29,7 @@ If the skill does not trigger, copy this into a new Codex session opened at `/ro
 - Setup / Migration：迁移历史资料，必须先 inventory、mapping、小样本导入、样本验证，再全量导入
 - Report：生成 briefing、pulse、task report、migration report 等产物
 
-除非我明确要求，否则不要跳过 source 保存、引用修复、维护检查和 wiki/log.md 记录。
+除非我明确要求，否则不要跳过 source 保存、路由声明、已有页面/aliases 检查、引用修复、维护检查和 wiki/log.md 记录。
 ```
 
 ## Common Commands To Tell Codex

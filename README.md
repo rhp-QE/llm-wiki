@@ -16,6 +16,8 @@ Start here:
 3. Query through `wiki/index.md`, then deep-read linked pages.
 4. Run lint periodically to check links, sources, duplicate entities, and stale pages.
 
+Ingest is gated by `system/evals/ingest-checklist.md`: the agent should preserve sources, declare routing, check existing pages and aliases, follow domain schemas, fix citations, update links, and log the mutation.
+
 Global Codex skill installed:
 
 - Skill source in this repo: `system/codex-skills/llm-wiki/SKILL.md`
@@ -58,7 +60,7 @@ Or use short command-style prompts:
 The intended operating loop is:
 
 ```text
-Capture -> Ingest -> Link -> Query -> Lint -> Refine
+Capture -> Ingest plan -> Preserve source -> Enrich -> Link -> Citation check -> Log -> Query -> Lint -> Refine
 ```
 
 For daily incremental use, the lifecycle is:

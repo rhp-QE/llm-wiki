@@ -24,6 +24,7 @@ This skill operates the user's local personal LLM-wiki. It exists so the user do
 - Before mutating the wiki, read the local operating files listed below.
 - Preserve raw material in `sources/` and compiled knowledge in `wiki/`.
 - Update `wiki/log.md` after meaningful mutations.
+- For mutating work, run the relevant audit checklist under `system/evals/`.
 - Query is read-only. Ingest, Lint, Setup/Migration, and persisted Reports may mutate files.
 
 ## Bootstrap
@@ -62,11 +63,15 @@ Use the local `system/resolver.md` as the source of truth.
 For new material:
 
 1. Preserve the raw note under `sources/` unless it is already archived.
-2. Enrich durable entities, relationships, timeline entries, concepts, Q&A, aliases, and review tasks.
-3. Fix citations enough that future agents can trace claims.
-4. Run the relevant maintenance checks.
-5. Update `wiki/log.md`.
-6. Return an auditable summary.
+2. Read `system/evals/ingest-checklist.md`.
+3. Use `system/resolver.md` and nearest domain `AGENTS.md` files to choose target pages.
+4. Check existing pages and aliases before creating durable pages.
+5. For complex or multi-domain ingest, sketch the route with `system/templates/ingest-plan.md`.
+6. Enrich durable entities, relationships, timeline entries, concepts, Q&A, aliases, and review tasks.
+7. Fix citations enough that future agents can trace claims.
+8. Run the relevant maintenance checks and complete the ingest checklist.
+9. Update `wiki/log.md`.
+10. Return an auditable summary.
 
 ## Migration Minimum Bar
 

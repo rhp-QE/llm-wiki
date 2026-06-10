@@ -17,6 +17,12 @@ For broad tasks, also read:
 - `system/resolver.md`
 - `system/maintenance.md`
 
+For mutating workflows, also read the relevant audit checklist:
+
+- Ingest or query-derived update: `system/evals/ingest-checklist.md`
+- Lint or health check: `system/evals/lint-checklist.md`
+- Migration or batch import: `system/lifecycle.md` plus `system/templates/migration-report.md`
+
 ## Core Model
 
 The wiki has three layers:
@@ -43,6 +49,22 @@ Use the `llm-wiki` skill for:
 - Update `wiki/log.md` after each meaningful ingest, query-derived update, lint repair, or schema change.
 - Avoid creating a new directory or page type before checking whether an existing domain owns it.
 
+## Workflow Gates
+
+Before mutating files:
+
+- Use `system/resolver.md` to declare the workflow and target domains.
+- Read each nearest target-domain `AGENTS.md`.
+- Check existing pages and aliases before creating new pages.
+- For complex or multi-domain ingest, sketch the route with `system/templates/ingest-plan.md`.
+
+After mutating files:
+
+- Run the relevant checklist from `system/evals/`.
+- Confirm source paths and wikilinks introduced by the change.
+- Update `wiki/log.md` for every meaningful ingest, lint repair, report, migration step, or schema change.
+- End with the auditable output fields required by the active workflow.
+
 ## Agent Behavior
 
 - Do not invent facts about the user. If a page needs information that is not in sources, mark it as `Needs evidence`.
@@ -54,9 +76,19 @@ Use the `llm-wiki` skill for:
 
 After mutating the wiki, report:
 
+- Workflow
+- Wiki root
+- Inputs
 - Files read
 - Files created
 - Files updated
+- Sources created or used
+- Pages created
+- Pages updated
 - Links or aliases added
+- Questions added
+- Citations fixed
+- Maintenance done
 - Open questions
+- Needs user review
 - Suggested next action

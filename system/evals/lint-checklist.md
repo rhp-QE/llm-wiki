@@ -9,6 +9,15 @@ Use this checklist during `llm-wiki Lint`.
 - [ ] `wiki/log.md` exists.
 - [ ] Active domains have `README.md` and `AGENTS.md`.
 - [ ] `system/skills/llm-wiki/SKILL.md` exists.
+- [ ] `system/evals/ingest-checklist.md` exists.
+- [ ] `system/templates/ingest-plan.md` exists.
+
+## Workflow Gates
+
+- [ ] Mutating instructions require `system/resolver.md` preflight.
+- [ ] Ingest instructions require nearest domain `AGENTS.md` before writes.
+- [ ] Ingest instructions require checking existing pages and aliases.
+- [ ] Mutating final output includes files read, created, updated, sources, links, citations, maintenance, open questions, and review needs.
 
 ## Links
 

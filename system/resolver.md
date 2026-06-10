@@ -37,6 +37,17 @@ Use this file to decide which workflow and domain rules apply.
 3. If one note touches multiple domains, archive once in `sources/`, then update multiple compiled pages.
 4. If uncertain, create a `needs-review` note and list the ambiguity in `wiki/log.md`.
 
+## Mutating Preflight
+
+Before any ingest, schema change, migration sample, or query-derived update:
+
+1. State the workflow and whether it is read-only or mutating.
+2. State the source destination or confirm the source already exists.
+3. State the target domains and nearest `AGENTS.md` files to read.
+4. Check existing pages and aliases before creating new pages.
+5. For complex or multi-domain ingest, use `system/templates/ingest-plan.md`.
+6. For ingest, complete `system/evals/ingest-checklist.md` before final response.
+
 ## Incremental vs Stock
 
 Use `Ingest` for a small number of new notes, links, or files.

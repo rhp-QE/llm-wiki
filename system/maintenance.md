@@ -15,6 +15,7 @@ Run maintenance when:
 - Required top-level directories exist.
 - `wiki/index.md` links to major domains.
 - Each active domain has `README.md` and `AGENTS.md`.
+- Mutating workflow checklists exist under `system/evals/`.
 
 ### 2. Link Check
 
@@ -49,6 +50,17 @@ fixed:
 needs_user_review:
 next_actions:
 ```
+
+## Ingest Audit
+
+After meaningful ingest, also check `system/evals/ingest-checklist.md`:
+
+- The source was preserved.
+- Routing and target domains were recorded.
+- Existing pages and aliases were checked.
+- New pages followed domain schemas and templates.
+- Source paths, wikilinks, and `wiki/log.md` were updated.
+- Failed, skipped, or subjective items are listed under `needs_user_review`.
 
 ## Derived Structure Rebuild
 

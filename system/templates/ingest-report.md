@@ -18,6 +18,10 @@ sources: []
 
 ## Inputs
 
+## Workflow Gate Status
+
+## Files Read
+
 ## Sources Created Or Used
 
 ## Enrichment
@@ -28,9 +32,13 @@ sources: []
 
 ## Links Added
 
+## Questions Added
+
 ## Citations Fixed
 
 ## Maintenance Done
+
+## Needs User Review
 
 ## Open Questions
 

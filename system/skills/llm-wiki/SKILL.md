@@ -49,6 +49,7 @@ When using this skill:
 - Read the relevant `AGENTS.md` before editing a domain.
 - Maintain links, aliases, source references, and `wiki/log.md`.
 - Prefer a small, reviewable update over a broad rewrite.
+- Use workflow gates and audit checklists for mutating work.
 - For bulk historical material, run inventory, mapping, sample import, validation, full import, derived rebuild, health check, and migration report. Do not skip the sample validation step.
 
 ## File Boundaries
@@ -59,6 +60,22 @@ When using this skill:
 | `sources/` | raw evidence | preserve content; add metadata only when useful |
 | `wiki/` | compiled knowledge | update through domain schema |
 | `system/` | rules, templates, evals | update only for process or schema changes |
+
+## Workflow Gates
+
+Before mutating files:
+
+1. Use `system/resolver.md` to classify the workflow and target domains.
+2. Read the nearest target-domain `AGENTS.md` files.
+3. Check existing pages and aliases before creating durable pages.
+4. For complex or multi-domain ingest, sketch the route with `system/templates/ingest-plan.md`.
+
+After mutating files:
+
+1. Run the relevant checklist from `system/evals/`.
+2. Confirm introduced source paths and wikilinks are traceable.
+3. Update `wiki/log.md`.
+4. Return the workflow's auditable output fields.
 
 ## Phases
 
@@ -117,11 +134,13 @@ Use when the user gives new notes, asks to process `inbox/`, or says a topic sho
    - Identify input files or pasted content.
    - Determine source type: diary, learning, article, book, chat, media, idea, or project.
    - Preserve the raw material under `sources/` unless it already lives there.
+   - Read `system/evals/ingest-checklist.md`.
 
 2. **Route**
    - Read `system/resolver.md`.
    - Choose target domains.
    - Read nearest domain `AGENTS.md`.
+   - For complex or multi-domain ingest, prepare an ingest plan using `system/templates/ingest-plan.md`.
 
 3. **Enrichment**
    - Pull durable facts, questions, examples, relationships, and open loops.
@@ -132,6 +151,7 @@ Use when the user gives new notes, asks to process `inbox/`, or says a topic sho
    - Create or update compiled pages using templates.
    - Add `[[wikilink]]` relationships.
    - Update indexes and learning paths when relevant.
+   - Prefer updating existing pages over creating duplicate pages.
 
 5. **Citation fixing**
    - Ensure source paths exist.
@@ -141,6 +161,7 @@ Use when the user gives new notes, asks to process `inbox/`, or says a topic sho
 6. **Maintenance**
    - Check links, frontmatter, aliases, duplicates, orphan pages, and stale status.
    - Update indexes or derived pages when new durable knowledge was added.
+   - Complete the ingest checklist and list any failed or not-applicable items.
 
 7. **Report**
    - Summarize what was ingested, enriched, fixed, and left open.
@@ -151,8 +172,13 @@ Use when the user gives new notes, asks to process `inbox/`, or says a topic sho
 Return:
 
 ```text
-ingested:
-sources_created:
+workflow:
+wiki_root:
+inputs:
+files_read:
+files_created:
+files_updated:
+sources_created_or_used:
 pages_created:
 pages_updated:
 links_added:
@@ -160,7 +186,8 @@ questions_added:
 citations_fixed:
 maintenance_done:
 open_questions:
-next_review:
+needs_user_review:
+next_actions:
 ```
 
 ## Workflow: Query
@@ -192,10 +219,12 @@ Use when checking health, after batch ingest, or before relying on the wiki for 
 ### Phases
 
 1. Read `system/maintenance.md`.
-2. Run structure, link, source, duplicate, and staleness checks.
-3. Fix mechanical issues directly when safe.
-4. List subjective issues for user review.
-5. Update `wiki/log.md`.
+2. Read `system/evals/lint-checklist.md`.
+3. Run structure, link, source, duplicate, and staleness checks.
+4. For recent ingest issues, cross-check `system/evals/ingest-checklist.md`.
+5. Fix mechanical issues directly when safe.
+6. List subjective issues for user review.
+7. Update `wiki/log.md`.
 
 ### Lint Output
 

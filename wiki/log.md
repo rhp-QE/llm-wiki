@@ -17,6 +17,13 @@ Format:
 
 ## 2026-06-10
 
+- Operation: strengthened llm-wiki ingest workflow constraints and audit gates.
+- Inputs: user request to improve constraints that make agents follow the ingest flow.
+- Created: `system/evals/ingest-checklist.md`, `system/templates/ingest-plan.md`.
+- Updated: `AGENTS.md`, `system/skills/llm-wiki/SKILL.md`, `system/codex-skills/llm-wiki/SKILL.md`, `/root/.codex/skills/llm-wiki/SKILL.md`, `system/resolver.md`, `system/maintenance.md`, `system/evals/lint-checklist.md`, `system/templates/ingest-report.md`, `README.md`, `START_HERE.md`, `wiki/log.md`.
+- Links added: none.
+- Open questions: none.
+
 - Operation: ingested 2026-06-09 Beijing diary about work, personal wiki exploration, sleep target, interview, and career anxiety.
 - Inputs: user-provided diary entry beginning "日记：北京 天气晴朗。早上 9.55 起床..."
 - Created: `sources/diary/2026/2026-06-09-beijing-work-wiki-career.md`, `wiki/events/2026-06-09-beijing-work-wiki-career.md`, `wiki/themes/career-direction.md`, `wiki/themes/sleep-and-routine.md`, `wiki/projects/personal-llm-wiki.md`, `wiki/projects/agent-development-internal-transfer.md`, `wiki/learning/agent-development/index.md`, `wiki/people/guo-ruojun.md`, `wiki/craft/ios-first-frame-optimization.md`.
