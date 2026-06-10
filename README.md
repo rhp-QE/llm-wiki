@@ -11,20 +11,41 @@ The core idea is simple:
 
 Start here:
 
-1. Drop new material into `inbox/`.
-2. Ask the agent: `处理 inbox，按 llm-wiki ingest 入库。`
+1. Drop new material into `inbox/`, or tell the agent `inbox` / `暂存` with the raw content.
+2. Later, when you want knowledge organization, ask the agent: `处理 inbox，按 llm-wiki ingest 入库。`
 3. Browse in Obsidian from `wiki/首页.md`.
 4. Query through `wiki/index.md`, then deep-read linked pages.
 5. Run lint periodically to check links, sources, duplicate entities, stale pages, and map pages.
 
 Ingest is gated by `system/evals/ingest-checklist.md`: the agent should preserve sources, declare routing, check existing pages and aliases, follow domain schemas, fix citations, update links, and log the mutation.
 
+After an inbox item is ingested, the preserved copy lives under `sources/`; the processed file should be removed from `inbox/` so the inbox only contains unprocessed drops plus `README.md` and templates.
+
+Important command split:
+
+- `inbox` / `暂存`: capture only; write to `inbox/` and stop.
+- `ingest` / `入库` / `沉淀到 wiki` / `处理 inbox`: archive to `sources/`, update `wiki/`, run checks, then clear processed inbox files.
+
+Diary classification is explicit: use `Type: diary`, `日记`, `diary` in the title/filename, or direct wording like "按日记处理". Ingest must not infer diary from emotion, routine, first-person writing, or "today" alone.
+
+Inbox ingest aggregates before source creation. The agent should inventory pending fragments, group compatible fragments, then create or update sources. It should not blindly create one source per fragment. Do not merge different source types; diary and learning must stay separate unless explicitly instructed otherwise.
+
+URL capture is also shallow: during `inbox`, save only the URL, capture time, and any user context. During explicit Ingest, the agent should create a bounded evidence package when possible, classify by content form and primary subject, then route it. A link may be a chat record, article, documentation page, media transcript, project note, Q&A, reflection, or other source; it must not be treated as tech learning just because it is a link. `sources/` should not store full linked content by default; keep metadata, AI core extraction, key supported claims, selected short excerpts or anchors, coverage, and fetch status. If the user marks a link or chat as `important`, `importent`, `重要`, or `非常重要`, preserve core information carefully; if it is very large, use a 500 Chinese character core extraction plus evidence anchors instead of full archival. Later Query should use the preserved local evidence package first and should not re-fetch live URLs unless explicitly asked or local evidence is missing.
+
 Global Codex skill installed:
 
-- Skill source in this repo: `system/codex-skills/llm-wiki/SKILL.md`
+- Canonical local workflow spec: `system/skills/llm-wiki/SKILL.md`
+- Installed skill source in this repo: `system/codex-skills/llm-wiki/SKILL.md`
 - Installed skill path: `/root/.codex/skills/llm-wiki/SKILL.md`
 
+The installed skill is a bootstrapper. It locates this wiki and then defers to the canonical local workflow spec plus nearby `AGENTS.md` files.
+
 In a fresh Codex session, you should not need to paste a bootstrap prompt. Use natural requests such as:
+
+```text
+inbox
+{paste content}
+```
 
 ```text
 处理 inbox，按 llm-wiki ingest 入库。
@@ -61,13 +82,13 @@ Or use short command-style prompts:
 The intended operating loop is:
 
 ```text
-Capture -> Ingest plan -> Preserve source -> Enrich -> Link -> Citation check -> Log -> Query -> Lint -> Refine
+Capture to inbox -> Explicit ingest -> Preserve source -> Enrich -> Link -> Citation check -> Log -> Query -> Lint -> Refine
 ```
 
 For daily incremental use, the lifecycle is:
 
 ```text
-user input / cron -> Resolver -> query OR ingest -> enrichment -> citation fixing -> maintenance -> report
+user input / cron -> Resolver -> inbox capture OR query OR ingest -> enrichment -> citation fixing -> maintenance -> report
 ```
 
 For historical setup or migration, the lifecycle is:
@@ -76,7 +97,7 @@ For historical setup or migration, the lifecycle is:
 setup / migration -> inventory -> mapping -> sample import -> validation -> full import -> rebuild -> health check -> migration report
 ```
 
-This wiki currently contains the scaffolding and operating system. It does not yet contain your full personal notes. Add raw materials under `inbox/` or `sources/`, then run the ingest workflow.
+This wiki currently contains the scaffolding and operating system. It does not yet contain your full personal notes. Add raw materials under `inbox/` or `sources/`, then explicitly run the ingest workflow when you want knowledge organization. Processed inbox files are cleared after they are archived under `sources/`.
 
 ## Obsidian
 

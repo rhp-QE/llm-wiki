@@ -39,6 +39,11 @@ Use status fields to avoid pretending the wiki is more certain than it is:
 - `partial`
 - `needs-review`
 - `retired`
+- `example`
+
+See `system/schema.md` for domain-specific statuses such as `ingested`, `answered`, `draft`, `final`, `historical`, `unknown`, and `closed`.
+
+Use `example` only for scaffold or demo material that should not count as real personal history, real learning progress, or validated knowledge.
 
 ## Bulk Work
 

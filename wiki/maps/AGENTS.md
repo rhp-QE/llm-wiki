@@ -10,6 +10,8 @@ Map pages are Obsidian-facing 内容地图. They organize navigation across exis
 
 ## Frontmatter
 
+For normal map pages:
+
 ```yaml
 ---
 type: map
@@ -22,6 +24,8 @@ created:
 updated:
 ---
 ```
+
+For the map index page, use `type: map_index` with the same status values.
 
 ## Body
 

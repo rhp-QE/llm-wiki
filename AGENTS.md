@@ -14,6 +14,7 @@ For broad tasks, also read:
 
 - `system/lifecycle.md`
 - `system/conventions.md`
+- `system/schema.md`
 - `system/resolver.md`
 - `system/maintenance.md`
 
@@ -34,6 +35,7 @@ For mutating workflows, also read the relevant audit checklist:
 The wiki has three layers:
 
 - `sources/`: original evidence. Do not rewrite source content except to add metadata or clear archival notes.
+- `inbox/`: temporary capture queue. `inbox` / `暂存` commands write only here and do not trigger source archival or wiki knowledge organization.
 - `wiki/`: compiled knowledge. This is the durable middle layer consumed by people and agents.
 - `system/`: rules, templates, evals, and workflows. Do not mix operational rules into content pages unless the nearest domain `AGENTS.md` says so.
 
@@ -42,13 +44,15 @@ The wiki has three layers:
 Use the `llm-wiki` skill for:
 
 - `Ingest`: convert new materials into durable pages, links, and logs.
+- `Inbox Capture`: save raw fragments to `inbox/` only; do not create `sources/` or organize `wiki/` until explicit Ingest.
 - `Query`: answer from wiki pages first, then sources if needed.
 - `Lint`: check health, links, citations, schema, duplicates, and stale pages.
 - `Setup / Migration`: import historical material through inventory, mapping, sample validation, full import, derived rebuild, health check, and migration report.
 
 ## Write Rules
 
-- Keep original material in `sources/` or `inbox/` intact.
+- Keep original material in `sources/` intact. `inbox/` is only a temporary capture queue; after an inbox item is ingested and archived under `sources/`, remove the processed inbox file so the queue is clear.
+- Treat `inbox` / `暂存` as capture-only commands. Explicit `ingest`, `入库`, `沉淀到 wiki`, or `处理 inbox` is required before writing `sources/` or compiled `wiki/` pages.
 - Every non-trivial compiled claim should point to a source, log entry, or clearly marked inference.
 - Prefer `[[wikilink]]` style internal links in wiki content.
 - Update `wiki/index.md` when adding a new major page or domain.

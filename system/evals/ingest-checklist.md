@@ -8,7 +8,8 @@ This is an audit gate, not background reading. Each item must be satisfied, mark
 
 Do not finish an ingest unless these are true:
 
-- [ ] Raw material is preserved under `sources/` or already exists in `sources/` / `inbox/`.
+- [ ] Raw material is preserved under `sources/`; `inbox/` is only acceptable as a temporary holding place when ingest stops before completion.
+- [ ] Processed `inbox/` files are removed after their raw material is archived under `sources/`; only unprocessed drops, `README.md`, and templates remain in `inbox/`.
 - [ ] `system/resolver.md` was used to choose workflow and target domains.
 - [ ] The nearest target-domain `AGENTS.md` files were read before writing compiled pages.
 - [ ] Existing pages and aliases were checked before creating new person, concept, event, project, or theme pages.
@@ -20,6 +21,21 @@ Do not finish an ingest unless these are true:
 
 - [ ] State the workflow: `ingest`, `query-derived update`, or `migration sample`.
 - [ ] Identify input type: diary, learning, article, book, chat, media, idea, project, or other.
+- [ ] URL-backed material is treated as `delivery: url`, not as a source type or automatic tech/learning signal.
+- [ ] For URL-backed material, a bounded evidence package was created when possible, or fetch failure was recorded with URL and user context.
+- [ ] Full linked content was not stored by default; any full archive has a reason such as short, uniquely important, unavailable elsewhere, user-provided, or explicitly requested.
+- [ ] Importance markers such as `important`, `importent`, `非常重要`, or `重要` were preserved in source metadata and affected preservation depth.
+- [ ] Very large important content was not fully archived by default; core extraction is capped at 500 Chinese characters plus evidence anchors.
+- [ ] URL-backed material was classified by content form and primary subject before routing to source directory and wiki domains.
+- [ ] Skill-tree material records `learning_intent`, `learning_state`, `counts_as_progress`, `priority`, and `progress_evidence` when relevant.
+- [ ] Saved-for-later links, not-started topics, and skimmed material are not counted as `Recently Learned` or upgraded to `understood`, `applied`, or `validated`.
+- [ ] Skill-progress fields were not applied to objective facts such as diary events, people, relationships, or factual life notes unless the material explicitly recorded learning or practice.
+- [ ] `diary` classification has an explicit `diary` / `日记` marker (`Type: diary`, `source_type: diary`, diary-marked title/filename, or direct user wording). If not, do not classify as diary.
+- [ ] Ambiguous untyped fragments are preserved as `source_type: note` with `status: needs-review`, not routed to `sources/diary/`.
+- [ ] For `inbox/` ingest, pending fragments were inventoried and grouped before source creation; source creation was not one-fragment-one-source by default.
+- [ ] Each source group has compatible boundaries: same explicit source type, same natural date or topic, and compatible origin/context.
+- [ ] Different source types were not merged. In particular, diary and learning fragments were kept separate unless the user explicitly instructed otherwise.
+- [ ] Grouped sources preserve original fragment boundaries with fragment IDs, capture timestamps when available, and original inbox paths.
 - [ ] Choose one source destination or confirm the material is already archived.
 - [ ] List target domains and why each domain owns part of the knowledge.
 - [ ] List existing pages checked for duplicates, aliases, or natural update targets.
@@ -32,7 +48,11 @@ Use `system/templates/ingest-plan.md` for complex or multi-domain ingest before 
 
 - [ ] Source content is not rewritten into polished wiki prose.
 - [ ] Source frontmatter records source type, title, origin, created/captured date, status, and tags when useful.
+- [ ] URL-backed source frontmatter records `delivery`, `original_url`, `accessed`, and `fetch_status` when useful.
+- [ ] URL-backed source frontmatter records `archive_policy` and `coverage` when useful.
+- [ ] Important source frontmatter records `importance` and `preservation_limit` when useful.
 - [ ] If the source came from user text, the preserved source keeps the user's meaning and important phrasing.
+- [ ] If the source came from `inbox/`, the source file records the original inbox path and the inbox copy is cleared after verification.
 - [ ] If a source is skipped, the reason is recorded in the report or log.
 
 ## Enrichment
@@ -66,6 +86,8 @@ Use `system/templates/ingest-plan.md` for complex or multi-domain ingest before 
 - [ ] Check new frontmatter `type` and status values against the owning domain schema.
 - [ ] Check duplicate entity risk for people, concepts, projects, events, and themes.
 - [ ] Check whether `todo.md`, learning review queues, or project tasks need updates.
+- [ ] Check that learning path updates separate `Saved For Later` from `Recently Learned`.
+- [ ] Check that `inbox/` contains no processed content after ingest.
 - [ ] Update the active monthly log with operation, inputs, created, updated, links added, and open questions.
 
 ## Final Response

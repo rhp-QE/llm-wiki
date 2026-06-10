@@ -39,7 +39,7 @@ Needs evidence.
 
 ## Evidence
 
-- [[2026-06-09-beijing-work-wiki-career]]
+- [[wiki/events/2026-06-09-beijing-work-wiki-career|2026-06-09 Beijing work, personal wiki, and career anxiety]]
 - `sources/diary/2026/2026-06-09-beijing-work-wiki-career.md`
 
 ## Related Pages

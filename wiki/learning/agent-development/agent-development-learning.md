@@ -3,6 +3,8 @@ type: learning_path
 title: Agent Development Learning
 domain: agent-development
 status: learning
+focus: unknown
+priority: unknown
 created: 2026-06-10
 updated: 2026-06-10
 ---
@@ -12,6 +14,10 @@ updated: 2026-06-10
 ## Goal
 
 Learn enough Agent development to evaluate and possibly pursue an internal transfer within three months.
+
+## Current Focus
+
+The diary records a possible three-month learning direction for internal transfer, but the exact target role and priority are not yet specified.
 
 ## Current Level
 
@@ -25,6 +31,10 @@ Early intent only. The diary records motivation and a possible time-box, but not
 - Evaluation and reliability
 - Human approval and safety boundaries
 - Coding agents and repo workflows
+
+## Saved For Later
+
+- None recorded.
 
 ## Recently Learned
 

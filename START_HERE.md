@@ -2,7 +2,7 @@
 
 Use this file only as a fallback when the global `llm-wiki` Codex skill is not available.
 
-Normally, the global skill at `/root/.codex/skills/llm-wiki/SKILL.md` should bootstrap fresh sessions automatically when you mention `llm_wiki`, `处理 inbox`, `ingest`, `沉淀到 wiki`, or use shortcut prompts like `/wiki-ingest`, `/wiki-query`, `/wiki-lint`, `/wiki-migrate`, or `/wiki-report`.
+Normally, the global skill at `/root/.codex/skills/llm-wiki/SKILL.md` should bootstrap fresh sessions automatically when you mention `llm_wiki`, `inbox`, `暂存`, `处理 inbox`, `ingest`, `沉淀到 wiki`, or use shortcut prompts like `/wiki-inbox`, `/wiki-ingest`, `/wiki-query`, `/wiki-lint`, `/wiki-migrate`, or `/wiki-report`.
 
 For Obsidian browsing or visual graph work, start from `wiki/首页.md` and `wiki/maps/地图.md`.
 
@@ -31,12 +31,16 @@ If the skill does not trigger, copy this into a new Codex session opened at `/ro
 
 之后根据我的请求选择：
 - Query：只读消费已有知识，不改文件
-- Ingest：处理 inbox 或我贴给你的新材料，沉淀到 sources/ 和 wiki/
+- Inbox Capture：当我说 `inbox` / `暂存`，或只想先记录时，只写入 `inbox/`，不要写 `sources/`，不要整理 `wiki/`
+- Ingest：只有我明确说 `ingest` / `入库` / `沉淀到 wiki` / `处理 inbox` 时，才沉淀到 sources/ 和 wiki/；如果来源是 inbox，入库验证完成后清空已处理的 inbox 文件
+- 日记分类必须显式：只有 `Type: diary`、`source_type: diary`、标题/文件名含 `diary` / `日记`，或我明确说按日记处理时，才能归为日记。不要根据情绪、作息、第一人称或“今天”推断成日记。
+- Ingest 处理 inbox 时必须先归纳聚合片段，不要无脑一个片段一个 source；只合并同类型、同自然日期或主题、来源语境兼容的片段。不要把日记和 learning 合并。
+- URL / 链接投递在 Inbox Capture 阶段只保存 URL、时间和用户上下文，不抓取、不总结、不分类、不入库。显式 Ingest 时才尝试抓取或保存链接证据包；URL 只是 delivery/origin，不是 source_type。必须根据内容形态和 primary subject 判断是 article、chat、media、learning、note、project、qa、reflection 等，不能无脑归为 tech learning。`sources/` 不默认保存链接全文，应保存元数据、AI 核心提炼、关键 claims、少量可追溯摘录/anchor、coverage 和 fetch_status；只有短内容、特别重要且不庞大、别处不可得、用户提供或我明确要求时才保存全文。若我用 `important` / `importent` / `重要` / `非常重要` 标记链接或聊天，Ingest 要更认真保留核心信息；但如果内容非常庞大，兜底策略仍然不要保存全文，只保存 500 字以内中文核心提炼加证据 anchor。后续 Query 默认使用本地 evidence package，不要每次实时重抓链接，除非我明确要求刷新/重读链接或本地证据缺失。
 - Lint：检查断链、孤儿页、引用、重复实体、stale 信息
 - Setup / Migration：迁移历史资料，必须先 inventory、mapping、小样本导入、样本验证，再全量导入
 - Report：生成 briefing、pulse、task report、migration report 等产物
 
-除非我明确要求，否则不要跳过 source 保存、路由声明、已有页面/aliases 检查、引用修复、维护检查和当月 `wiki/logs/YYYY-MM.md` 记录。
+对于 Ingest，不要跳过 source 保存、路由声明、已有页面/aliases 检查、引用修复、维护检查和当月 `wiki/logs/YYYY-MM.md` 记录。对于 Inbox Capture，只写 `inbox/`。
 ```
 
 ## Common Commands To Tell Codex
@@ -46,6 +50,13 @@ If the skill does not trigger, copy this into a new Codex session opened at `/ro
 ```text
 把下面这段内容按 llm-wiki ingest 沉淀入库：
 
+{paste content}
+```
+
+### Capture to inbox only
+
+```text
+inbox
 {paste content}
 ```
 
@@ -81,4 +92,4 @@ You can provide new material in three ways:
 2. Save a Markdown file under `inbox/`.
 3. Put raw historical files under `sources/` and ask for setup/migration.
 
-The safest default is `inbox/` first, then ask Codex to ingest.
+The safest default is `inbox/` first, then ask Codex to ingest. The `inbox` command is capture-only. After explicit ingest, the raw archive should live in `sources/`, and the processed inbox file should be removed.

@@ -14,7 +14,7 @@ Incremental work handles new user input, new notes, new links, scheduled checks,
 ```text
 user input / cron trigger
   -> Resolver
-  -> query OR ingest
+  -> inbox capture OR query OR ingest
   -> enrichment
   -> citation fixing
   -> maintenance
@@ -31,11 +31,26 @@ user input / cron trigger
 Resolver decides the intent and route:
 
 - `query`: read-only answer from existing wiki.
+- `inbox capture`: save new material only to `inbox/` for later processing.
 - `ingest`: receive and process new material.
 - `maintenance`: check or repair wiki health.
 - `report`: produce a consumable output from existing knowledge.
 
-The resolver should prefer read-only `query` when the user only asks a question. It should choose `ingest` when the user provides new material or asks to record, capture, sync, import, or沉淀 something.
+The resolver should prefer read-only `query` when the user only asks a question. It should choose `inbox capture` when the user invokes `inbox`, `暂存`, or provides new material without explicitly asking for `ingest`, `入库`, or `沉淀到 wiki`. It should choose `ingest` only when the user explicitly asks to organize material into `sources/` and `wiki/`.
+
+### Inbox Capture
+
+Inbox Capture is low-friction and intentionally shallow.
+
+Rules:
+
+- Write only to `inbox/`.
+- Preserve the raw wording.
+- Do not write `sources/`.
+- Do not write compiled `wiki/` knowledge.
+- Do not enrich, classify, or update domain pages.
+- For links, capture only the URL, capture time, and user-provided context.
+- Leave captured files in `inbox/` until explicit Ingest.
 
 ### Query
 
@@ -46,15 +61,23 @@ Rules:
 - Do not mutate `sources/`, `wiki/`, or `system/`.
 - Read `wiki/index.md` first.
 - Deep-read only the most relevant domain pages.
+- For URL-backed sources, use local preserved snapshots before considering any live URL fetch.
 - If the answer reveals missing knowledge, suggest an ingest or lint follow-up.
 
 ### Ingest
 
-Ingest receives new material.
+Ingest receives new material only after the user explicitly requests Ingest.
 
 Rules:
 
 - Preserve raw material under `sources/`.
+- If the material came from `inbox/`, clear the processed inbox file after the source archive and wiki updates are verified.
+- For URL-backed material, treat the URL as delivery/origin, create a bounded local evidence package when possible, and classify by content form plus primary subject before routing. Do not store full linked content by default.
+- For skill-tree material, classify learning intent and learning state before updating progress. Saved-for-later links, not-started topics, and skimmed material are not learning progress; only real study, practice, application, or validation should update learning progress or tech mastery.
+- Do not apply skill-progress fields to objective facts such as diary events, people, relationships, factual life notes, or ordinary project chronology unless the material explicitly records learning or practice.
+- For `inbox/` ingest, inventory and group compatible fragments before creating sources; do not create one source per fragment by default.
+- Preserve original fragment boundaries inside grouped sources with fragment IDs, capture timestamps when available, and original inbox paths.
+- Do not merge different source types just because they arrived together. Keep diary and learning separate unless explicitly instructed otherwise.
 - Update compiled pages under `wiki/`.
 - Log the operation in the active monthly log under `wiki/logs/YYYY-MM.md`.
 - Never treat an unsourced model guess as user knowledge.

@@ -43,7 +43,7 @@ This project is part of the user's broader use of Codex and personal knowledge m
 
 ## Related Knowledge
 
-- [[2026-06-09-beijing-work-wiki-career]]
+- [[wiki/events/2026-06-09-beijing-work-wiki-career|2026-06-09 Beijing work, personal wiki, and career anxiety]]
 - [[career-direction]]
 - [[agent-development-internal-transfer]]
 

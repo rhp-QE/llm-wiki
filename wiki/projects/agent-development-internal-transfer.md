@@ -42,7 +42,7 @@ User-stated for 2026-06-09: the user feels some career-planning anxiety and plan
 
 - [[career-direction]]
 - [[personal-llm-wiki]]
-- [[2026-06-09-beijing-work-wiki-career]]
+- [[wiki/events/2026-06-09-beijing-work-wiki-career|2026-06-09 Beijing work, personal wiki, and career anxiety]]
 
 ## Log
 

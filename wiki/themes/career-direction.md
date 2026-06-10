@@ -36,7 +36,7 @@ This is an emerging theme, not yet a stable career plan. The current signal comb
 
 ## Representative Events
 
-- [[2026-06-09-beijing-work-wiki-career]]
+- [[wiki/events/2026-06-09-beijing-work-wiki-career|2026-06-09 Beijing work, personal wiki, and career anxiety]]
 
 ## Related People
 

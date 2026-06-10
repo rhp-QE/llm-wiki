@@ -7,9 +7,12 @@ description: >
   knowledge pages, lint links/sources/schema, build a personal knowledge base, or
   turn scattered notes into durable Markdown pages. Also use this for setup,
   migration, sample import, full import, health checks, and wiki reports. This
-  skill owns Resolver, Query, Ingest, Enrichment, Citation Fixing, Maintenance,
-  Report, and Setup/Migration workflows for this repository.
+  skill owns Resolver, Inbox Capture, Query, Ingest, Enrichment, Citation
+  Fixing, Maintenance, Report, and Setup/Migration workflows for this
+  repository.
 triggers:
+  - "inbox"
+  - "暂存"
   - "处理 inbox"
   - "ingest"
   - "入库"
@@ -43,9 +46,10 @@ This skill operates a Markdown-first personal knowledge system inspired by LLM-w
 
 When using this skill:
 
-- Preserve raw material in `sources/` or `inbox/`.
+- Preserve raw material in `sources/` only after explicit Ingest. `inbox/` is temporary capture only; inbox capture must not create `sources/` or compiled `wiki/` pages. After an inbox file is explicitly ingested and archived under `sources/`, remove the processed inbox file.
 - Put compiled knowledge in `wiki/`.
 - Follow `system/lifecycle.md` to distinguish incremental work from stock setup/migration.
+- Use `system/schema.md` as the cross-domain type and status registry.
 - Read the relevant `AGENTS.md` before editing a domain.
 - Maintain links, aliases, source references, and the active monthly log under `wiki/logs/YYYY-MM.md`.
 - Maintain `wiki/首页.md` and `wiki/maps/` when changes affect Obsidian navigation.
@@ -57,7 +61,7 @@ When using this skill:
 
 | Area | Role | Mutation policy |
 | --- | --- | --- |
-| `inbox/` | low-friction capture | may move or copy into sources after ingest |
+| `inbox/` | low-friction capture queue | must be cleared after ingest once the raw material is archived under `sources/` |
 | `sources/` | raw evidence | preserve content; add metadata only when useful |
 | `wiki/` | compiled knowledge | update through domain schema |
 | `system/` | rules, templates, evals | update only for process or schema changes |
@@ -67,9 +71,10 @@ When using this skill:
 Before mutating files:
 
 1. Use `system/resolver.md` to classify the workflow and target domains.
-2. Read the nearest target-domain `AGENTS.md` files.
-3. Check existing pages and aliases before creating durable pages.
-4. For complex or multi-domain ingest, sketch the route with `system/templates/ingest-plan.md`.
+2. Read `system/schema.md` for allowed page types, statuses, and link rules.
+3. Read the nearest target-domain `AGENTS.md` files.
+4. Check existing pages and aliases before creating durable pages.
+5. For complex or multi-domain ingest, sketch the route with `system/templates/ingest-plan.md`.
 
 After mutating files:
 
@@ -89,7 +94,7 @@ Use for daily operation.
 ```text
 user input / cron trigger
   -> Resolver
-  -> query OR ingest
+  -> inbox capture OR query OR ingest
   -> enrichment
   -> citation fixing
   -> maintenance
@@ -121,20 +126,50 @@ Use before choosing a workflow.
 1. Read `system/resolver.md`.
 2. Determine whether the request is read-only, mutating, report-only, maintenance, or migration.
 3. If read-only, use Query and do not mutate files.
-4. If new material is present, use Ingest.
+4. If new material is present without explicit Ingest wording, use Inbox Capture.
 5. If many historical files or source systems are involved, use Setup/Migration.
 6. If scheduled, decide whether the output should be a report, an ingest, a lint, or a skipped run.
 
+Override: if the user invokes `inbox`, `暂存`, or asks to put content in the temporary queue, use Inbox Capture. Do not infer Ingest from the presence of new material. Only explicit `ingest`, `入库`, `沉淀到 wiki`, `处理 inbox`, or equivalent wording should write `sources/` or organize compiled `wiki/` knowledge.
+
+## Workflow: Inbox Capture
+
+Use when the user invokes `inbox`, `暂存`, asks to save material for later, or provides raw material without explicitly requesting Ingest.
+
+### Rules
+
+- Write only to `inbox/`.
+- Do not create or update `sources/`.
+- Do not create or update compiled `wiki/` pages.
+- Do not run enrichment, citation fixing, or domain routing.
+- For URL-only input, preserve the URL, capture time, and user-provided context only; do not fetch or summarize the URL during Inbox Capture.
+- Do not update the monthly log for routine capture; the later Ingest operation logs the archived source and wiki updates.
+- Preserve the user's raw wording with minimal metadata such as capture date, title, and source URL when available.
+- Leave the captured file in `inbox/` until the user explicitly calls Ingest.
+
 ## Workflow: Ingest
 
-Use when the user gives new notes, asks to process `inbox/`, or says a topic should be "沉淀", "入库", or "记录到 wiki".
+Use only when the user explicitly asks to process `inbox/`, says `ingest`, "沉淀", "入库", or "记录到 wiki".
 
 ### Phases
 
 1. **Intake**
    - Identify input files or pasted content.
-   - Determine source type: diary, learning, article, book, chat, media, idea, or project.
+   - Determine source type: diary, learning, article, book, chat, media, note, idea, project, qa, reflection, or other.
+   - For skill-tree and learning-progress material, classify `learning_intent`, `learning_state`, `counts_as_progress`, `priority`, and `progress_evidence` before updating learning paths or tech mastery status. This applies only to skill/learning domains such as `sources/learning/`, `wiki/learning/`, and `wiki/tech/`; do not apply it to objective facts such as diary events, people, relationships, or factual life notes unless they explicitly record learning or practice.
+   - Saved-only links, future-reference material, not-started topics, and skimmed material should not count as learning progress. They may be preserved as sources or added to a learning path's `Saved For Later`, but must not update `Recently Learned` or raise tech status to `understood`, `applied`, or `validated`.
+   - For URL-backed material, treat the URL as `delivery: url`, not as the source type. During Ingest, create a bounded local evidence package before writing compiled wiki pages when possible: metadata, user context, AI core extraction, key supported claims, selected short excerpts or anchors, coverage, and fetch status. Do not store full linked content by default.
+   - Treat `important`, `importent`, `非常重要`, `重要`, and equivalent wording as importance markers. Important material should preserve core information carefully, especially chat records, decisions, reusable answers, and personal insights.
+   - Store full linked content only when it is short, uniquely important and not huge, unavailable elsewhere, user-provided, or explicitly requested by the user. If important content is very large, do not store the full content by default; store a core extraction capped at 500 Chinese characters plus selected evidence anchors. If fetching fails, preserve the URL and user context with `fetch_status: failed` or `status: needs-review`.
+   - Classify URL-backed material by content form and primary subject. A link may be a chat record, article, documentation page, media transcript, project note, Q&A, reflection, or other source; do not route it to `tech` or `learning` merely because it is a link.
+   - Classify as `diary` only with an explicit `diary` / `日记` marker such as `Type: diary`, `source_type: diary`, a diary-marked title/filename, or direct user wording. Do not infer diary from emotions, daily routine, first-person style, or "today" alone.
+   - If source type is unclear, preserve as `source_type: note` with `status: needs-review`; do not route ambiguous material to `sources/diary/`.
+   - For `inbox/` inputs, inventory all pending fragments first, then group compatible fragments before creating sources. Do not create one source per fragment by default.
+   - Group only within compatible boundaries: same explicit source type, same natural date or topic, and compatible origin/context. Preserve each original fragment inside the grouped source with fragment IDs, timestamps, and original inbox paths.
+   - Never merge different source types just because they arrived together. In particular, do not merge `diary` and `learning`; do not merge diary fragments with articles, chats, projects, or technical notes.
+   - If grouping is ambiguous, keep separate source groups or use `source_type: note` with `status: needs-review`; do not guess a broad merge.
    - Preserve the raw material under `sources/` unless it already lives there.
+   - For `inbox/` inputs, archive the raw material into `sources/` first, then remove the processed inbox file after citation and maintenance checks pass.
    - Read `system/evals/ingest-checklist.md`.
 
 2. **Route**
@@ -151,7 +186,7 @@ Use when the user gives new notes, asks to process `inbox/`, or says a topic sho
 4. **Write**
    - Create or update compiled pages using templates.
    - Add `[[wikilink]]` relationships.
-   - Update indexes and learning paths when relevant.
+   - Update indexes and learning paths when relevant. For learning paths, route `future-reference`, `not-started`, and `saved` material to `Saved For Later`; route only real study, practice, application, or validation into `Recently Learned`, `Weak Spots`, `Review Queue`, or `Practice Tasks`.
    - Prefer updating existing pages over creating duplicate pages.
 
 5. **Citation fixing**
@@ -200,9 +235,10 @@ Use when the user asks to consume the wiki.
 1. Read `wiki/index.md`.
 2. Select the smallest relevant domain set.
 3. Read compiled pages first.
-4. Read sources only when evidence, quotes, or ambiguity matter.
-5. Answer with links or file references where useful.
-6. If the answer reveals missing structure, suggest an ingest or lint follow-up.
+4. Read local `sources/` only when evidence, quotes, or ambiguity matter.
+5. For URL-backed sources, use the locally preserved source snapshot first. Do not re-fetch the live URL during ordinary Query unless the user explicitly asks to refresh/re-read the link, or the local source is missing and the answer requires the original content.
+6. Answer with links or file references where useful.
+7. If the answer reveals missing structure, suggest an ingest or lint follow-up.
 
 ### Query Output
 
@@ -351,6 +387,7 @@ Before declaring a mutating task complete, check:
 
 - The active monthly log under `wiki/logs/YYYY-MM.md` has an entry.
 - New pages have frontmatter.
+- New page `type` and `status` values are allowed by `system/schema.md` and the nearest domain `AGENTS.md`.
 - New pages have at least one source or explicit inference marker.
 - New pages are discoverable from `wiki/index.md` or a domain README/index.
 - Any open questions are visible.

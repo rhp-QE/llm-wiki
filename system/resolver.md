@@ -6,12 +6,13 @@ Use this file to decide which workflow and domain rules apply.
 
 | Intent | Workflow | Read |
 | --- | --- | --- |
-| "处理 inbox", "入库", "ingest", "沉淀这个" | Ingest | `system/skills/llm-wiki/SKILL.md`, target domain `AGENTS.md` |
+| "inbox", "暂存", "先放 inbox", "先记下来", pasted material without explicit ingest wording | Inbox Capture | `inbox/README.md` |
+| "处理 inbox", "入库", "ingest", "沉淀这个", "沉淀到 wiki", "记录到 wiki" | Ingest | `system/skills/llm-wiki/SKILL.md`, target domain `AGENTS.md` |
 | "分析我", "总结我", "复盘", "查一下我的 wiki" | Query | `wiki/index.md`, relevant pages |
 | "检查 wiki", "lint", "断链", "重复实体" | Lint | `system/maintenance.md`, `system/evals/lint-checklist.md` |
 | "迁移", "初始化", "导入旧笔记", "全量导入", "setup" | Setup / Migration | `system/lifecycle.md`, `system/templates/migration-report.md` |
 | "生成报告", "briefing", "pulse", "task report", "周报" | Report | `system/lifecycle.md`, `wiki/reports/AGENTS.md` |
-| "新增领域", "改 schema", "调整目录" | Schema change | `AGENTS.md`, `system/conventions.md`, existing domain rules |
+| "新增领域", "改 schema", "调整目录" | Schema change | `AGENTS.md`, `system/conventions.md`, `system/schema.md`, existing domain rules |
 | "Obsidian", "图谱", "MOC", "可视化", "地图页" | Schema change or maintenance | `system/obsidian.md`, `wiki/首页.md`, `wiki/maps/AGENTS.md` |
 
 ## Domain Routing
@@ -31,11 +32,109 @@ Use this file to decide which workflow and domain rules apply.
 | Ongoing initiative with state | `wiki/projects/` |
 | Briefing, pulse, task report, migration report, health check output | `wiki/reports/` |
 
+## Source Type Classification
+
+Source type is based on content, not on delivery mechanism. A URL may point to an article, chat record, technical documentation, media transcript, project idea, Q&A, personal reflection, or another form. Do not classify a URL as `tech`, `learning`, or `article` merely because it is a URL.
+
+Do not infer `diary` from tone, emotion, first-person writing, daily routine, or words such as "today" alone. Model judgment should not decide whether a fragment is a diary.
+
+Classify material as `diary` only when an explicit marker is present:
+
+- `Type: diary`
+- `source_type: diary`
+- A title, filename, or command containing `diary` or `日记`
+- User wording such as "这是一篇日记" or "按日记处理"
+
+If a fragment lacks an explicit `diary` / `日记` marker, do not route it to `sources/diary/`. Use the explicit type if provided, otherwise preserve it as `source_type: note` with `status: needs-review` during Ingest and list the classification ambiguity in the final report.
+
+## Skill / Learning Progress Classification
+
+Use these fields only for skill-tree and learning-progress material. They apply to learning notes, technical concepts, practice records, and sources routed to `wiki/learning/` or `wiki/tech/`. They do not apply to objective facts such as diary events, people, relationships, factual life notes, or ordinary project chronology unless the material explicitly records learning, practice, or skill use.
+
+Before updating a learning path, tech concept status, review queue, or practice task, classify:
+
+- `learning_intent`: `active-study`, `future-reference`, `background-reading`, `review`, `archive-only`, or `unknown`.
+- `learning_state`: `not-started`, `saved`, `skimmed`, `studied`, `practiced`, `applied`, `validated`, or `unknown`.
+- `counts_as_progress`: `true` only when the source shows real study, practice, application, or validation.
+- `priority`: `low`, `medium`, `high`, or `unknown` when the user gives a priority signal or the ambiguity must be explicit.
+- `progress_evidence`: the evidence used for the classification.
+
+Signal mapping:
+
+- "正在学", "重点学习", "系统学习", or equivalent -> `learning_intent: active-study`; set `priority: high` when the wording emphasizes priority.
+- "收藏", "以后可能学", "以后可能用得上" -> `learning_intent: future-reference`, `learning_state: saved`, `counts_as_progress: false`.
+- "完全没学过", "只是觉得可能有用" -> `learning_state: not-started`, `counts_as_progress: false`.
+- "泛读", "扫了一眼", "随便看看" -> `learning_intent: background-reading`, `learning_state: skimmed`, normally `counts_as_progress: false`.
+- "做了练习", "跑了例子", "写了 demo" -> `learning_state: practiced`, `counts_as_progress: true`.
+- "项目里用了", "工作里用了" -> `learning_state: applied`, `counts_as_progress: true`.
+- "验证过", "多次使用", "能稳定复现" -> `learning_state: validated`, `counts_as_progress: true`.
+
+Saved-only, not-started, and future-reference material may update `Saved For Later` or `Potential Wiki Targets`, but must not update `Recently Learned`, raise a tech page to `understood`, `applied`, or `validated`, or count as learning progress.
+
+If the signal is ambiguous, use `learning_intent: unknown`, `learning_state: unknown`, `counts_as_progress: false`, and list the ambiguity in the final report or monthly log.
+
+## URL / Link Ingest
+
+When an inbox item is a URL or contains a URL:
+
+1. During Inbox Capture, save only the URL, capture time, and user-provided context under `inbox/`; do not fetch, summarize, classify, or update `sources/` / `wiki/`.
+2. During explicit Ingest, treat the URL as `delivery: url`, then try to preserve the source evidence under `sources/`.
+3. If the content can be fetched or provided, create a bounded evidence package before writing compiled wiki pages. Do not default to storing the full linked content.
+4. The evidence package should preserve metadata, user context, AI core extraction, key supported claims, selected short excerpts or anchors, coverage, and fetch status.
+5. Treat `important`, `importent`, `非常重要`, `重要`, and equivalent user wording as importance markers. Important material should preserve core information carefully, especially chat records, decisions, reusable answers, and personal insights.
+6. If important material is short enough to archive without bloat, use a more detailed excerpt package or `archive_policy: full` when justified. If it is very large, do not store the full content by default; store a core extraction capped at 500 Chinese characters plus selected evidence anchors, message IDs, timestamps, or section references.
+7. Store full linked content only when it is short, uniquely important and not huge, unavailable elsewhere, user-provided, or explicitly requested by the user.
+8. If fetching fails or network access is unavailable, preserve the URL plus user context with `fetch_status: failed` or `needs-review`; do not invent article contents.
+9. Decide `content_form` and `source_type` from the fetched content, extracted evidence package, or explicit user context, not from the fact that it is a link.
+10. Route by primary subject:
+   - Chat logs or conversation exports -> `sources/chats/`, then `wiki/qa/`, `wiki/projects/`, `wiki/reflections/`, `wiki/tech/`, or other domains only if the content supports it.
+   - Articles, documentation, essays, newsletters, gists, or posts -> usually `sources/articles/`, then route by subject.
+   - Videos, podcasts, transcripts, screenshots, or media links -> `sources/media/`, then route by subject.
+   - User learning notes attached to a URL -> classify skill-progress intent/state first. Actual study notes may go to `sources/learning/`, then `wiki/learning/`, `wiki/tech/`, and `wiki/qa/` when applicable. Saved-for-later links are reference material, not learning progress; route by content form and, if useful, add them only to `Saved For Later`.
+   - Ambiguous or miscellaneous links -> `source_type: note` with `status: needs-review`.
+11. Multiple inbox fragments from the same external link may be grouped into one URL-backed source if their context is compatible.
+12. Link compiled pages back to the preserved source path and keep the original URL in source frontmatter.
+
+## Inbox Ingest Aggregation
+
+When explicitly ingesting `inbox/`, do not mechanically create one source per inbox fragment.
+
+Required process:
+
+1. Inventory all pending inbox files/fragments.
+2. Determine explicit source type when present.
+3. Group compatible fragments before writing `sources/`.
+4. Preserve fragment boundaries inside the grouped source with fragment IDs, capture timestamps, and original inbox paths.
+5. Only then update compiled `wiki/` pages from the grouped source evidence.
+
+Allowed grouping examples:
+
+- Multiple `Type: diary` / `日记` fragments for the same diary date -> one daily diary source.
+- Multiple `Type: learning` fragments about the same language/topic and compatible origin -> one learning source or append to an existing source for that topic/session.
+- Multiple fragments from the same external article/link -> one article source.
+
+Forbidden grouping:
+
+- Do not merge `diary` with `learning`.
+- Do not merge diary fragments with article, chat, project, or technical learning fragments.
+- Do not merge different explicit source types unless the user explicitly instructs that they are one source.
+- Do not merge unrelated learning topics just because they arrived in the same inbox batch.
+
+If grouping is uncertain, create separate source groups or preserve as `source_type: note` with `status: needs-review`.
+
 ## View Routing
 
 Use `wiki/首页.md` and `wiki/maps/` for Obsidian navigation, MOC pages, and visual browsing.
 
 These are view-layer pages, not source or domain truth. If a map needs factual detail, link to the owning domain page instead of duplicating the claim.
+
+## Link Routing
+
+Use path-qualified wikilinks when a short target could resolve to more than one file. This matters especially when a raw source and a compiled page share the same filename stem. Prefer linking to the compiled canonical page and keep source evidence as a plain path in `Sources`.
+
+## URL Query Policy
+
+Ordinary Query should not re-fetch live URLs. Query reads compiled wiki pages first, then local preserved sources when evidence or quotes matter. For URL-backed sources, use the archived source snapshot, extracted text, or URL metadata under `sources/`. Re-fetch a live URL only when the user explicitly asks to refresh/re-read the link, or when the local source is missing and the answer cannot be supported without the original content.
 
 ## Tie-Breaking
 
@@ -44,11 +143,24 @@ These are view-layer pages, not source or domain truth. If a map needs factual d
 3. If one note touches multiple domains, archive once in `sources/`, then update multiple compiled pages.
 4. If uncertain, create a `needs-review` note and list the ambiguity in the active monthly log under `wiki/logs/YYYY-MM.md`.
 
+## Inbox Capture
+
+Inbox Capture is the default for raw material when the user says `inbox`, `暂存`, or has not explicitly requested `ingest` / `入库` / `沉淀到 wiki`.
+
+Rules:
+
+- Write only to `inbox/`.
+- Do not create or update `sources/`.
+- Do not create or update compiled `wiki/` pages.
+- Do not run domain enrichment or citation fixing.
+- Do not clear the inbox item until a later explicit Ingest succeeds.
+- Routine capture does not need a monthly log entry; the later Ingest logs the archived source and knowledge updates.
+
 ## Mutating Preflight
 
 Before any ingest, schema change, migration sample, or query-derived update:
 
-1. State the workflow and whether it is read-only or mutating.
+1. State the workflow and whether it is read-only or mutating. For `inbox` / `暂存`, state `Inbox Capture`, not Ingest.
 2. State the source destination or confirm the source already exists.
 3. State the target domains and nearest `AGENTS.md` files to read.
 4. Check existing pages and aliases before creating new pages.

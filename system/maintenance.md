@@ -19,12 +19,14 @@ Run maintenance when:
 - `wiki/log.md` exists as the log index.
 - `wiki/logs/AGENTS.md` exists for monthly log rules.
 - The active monthly log under `wiki/logs/YYYY-MM.md` exists.
+- `system/schema.md` exists as the cross-domain type and status registry.
 - Each active domain has `README.md` and `AGENTS.md`.
 - Mutating workflow checklists exist under `system/evals/`.
 
 ### 2. Link Check
 
 - Internal wikilinks point to existing or intentionally planned pages.
+- Short wikilinks are not ambiguous across `sources/` and `wiki/` when a path-qualified link would be clearer.
 - New pages have at least one relevant link.
 - Important people/events/themes have backlinks.
 - Map pages link to canonical domain pages and avoid duplicating source summaries.
@@ -44,6 +46,7 @@ Run maintenance when:
 
 - Pages with `updated` older than the review horizon are inspected.
 - Active learning paths and projects have current status.
+- Example pages marked `status: example` are not treated as real user progress.
 
 ### 6. Output
 

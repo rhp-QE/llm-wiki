@@ -3,8 +3,10 @@ type: learning_path
 title: Go Learning
 domain: go
 status: example
+focus: unknown
+priority: unknown
 created: 2026-06-09
-updated: 2026-06-09
+updated: 2026-06-10
 ---
 
 # Go Learning
@@ -14,6 +16,10 @@ This is an example learning path. Replace or extend it after real Go learning no
 ## Goal
 
 Build reliable Go syntax and runtime intuition through small examples, Q&A, and review tasks.
+
+## Current Focus
+
+Example scaffold only. No real user focus has been ingested yet.
 
 ## Current Level
 
@@ -27,6 +33,10 @@ Example scaffold only. No real user progress has been ingested yet.
 - Interfaces
 - Concurrency
 - Tooling and testing
+
+## Saved For Later
+
+- None recorded.
 
 ## Recently Learned
 
