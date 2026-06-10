@@ -6,7 +6,7 @@ status: learning
 focus: unknown
 priority: unknown
 created: 2026-06-10
-updated: 2026-06-10
+updated: 2026-06-11
 ---
 
 # Agent Development Learning
@@ -21,7 +21,7 @@ The diary records a possible three-month learning direction for internal transfe
 
 ## Current Level
 
-Early intent only. The diary records motivation and a possible time-box, but not yet a detailed curriculum or applied project.
+Early intent only. The diary records motivation and a possible time-box, plus a concrete readiness gap around connected knowledge and interview storytelling, but not yet a detailed curriculum or applied project.
 
 ## Map
 
@@ -34,7 +34,11 @@ Early intent only. The diary records motivation and a possible time-box, but not
 
 ## Saved For Later
 
-- None recorded.
+- [[llm-wiki-pattern]] from Karpathy's LLM Wiki gist.
+- [[loop-engineering]] from the Feishu workflow/orchestration article.
+- [[octopus-style-agent]] from the Feishu distributed-agent architecture article.
+
+These are saved references only. They do not count as learning progress until the user studies, explains, practices, or applies them.
 
 ## Recently Learned
 
@@ -45,12 +49,14 @@ Early intent only. The diary records motivation and a possible time-box, but not
 - Target role is not yet specified.
 - Concrete 3-month learning plan is not yet specified.
 - Need one applied project to test whether the learning is transferable.
+- Interview readiness gap from 2026-06-10: knowledge is not yet connected into a network and the user does not yet feel ready to tell stories from it.
 
 ## Review Queue
 
 - Define what "Agent development" means for the desired internal transfer.
 - List the minimum capabilities needed for the target role.
 - Choose one project that demonstrates those capabilities.
+- Convert the Xiaoheihe interview decision into a reusable story-bank checklist: project background, technical depth, tradeoffs, measurable impact, and reflection.
 
 ## Practice Tasks
 
@@ -62,7 +68,13 @@ Early intent only. The diary records motivation and a possible time-box, but not
 - [[agent-development-internal-transfer]]
 - [[personal-llm-wiki]]
 - [[career-direction]]
+- [[llm-wiki-pattern]]
+- [[loop-engineering]]
+- [[octopus-style-agent]]
 
 ## Sources
 
 - `sources/diary/2026/2026-06-09-beijing-work-wiki-career.md`
+- `sources/diary/2026/2026-06-10-byte-ios-llm-wiki-xiaoheihe.md`
+- `sources/articles/2026-06-11-karpathy-llm-wiki.md`
+- `sources/articles/2026-06-11-agent-workflow-feishu-links.md`

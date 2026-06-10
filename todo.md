@@ -12,7 +12,7 @@ Task index for Obsidian: `wiki/tasks/任务.md`.
 
 ## Today
 
-- [ ] [[wiki/tasks/2026-06-10-prepare-xiaoheihe-interview|Prepare for the 2026-06-10 afternoon 小黑盒 client development interview]]
+None.
 
 ## Open
 
@@ -32,4 +32,4 @@ Task index for Obsidian: `wiki/tasks/任务.md`.
 
 ## Recently Done
 
-- None.
+- [x] Dropped [[wiki/tasks/2026-06-10-prepare-xiaoheihe-interview|Prepare for the 2026-06-10 afternoon 小黑盒 client development interview]] — user declined the second interview on 2026-06-10.
