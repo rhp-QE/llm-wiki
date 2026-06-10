@@ -1,7 +1,7 @@
 ---
 type: source
 source_type: user_correction
-title: Guo Ruojun name correction and profile details
+title: 郭若筠 name correction and profile details
 origin: user message
 created: 2026-06-10
 captured: 2026-06-10
@@ -14,7 +14,7 @@ tags:
   - games
 ---
 
-# Guo Ruojun name correction and profile details
+# 郭若筠 name correction and profile details
 
 ## Raw Material
 

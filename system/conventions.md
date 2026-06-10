@@ -22,6 +22,8 @@ These are cross-cutting rules for all wiki operations.
 
 - Use clear lowercase slugs for filenames when the title is English.
 - Use stable Chinese titles when the natural entity name is Chinese.
+- For Chinese person pages, use the stable Chinese name as the filename and keep pinyin, former typos, nicknames, or alternate spellings in frontmatter aliases.
+- Do not add mutable details such as workplace, location, school, or relationship to person filenames.
 - Keep aliases in frontmatter instead of creating duplicate pages.
 
 ## Status Values
