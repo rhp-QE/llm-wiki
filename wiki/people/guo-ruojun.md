@@ -1,37 +1,46 @@
 ---
 type: person
-title: 郭若均
+title: 郭若筠
 aliases:
+  - 郭若筠
+  - 郭若均
   - guo-ruojun
-relationship: friend or game contact
-importance: low
+relationship: friend, middle school classmate, high school classmate, and game teammate
+importance: medium
 status: active
 tags:
   - diary
   - games
+  - friend
+  - classmate
+  - teacher
 created: 2026-06-10
 updated: 2026-06-10
 ---
 
-# 郭若均
+# 郭若筠
 
 ## Executive Summary
 
-User-stated for 2026-06-09: after work, the user did not play Honor of Kings with 郭若均.
+郭若筠 is the user's friend, middle school classmate, high school classmate, and Honor of Kings game teammate.
 
-The relationship is marked as "friend or game contact" because the source only establishes a shared game context, not a broader relationship.
+User-stated profile details: female, born in 2000, currently working in Gucheng County, Hubei Province as a kindergarten teacher. The prior wiki spelling "郭若均" was a typo corrected by the user on 2026-06-10.
 
 ## Relationship
 
-Needs more evidence. Current source indicates a game-related contact.
+- Friend.
+- Middle school classmate.
+- High school classmate.
+- Honor of Kings game teammate.
 
 ## Key Interactions
 
-- 2026-06-09: user noted not playing Honor of Kings with 郭若均 after work.
+- 2026-06-09: user noted not playing Honor of Kings with 郭若筠 after work. The raw diary used the typo "郭若均".
+- 2026-06-10: user clarified the correct name and added relationship, birth year, work, game context, and the location meaning of 谷城.
 
 ## Influence on Me
 
-Needs evidence.
+Shared school history and ongoing game context make this an active personal relationship.
 
 ## Related Events
 
@@ -39,16 +48,21 @@ Needs evidence.
 
 ## Network
 
-Needs evidence.
+- School: middle school and high school classmate.
+- Games: Honor of Kings teammate.
+- Location/work: currently works as a kindergarten teacher in Gucheng County, Hubei Province.
 
 ## Timeline
 
+- 2000: born, user-stated.
 - 2026-06-09: appears in diary as someone the user might have played Honor of Kings with.
+- 2026-06-10: correct name, profile details, and Gucheng County location clarification added.
 
 ## Open Questions
 
-- What is 郭若均's relationship to the user: friend, colleague, classmate, or game teammate?
+None currently recorded.
 
 ## Sources
 
 - `sources/diary/2026/2026-06-09-beijing-work-wiki-career.md`
+- `sources/people/2026-06-10-guo-ruojun-name-correction.md`

@@ -4,7 +4,7 @@ title: 2026-06-09 Beijing work, personal wiki, and career anxiety
 date: 2026-06-09
 period:
 people:
-  - 郭若均
+  - 郭若筠
 themes:
   - career direction
   - sleep and routine
@@ -41,7 +41,7 @@ Source: `sources/diary/2026/2026-06-09-beijing-work-wiki-career.md`
 - Completed a first-frame optimization involving batch loading delay and remote first-frame rate.
 - Started using Codex at larger scale.
 - Left work around 21:45.
-- Did not play Honor of Kings with [[guo-ruojun|郭若均]] after work.
+- Did not play Honor of Kings with [[guo-ruojun|郭若筠]] after work. The raw diary used the typo "郭若均", corrected by the user on 2026-06-10.
 - Studied how to use a personal wiki and had Codex read other usage examples.
 - Produced an initial personal wiki shape: raw personal documents, skills that classify raw documents into wiki storage, and links back to prior knowledge.
 - Planned to wash up around 00:12, play two games, and sleep before the stated target.
@@ -58,7 +58,7 @@ This event connects three active threads:
 
 ## People Involved
 
-- [[guo-ruojun|郭若均]]: person the user considered playing Honor of Kings with after work.
+- [[guo-ruojun|郭若筠]]: friend, middle school classmate, high school classmate, and Honor of Kings game teammate.
 
 ## Consequences
 
@@ -93,3 +93,4 @@ This event connects three active threads:
 ## Sources
 
 - `sources/diary/2026/2026-06-09-beijing-work-wiki-career.md`
+- `sources/people/2026-06-10-guo-ruojun-name-correction.md`
