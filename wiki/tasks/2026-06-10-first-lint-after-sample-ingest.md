@@ -10,6 +10,8 @@ created: 2026-06-10
 updated: 2026-06-10
 completed:
 source: todo.md legacy item
+evidence_policy: task-page-only
+source_records: []
 linked_pages:
   - [[personal-llm-wiki]]
 tags:
@@ -40,6 +42,10 @@ Run lint after the next meaningful sample ingest.
 ## Source
 
 - `todo.md` legacy item.
+
+## Source Records
+
+- Evidence policy: task-page-only. No separate task evidence source.
 
 ## Linked Pages
 

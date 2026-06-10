@@ -26,6 +26,9 @@ learning_state:
 counts_as_progress:
 priority:
 progress_evidence:
+task_page:
+task_event:
+task_evidence_scope:
 tags: []
 ---
 
@@ -56,6 +59,15 @@ Use only for skill-tree or learning material. Do not apply to ordinary diary, pe
 - Counts as progress:
 - Priority:
 - Progress evidence:
+
+## Task Evidence
+
+Use only for `source_type: task_evidence`. Preserve source-worthy long-term task goals or execution updates under `sources/tasks/`, not lightweight task state.
+
+- Task page:
+- Task event:
+- Evidence scope:
+- Why source-worthy:
 
 ## Initial Notes
 

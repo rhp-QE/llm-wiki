@@ -13,6 +13,8 @@ created:
 updated:
 completed:
 source:
+evidence_policy: task-page-only
+source_records: []
 linked_pages: []
 tags: []
 ---
@@ -30,6 +32,8 @@ tags: []
 ## Checklist
 
 ## Source
+
+## Source Records
 
 ## Linked Pages
 

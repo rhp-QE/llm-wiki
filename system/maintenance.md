@@ -18,6 +18,7 @@ Run maintenance when:
 - `wiki/maps/地图.md` and `wiki/maps/AGENTS.md` exist for visual maps.
 - `wiki/log.md` exists as the log index.
 - `todo.md` exists as the active task dashboard.
+- `sources/tasks/README.md` exists for long-term task evidence.
 - `wiki/logs/AGENTS.md` exists for monthly log rules.
 - The active monthly log under `wiki/logs/YYYY-MM.md` exists.
 - `system/schema.md` exists as the cross-domain type and status registry.
@@ -37,6 +38,8 @@ Run maintenance when:
 - Compiled claims have sources or are marked as inference.
 - Source pages are not rewritten as polished wiki pages.
 - Ingested sources are marked or logged.
+- Source-worthy long-term task evidence is archived under `sources/tasks/` with `source_type: task_evidence`.
+- Lightweight task state and mechanical task status changes are not archived as sources.
 
 ### 4. Duplicate Check
 
@@ -48,6 +51,7 @@ Run maintenance when:
 - Pages with `updated` older than the review horizon are inspected.
 - Active learning paths and projects have current status.
 - Open task pages and `todo.md` dashboard entries are consistent.
+- Source-backed task pages have existing `source_records`; long-term task execution evidence is not trapped only in `wiki/tasks/`.
 - Canonical task pages are not being created for every tiny one-off action; lightweight dashboard-only todos remain in `todo.md` unless they need serious tracking.
 - Multi-step shared-goal todos are grouped under parent task checklists when appropriate.
 - Past-due, blocked, waiting, and stale tasks are visible for review.

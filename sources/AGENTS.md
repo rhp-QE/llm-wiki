@@ -14,7 +14,7 @@
 ```yaml
 ---
 type: source
-source_type: article | book | chat | diary | learning | media | note | idea | project | qa | reflection | other
+source_type: article | book | chat | diary | learning | media | note | idea | project | qa | reflection | task_evidence | other
 title:
 origin:
 created:
@@ -37,6 +37,9 @@ learning_state:
 counts_as_progress:
 priority:
 progress_evidence:
+task_page:
+task_event:
+task_evidence_scope:
 tags: []
 ---
 ```
@@ -99,6 +102,20 @@ Only route material to `sources/diary/` when an explicit `diary` / `日记` mark
 If the source type is ambiguous, use `source_type: note` and `status: needs-review` instead of guessing `diary`.
 
 Do not delete sources after ingest.
+
+## Task Evidence Sources
+
+Use `sources/tasks/` for source-worthy long-term task evidence. This is for durable goals and execution history, not for ordinary task state.
+
+Create or update a task evidence source when a task or task update records:
+
+- A long-term, ongoing, recurring, routine, habit-forming, important, or review-worthy goal.
+- A meaningful execution event: check-in with observation, milestone, substantial progress, repeated practice, missed routine with reason, blocker, unblock condition, failure, abandonment reason, completion outcome, or weekly/monthly review.
+- Project, learning, health, career, relationship, or life evidence that future agents should be able to rebuild from `sources/`.
+
+Do not create task evidence sources for lightweight one-off todos, dashboard reordering, simple status moves, typo fixes, priority changes without context, or daily done/not-done checkboxes with no user-provided observation.
+
+Preserve user-provided task/update wording verbatim in `## Raw Material`. For repeated updates on one long-term task, prefer grouped monthly records and preserve each update as a fragment with timestamp, origin, and original order.
 
 ## Skill Progress Metadata
 

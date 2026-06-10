@@ -8,6 +8,8 @@ Task Granularity Gate: lightweight one-off todos may stay here as plain checkbox
 
 Direct commands such as `给我记一个 todo` should apply the Task Granularity Gate, then add either a lightweight checkbox here or a linked canonical task item.
 
+Task Evidence Gate: long-term, recurring, habit-forming, important, review-worthy, or execution-history-bearing tasks should have source-backed evidence under `sources/tasks/`. Lightweight dashboard-only state stays only here.
+
 Task index for Obsidian: `wiki/tasks/任务.md`.
 
 ## Today

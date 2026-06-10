@@ -10,6 +10,9 @@ created: 2026-06-11
 updated: 2026-06-11
 completed:
 source: direct user request 2026-06-11
+evidence_policy: source-backed
+source_records:
+  - sources/tasks/2026/2026-06-11-maintain-early-sleep-early-wake-routine-created.md
 linked_pages:
   - [[sleep-and-routine]]
 tags:
@@ -53,6 +56,10 @@ Track actual sleep and wake times in diary or daily review entries, then use fut
 
 - Direct user request, 2026-06-11: "每天早睡早起 晚上1.30 前睡觉， 早上 8.30 前起床， 作为长期打开任务和 todo"
 
+## Source Records
+
+- `sources/tasks/2026/2026-06-11-maintain-early-sleep-early-wake-routine-created.md`
+
 ## Linked Pages
 
 - [[sleep-and-routine]]
@@ -60,3 +67,4 @@ Track actual sleep and wake times in diary or daily review entries, then use fut
 ## Log
 
 - 2026-06-11: Created as a long-term open health/routine task.
+- 2026-06-11: Marked source-backed under the Task Evidence Gate and linked the task creation evidence source.

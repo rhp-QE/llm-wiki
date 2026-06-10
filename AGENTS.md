@@ -46,7 +46,7 @@ Use the `llm-wiki` skill for:
 
 - `Ingest`: convert new materials into durable pages, links, and logs.
 - `Inbox Capture`: save raw fragments to `inbox/` only; do not create `sources/` or organize `wiki/` until explicit Ingest.
-- `Task Capture / Update`: create, update, complete, schedule, or review personal todos when the user says `todo`, `待办`, or asks to record a todo. Apply the Task Granularity Gate before creating canonical task pages.
+- `Task Capture / Update`: create, update, complete, schedule, or review personal todos when the user says `todo`, `待办`, or asks to record a todo. Apply the Task Granularity Gate before creating canonical task pages, then apply the Task Evidence Gate for long-term/source-worthy task history.
 - `Query`: answer from wiki pages first, then sources if needed.
 - `Lint`: check health, links, citations, schema, duplicates, and stale pages.
 - `Setup / Migration`: import historical material through inventory, mapping, sample validation, full import, derived rebuild, health check, and migration report.
@@ -58,9 +58,10 @@ Use the `llm-wiki` skill for:
 - Minimal frontmatter, archival notes, AI extraction, and compiled summaries may be added around the raw material, but they must be clearly separated from the verbatim raw payload.
 - If multiple inbox fragments are grouped into one source, preserve each fragment verbatim with a fragment ID, capture timestamp when available, original inbox path, and original order.
 - Direct lightweight todos or small task commands that are unrelated to durable personal growth, knowledge, projects, events, or sources are exempt from source archival; they stay in `todo.md` or the task system according to the Task Granularity Gate.
+- Long-term task evidence is source-worthy when it records durable goals, routines, project/learning execution, meaningful check-ins, blockers, failures, reviews, or completion outcomes. Preserve those task events under `sources/tasks/` with raw user wording before or alongside updating compiled task pages. Do not archive lightweight task state, dashboard reordering, or mechanical status changes as sources.
 - URL-only submissions are not the same as user-provided full text. Preserve the URL, capture time, and user context first; during Ingest, create the bounded URL evidence package unless the linked content is short, user-provided, explicitly requested for full archival, or otherwise allowed by the URL policy.
 - Treat `inbox` / `暂存` as capture-only commands. Explicit `ingest`, `入库`, `沉淀到 wiki`, or `处理 inbox` is required before writing `sources/` or compiled `wiki/` pages.
-- Treat `todo` / `待办` / `给我记一个 todo` as task capture commands. They write to the task system, not to `inbox/`; use the Task Granularity Gate to decide whether the item becomes a canonical `wiki/tasks/` page, a lightweight `todo.md` checkbox, a subtask on an existing task, or no task.
+- Treat `todo` / `待办` / `给我记一个 todo` as task capture commands. They write to the task system, not to `inbox/`; use the Task Granularity Gate to decide whether the item becomes a canonical `wiki/tasks/` page, a lightweight `todo.md` checkbox, a subtask on an existing task, or no task. For canonical tasks and task updates, use the Task Evidence Gate to decide whether a `sources/tasks/` source record is required.
 - Every non-trivial compiled claim should point to a source, log entry, or clearly marked inference.
 - Prefer `[[wikilink]]` style internal links in wiki content.
 - Update `wiki/index.md` when adding a new major page or domain.

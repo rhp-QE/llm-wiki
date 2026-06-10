@@ -10,6 +10,8 @@ created: 2026-06-10
 updated: 2026-06-10
 completed:
 source: sources/diary/2026/2026-06-09-beijing-work-wiki-career.md
+evidence_policy: task-page-only
+source_records: []
 linked_pages:
   - [[agent-development-internal-transfer]]
   - [[wiki/learning/agent-development/agent-development-learning|Agent Development Learning]]
@@ -40,6 +42,10 @@ Define target role, required capabilities, and a small applied project.
 ## Source
 
 - `sources/diary/2026/2026-06-09-beijing-work-wiki-career.md`
+
+## Source Records
+
+- Evidence policy: task-page-only. No separate task evidence source.
 
 ## Linked Pages
 

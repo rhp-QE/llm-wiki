@@ -68,7 +68,7 @@ Use Task Capture / Update when the user explicitly asks to create, remember, upd
 
 Rules:
 
-1. Direct todo commands write to the task system and update the root `todo.md` dashboard when the active view changes. Do not write to `inbox/` or `sources/` for a direct task unless the task is extracted from a source during Ingest.
+1. Direct todo commands write to the task system and update the root `todo.md` dashboard when the active view changes. Do not write to `inbox/`. Do not write to `sources/` for direct lightweight tasks; create or update `sources/tasks/` only when the Task Evidence Gate says the task goal or update is source-worthy long-term evidence.
 2. Apply the Task Granularity Gate before creating a canonical task page.
 3. Create a canonical task page at `wiki/tasks/{YYYY-MM-DD}-{slug}.md` using `system/templates/task.md` only for serious tracked tasks.
 4. Add or update a short dashboard item in `todo.md` under the appropriate section: Today, Next, Scheduled, Waiting / Blocked, Review Queue, or Recently Done. Canonical task items should link to task pages; lightweight one-off todos may be plain checkboxes.
@@ -76,9 +76,10 @@ Rules:
 6. Parse status, priority, area, due date, scheduled date, and related pages only from explicit user wording or obvious existing wiki context. Do not invent these fields.
 7. Resolve relative dates to absolute dates at capture time. If the current date matters, record the concrete date in the task page or dashboard note.
 8. Use `source: direct user request YYYY-MM-DD` for direct canonical task pages. Use a source path when the task is extracted during Ingest.
-9. If a similar open task exists, update it or ask before creating a duplicate.
-10. Completing, dropping, blocking, waiting, or rescheduling a canonical task must update both the task page and `todo.md`.
-11. Querying todos is read-only: read `todo.md` first, then relevant `wiki/tasks/` pages, then linked project or learning pages only when needed.
+9. Apply the Task Evidence Gate after granularity classification. If the task or update is source-worthy, preserve the raw user task/update text under `sources/tasks/` with `source_type: task_evidence` and link that path from the task page's `source_records`.
+10. If a similar open task exists, update it or ask before creating a duplicate.
+11. Completing, dropping, blocking, waiting, or rescheduling a canonical task must update both the task page and `todo.md`; also update task evidence only when the state change carries durable source-worthy context.
+12. Querying todos is read-only: read `todo.md` first, then relevant `wiki/tasks/` pages, then linked project or learning pages only when needed.
 
 Task Granularity Gate:
 
@@ -89,12 +90,22 @@ Task Granularity Gate:
 
 Prefer one parent task with a checklist over multiple tiny task pages when the items serve the same outcome. Split only when deadlines, owners, blocking states, domains, or user instructions differ.
 
+Task Evidence Gate:
+
+- Run this gate for every `canonical_task` and every update to an existing canonical task.
+- Create or update a `sources/tasks/` record when the user explicitly marks the task as long-term, ongoing, recurring, routine, habit-forming, important, or review-worthy.
+- Create or update a `sources/tasks/` record when the task/update records durable life, health, career, relationship, project, or learning evidence; a milestone; substantial progress; repeated practice; a missed routine with reason; a blocker or unblock condition; a failure; an abandonment reason; a completion outcome; or a weekly/monthly review.
+- Create or update a `sources/tasks/` record when the user asks to preserve the task/update as evidence, says `入库`, `沉淀`, `记录到 wiki`, or links the task to a project, learning path, theme, event, report, or source whose future reconstruction depends on task execution history.
+- Do not create task evidence sources for lightweight one-off todos, dashboard reordering, simple status moves, typo fixes, priority changes without context, or daily done/not-done checkboxes with no user-provided observation.
+- For repeated check-ins, group compatible updates by task and month before writing `sources/tasks/`; preserve each raw user update as a fragment with timestamp, origin, and original wording.
+
 Task vs other records:
 
 - Open questions remain open questions unless there is a concrete next action.
 - Project page `## Tasks` can hold project-local next actions, but serious tracked todos should also have `wiki/tasks/` pages.
 - Learning `Practice Tasks` are learning exercises; promote one to `wiki/tasks/` only if the user wants it tracked as a todo and it passes the Task Granularity Gate.
 - A saved link, future-reference item, or learning backlog item is not a todo unless the user says to do something with it.
+- Source-worthy long-term task evidence belongs in `sources/tasks/`; the task page remains compiled operational state and should link back to the source record.
 
 ## Skill / Learning Progress Classification
 

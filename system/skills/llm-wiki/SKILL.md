@@ -68,6 +68,7 @@ When using this skill:
 - Maintain `wiki/首页.md` and `wiki/maps/` when changes affect Obsidian navigation.
 - Prefer a small, reviewable update over a broad rewrite.
 - Use workflow gates and audit checklists for mutating work.
+- For task work, apply both the Task Granularity Gate and the Task Evidence Gate: serious tracked tasks live in `wiki/tasks/`, while source-worthy long-term task goals and execution history must also be preserved under `sources/tasks/`.
 - For bulk historical material, run inventory, mapping, sample import, validation, full import, derived rebuild, health check, and migration report. Do not skip the sample validation step.
 
 ## File Boundaries
@@ -146,7 +147,7 @@ Use before choosing a workflow.
 
 Override: if the user invokes `inbox`, `暂存`, or asks to put content in the temporary queue, use Inbox Capture. Do not infer Ingest from the presence of new material. Only explicit `ingest`, `入库`, `沉淀到 wiki`, `处理 inbox`, or equivalent wording should write `sources/` or organize compiled `wiki/` knowledge.
 
-Override: if the user invokes `todo`, `待办`, "给我记一个 todo", "记一个待办", or asks to complete, schedule, drop, block, or update a task, use Task Capture / Update. Do not route direct task capture through Inbox Capture or Ingest. Use the Task Granularity Gate to decide whether the item is a lightweight dashboard checkbox, a canonical task page, a subtask/checklist item, or not a task.
+Override: if the user invokes `todo`, `待办`, "给我记一个 todo", "记一个待办", or asks to complete, schedule, drop, block, or update a task, use Task Capture / Update. Do not route direct task capture through Inbox Capture or Ingest. Use the Task Granularity Gate to decide whether the item is a lightweight dashboard checkbox, a canonical task page, a subtask/checklist item, or not a task. Then use the Task Evidence Gate to decide whether a canonical task or task update also needs a `sources/tasks/` evidence record.
 
 ## Workflow: Inbox Capture
 
@@ -172,7 +173,8 @@ Use when the user asks to create, remember, list, update, complete, drop, block,
 - Read `wiki/tasks/AGENTS.md` and `system/evals/task-checklist.md`.
 - Direct todo commands write to the task system and update root `todo.md` when the active dashboard changes.
 - Apply the Task Granularity Gate before creating or updating a canonical `wiki/tasks/` page.
-- Do not create `sources/` or `inbox/` files for direct todo capture.
+- Do not create `inbox/` files for direct todo capture.
+- Do not create `sources/` files for lightweight direct todos. Create or update `sources/tasks/` only when the Task Evidence Gate says a direct task command or update is source-worthy long-term evidence.
 - Create task pages under `wiki/tasks/{YYYY-MM-DD}-{slug}.md` using `system/templates/task.md` only for items that pass the canonical-task threshold.
 - Use `source: direct user request YYYY-MM-DD` for direct task commands, or a source path when the task is extracted during Ingest.
 - A task must be actionable. If the user provides no task text, ask for the missing action instead of creating a placeholder.
@@ -180,6 +182,7 @@ Use when the user asks to create, remember, list, update, complete, drop, block,
 - Resolve relative dates such as today, tomorrow, or next week to absolute dates at capture time.
 - Keep `todo.md` as the active dashboard; canonical details live in task pages.
 - Task state changes must update both the task page and `todo.md`.
+- Task state changes update `sources/tasks/` only when the change includes durable source-worthy context, such as a milestone, check-in, blocker, failure, review, or completion outcome.
 - If a similar open task already exists, update it or ask before creating a duplicate.
 
 ### Task Granularity Gate
@@ -194,6 +197,22 @@ Classify every candidate todo before writing:
 When multiple todo items share the same goal and context, prefer one canonical task with a checklist over many separate task pages. If the user explicitly asks for every item to be tracked separately, or the items have different owners, deadlines, blocking states, or contexts, create separate canonical tasks.
 
 If classification is ambiguous and the wrong granularity would create clutter or lose important tracking, ask a short clarification. Otherwise prefer the lighter representation and note the assumption in the response.
+
+### Task Evidence Gate
+
+Run this gate for every canonical task and every update to an existing canonical task.
+
+Create or update `sources/tasks/` when the task or update is source-worthy:
+
+- The user explicitly says it is long-term, ongoing, recurring, a routine, a habit, important, or review-worthy.
+- It records durable life, health, career, relationship, project, or learning evidence.
+- It records a meaningful execution event: milestone reached, substantial progress, repeated practice, missed routine with reason, blocker discovered, unblock condition resolved, failure, abandonment reason, completion outcome, or weekly/monthly review.
+- It is linked to a project, learning path, theme, event, report, or source whose future reconstruction depends on execution history.
+- The user asks to `入库`, `沉淀`, `记录到 wiki`, `记为证据`, or otherwise preserve the task update as evidence.
+
+Do not create task evidence sources for lightweight one-off todos, dashboard reordering, simple status moves, typo fixes, priority changes without context, or daily done/not-done checkboxes with no user-provided observation.
+
+For repeated check-ins on one long-term task, group compatible updates by task and month when possible. Preserve each raw user update as a fragment with timestamp, origin, and original wording.
 
 ### Task Output
 
@@ -211,6 +230,7 @@ tasks_updated:
 lightweight_todos_created:
 subtasks_added:
 dashboard_updated:
+sources_created_or_used:
 links_added:
 maintenance_done:
 open_questions:
@@ -228,8 +248,8 @@ Use only when the user explicitly asks to process `inbox/`, says `ingest`, "沉�
    - Identify input files or pasted content.
    - For user-provided pasted text, uploaded file content, imported notes, diary, learning notes, chat excerpts, reflections, project notes, and other durable personal material, create or update a `sources/` record with the exact original payload before writing compiled `wiki/` pages. Preserve wording, line breaks, order, and fragment boundaries in `## Raw Material`; do not summarize, translate, normalize, clean up, omit, or rewrite inside that raw block.
    - If the original payload cannot be preserved, stop the Ingest or keep the material in `inbox/` / `sources/notes/` with `status: needs-review`; do not proceed as if source preservation succeeded.
-   - Direct lightweight todos or small task commands unrelated to durable personal growth, knowledge, projects, events, or sources are exempt from source archival and should stay in the task system according to the Task Granularity Gate.
-   - Determine source type: diary, learning, article, book, chat, media, note, idea, project, qa, reflection, or other.
+   - Direct lightweight todos or small task commands unrelated to durable personal growth, knowledge, projects, events, or sources are exempt from source archival and should stay in the task system according to the Task Granularity Gate. Source-worthy long-term task evidence is not exempt; preserve it under `sources/tasks/` when the Task Evidence Gate fires.
+   - Determine source type: diary, learning, article, book, chat, media, note, idea, project, qa, reflection, task_evidence, or other.
    - For skill-tree and learning-progress material, classify `learning_intent`, `learning_state`, `counts_as_progress`, `priority`, and `progress_evidence` before updating learning paths or tech mastery status. This applies only to skill/learning domains such as `sources/learning/`, `wiki/learning/`, and `wiki/tech/`; do not apply it to objective facts such as diary events, people, relationships, or factual life notes unless they explicitly record learning or practice.
    - Saved-only links, future-reference material, not-started topics, and skimmed material should not count as learning progress. They may be preserved as sources or added to a learning path's `Saved For Later`, but must not update `Recently Learned` or raise tech status to `understood`, `applied`, or `validated`.
    - For URL-backed material, treat the URL as `delivery: url`, not as the source type. A URL-only submission is not user-provided full text. During Ingest, create a bounded local evidence package before writing compiled wiki pages when possible: metadata, user context, AI core extraction, key supported claims, selected short excerpts or anchors, coverage, and fetch status. Do not store full linked content by default.

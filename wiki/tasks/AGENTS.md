@@ -2,7 +2,7 @@
 
 ## Contract
 
-Task pages are the canonical records for serious personal todos. `todo.md` is the active dashboard; `wiki/tasks/` stores durable task state, source, context, and links. Lightweight one-off todos may live only in `todo.md`.
+Task pages are the canonical records for serious personal todos. `todo.md` is the active dashboard; `wiki/tasks/` stores durable task state, source, context, and links. Lightweight one-off todos may live only in `todo.md`. Source-worthy long-term task evidence must also be preserved under `sources/tasks/` and linked from task pages.
 
 ## When To Use
 
@@ -16,13 +16,15 @@ Before creating a task page, apply the Task Granularity Gate below.
 
 1. Read `system/resolver.md` and `system/evals/task-checklist.md`.
 2. Apply the Task Granularity Gate.
-3. Check for similar open tasks before creating a new task.
-4. Create or update a canonical task page under `wiki/tasks/` only when the item passes the canonical-task threshold.
-5. For lightweight one-off todos, add a plain checkbox to `todo.md` and do not create a task page.
-6. For subtasks, update the parent task checklist or next step instead of creating another task page.
-7. Update `todo.md` so the active dashboard matches task state.
-8. Link related project, learning, event, theme, or source pages when the relationship is clear.
-9. Update the active monthly log under `wiki/logs/YYYY-MM.md`.
+3. Apply the Task Evidence Gate for every canonical task or canonical task update.
+4. Check for similar open tasks before creating a new task.
+5. Create or update a canonical task page under `wiki/tasks/` only when the item passes the canonical-task threshold.
+6. For source-worthy long-term task evidence, create or update a `sources/tasks/` record before or alongside the task page update and link it in `source_records`.
+7. For lightweight one-off todos, add a plain checkbox to `todo.md` and do not create a task page or task evidence source.
+8. For subtasks, update the parent task checklist or next step instead of creating another task page.
+9. Update `todo.md` so the active dashboard matches task state.
+10. Link related project, learning, event, theme, or source pages when the relationship is clear.
+11. Update the active monthly log under `wiki/logs/YYYY-MM.md`.
 
 ## Page Location
 
@@ -49,6 +51,8 @@ created:
 updated:
 completed:
 source:
+evidence_policy: none | task-page-only | source-backed
+source_records: []
 linked_pages: []
 tags: []
 ---
@@ -83,6 +87,8 @@ tags:
 
 ## Source
 
+## Source Records
+
 ## Linked Pages
 
 ## Log
@@ -103,12 +109,31 @@ If multiple todo items share one goal and context, prefer one canonical task wit
 
 If classification is ambiguous, prefer the lighter representation unless that would lose a deadline, dependency, important context, or future review value. Ask when the wrong granularity would be harmful.
 
+## Task Evidence Gate
+
+Run this gate after the Task Granularity Gate for every canonical task and every update to an existing canonical task.
+
+Create or update a `sources/tasks/` source record and set `evidence_policy: source-backed` when:
+
+- The user explicitly calls the task long-term, ongoing, recurring, routine, habit-forming, important, or review-worthy.
+- The task or update records durable life, health, career, relationship, project, or learning evidence.
+- The update records a meaningful execution event: check-in with observation, milestone, substantial progress, repeated practice, missed routine with reason, blocker, unblock condition, failure, abandonment reason, completion outcome, or weekly/monthly review.
+- The task is linked to a project, learning path, theme, event, report, or source whose future reconstruction depends on execution history.
+- The user asks to preserve the task/update as evidence, says `入库`, `沉淀`, `记录到 wiki`, or `记为证据`.
+
+Use `evidence_policy: task-page-only` when a canonical task is serious enough for `wiki/tasks/` but does not need a source record. Use `evidence_policy: none` only for examples or non-real operational placeholders.
+
+Do not create task evidence sources for lightweight one-off todos, dashboard reordering, simple status moves, typo fixes, priority changes without context, or daily done/not-done checkboxes with no user-provided observation.
+
+For repeated check-ins on the same long-term task, prefer one grouped monthly source under `sources/tasks/YYYY/` and preserve every raw update as a timestamped fragment.
+
 ## Dashboard Rules
 
 - `todo.md` should show active tasks only at dashboard level.
 - `wiki/tasks/任务.md` should link active task pages for Obsidian browsing.
 - Use checkbox bullets in `todo.md`. Link canonical tracked tasks to their task pages; lightweight one-off todos may remain plain checkboxes.
 - Keep details, evidence, and history in task pages, not in `todo.md`.
+- Keep rebuild-worthy task evidence in `sources/tasks/`, not only in task pages.
 - Done and dropped tasks should not remain in active dashboard sections.
 
 ## Anti-Patterns
@@ -120,3 +145,5 @@ If classification is ambiguous, prefer the lighter representation unless that wo
 - Do not convert every open question into a task.
 - Do not duplicate the same open task across multiple pages.
 - Do not let `todo.md` become the only copy of serious tracked tasks.
+- Do not let source-worthy long-term task evidence exist only inside `wiki/tasks/`.
+- Do not put lightweight task state into `sources/tasks/`.

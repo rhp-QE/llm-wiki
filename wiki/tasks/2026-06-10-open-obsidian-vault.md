@@ -10,6 +10,8 @@ created: 2026-06-10
 updated: 2026-06-10
 completed:
 source: todo.md legacy item
+evidence_policy: task-page-only
+source_records: []
 linked_pages:
   - [[wiki/首页|首页]]
 tags:
@@ -39,6 +41,10 @@ Open the preferred vault path in Obsidian and verify the graph/file filters.
 ## Source
 
 - `todo.md` legacy item.
+
+## Source Records
+
+- Evidence policy: task-page-only. No separate task evidence source.
 
 ## Linked Pages
 

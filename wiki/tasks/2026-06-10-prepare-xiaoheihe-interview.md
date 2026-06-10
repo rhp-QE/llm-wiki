@@ -10,6 +10,8 @@ created: 2026-06-10
 updated: 2026-06-11
 completed:
 source: sources/diary/2026/2026-06-09-beijing-work-wiki-career.md
+evidence_policy: task-page-only
+source_records: []
 linked_pages:
   - [[career-direction]]
   - [[wiki/events/2026-06-09-beijing-work-wiki-career|2026-06-09 Beijing work, personal wiki, and career anxiety]]
@@ -45,6 +47,10 @@ No active next step for this dropped task. If revived later, rebuild it as a sto
 
 - `sources/diary/2026/2026-06-09-beijing-work-wiki-career.md`
 - `sources/diary/2026/2026-06-10-byte-ios-llm-wiki-xiaoheihe.md`
+
+## Source Records
+
+- Evidence policy: task-page-only. No separate task evidence source.
 
 ## Linked Pages
 

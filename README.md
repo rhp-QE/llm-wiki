@@ -7,7 +7,7 @@ The core idea is simple:
 - `inbox/` receives low-friction notes and mobile drops.
 - `sources/` stores original materials as read-only evidence.
 - `wiki/` stores compiled knowledge pages that can be read, linked, queried, and maintained.
-- `todo.md` plus `wiki/tasks/` manage personal todos. Lightweight one-off todos can stay in `todo.md`; serious tracked tasks live under `wiki/tasks/`.
+- `todo.md` plus `wiki/tasks/` manage personal todos. Lightweight one-off todos can stay in `todo.md`; serious tracked tasks live under `wiki/tasks/`; source-worthy long-term task evidence lives under `sources/tasks/`.
 - `system/` stores the operating rules, templates, evals, and the local `llm-wiki` skill.
 
 Start here:
@@ -16,14 +16,14 @@ Start here:
 2. Later, when you want knowledge organization, ask the agent: `处理 inbox，按 llm-wiki ingest 入库。`
 3. Browse in Obsidian from `wiki/首页.md`.
 4. Query through `wiki/index.md`, then deep-read linked pages.
-5. Record concrete todos with `给我记一个 todo：...`; the agent applies the Task Granularity Gate, then updates `todo.md` and creates `wiki/tasks/` pages only for serious tracked tasks.
+5. Record concrete todos with `给我记一个 todo：...`; the agent applies the Task Granularity Gate, then updates `todo.md` and creates `wiki/tasks/` pages only for serious tracked tasks. For long-term/source-worthy tasks, it also applies the Task Evidence Gate and preserves evidence under `sources/tasks/`.
 6. Run lint periodically to check links, sources, duplicate entities, stale pages, task consistency, and map pages.
 
 Ingest is gated by `system/evals/ingest-checklist.md`: the agent should preserve sources, declare routing, check existing pages and aliases, follow domain schemas, fix citations, update links, and log the mutation. For user-provided non-task material, source preservation is a hard gate: the original payload must be saved verbatim in `sources/` before compiled `wiki/` pages are written.
 
 After an inbox item is ingested, the preserved copy lives under `sources/`; the processed file should be removed from `inbox/` so the inbox only contains unprocessed drops plus `README.md` and templates.
 
-`sources/` is the rebuild seed for future versions of the wiki. Pasted notes, imported files, diary, learning notes, chat excerpts, reflections, and other durable material must keep their exact raw wording, line breaks, order, and fragment boundaries in `## Raw Material`. Direct lightweight todos unrelated to durable personal growth or knowledge stay in the task system and do not need source archival.
+`sources/` is the rebuild seed for future versions of the wiki. Pasted notes, imported files, diary, learning notes, chat excerpts, reflections, and other durable material must keep their exact raw wording, line breaks, order, and fragment boundaries in `## Raw Material`. Direct lightweight todos unrelated to durable personal growth or knowledge stay in the task system and do not need source archival. Long-term task goals and meaningful execution history are different: preserve source-worthy task events under `sources/tasks/`.
 
 Important command split:
 
@@ -32,6 +32,8 @@ Important command split:
 - `ingest` / `入库` / `沉淀到 wiki` / `处理 inbox`: archive to `sources/`, update `wiki/`, run checks, then clear processed inbox files.
 
 Todo management is a first-class workflow. Canonical task records live under `wiki/tasks/`; root `todo.md` is the active dashboard. Direct task capture should not require Ingest. If a task comes from an ingested source, the task page should cite that source; if it comes from a direct command, use the direct user request as evidence. Do not create a blank task when the user only says "给我记一个 todo" without the action.
+
+Task Evidence Gate: after a task passes the Task Granularity Gate, decide whether it also belongs in `sources/tasks/`. Create or update a task evidence source when the user marks a task as long-term, recurring, routine, habit-forming, important, or review-worthy; when an update records a milestone, substantial progress, repeated practice, missed routine with reason, blocker, failure, abandonment reason, completion outcome, or weekly/monthly review; or when the execution history is needed to reconstruct a project, learning path, theme, event, or report. Do not create task evidence sources for lightweight one-off todos, dashboard reordering, simple status moves, typo fixes, priority changes without context, or daily done/not-done checkboxes with no user-provided observation.
 
 Task Granularity Gate: tiny one-off actions with no due date, no waiting/blocking state, no durable context, and no clear linked page should remain plain checkboxes in `todo.md`. Create `wiki/tasks/` pages only for serious tracked tasks: important, high priority, due/scheduled, multi-step, waiting/blocked, source-backed, review-worthy, report-worthy, or linked to a project, learning path, event, theme, source, or report. Multiple small todos with one shared goal should become a checklist under one parent task unless separate tracking is explicitly needed.
 

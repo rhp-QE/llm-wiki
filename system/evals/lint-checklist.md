@@ -19,6 +19,8 @@ Use this checklist during `llm-wiki Lint`.
 - [ ] `system/evals/task-checklist.md` exists.
 - [ ] `system/templates/ingest-plan.md` exists.
 - [ ] `system/templates/task.md` exists.
+- [ ] `system/templates/task-evidence-source.md` exists.
+- [ ] `sources/tasks/README.md` exists.
 - [ ] `wiki/tasks/README.md` and `wiki/tasks/AGENTS.md` exist.
 
 ## Workflow Gates
@@ -49,6 +51,8 @@ Use this checklist during `llm-wiki Lint`.
 - [ ] Query rules prefer local URL snapshots over repeated live fetches.
 - [ ] Skill-tree sources distinguish `active-study`, `future-reference`, `background-reading`, `review`, `archive-only`, or `unknown` intent when relevant.
 - [ ] Saved-for-later, not-started, and skimmed skill materials use `counts_as_progress: false` and are not listed as real learning progress.
+- [ ] Source-worthy long-term task evidence is preserved under `sources/tasks/` with `source_type: task_evidence`.
+- [ ] Lightweight task state, dashboard reordering, and mechanical status changes are not archived as sources.
 
 ## Schema
 
@@ -56,6 +60,8 @@ Use this checklist during `llm-wiki Lint`.
 - [ ] `type` matches the owning domain.
 - [ ] Status fields use values allowed by `system/schema.md` or the nearest domain `AGENTS.md`.
 - [ ] Task pages use valid task status, priority, area, source, and linked page fields.
+- [ ] Task pages use valid `evidence_policy` values: `none`, `task-page-only`, or `source-backed`.
+- [ ] Source-backed task pages list existing `source_records` under `sources/tasks/`.
 - [ ] Canonical `todo.md` dashboard entries link to task pages; lightweight one-off checkboxes are clearly dashboard-only or marked for migration.
 - [ ] Tiny one-off todos are not over-promoted into `wiki/tasks/`, and multi-step shared-goal todos are grouped under parent task checklists when appropriate.
 - [ ] Learning paths separate `Saved For Later` from `Recently Learned`.

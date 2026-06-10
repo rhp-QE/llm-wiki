@@ -39,6 +39,7 @@ Allowed source types:
 - `project`
 - `qa`
 - `reflection`
+- `task_evidence`
 - `other`
 
 Suggested source directories:
@@ -47,6 +48,7 @@ Suggested source directories:
 - `sources/chats/`: chat records, conversation exports, discussion excerpts
 - `sources/media/`: media links, transcripts, screenshots, podcasts, video notes
 - `sources/learning/`: user learning notes and study sessions
+- `sources/tasks/`: source-worthy long-term task goals, check-ins, milestones, failures, blockers, reviews, and completion outcomes
 - `sources/notes/`: ambiguous or miscellaneous material needing review
 
 Allowed source statuses:
@@ -79,10 +81,15 @@ Optional URL-backed source fields:
 - `counts_as_progress: true | false`
 - `priority: low | medium | high | unknown`
 - `progress_evidence: user-stated | source-note | exercise | project-use | repeated-use | assessment | inference | none`
+- `task_page`
+- `task_event: created | check-in | execution-log | milestone | missed | blocked | unblocked | review | completed | dropped`
+- `task_evidence_scope: goal | routine | habit | project | learning | life | review | other`
 
 Original payload preservation is a hard source gate. When a source comes from user-provided pasted text, uploaded file content, imported notes, inbox captures, diary, learning notes, chat excerpts, reflections, project notes, or other durable personal material, use `raw_preservation: verbatim` and preserve the exact payload in `## Raw Material` before compiled wiki updates. Preserve wording, line breaks, order, and fragment boundaries. Do not summarize, translate, normalize, clean up, omit, or rewrite inside the raw block. Minimal metadata, archival notes, AI extraction, and compiled summaries may appear outside the raw block.
 
 Direct lightweight todos or small task commands unrelated to durable personal growth, knowledge, projects, events, or sources are exempt from source archival and should remain in the task system.
+
+Long-term task evidence is the exception to the direct-task shortcut. If a task or task update is source-worthy under the Task Evidence Gate, create or update a `sources/tasks/` record with `source_type: task_evidence` before or alongside updating the compiled task page. This keeps durable task goals and execution history rebuildable from sources while keeping lightweight operational state out of `sources/`.
 
 A URL is an origin/delivery mechanism, not a source type and not a domain route. Classify URL-backed sources by their fetched or user-provided content. Do not assume a link is `tech`, `learning`, or `article` without inspecting the content or user context.
 
@@ -204,6 +211,8 @@ Task frontmatter should use:
 - `updated`
 - `completed`
 - `source`
+- `evidence_policy: none | task-page-only | source-backed`
+- `source_records: []`
 - `linked_pages: []`
 
 Rules:
@@ -213,6 +222,8 @@ Rules:
 - Do not invent priority, due date, or linked pages. Use `unknown`, blank fields, or `Needs review` when absent.
 - Resolve relative dates such as `今天`, `明天`, or `下周三` to absolute dates at capture time.
 - A task must have evidence: direct user request, an existing source path, or a linked wiki page that explains why the task exists.
+- Every canonical task must declare an `evidence_policy`. Use `task-page-only` for ordinary canonical tasks whose direct request or linked page is enough. Use `source-backed` when the Task Evidence Gate says the goal or execution history is durable source evidence. Use `none` only for example or placeholder-free operational pages that should not count as real personal evidence.
+- Source-backed tasks must list existing `sources/tasks/` paths in `source_records`. If the source-worthy raw user update cannot be preserved yet, do not pretend the task is fully sourced; mark the missing source under `Needs review` or the task log.
 - Open questions are not automatically tasks. Convert them only when there is a concrete action.
 - Saved links and learning backlog items are not tasks unless the user explicitly asks to do something with them.
 - Completion, cancellation, deferral, or priority changes must update both the task page and `todo.md`.
@@ -229,6 +240,27 @@ Before creating a canonical `wiki/tasks/` page, classify the candidate item:
 Multiple todos should map to one canonical task when they share the same goal, context, and review surface. Split them into separate canonical tasks only when they have different deadlines, owners, blocking states, domains, or the user explicitly asks for separate tracking.
 
 If the granularity is ambiguous, prefer the lighter representation unless that would lose a deadline, dependency, source-backed action, or important review context. Ask the user when the wrong granularity would be harmful.
+
+## Task Evidence Gate
+
+After the Task Granularity Gate classifies an item as `canonical_task` or `subtask`, decide whether the task event is source-worthy.
+
+Create or update a `sources/tasks/` record when any of these are true:
+
+- The user explicitly calls the task long-term, ongoing, recurring, routine, habit-forming, important, or something to review later.
+- The task records durable life, health, career, relationship, project, or learning evidence rather than a transient operational step.
+- The update is a meaningful execution sample: milestone reached, substantial progress, repeated practice, missed routine with reason, blocker discovered, unblock condition resolved, failure, abandonment reason, completion outcome, or weekly/monthly review.
+- The task is linked to a project, learning path, theme, event, report, or source and future agents would need the execution history to reconstruct what happened.
+- The user asks to `入库`, `沉淀`, `记录到 wiki`, `记为证据`, or otherwise preserve the task update as evidence.
+
+Do not create or update `sources/tasks/` for:
+
+- Lightweight one-off todos.
+- Mechanical status moves such as `open -> doing`, dashboard reordering, typo fixes, or priority changes with no durable context.
+- Daily checkboxes that only say done/not done with no user-provided raw observation, unless the task is explicitly configured to preserve sampled check-ins.
+- Agent guesses, inferred outcomes, or synthesized reviews that do not preserve user-provided evidence or cite existing source-backed records.
+
+For repeated check-ins on the same long-term task, prefer a monthly grouped source such as `sources/tasks/YYYY/YYYY-MM-{task-slug}.md` or a dated event source such as `sources/tasks/YYYY/YYYY-MM-DD-{task-slug}-{event}.md`. Preserve each user-provided update as a fragment with timestamp, origin, and original wording.
 
 ## Link Rules
 
@@ -248,5 +280,7 @@ Schema lint should check:
 - Skill-tree learning material records `learning_intent`, `learning_state`, and `counts_as_progress` when the source or page could otherwise be confused with real progress.
 - Saved-for-later or not-started material is not counted as `Recently Learned`, `applied`, or `validated`.
 - Task pages have valid task status, priority, area, evidence, and dashboard consistency with `todo.md`.
+- Source-backed long-term tasks have `evidence_policy: source-backed`, existing `source_records`, and no missing task evidence that should have been archived under `sources/tasks/`.
+- Lightweight todos and mechanical task state changes do not create source records.
 - Short wikilinks are not ambiguous across `sources/` and `wiki/`.
 - Example pages are clearly marked as examples and excluded from real progress claims.

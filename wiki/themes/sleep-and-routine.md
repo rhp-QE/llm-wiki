@@ -23,7 +23,7 @@ User-stated for 2026-06-10: woke at 10:00, worked and continued LLM-wiki work at
 
 User-stated for 2026-06-11: the stable long-term routine target is to sleep before 01:30 and wake before 08:30.
 
-Sources: `sources/diary/2026/2026-06-09-beijing-work-wiki-career.md`, `sources/diary/2026/2026-06-10-byte-ios-llm-wiki-xiaoheihe.md`
+Sources: `sources/diary/2026/2026-06-09-beijing-work-wiki-career.md`, `sources/diary/2026/2026-06-10-byte-ios-llm-wiki-xiaoheihe.md`, `sources/tasks/2026/2026-06-11-maintain-early-sleep-early-wake-routine-created.md`
 
 ## Current Understanding
 
@@ -68,3 +68,4 @@ This is an emerging theme. The user is tracking wake time and sleep targets. As 
 
 - `sources/diary/2026/2026-06-09-beijing-work-wiki-career.md`
 - `sources/diary/2026/2026-06-10-byte-ios-llm-wiki-xiaoheihe.md`
+- `sources/tasks/2026/2026-06-11-maintain-early-sleep-early-wake-routine-created.md`

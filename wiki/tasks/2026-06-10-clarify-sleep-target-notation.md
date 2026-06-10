@@ -10,6 +10,8 @@ created: 2026-06-10
 updated: 2026-06-11
 completed: 2026-06-11
 source: sources/diary/2026/2026-06-09-beijing-work-wiki-career.md
+evidence_policy: task-page-only
+source_records: []
 linked_pages:
   - [[sleep-and-routine]]
 tags:
@@ -42,6 +44,10 @@ Closed. Continue tracking the routine in [[wiki/tasks/2026-06-11-maintain-early-
 ## Source
 
 - `sources/diary/2026/2026-06-09-beijing-work-wiki-career.md`
+
+## Source Records
+
+- Evidence policy: task-page-only. No separate task evidence source.
 
 ## Linked Pages
 

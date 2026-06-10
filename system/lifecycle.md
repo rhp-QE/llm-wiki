@@ -76,7 +76,7 @@ Rules:
 
 - Canonical task records live under `wiki/tasks/`.
 - The root `todo.md` is the active dashboard. Canonical tracked items should link to task pages; lightweight one-off todos may remain plain checkboxes.
-- Direct todo commands do not create `sources/` or `inbox/` files. Use the direct user request as evidence.
+- Direct todo commands do not create `inbox/` files. Use the direct user request as task-page evidence for ordinary canonical tasks. For source-worthy long-term tasks and meaningful execution updates, create or update `sources/tasks/` according to the Task Evidence Gate.
 - Apply the Task Granularity Gate before creating a canonical task page.
 - Small one-step, one-off actions with no due date, no blocking/waiting state, no durable context, and no clear relationship to other wiki pages should remain lightweight checkboxes in `todo.md`.
 - Serious tracked tasks get canonical pages under `wiki/tasks/`.
@@ -86,6 +86,7 @@ Rules:
 - Do not invent priority, due date, project, or linked pages.
 - Task state changes must update both the task page and `todo.md`.
 - Learning practice tasks and project-local tasks can remain in their owning pages, but promote them to `wiki/tasks/` when the user wants serious todo tracking.
+- Long-term task goals, recurring routines, habit tracking, project/learning execution history, milestone outcomes, blockers, failures, and reviews can be source evidence. Preserve the user's raw task/update wording under `sources/tasks/` when the Task Evidence Gate fires; do not archive lightweight dashboard state.
 
 ### Ingest
 
@@ -96,7 +97,7 @@ Rules:
 - Preserve raw material under `sources/`.
 - For user-provided pasted text, uploaded file content, imported notes, diary, learning notes, chat excerpts, reflections, project notes, and other durable material, source preservation is a hard gate: create or update a source that contains the exact original payload before writing compiled `wiki/` pages.
 - The source `## Raw Material` block must preserve wording, line breaks, order, and fragment boundaries. Do not summarize, translate, normalize, clean up, omit, or rewrite inside that raw block.
-- Direct lightweight todos or small task commands unrelated to durable personal growth, knowledge, projects, events, or sources do not require source archival; they stay in `todo.md` or the task system.
+- Direct lightweight todos or small task commands unrelated to durable personal growth, knowledge, projects, events, or sources do not require source archival; they stay in `todo.md` or the task system. Source-worthy long-term task evidence belongs under `sources/tasks/` even when it entered through a direct task command rather than Ingest.
 - If the material came from `inbox/`, clear the processed inbox file after the source archive and wiki updates are verified.
 - For URL-backed material, treat the URL as delivery/origin, create a bounded local evidence package when possible, and classify by content form plus primary subject before routing. URL-only submissions are not full original text; do not store full linked content by default unless the URL policy allows it or the user explicitly asks for full archival.
 - For skill-tree material, classify learning intent and learning state before updating progress. Saved-for-later links, not-started topics, and skimmed material are not learning progress; only real study, practice, application, or validation should update learning progress or tech mastery.
@@ -121,6 +122,7 @@ Enrich with:
 - Aliases.
 - Open threads and review tasks.
 - Concrete tracked tasks.
+- Source-worthy long-term task evidence, when task execution history itself is durable evidence.
 
 ### Citation Fixing
 
@@ -146,6 +148,7 @@ Check:
 - Stale status.
 - Pages without source evidence.
 - Index pages that do not mention new durable pages.
+- Source-backed long-term tasks whose `source_records` are missing, broken, or stale.
 
 ### Report
 
