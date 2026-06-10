@@ -30,6 +30,7 @@ The installed bootstrap skill is intentionally shorter than the local workflow s
 - Do not ask the user to paste startup instructions. This skill is the startup instruction.
 - Before mutating the wiki, read the local operating files listed below.
 - Preserve raw material in `sources/` and compiled knowledge in `wiki/` only after explicit Ingest.
+- For user-provided pasted text, uploaded file content, imported notes, inbox captures, diary, learning notes, chat excerpts, reflections, project notes, and other durable material, source preservation is a hard verbatim gate: save the exact original payload under `sources/` before writing compiled `wiki/` pages.
 - Treat `inbox/` as a temporary capture queue: an `inbox` or `暂存` command writes only to `inbox/` and must not create `sources/` or compiled `wiki/` pages. After an inbox item is explicitly ingested and archived under `sources/`, remove the processed inbox file.
 - Treat `todo` / `待办` / `给我记一个 todo` as Task Capture / Update: route through the local Task Granularity Gate, write the task system rather than `inbox/`, and create `wiki/tasks/` pages only for serious tracked tasks.
 - Update the active monthly log under `wiki/logs/YYYY-MM.md` after meaningful mutations.
@@ -79,22 +80,25 @@ Use the local `system/resolver.md` as the source of truth.
 For new material:
 
 1. Preserve the raw note under `sources/` unless it is already archived.
-2. For skill-tree and learning-progress material, classify `learning_intent`, `learning_state`, `counts_as_progress`, `priority`, and `progress_evidence` before updating learning paths or tech mastery status. Do not apply these fields to objective facts such as diary events, people, relationships, or factual life notes unless the material explicitly records learning or practice.
-3. Saved-only links, future-reference material, not-started topics, and skimmed material should not count as learning progress. They may be preserved as sources or added to a learning path's `Saved For Later`, but must not update `Recently Learned` or raise tech status to `understood`, `applied`, or `validated`.
-4. Classify as `diary` only with an explicit `diary` / `日记` marker such as `Type: diary`, `source_type: diary`, a diary-marked title/filename, or direct user wording. Do not infer diary from emotions, daily routine, first-person style, or "today" alone.
-5. For `inbox/` inputs, inventory all pending fragments and group compatible fragments before writing `sources/`; do not create one source per fragment by default.
-6. Group only within compatible boundaries: same explicit source type, same natural date or topic, and compatible origin/context. Preserve fragment IDs, capture timestamps, and original inbox paths.
-7. Never merge different source types just because they arrived together. Keep `diary` and `learning` separate unless the user explicitly instructs otherwise.
-8. Read `system/evals/ingest-checklist.md`.
-9. Use `system/resolver.md` and nearest domain `AGENTS.md` files to choose target pages.
-10. Check existing pages and aliases before creating durable pages.
-11. For complex or multi-domain ingest, sketch the route with `system/templates/ingest-plan.md`.
-12. Enrich durable entities, relationships, timeline entries, concepts, Q&A, aliases, and review tasks.
-13. Fix citations enough that future agents can trace claims.
-14. If the input came from `inbox/`, remove the processed inbox file after the source archive and wiki updates are verified.
-15. Run the relevant maintenance checks and complete the ingest checklist.
-16. Update the active monthly log under `wiki/logs/YYYY-MM.md`.
-17. Return an auditable summary.
+2. For user-provided material, the source must preserve wording, line breaks, order, and fragment boundaries verbatim in `## Raw Material`; do not summarize, translate, normalize, clean up, omit, or rewrite inside that raw block.
+3. Direct lightweight todos or small task commands unrelated to durable personal growth, knowledge, projects, events, or sources are exempt from source archival and stay in the task system.
+4. URL-only submissions are not full original text. Save URL/context and create the local bounded evidence package unless full archival is justified or explicitly requested.
+5. For skill-tree and learning-progress material, classify `learning_intent`, `learning_state`, `counts_as_progress`, `priority`, and `progress_evidence` before updating learning paths or tech mastery status. Do not apply these fields to objective facts such as diary events, people, relationships, or factual life notes unless the material explicitly records learning or practice.
+6. Saved-only links, future-reference material, not-started topics, and skimmed material should not count as learning progress. They may be preserved as sources or added to a learning path's `Saved For Later`, but must not update `Recently Learned` or raise tech status to `understood`, `applied`, or `validated`.
+7. Classify as `diary` only with an explicit `diary` / `日记` marker such as `Type: diary`, `source_type: diary`, a diary-marked title/filename, or direct user wording. Do not infer diary from emotions, daily routine, first-person style, or "today" alone.
+8. For `inbox/` inputs, inventory all pending fragments and group compatible fragments before writing `sources/`; do not create one source per fragment by default.
+9. Group only within compatible boundaries: same explicit source type, same natural date or topic, and compatible origin/context. Preserve fragment IDs, capture timestamps, original inbox paths, and verbatim fragment bodies.
+10. Never merge different source types just because they arrived together. Keep `diary` and `learning` separate unless the user explicitly instructs otherwise.
+11. Read `system/evals/ingest-checklist.md`.
+12. Use `system/resolver.md` and nearest domain `AGENTS.md` files to choose target pages.
+13. Check existing pages and aliases before creating durable pages.
+14. For complex or multi-domain ingest, sketch the route with `system/templates/ingest-plan.md`.
+15. Enrich durable entities, relationships, timeline entries, concepts, Q&A, aliases, and review tasks.
+16. Fix citations enough that future agents can trace claims.
+17. If the input came from `inbox/`, remove the processed inbox file after the source archive and wiki updates are verified.
+18. Run the relevant maintenance checks and complete the ingest checklist.
+19. Update the active monthly log under `wiki/logs/YYYY-MM.md`.
+20. Return an auditable summary.
 
 ## Migration Minimum Bar
 

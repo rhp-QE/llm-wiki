@@ -35,7 +35,7 @@ For mutating workflows, also read the relevant audit checklist:
 
 The wiki has three layers:
 
-- `sources/`: original evidence. Do not rewrite source content except to add metadata or clear archival notes.
+- `sources/`: original evidence. Do not rewrite source content except to add metadata or clear archival notes. For user-provided material, `sources/` is the rebuild seed and must preserve the original payload verbatim after explicit Ingest.
 - `inbox/`: temporary capture queue. `inbox` / `暂存` commands write only here and do not trigger source archival or wiki knowledge organization.
 - `wiki/`: compiled knowledge. This is the durable middle layer consumed by people and agents.
 - `system/`: rules, templates, evals, and workflows. Do not mix operational rules into content pages unless the nearest domain `AGENTS.md` says so.
@@ -54,6 +54,11 @@ Use the `llm-wiki` skill for:
 ## Write Rules
 
 - Keep original material in `sources/` intact. `inbox/` is only a temporary capture queue; after an inbox item is ingested and archived under `sources/`, remove the processed inbox file so the queue is clear.
+- Hard source-preservation rule: for any user-provided pasted text, uploaded file content, imported note, diary, learning note, chat excerpt, reflection, project note, or other durable material, explicit Ingest must create or update a `sources/` file containing the original payload verbatim before compiled `wiki/` pages are written. The `## Raw Material` block must preserve wording, line breaks, order, and fragment boundaries; do not summarize, translate, normalize, clean up, omit, or rewrite inside that raw block.
+- Minimal frontmatter, archival notes, AI extraction, and compiled summaries may be added around the raw material, but they must be clearly separated from the verbatim raw payload.
+- If multiple inbox fragments are grouped into one source, preserve each fragment verbatim with a fragment ID, capture timestamp when available, original inbox path, and original order.
+- Direct lightweight todos or small task commands that are unrelated to durable personal growth, knowledge, projects, events, or sources are exempt from source archival; they stay in `todo.md` or the task system according to the Task Granularity Gate.
+- URL-only submissions are not the same as user-provided full text. Preserve the URL, capture time, and user context first; during Ingest, create the bounded URL evidence package unless the linked content is short, user-provided, explicitly requested for full archival, or otherwise allowed by the URL policy.
 - Treat `inbox` / `暂存` as capture-only commands. Explicit `ingest`, `入库`, `沉淀到 wiki`, or `处理 inbox` is required before writing `sources/` or compiled `wiki/` pages.
 - Treat `todo` / `待办` / `给我记一个 todo` as task capture commands. They write to the task system, not to `inbox/`; use the Task Granularity Gate to decide whether the item becomes a canonical `wiki/tasks/` page, a lightweight `todo.md` checkbox, a subtask on an existing task, or no task.
 - Every non-trivial compiled claim should point to a source, log entry, or clearly marked inference.

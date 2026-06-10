@@ -94,8 +94,11 @@ Ingest receives new material only after the user explicitly requests Ingest.
 Rules:
 
 - Preserve raw material under `sources/`.
+- For user-provided pasted text, uploaded file content, imported notes, diary, learning notes, chat excerpts, reflections, project notes, and other durable material, source preservation is a hard gate: create or update a source that contains the exact original payload before writing compiled `wiki/` pages.
+- The source `## Raw Material` block must preserve wording, line breaks, order, and fragment boundaries. Do not summarize, translate, normalize, clean up, omit, or rewrite inside that raw block.
+- Direct lightweight todos or small task commands unrelated to durable personal growth, knowledge, projects, events, or sources do not require source archival; they stay in `todo.md` or the task system.
 - If the material came from `inbox/`, clear the processed inbox file after the source archive and wiki updates are verified.
-- For URL-backed material, treat the URL as delivery/origin, create a bounded local evidence package when possible, and classify by content form plus primary subject before routing. Do not store full linked content by default.
+- For URL-backed material, treat the URL as delivery/origin, create a bounded local evidence package when possible, and classify by content form plus primary subject before routing. URL-only submissions are not full original text; do not store full linked content by default unless the URL policy allows it or the user explicitly asks for full archival.
 - For skill-tree material, classify learning intent and learning state before updating progress. Saved-for-later links, not-started topics, and skimmed material are not learning progress; only real study, practice, application, or validation should update learning progress or tech mastery.
 - Do not apply skill-progress fields to objective facts such as diary events, people, relationships, factual life notes, or ordinary project chronology unless the material explicitly records learning or practice.
 - For `inbox/` ingest, inventory and group compatible fragments before creating sources; do not create one source per fragment by default.

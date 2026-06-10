@@ -19,9 +19,11 @@ Start here:
 5. Record concrete todos with `给我记一个 todo：...`; the agent applies the Task Granularity Gate, then updates `todo.md` and creates `wiki/tasks/` pages only for serious tracked tasks.
 6. Run lint periodically to check links, sources, duplicate entities, stale pages, task consistency, and map pages.
 
-Ingest is gated by `system/evals/ingest-checklist.md`: the agent should preserve sources, declare routing, check existing pages and aliases, follow domain schemas, fix citations, update links, and log the mutation.
+Ingest is gated by `system/evals/ingest-checklist.md`: the agent should preserve sources, declare routing, check existing pages and aliases, follow domain schemas, fix citations, update links, and log the mutation. For user-provided non-task material, source preservation is a hard gate: the original payload must be saved verbatim in `sources/` before compiled `wiki/` pages are written.
 
 After an inbox item is ingested, the preserved copy lives under `sources/`; the processed file should be removed from `inbox/` so the inbox only contains unprocessed drops plus `README.md` and templates.
+
+`sources/` is the rebuild seed for future versions of the wiki. Pasted notes, imported files, diary, learning notes, chat excerpts, reflections, and other durable material must keep their exact raw wording, line breaks, order, and fragment boundaries in `## Raw Material`. Direct lightweight todos unrelated to durable personal growth or knowledge stay in the task system and do not need source archival.
 
 Important command split:
 
@@ -37,7 +39,7 @@ Diary classification is explicit: use `Type: diary`, `日记`, `diary` in the ti
 
 Inbox ingest aggregates before source creation. The agent should inventory pending fragments, group compatible fragments, then create or update sources. It should not blindly create one source per fragment. Do not merge different source types; diary and learning must stay separate unless explicitly instructed otherwise.
 
-URL capture is also shallow: during `inbox`, save only the URL, capture time, and any user context. During explicit Ingest, the agent should create a bounded evidence package when possible, classify by content form and primary subject, then route it. A link may be a chat record, article, documentation page, media transcript, project note, Q&A, reflection, or other source; it must not be treated as tech learning just because it is a link. `sources/` should not store full linked content by default; keep metadata, AI core extraction, key supported claims, selected short excerpts or anchors, coverage, and fetch status. If the user marks a link or chat as `important`, `importent`, `重要`, or `非常重要`, preserve core information carefully; if it is very large, use a 500 Chinese character core extraction plus evidence anchors instead of full archival. Later Query should use the preserved local evidence package first and should not re-fetch live URLs unless explicitly asked or local evidence is missing.
+URL capture is also shallow: during `inbox`, save only the URL, capture time, and any user context. During explicit Ingest, the agent should create a bounded evidence package when possible, classify by content form and primary subject, then route it. A link may be a chat record, article, documentation page, media transcript, project note, Q&A, reflection, or other source; it must not be treated as tech learning just because it is a link. A URL-only submission is not the full original linked text. `sources/` should not store full linked content by default; keep metadata, AI core extraction, key supported claims, selected short excerpts or anchors, coverage, and fetch status. If the user marks a link or chat as `important`, `importent`, `重要`, or `非常重要`, preserve core information carefully; if linked or fetched content is very large, use a 500 Chinese character core extraction plus evidence anchors instead of full archival. If the user pasted or uploaded the full content itself, preserve that user-provided payload verbatim. Later Query should use the preserved local evidence package first and should not re-fetch live URLs unless explicitly asked or local evidence is missing.
 
 Global Codex skill installed:
 

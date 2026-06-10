@@ -59,7 +59,7 @@ This skill operates a Markdown-first personal knowledge system inspired by LLM-w
 
 When using this skill:
 
-- Preserve raw material in `sources/` only after explicit Ingest. `inbox/` is temporary capture only; inbox capture must not create `sources/` or compiled `wiki/` pages. After an inbox file is explicitly ingested and archived under `sources/`, remove the processed inbox file.
+- Preserve raw material in `sources/` only after explicit Ingest. For user-provided material, this is a hard verbatim-preservation requirement: the source must contain the original payload exactly as provided before compiled `wiki/` pages are written. `inbox/` is temporary capture only; inbox capture must not create `sources/` or compiled `wiki/` pages. After an inbox file is explicitly ingested and archived under `sources/`, remove the processed inbox file.
 - Put compiled knowledge in `wiki/`.
 - Follow `system/lifecycle.md` to distinguish incremental work from stock setup/migration.
 - Use `system/schema.md` as the cross-domain type and status registry.
@@ -75,7 +75,7 @@ When using this skill:
 | Area | Role | Mutation policy |
 | --- | --- | --- |
 | `inbox/` | low-friction capture queue | must be cleared after ingest once the raw material is archived under `sources/` |
-| `sources/` | raw evidence | preserve content; add metadata only when useful |
+| `sources/` | raw evidence | preserve user-provided raw payload verbatim; add metadata only outside the raw block |
 | `wiki/` | compiled knowledge | update through domain schema |
 | `system/` | rules, templates, evals | update only for process or schema changes |
 
@@ -226,12 +226,15 @@ Use only when the user explicitly asks to process `inbox/`, says `ingest`, "沉�
 
 1. **Intake**
    - Identify input files or pasted content.
+   - For user-provided pasted text, uploaded file content, imported notes, diary, learning notes, chat excerpts, reflections, project notes, and other durable personal material, create or update a `sources/` record with the exact original payload before writing compiled `wiki/` pages. Preserve wording, line breaks, order, and fragment boundaries in `## Raw Material`; do not summarize, translate, normalize, clean up, omit, or rewrite inside that raw block.
+   - If the original payload cannot be preserved, stop the Ingest or keep the material in `inbox/` / `sources/notes/` with `status: needs-review`; do not proceed as if source preservation succeeded.
+   - Direct lightweight todos or small task commands unrelated to durable personal growth, knowledge, projects, events, or sources are exempt from source archival and should stay in the task system according to the Task Granularity Gate.
    - Determine source type: diary, learning, article, book, chat, media, note, idea, project, qa, reflection, or other.
    - For skill-tree and learning-progress material, classify `learning_intent`, `learning_state`, `counts_as_progress`, `priority`, and `progress_evidence` before updating learning paths or tech mastery status. This applies only to skill/learning domains such as `sources/learning/`, `wiki/learning/`, and `wiki/tech/`; do not apply it to objective facts such as diary events, people, relationships, or factual life notes unless they explicitly record learning or practice.
    - Saved-only links, future-reference material, not-started topics, and skimmed material should not count as learning progress. They may be preserved as sources or added to a learning path's `Saved For Later`, but must not update `Recently Learned` or raise tech status to `understood`, `applied`, or `validated`.
-   - For URL-backed material, treat the URL as `delivery: url`, not as the source type. During Ingest, create a bounded local evidence package before writing compiled wiki pages when possible: metadata, user context, AI core extraction, key supported claims, selected short excerpts or anchors, coverage, and fetch status. Do not store full linked content by default.
+   - For URL-backed material, treat the URL as `delivery: url`, not as the source type. A URL-only submission is not user-provided full text. During Ingest, create a bounded local evidence package before writing compiled wiki pages when possible: metadata, user context, AI core extraction, key supported claims, selected short excerpts or anchors, coverage, and fetch status. Do not store full linked content by default.
    - Treat `important`, `importent`, `非常重要`, `重要`, and equivalent wording as importance markers. Important material should preserve core information carefully, especially chat records, decisions, reusable answers, and personal insights.
-   - Store full linked content only when it is short, uniquely important and not huge, unavailable elsewhere, user-provided, or explicitly requested by the user. If important content is very large, do not store the full content by default; store a core extraction capped at 500 Chinese characters plus selected evidence anchors. If fetching fails, preserve the URL and user context with `fetch_status: failed` or `status: needs-review`.
+   - Store full linked content only when it is short, uniquely important and not huge, unavailable elsewhere, user-provided, or explicitly requested by the user. If important linked or fetched content is very large, do not store the full linked content by default; store a core extraction capped at 500 Chinese characters plus selected evidence anchors. If the user pasted or uploaded the full content itself, preserve that user-provided payload verbatim even if later AI extraction is bounded. If fetching fails, preserve the URL and user context with `fetch_status: failed` or `status: needs-review`.
    - Classify URL-backed material by content form and primary subject. A link may be a chat record, article, documentation page, media transcript, project note, Q&A, reflection, or other source; do not route it to `tech` or `learning` merely because it is a link.
    - Classify as `diary` only with an explicit `diary` / `日记` marker such as `Type: diary`, `source_type: diary`, a diary-marked title/filename, or direct user wording. Do not infer diary from emotions, daily routine, first-person style, or "today" alone.
    - If source type is unclear, preserve as `source_type: note` with `status: needs-review`; do not route ambiguous material to `sources/diary/`.
@@ -239,7 +242,7 @@ Use only when the user explicitly asks to process `inbox/`, says `ingest`, "沉�
    - Group only within compatible boundaries: same explicit source type, same natural date or topic, and compatible origin/context. Preserve each original fragment inside the grouped source with fragment IDs, timestamps, and original inbox paths.
    - Never merge different source types just because they arrived together. In particular, do not merge `diary` and `learning`; do not merge diary fragments with articles, chats, projects, or technical notes.
    - If grouping is ambiguous, keep separate source groups or use `source_type: note` with `status: needs-review`; do not guess a broad merge.
-   - Preserve the raw material under `sources/` unless it already lives there.
+   - Preserve the raw material under `sources/` unless it already lives there; for user-provided material this means verbatim preservation, not a paraphrase or extraction.
    - For `inbox/` inputs, archive the raw material into `sources/` first, then remove the processed inbox file after citation and maintenance checks pass.
    - Read `system/evals/ingest-checklist.md`.
 

@@ -7,6 +7,8 @@ Use this when an inbox item is a URL or a URL plus short user note. A URL is the
 type: source
 source_type: article | book | chat | learning | media | note | idea | project | qa | reflection | other
 delivery: url
+original_payload: url-only | user-provided | fetched | manual
+raw_preservation: evidence-package | verbatim | metadata-only
 content_form: article | chat | thread | documentation | gist | newsletter | video | podcast | transcript | post | other
 title:
 author:
@@ -41,9 +43,9 @@ Original URL:
 
 ## Evidence Package
 
-Do not paste the full linked content by default. Preserve source metadata, user context, AI core extraction, key supported claims, selected short excerpts or anchors, and fetch status. If fetching failed, record the failure and keep the URL plus user-provided context.
+Do not paste the full linked content by default. A URL-only submission is not the full original linked content. Preserve source metadata, user context, AI core extraction, key supported claims, selected short excerpts or anchors, and fetch status. If fetching failed, record the failure and keep the URL plus user-provided context.
 
-If the user marked the source as important (`important`, `importent`, `非常重要`, `重要`, or equivalent), preserve core information carefully. If the content is very large, keep `archive_policy: excerpted` and use `preservation_limit: core-extraction-500-zh-chars` instead of full text.
+If the user marked the source as important (`important`, `importent`, `非常重要`, `重要`, or equivalent), preserve core information carefully. If URL-linked or fetched content is very large, keep `archive_policy: excerpted` and use `preservation_limit: core-extraction-500-zh-chars` instead of full text. If the user pasted or uploaded the linked content itself, preserve that user-provided payload verbatim in `## Raw Material` or use `system/templates/source-note.md`.
 
 ## Content Form And Subject
 

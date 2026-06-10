@@ -62,6 +62,8 @@ Use `example` only for scaffold or demo sources that should not count as real us
 Optional URL-backed source fields:
 
 - `delivery: url`
+- `original_payload: user-provided | inbox | imported-file | url-only | fetched | manual`
+- `raw_preservation: verbatim | evidence-package | metadata-only`
 - `content_form: article | chat | thread | documentation | gist | newsletter | video | podcast | transcript | post | other`
 - `original_url`
 - `accessed`
@@ -78,11 +80,15 @@ Optional URL-backed source fields:
 - `priority: low | medium | high | unknown`
 - `progress_evidence: user-stated | source-note | exercise | project-use | repeated-use | assessment | inference | none`
 
+Original payload preservation is a hard source gate. When a source comes from user-provided pasted text, uploaded file content, imported notes, inbox captures, diary, learning notes, chat excerpts, reflections, project notes, or other durable personal material, use `raw_preservation: verbatim` and preserve the exact payload in `## Raw Material` before compiled wiki updates. Preserve wording, line breaks, order, and fragment boundaries. Do not summarize, translate, normalize, clean up, omit, or rewrite inside the raw block. Minimal metadata, archival notes, AI extraction, and compiled summaries may appear outside the raw block.
+
+Direct lightweight todos or small task commands unrelated to durable personal growth, knowledge, projects, events, or sources are exempt from source archival and should remain in the task system.
+
 A URL is an origin/delivery mechanism, not a source type and not a domain route. Classify URL-backed sources by their fetched or user-provided content. Do not assume a link is `tech`, `learning`, or `article` without inspecting the content or user context.
 
-URL-backed sources should not default to storing a full webpage. Prefer a bounded evidence package: metadata, user context, AI core extraction, key supported claims, selected short excerpts or anchors, and fetch status. Use `archive_policy: full` only when the content is short, uniquely important, unavailable elsewhere, user-provided, or explicitly requested by the user. Ordinary Query should use this local evidence package first to avoid repeated live fetches.
+URL-backed sources should not default to storing a full webpage. A URL-only submission has `original_payload: url-only`, not `raw_preservation: verbatim` for the linked page. Prefer a bounded evidence package: metadata, user context, AI core extraction, key supported claims, selected short excerpts or anchors, and fetch status. Use `archive_policy: full` only when the content is short, uniquely important, unavailable elsewhere, user-provided, or explicitly requested by the user. If the user pasted or uploaded the linked content itself, preserve that user-provided payload verbatim even if the fetched webpage would otherwise be excerpted. Ordinary Query should use this local evidence package first to avoid repeated live fetches.
 
-Importance markers such as `important`, `importent`, `非常重要`, `重要`, or equivalent user wording should set `importance: important` or `importance: very-important`. Important material should preserve the core information as carefully as possible, especially for chats and decisions. If the linked or pasted content is very large, do not store the full content by default; use `archive_policy: excerpted` and `preservation_limit: core-extraction-500-zh-chars` with selected evidence anchors.
+Importance markers such as `important`, `importent`, `非常重要`, `重要`, or equivalent user wording should set `importance: important` or `importance: very-important`. Important material should preserve the core information as carefully as possible, especially for chats and decisions. If URL-linked or fetched content is very large, do not store the full content by default; use `archive_policy: excerpted` and `preservation_limit: core-extraction-500-zh-chars` with selected evidence anchors. If the user pasted or uploaded the content itself, preserve that user-provided payload verbatim and put any bounded AI extraction outside `## Raw Material`.
 
 ## Skill Progress Schema
 

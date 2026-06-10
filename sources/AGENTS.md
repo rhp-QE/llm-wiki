@@ -5,8 +5,9 @@
 ## Contract
 
 - Preserve source fidelity.
+- For user-provided material, preserve the exact original payload verbatim in `## Raw Material`. This is a hard constraint for Ingest and migration, not a best effort.
 - Do not convert sources into polished summaries in place.
-- Add only minimal metadata needed for provenance, status, or ingestion.
+- Add only minimal metadata needed for provenance, status, or ingestion, and keep it outside the verbatim raw block.
 
 ## Recommended Frontmatter
 
@@ -21,6 +22,8 @@ captured:
 status: new | ingested | ignored | needs-review | example
 rating: 1-5
 delivery:
+original_payload:
+raw_preservation:
 content_form:
 original_url:
 accessed:
@@ -42,6 +45,9 @@ tags: []
 
 When a source is ingested:
 
+- Archive user-provided raw material before writing compiled pages.
+- Preserve wording, line breaks, order, and fragment boundaries inside `## Raw Material`.
+- Do not summarize, translate, normalize, clean up, omit, or rewrite inside the raw block.
 - Create or update compiled pages under `wiki/`.
 - Link compiled pages back to the source path.
 - Update source `status` when frontmatter exists.
@@ -54,10 +60,12 @@ A URL is an origin/delivery mechanism. It is not itself a source type and must n
 For URL-backed material:
 
 - Preserve `original_url`, `accessed`, and `fetch_status` when available.
+- A URL-only submission is not the full original linked content. Preserve the URL plus user context, then create a bounded evidence package unless full archival is justified by policy or explicitly requested.
+- If the user pasted or uploaded the linked article/chat/page content itself, preserve that user-provided payload verbatim under `## Raw Material`.
 - If fetching succeeds, preserve a bounded evidence package before compiled wiki updates. The package should include source metadata, user context, AI core extraction, key supported claims, selected short excerpts or anchors, coverage, and fetch status.
 - Do not store full linked content by default. Use `archive_policy: full` only for short, uniquely important, unavailable, user-provided, or explicitly requested material.
 - Treat `important`, `importent`, `非常重要`, `重要`, and equivalent user wording as importance markers. For important chat records, decisions, reusable answers, and personal insights, preserve the core information as carefully as possible.
-- If important material is very large, avoid full archival by default. Use `archive_policy: excerpted`, `importance: important` or `very-important`, and `preservation_limit: core-extraction-500-zh-chars`; keep the core extraction within 500 Chinese characters plus selected evidence anchors.
+- If important URL-linked or fetched material is very large, avoid full archival by default. Use `archive_policy: excerpted`, `importance: important` or `very-important`, and `preservation_limit: core-extraction-500-zh-chars`; keep the core extraction within 500 Chinese characters plus selected evidence anchors. If the user pasted or uploaded the content itself, preserve that user-provided payload verbatim and put any bounded AI extraction outside `## Raw Material`.
 - If fetching fails, preserve the URL and user context with `fetch_status: failed` and `status: needs-review`; do not invent the linked content.
 - Choose `source_type` and destination directory from content:
   - chat/conversation -> `sources/chats/`
@@ -82,6 +90,7 @@ Allowed grouping requires all of:
 Never merge different source types just because they arrived in the same inbox batch. Keep `diary` and `learning` separate. Keep diary separate from article, chat, project, and technical-note sources. If grouping is unclear, create separate source groups or use `source_type: note` with `status: needs-review`.
 
 Grouped source files should preserve each fragment with an ID and original path, for example `f001` from `inbox/...`.
+Each grouped fragment's raw content must remain verbatim; grouping may add headings and metadata, but must not rewrite fragment bodies.
 
 ## Diary Classification
 

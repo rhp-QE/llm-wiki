@@ -38,6 +38,19 @@ Use this file to decide which workflow and domain rules apply.
 
 Source type is based on content, not on delivery mechanism. A URL may point to an article, chat record, technical documentation, media transcript, project idea, Q&A, personal reflection, or another form. Do not classify a URL as `tech`, `learning`, or `article` merely because it is a URL.
 
+## Original Payload Preservation
+
+For explicit Ingest, original payload preservation is a hard gate before compiled wiki updates.
+
+Rules:
+
+1. If the user pasted text, uploaded file content, imported notes, diary, learning notes, chat excerpts, reflections, project notes, or other durable personal material, create or update a `sources/` file with `raw_preservation: verbatim`.
+2. Put the exact payload in `## Raw Material`, preserving wording, line breaks, order, and fragment boundaries. Do not summarize, translate, normalize, clean up, omit, or rewrite inside that raw block.
+3. Metadata, archival notes, AI extraction, and compiled summaries may be added outside `## Raw Material`.
+4. If the material came from `inbox/`, preserve each grouped fragment verbatim with a fragment ID, capture timestamp when available, original inbox path, and original order before removing processed inbox files.
+5. If the payload cannot be preserved, stop the ingest or keep a `sources/notes/` record with `status: needs-review`; do not update compiled pages as if preservation succeeded.
+6. Direct lightweight todos or small task commands unrelated to durable personal growth, knowledge, projects, events, or sources are exempt from source archival and should remain in `todo.md` or the task system.
+
 Do not infer `diary` from tone, emotion, first-person writing, daily routine, or words such as "today" alone. Model judgment should not decide whether a fragment is a diary.
 
 Classify material as `diary` only when an explicit marker is present:
@@ -114,12 +127,12 @@ If the signal is ambiguous, use `learning_intent: unknown`, `learning_state: unk
 When an inbox item is a URL or contains a URL:
 
 1. During Inbox Capture, save only the URL, capture time, and user-provided context under `inbox/`; do not fetch, summarize, classify, or update `sources/` / `wiki/`.
-2. During explicit Ingest, treat the URL as `delivery: url`, then try to preserve the source evidence under `sources/`.
+2. During explicit Ingest, treat the URL as `delivery: url`, then try to preserve the source evidence under `sources/`. A URL-only submission is not the full original article/chat/page; save the URL and user context, then create a bounded evidence package unless full archival is justified.
 3. If the content can be fetched or provided, create a bounded evidence package before writing compiled wiki pages. Do not default to storing the full linked content.
 4. The evidence package should preserve metadata, user context, AI core extraction, key supported claims, selected short excerpts or anchors, coverage, and fetch status.
 5. Treat `important`, `importent`, `非常重要`, `重要`, and equivalent user wording as importance markers. Important material should preserve core information carefully, especially chat records, decisions, reusable answers, and personal insights.
-6. If important material is short enough to archive without bloat, use a more detailed excerpt package or `archive_policy: full` when justified. If it is very large, do not store the full content by default; store a core extraction capped at 500 Chinese characters plus selected evidence anchors, message IDs, timestamps, or section references.
-7. Store full linked content only when it is short, uniquely important and not huge, unavailable elsewhere, user-provided, or explicitly requested by the user.
+6. If important URL-linked or fetched material is short enough to archive without bloat, use a more detailed excerpt package or `archive_policy: full` when justified. If URL-linked or fetched content is very large, do not store the full content by default; store a core extraction capped at 500 Chinese characters plus selected evidence anchors, message IDs, timestamps, or section references. If the user pasted or uploaded the content itself, preserve that user-provided payload verbatim and put any bounded AI extraction outside `## Raw Material`.
+7. Store full linked content only when it is short, uniquely important and not huge, unavailable elsewhere, user-provided, or explicitly requested by the user. If the user pasted or uploaded the linked content itself, preserve that user-provided payload verbatim under `## Raw Material`.
 8. If fetching fails or network access is unavailable, preserve the URL plus user context with `fetch_status: failed` or `needs-review`; do not invent article contents.
 9. Decide `content_form` and `source_type` from the fetched content, extracted evidence package, or explicit user context, not from the fact that it is a link.
 10. Route by primary subject:

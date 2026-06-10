@@ -9,6 +9,7 @@ This is an audit gate, not background reading. Each item must be satisfied, mark
 Do not finish an ingest unless these are true:
 
 - [ ] Raw material is preserved under `sources/`; `inbox/` is only acceptable as a temporary holding place when ingest stops before completion.
+- [ ] For user-provided non-task material, the original payload is preserved verbatim in `## Raw Material` before compiled `wiki/` pages are written.
 - [ ] Processed `inbox/` files are removed after their raw material is archived under `sources/`; only unprocessed drops, `README.md`, and templates remain in `inbox/`.
 - [ ] `system/resolver.md` was used to choose workflow and target domains.
 - [ ] The nearest target-domain `AGENTS.md` files were read before writing compiled pages.
@@ -25,6 +26,7 @@ Do not finish an ingest unless these are true:
 - [ ] URL-backed material is treated as `delivery: url`, not as a source type or automatic tech/learning signal.
 - [ ] For URL-backed material, a bounded evidence package was created when possible, or fetch failure was recorded with URL and user context.
 - [ ] Full linked content was not stored by default; any full archive has a reason such as short, uniquely important, unavailable elsewhere, user-provided, or explicitly requested.
+- [ ] URL-only submissions were not treated as if the user had provided the full linked text; URL, user context, fetch status, and bounded evidence package were preserved according to URL policy.
 - [ ] Importance markers such as `important`, `importent`, `非常重要`, or `重要` were preserved in source metadata and affected preservation depth.
 - [ ] Very large important content was not fully archived by default; core extraction is capped at 500 Chinese characters plus evidence anchors.
 - [ ] URL-backed material was classified by content form and primary subject before routing to source directory and wiki domains.
@@ -48,12 +50,17 @@ Use `system/templates/ingest-plan.md` for complex or multi-domain ingest before 
 ## Source Preservation
 
 - [ ] Source content is not rewritten into polished wiki prose.
+- [ ] User-provided source content is preserved exactly in `## Raw Material`, including wording, line breaks, order, and fragment boundaries.
+- [ ] No summarization, translation, normalization, cleanup, omission, or paraphrase replaced the verbatim raw payload.
 - [ ] Source frontmatter records source type, title, origin, created/captured date, status, and tags when useful.
+- [ ] Source frontmatter records `original_payload` and `raw_preservation` when useful.
 - [ ] URL-backed source frontmatter records `delivery`, `original_url`, `accessed`, and `fetch_status` when useful.
 - [ ] URL-backed source frontmatter records `archive_policy` and `coverage` when useful.
 - [ ] Important source frontmatter records `importance` and `preservation_limit` when useful.
-- [ ] If the source came from user text, the preserved source keeps the user's meaning and important phrasing.
+- [ ] If the source came from user text, uploaded content, imported notes, or inbox capture, the preserved source keeps the exact original payload, not merely the meaning or important phrasing.
 - [ ] If the source came from `inbox/`, the source file records the original inbox path and the inbox copy is cleared after verification.
+- [ ] If multiple inbox fragments were grouped, each fragment body remains verbatim and is labeled with fragment ID, capture timestamp when available, original inbox path, and original order.
+- [ ] Direct lightweight todos unrelated to durable personal growth, knowledge, projects, events, or sources were not forced into `sources/`; they were routed to the task system.
 - [ ] If a source is skipped, the reason is recorded in the report or log.
 
 ## Enrichment

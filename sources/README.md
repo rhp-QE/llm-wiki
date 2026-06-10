@@ -4,10 +4,12 @@ This directory stores raw materials and evidence.
 
 Rules:
 
-- Preserve original wording as much as possible.
+- Preserve user-provided original payloads verbatim in `## Raw Material`. This includes wording, line breaks, order, and fragment boundaries.
 - Treat source files as read-only after archival.
-- Add frontmatter only when useful for provenance.
+- Add frontmatter only when useful for provenance, and keep metadata outside the verbatim raw block.
 - Compiled conclusions belong in `wiki/`, not here.
+- Do not summarize, translate, normalize, clean up, omit, or rewrite inside `## Raw Material`.
+- Direct lightweight todos unrelated to durable personal growth, knowledge, projects, events, or sources do not need source files; route them to the task system.
 
 Suggested subdirectories:
 
