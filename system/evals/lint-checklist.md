@@ -16,7 +16,10 @@ Use this checklist during `llm-wiki Lint`.
 - [ ] `system/skills/llm-wiki/SKILL.md` exists.
 - [ ] `system/schema.md` exists.
 - [ ] `system/evals/ingest-checklist.md` exists.
+- [ ] `system/evals/task-checklist.md` exists.
 - [ ] `system/templates/ingest-plan.md` exists.
+- [ ] `system/templates/task.md` exists.
+- [ ] `wiki/tasks/README.md` and `wiki/tasks/AGENTS.md` exist.
 
 ## Workflow Gates
 
@@ -29,6 +32,7 @@ Use this checklist during `llm-wiki Lint`.
 
 - [ ] New pages have internal links.
 - [ ] Domain README files are discoverable from `wiki/index.md`.
+- [ ] Task domain and task dashboard are discoverable from `wiki/index.md`.
 - [ ] Obsidian maps are discoverable from `wiki/首页.md` and `wiki/index.md`.
 - [ ] Important aliases point to canonical pages.
 - [ ] No obvious broken path links.
@@ -51,6 +55,9 @@ Use this checklist during `llm-wiki Lint`.
 - [ ] Frontmatter exists on durable pages.
 - [ ] `type` matches the owning domain.
 - [ ] Status fields use values allowed by `system/schema.md` or the nearest domain `AGENTS.md`.
+- [ ] Task pages use valid task status, priority, area, source, and linked page fields.
+- [ ] Canonical `todo.md` dashboard entries link to task pages; lightweight one-off checkboxes are clearly dashboard-only or marked for migration.
+- [ ] Tiny one-off todos are not over-promoted into `wiki/tasks/`, and multi-step shared-goal todos are grouped under parent task checklists when appropriate.
 - [ ] Learning paths separate `Saved For Later` from `Recently Learned`.
 - [ ] Tech pages do not use `understood`, `applied`, or `validated` without source-backed mastery evidence.
 - [ ] Example pages marked `status: example` clearly say they are examples and are not counted as real personal progress.
@@ -61,4 +68,5 @@ Use this checklist during `llm-wiki Lint`.
 - [ ] Map pages act as navigation, not duplicate summaries.
 - [ ] The page is not a generic summary detached from the user.
 - [ ] Open questions are captured.
+- [ ] Open questions, saved references, learning practice tasks, and tracked todos are not conflated.
 - [ ] The active monthly log was updated.

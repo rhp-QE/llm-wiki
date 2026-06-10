@@ -7,6 +7,7 @@ Use this file to decide which workflow and domain rules apply.
 | Intent | Workflow | Read |
 | --- | --- | --- |
 | "inbox", "暂存", "先放 inbox", "先记下来", pasted material without explicit ingest wording | Inbox Capture | `inbox/README.md` |
+| "todo", "待办", "给我记一个 todo", "记一个待办", "添加任务", "完成任务", "关闭任务", "推迟任务" | Task Capture / Update with Task Granularity Gate | `wiki/tasks/AGENTS.md`, `system/evals/task-checklist.md` |
 | "处理 inbox", "入库", "ingest", "沉淀这个", "沉淀到 wiki", "记录到 wiki" | Ingest | `system/skills/llm-wiki/SKILL.md`, target domain `AGENTS.md` |
 | "分析我", "总结我", "复盘", "查一下我的 wiki" | Query | `wiki/index.md`, relevant pages |
 | "检查 wiki", "lint", "断链", "重复实体" | Lint | `system/maintenance.md`, `system/evals/lint-checklist.md` |
@@ -30,6 +31,7 @@ Use this file to decide which workflow and domain rules apply.
 | Reusable question and answer | `wiki/qa/` |
 | Principle, value, self-observation | `wiki/reflections/` |
 | Ongoing initiative with state | `wiki/projects/` |
+| Concrete todo, action item, reminder, next action, follow-up task | `wiki/tasks/` plus root `todo.md` |
 | Briefing, pulse, task report, migration report, health check output | `wiki/reports/` |
 
 ## Source Type Classification
@@ -46,6 +48,40 @@ Classify material as `diary` only when an explicit marker is present:
 - User wording such as "这是一篇日记" or "按日记处理"
 
 If a fragment lacks an explicit `diary` / `日记` marker, do not route it to `sources/diary/`. Use the explicit type if provided, otherwise preserve it as `source_type: note` with `status: needs-review` during Ingest and list the classification ambiguity in the final report.
+
+## Task / Todo Capture
+
+Use Task Capture / Update when the user explicitly asks to create, remember, update, complete, drop, block, wait on, schedule, or list a todo. This is a direct mutating workflow and does not require Ingest.
+
+Rules:
+
+1. Direct todo commands write to the task system and update the root `todo.md` dashboard when the active view changes. Do not write to `inbox/` or `sources/` for a direct task unless the task is extracted from a source during Ingest.
+2. Apply the Task Granularity Gate before creating a canonical task page.
+3. Create a canonical task page at `wiki/tasks/{YYYY-MM-DD}-{slug}.md` using `system/templates/task.md` only for serious tracked tasks.
+4. Add or update a short dashboard item in `todo.md` under the appropriate section: Today, Next, Scheduled, Waiting / Blocked, Review Queue, or Recently Done. Canonical task items should link to task pages; lightweight one-off todos may be plain checkboxes.
+5. If the user gives no actionable task text, ask for the task instead of creating a placeholder.
+6. Parse status, priority, area, due date, scheduled date, and related pages only from explicit user wording or obvious existing wiki context. Do not invent these fields.
+7. Resolve relative dates to absolute dates at capture time. If the current date matters, record the concrete date in the task page or dashboard note.
+8. Use `source: direct user request YYYY-MM-DD` for direct canonical task pages. Use a source path when the task is extracted during Ingest.
+9. If a similar open task exists, update it or ask before creating a duplicate.
+10. Completing, dropping, blocking, waiting, or rescheduling a canonical task must update both the task page and `todo.md`.
+11. Querying todos is read-only: read `todo.md` first, then relevant `wiki/tasks/` pages, then linked project or learning pages only when needed.
+
+Task Granularity Gate:
+
+- `lightweight_todo`: small, one-step, one-off action with no due/scheduled date, no blocking/waiting state, no durable context, and no clear linked page. Keep it as a plain checkbox in `todo.md`; do not create a task page.
+- `canonical_task`: serious tracked todo. Create/update a task page when the item is important, high priority, due/scheduled, multi-step, waiting/blocked, source-backed, report-worthy, review-worthy, or clearly linked to a project, learning path, event, theme, source, or report.
+- `subtask`: if several todo items share the same goal and context, create/update one parent canonical task and put the small actions in its checklist or next step.
+- `not_task`: vague ideas, open questions, saved links, references, and learning backlogs do not become todos unless the user asks for a concrete tracked action.
+
+Prefer one parent task with a checklist over multiple tiny task pages when the items serve the same outcome. Split only when deadlines, owners, blocking states, domains, or user instructions differ.
+
+Task vs other records:
+
+- Open questions remain open questions unless there is a concrete next action.
+- Project page `## Tasks` can hold project-local next actions, but serious tracked todos should also have `wiki/tasks/` pages.
+- Learning `Practice Tasks` are learning exercises; promote one to `wiki/tasks/` only if the user wants it tracked as a todo and it passes the Task Granularity Gate.
+- A saved link, future-reference item, or learning backlog item is not a todo unless the user says to do something with it.
 
 ## Skill / Learning Progress Classification
 
@@ -166,6 +202,8 @@ Before any ingest, schema change, migration sample, or query-derived update:
 4. Check existing pages and aliases before creating new pages.
 5. For complex or multi-domain ingest, use `system/templates/ingest-plan.md`.
 6. For ingest, complete `system/evals/ingest-checklist.md` before final response.
+
+For task capture or task update, read `wiki/tasks/AGENTS.md` and complete `system/evals/task-checklist.md` before final response.
 
 ## Incremental vs Stock
 

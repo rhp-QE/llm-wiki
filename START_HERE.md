@@ -2,7 +2,7 @@
 
 Use this file only as a fallback when the global `llm-wiki` Codex skill is not available.
 
-Normally, the global skill at `/root/.codex/skills/llm-wiki/SKILL.md` should bootstrap fresh sessions automatically when you mention `llm_wiki`, `inbox`, `暂存`, `处理 inbox`, `ingest`, `沉淀到 wiki`, or use shortcut prompts like `/wiki-inbox`, `/wiki-ingest`, `/wiki-query`, `/wiki-lint`, `/wiki-migrate`, or `/wiki-report`.
+Normally, the global skill at `/root/.codex/skills/llm-wiki/SKILL.md` should bootstrap fresh sessions automatically when you mention `llm_wiki`, `inbox`, `暂存`, `todo`, `待办`, `处理 inbox`, `ingest`, `沉淀到 wiki`, or use shortcut prompts like `/wiki-inbox`, `/wiki-todo`, `/wiki-ingest`, `/wiki-query`, `/wiki-lint`, `/wiki-migrate`, or `/wiki-report`.
 
 For Obsidian browsing or visual graph work, start from `wiki/首页.md` and `wiki/maps/地图.md`.
 
@@ -32,6 +32,7 @@ If the skill does not trigger, copy this into a new Codex session opened at `/ro
 之后根据我的请求选择：
 - Query：只读消费已有知识，不改文件
 - Inbox Capture：当我说 `inbox` / `暂存`，或只想先记录时，只写入 `inbox/`，不要写 `sources/`，不要整理 `wiki/`
+- Task Capture / Update：当我说 `todo` / `待办` / `给我记一个 todo`，或要求完成、推迟、关闭、阻塞、更新任务时，直接进入任务系统；不要走 `inbox`，也不需要 `ingest`。先应用 Task Granularity Gate：微小、一次性、无截止日期、无等待/阻塞、无长期上下文、无明确关联页面的 action，只放在根目录 `todo.md` 作为轻量 checkbox；重要、高优先级、有 due/scheduled、多步、等待/阻塞、有来源证据、需要复盘/报告、或关联项目/学习/事件/主题/source 的严肃任务，才创建或更新 `wiki/tasks/` canonical task page；同一目标下多个小 todo 应合并为一个父任务的 checklist，除非我明确要求分开追踪。如果我只说“给我记一个 todo”但没有任务内容，要追问，不要创建空任务。任务必须有状态、优先级、area、source；不要臆造 due date / priority / linked pages。相对日期要落成绝对日期。
 - Ingest：只有我明确说 `ingest` / `入库` / `沉淀到 wiki` / `处理 inbox` 时，才沉淀到 sources/ 和 wiki/；如果来源是 inbox，入库验证完成后清空已处理的 inbox 文件
 - 日记分类必须显式：只有 `Type: diary`、`source_type: diary`、标题/文件名含 `diary` / `日记`，或我明确说按日记处理时，才能归为日记。不要根据情绪、作息、第一人称或“今天”推断成日记。
 - Ingest 处理 inbox 时必须先归纳聚合片段，不要无脑一个片段一个 source；只合并同类型、同自然日期或主题、来源语境兼容的片段。不要把日记和 learning 合并。
@@ -40,7 +41,7 @@ If the skill does not trigger, copy this into a new Codex session opened at `/ro
 - Setup / Migration：迁移历史资料，必须先 inventory、mapping、小样本导入、样本验证，再全量导入
 - Report：生成 briefing、pulse、task report、migration report 等产物
 
-对于 Ingest，不要跳过 source 保存、路由声明、已有页面/aliases 检查、引用修复、维护检查和当月 `wiki/logs/YYYY-MM.md` 记录。对于 Inbox Capture，只写 `inbox/`。
+对于 Ingest，不要跳过 source 保存、路由声明、已有页面/aliases 检查、引用修复、维护检查和当月 `wiki/logs/YYYY-MM.md` 记录。对于 Task Capture / Update，要读取 `wiki/tasks/AGENTS.md` 和 `system/evals/task-checklist.md`。对于 Inbox Capture，只写 `inbox/`。
 ```
 
 ## Common Commands To Tell Codex
@@ -70,6 +71,16 @@ inbox
 
 ```text
 基于我的 llm_wiki，回答：{question}
+```
+
+### Todo
+
+```text
+给我记一个 todo：{action}
+```
+
+```text
+/wiki-todo 完成：{task}
 ```
 
 ### Lint

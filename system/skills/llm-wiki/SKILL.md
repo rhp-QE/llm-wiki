@@ -4,15 +4,20 @@ version: 1.1.0
 description: >
   Operate the user's local personal LLM-wiki. Use this whenever the user asks to
   ingest notes, process inbox files, summarize or query the personal wiki, update
-  knowledge pages, lint links/sources/schema, build a personal knowledge base, or
-  turn scattered notes into durable Markdown pages. Also use this for setup,
-  migration, sample import, full import, health checks, and wiki reports. This
-  skill owns Resolver, Inbox Capture, Query, Ingest, Enrichment, Citation
-  Fixing, Maintenance, Report, and Setup/Migration workflows for this
+  knowledge pages, manage personal todos, lint links/sources/schema, build a
+  personal knowledge base, or turn scattered notes into durable Markdown pages.
+  Also use this for setup, migration, sample import, full import, health checks,
+  and wiki reports. This skill owns Resolver, Inbox Capture, Task Capture /
+  Update, Query, Ingest, Enrichment, Citation Fixing, Maintenance, Report, and
+  Setup/Migration workflows for this
   repository.
 triggers:
   - "inbox"
   - "暂存"
+  - "todo"
+  - "待办"
+  - "给我记一个 todo"
+  - "记一个待办"
   - "处理 inbox"
   - "ingest"
   - "入库"
@@ -23,6 +28,13 @@ triggers:
   - "迁移旧笔记"
   - "初始化知识库"
   - "生成 wiki 报告"
+shortcuts:
+  - "/wiki-todo"
+  - "/wiki-ingest"
+  - "/wiki-query"
+  - "/wiki-lint"
+  - "/wiki-migrate"
+  - "/wiki-report"
 tools:
   - read_file
   - search
@@ -36,6 +48,7 @@ writes_to:
   - sources/
   - wiki/
   - system/
+  - todo.md
 ---
 
 # LLM Wiki Skill
@@ -94,7 +107,7 @@ Use for daily operation.
 ```text
 user input / cron trigger
   -> Resolver
-  -> inbox capture OR query OR ingest
+  -> inbox capture OR task capture/update OR query OR ingest
   -> enrichment
   -> citation fixing
   -> maintenance
@@ -126,11 +139,14 @@ Use before choosing a workflow.
 1. Read `system/resolver.md`.
 2. Determine whether the request is read-only, mutating, report-only, maintenance, or migration.
 3. If read-only, use Query and do not mutate files.
-4. If new material is present without explicit Ingest wording, use Inbox Capture.
-5. If many historical files or source systems are involved, use Setup/Migration.
-6. If scheduled, decide whether the output should be a report, an ingest, a lint, or a skipped run.
+4. If the user explicitly asks to create, update, complete, schedule, drop, block, or review a todo, use Task Capture / Update and apply the Task Granularity Gate before creating a canonical task page.
+5. If new material is present without explicit Ingest wording, use Inbox Capture.
+6. If many historical files or source systems are involved, use Setup/Migration.
+7. If scheduled, decide whether the output should be a report, an ingest, a lint, a task review, or a skipped run.
 
 Override: if the user invokes `inbox`, `暂存`, or asks to put content in the temporary queue, use Inbox Capture. Do not infer Ingest from the presence of new material. Only explicit `ingest`, `入库`, `沉淀到 wiki`, `处理 inbox`, or equivalent wording should write `sources/` or organize compiled `wiki/` knowledge.
+
+Override: if the user invokes `todo`, `待办`, "给我记一个 todo", "记一个待办", or asks to complete, schedule, drop, block, or update a task, use Task Capture / Update. Do not route direct task capture through Inbox Capture or Ingest. Use the Task Granularity Gate to decide whether the item is a lightweight dashboard checkbox, a canonical task page, a subtask/checklist item, or not a task.
 
 ## Workflow: Inbox Capture
 
@@ -146,6 +162,61 @@ Use when the user invokes `inbox`, `暂存`, asks to save material for later, or
 - Do not update the monthly log for routine capture; the later Ingest operation logs the archived source and wiki updates.
 - Preserve the user's raw wording with minimal metadata such as capture date, title, and source URL when available.
 - Leave the captured file in `inbox/` until the user explicitly calls Ingest.
+
+## Workflow: Task Capture / Update
+
+Use when the user asks to create, remember, list, update, complete, drop, block, wait, or schedule a todo.
+
+### Rules
+
+- Read `wiki/tasks/AGENTS.md` and `system/evals/task-checklist.md`.
+- Direct todo commands write to the task system and update root `todo.md` when the active dashboard changes.
+- Apply the Task Granularity Gate before creating or updating a canonical `wiki/tasks/` page.
+- Do not create `sources/` or `inbox/` files for direct todo capture.
+- Create task pages under `wiki/tasks/{YYYY-MM-DD}-{slug}.md` using `system/templates/task.md` only for items that pass the canonical-task threshold.
+- Use `source: direct user request YYYY-MM-DD` for direct task commands, or a source path when the task is extracted during Ingest.
+- A task must be actionable. If the user provides no task text, ask for the missing action instead of creating a placeholder.
+- Do not invent due date, priority, area, or linked pages.
+- Resolve relative dates such as today, tomorrow, or next week to absolute dates at capture time.
+- Keep `todo.md` as the active dashboard; canonical details live in task pages.
+- Task state changes must update both the task page and `todo.md`.
+- If a similar open task already exists, update it or ask before creating a duplicate.
+
+### Task Granularity Gate
+
+Classify every candidate todo before writing:
+
+- `lightweight_todo`: a small, one-step, one-off action with no explicit due date, no waiting/blocking state, no durable context, and no clear link to a project, learning path, event, theme, source, or report. Put it in `todo.md` as a plain checkbox. Do not create a `wiki/tasks/` page.
+- `canonical_task`: a serious tracked todo. Create or update a task page when any of these are true: the user marks it important or asks to track it seriously; it has a due/scheduled date; it may become waiting/blocked; it is multi-step; it needs history, context, or evidence; it links to a project, learning path, event, theme, source, or report; it is high priority; it is expected to appear in future reviews or task reports.
+- `subtask`: a small action that belongs to an existing or newly created canonical task. Add it to that task's `## Checklist` or `## Next Step` instead of creating a separate page. Keep one dashboard item for the parent task.
+- `not_task`: a vague idea, open question, saved link, reference, or learning backlog item without a concrete action. Do not create a task unless the user asks for a tracked action.
+
+When multiple todo items share the same goal and context, prefer one canonical task with a checklist over many separate task pages. If the user explicitly asks for every item to be tracked separately, or the items have different owners, deadlines, blocking states, or contexts, create separate canonical tasks.
+
+If classification is ambiguous and the wrong granularity would create clutter or lose important tracking, ask a short clarification. Otherwise prefer the lighter representation and note the assumption in the response.
+
+### Task Output
+
+Return:
+
+```text
+workflow:
+wiki_root:
+inputs:
+files_read:
+files_created:
+files_updated:
+tasks_created:
+tasks_updated:
+lightweight_todos_created:
+subtasks_added:
+dashboard_updated:
+links_added:
+maintenance_done:
+open_questions:
+needs_user_review:
+next_actions:
+```
 
 ## Workflow: Ingest
 
@@ -187,6 +258,7 @@ Use only when the user explicitly asks to process `inbox/`, says `ingest`, "沉�
    - Create or update compiled pages using templates.
    - Add `[[wikilink]]` relationships.
    - Update indexes and learning paths when relevant. For learning paths, route `future-reference`, `not-started`, and `saved` material to `Saved For Later`; route only real study, practice, application, or validation into `Recently Learned`, `Weak Spots`, `Review Queue`, or `Practice Tasks`.
+   - Apply the Task Granularity Gate before promoting extracted action items. Promote only serious tracked todos to `wiki/tasks/`; keep micro-actions as lightweight dashboard items or subtasks when appropriate.
    - Prefer updating existing pages over creating duplicate pages.
 
 5. **Citation fixing**
@@ -369,6 +441,8 @@ source_evidence:
 uncertainties:
 suggested_followups:
 ```
+
+Task runs should use the Task Output fields above.
 
 ## Anti-Patterns
 

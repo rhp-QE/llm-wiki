@@ -3,16 +3,18 @@ name: llm-wiki
 description: >
   Operate the user's personal LLM-wiki knowledge base. Use this skill whenever
   the user mentions llm_wiki, llm-wiki, personal wiki, knowledge base, inbox,
-  ingest, query my wiki, lint/check wiki, migrate old notes, Obsidian notes,
-  "沉淀到 wiki", "入库", "处理 inbox", "记录到我的知识库", or provides a new
+  todo, 待办, "给我记一个 todo", ingest, query my wiki, lint/check wiki,
+  migrate old notes, Obsidian notes, "沉淀到 wiki", "入库", "处理 inbox",
+  "记录到我的知识库", or provides a new
   learning note/diary/article/idea with an explicit ingest request. Plain
   `inbox` / `暂存` requests are capture-only. This skill bootstraps
   fresh Codex sessions by locating the wiki root, reading its local operating
-  files, and running Query, Ingest, Lint, Setup/Migration, or Report workflows.
+  files, and running Task Capture / Update, Query, Ingest, Lint,
+  Setup/Migration, or Report workflows.
   It also covers Obsidian browsing, graph, MOC, and visual map maintenance for
   this wiki.
-  Shortcut commands: /wiki-ingest, /wiki-query, /wiki-lint, /wiki-migrate,
-  /wiki-report.
+  Shortcut commands: /wiki-todo, /wiki-ingest, /wiki-query, /wiki-lint,
+  /wiki-migrate, /wiki-report.
 ---
 
 # LLM Wiki
@@ -29,6 +31,7 @@ The installed bootstrap skill is intentionally shorter than the local workflow s
 - Before mutating the wiki, read the local operating files listed below.
 - Preserve raw material in `sources/` and compiled knowledge in `wiki/` only after explicit Ingest.
 - Treat `inbox/` as a temporary capture queue: an `inbox` or `暂存` command writes only to `inbox/` and must not create `sources/` or compiled `wiki/` pages. After an inbox item is explicitly ingested and archived under `sources/`, remove the processed inbox file.
+- Treat `todo` / `待办` / `给我记一个 todo` as Task Capture / Update: route through the local Task Granularity Gate, write the task system rather than `inbox/`, and create `wiki/tasks/` pages only for serious tracked tasks.
 - Update the active monthly log under `wiki/logs/YYYY-MM.md` after meaningful mutations.
 - Keep `wiki/log.md` as the short log index.
 - For mutating work, run the relevant audit checklist under `system/evals/`.
@@ -56,6 +59,7 @@ When the skill triggers:
 Use the local `system/resolver.md` as the source of truth.
 
 - `/wiki-inbox` or `inbox`: capture new material only under `inbox/`; do not organize knowledge.
+- `/wiki-todo` or `todo`: create, update, complete, schedule, or review tasks through `todo.md` and `wiki/tasks/`, using the local Task Granularity Gate.
 - `/wiki-ingest`: process pasted content or `inbox/` as new material; clear processed inbox files after archiving them to `sources/`.
 - `/wiki-query`: answer from existing wiki only; read-only.
 - `/wiki-lint`: run health checks for links, citations, stale pages, duplicates, and schema.
@@ -64,6 +68,7 @@ Use the local `system/resolver.md` as the source of truth.
 
 - **Query**: user asks a question about existing wiki knowledge. Read-only.
 - **Inbox Capture**: user invokes `inbox`, `暂存`, or gives material without explicitly asking for Ingest. Write only to `inbox/`.
+- **Task Capture / Update**: user invokes `todo`, `待办`, "给我记一个 todo", or asks to complete, schedule, drop, block, or update a task. Read `wiki/tasks/AGENTS.md` and `system/evals/task-checklist.md`; use the local Task Granularity Gate to decide between a lightweight `todo.md` item, a canonical `wiki/tasks/` page, a subtask/checklist item, or no task.
 - **Ingest**: user explicitly asks to process `inbox/`, or says "ingest", "沉淀", "入库", "记录到 wiki".
 - **Lint**: user asks to check health, links, citations, stale pages, duplicates, or schema.
 - **Setup / Migration**: user wants to import historical notes, old Obsidian vaults, diaries, folders, or large batches. Must run inventory, mapping, sample import, sample validation, full import, rebuild, health check, and migration report.

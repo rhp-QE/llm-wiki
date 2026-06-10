@@ -14,7 +14,7 @@ Incremental work handles new user input, new notes, new links, scheduled checks,
 ```text
 user input / cron trigger
   -> Resolver
-  -> inbox capture OR query OR ingest
+  -> inbox capture OR task capture/update OR query OR ingest
   -> enrichment
   -> citation fixing
   -> maintenance
@@ -24,6 +24,7 @@ user input / cron trigger
 ### Entry Points
 
 - User input: pasted note, question, link, file, learning fragment, idea, diary entry.
+- User task input: `todo`, `待办`, "给我记一个 todo", task completion, task scheduling, or task review request.
 - Cron trigger: daily review, weekly lint, unread source review, pulse, task report.
 
 ### Resolver
@@ -32,11 +33,14 @@ Resolver decides the intent and route:
 
 - `query`: read-only answer from existing wiki.
 - `inbox capture`: save new material only to `inbox/` for later processing.
+- `task capture/update`: create, update, complete, schedule, or query tracked tasks.
 - `ingest`: receive and process new material.
 - `maintenance`: check or repair wiki health.
 - `report`: produce a consumable output from existing knowledge.
 
 The resolver should prefer read-only `query` when the user only asks a question. It should choose `inbox capture` when the user invokes `inbox`, `暂存`, or provides new material without explicitly asking for `ingest`, `入库`, or `沉淀到 wiki`. It should choose `ingest` only when the user explicitly asks to organize material into `sources/` and `wiki/`.
+
+It should choose `task capture/update` when the user explicitly asks to record or modify a todo. Task capture writes directly to the task system and should not be routed through `inbox/`.
 
 ### Inbox Capture
 
@@ -63,6 +67,25 @@ Rules:
 - Deep-read only the most relevant domain pages.
 - For URL-backed sources, use local preserved snapshots before considering any live URL fetch.
 - If the answer reveals missing knowledge, suggest an ingest or lint follow-up.
+
+### Task Capture / Update
+
+Task Capture / Update is for personal todo management. It distinguishes lightweight dashboard-only todos from serious tracked tasks.
+
+Rules:
+
+- Canonical task records live under `wiki/tasks/`.
+- The root `todo.md` is the active dashboard. Canonical tracked items should link to task pages; lightweight one-off todos may remain plain checkboxes.
+- Direct todo commands do not create `sources/` or `inbox/` files. Use the direct user request as evidence.
+- Apply the Task Granularity Gate before creating a canonical task page.
+- Small one-step, one-off actions with no due date, no blocking/waiting state, no durable context, and no clear relationship to other wiki pages should remain lightweight checkboxes in `todo.md`.
+- Serious tracked tasks get canonical pages under `wiki/tasks/`.
+- Multiple small actions that share one goal and context should usually become a checklist under one canonical task, not many task pages.
+- A task must be actionable. If no action is supplied, ask for clarification instead of creating a blank task.
+- Resolve relative due or scheduled dates to absolute dates when recording the task.
+- Do not invent priority, due date, project, or linked pages.
+- Task state changes must update both the task page and `todo.md`.
+- Learning practice tasks and project-local tasks can remain in their owning pages, but promote them to `wiki/tasks/` when the user wants serious todo tracking.
 
 ### Ingest
 
@@ -94,6 +117,7 @@ Enrich with:
 - Durable questions.
 - Aliases.
 - Open threads and review tasks.
+- Concrete tracked tasks.
 
 ### Citation Fixing
 
@@ -212,6 +236,7 @@ After full import, rebuild:
 - Alias tables.
 - Timeline pages.
 - Review queues.
+- Task dashboard and task index.
 - Summary pages.
 - Reports.
 
@@ -236,5 +261,5 @@ Output a report covering:
 
 ## Key Difference
 
-- Incremental scenario: daily query, ingest, enrichment, maintenance, and report.
+- Incremental scenario: daily inbox capture, task capture/update, query, ingest, enrichment, maintenance, and report.
 - Stock scenario: inventory, mapping, sample validation, full migration, derived rebuild, health check, and migration report.

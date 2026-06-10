@@ -7,6 +7,7 @@ The core idea is simple:
 - `inbox/` receives low-friction notes and mobile drops.
 - `sources/` stores original materials as read-only evidence.
 - `wiki/` stores compiled knowledge pages that can be read, linked, queried, and maintained.
+- `todo.md` plus `wiki/tasks/` manage personal todos. Lightweight one-off todos can stay in `todo.md`; serious tracked tasks live under `wiki/tasks/`.
 - `system/` stores the operating rules, templates, evals, and the local `llm-wiki` skill.
 
 Start here:
@@ -15,7 +16,8 @@ Start here:
 2. Later, when you want knowledge organization, ask the agent: `处理 inbox，按 llm-wiki ingest 入库。`
 3. Browse in Obsidian from `wiki/首页.md`.
 4. Query through `wiki/index.md`, then deep-read linked pages.
-5. Run lint periodically to check links, sources, duplicate entities, stale pages, and map pages.
+5. Record concrete todos with `给我记一个 todo：...`; the agent applies the Task Granularity Gate, then updates `todo.md` and creates `wiki/tasks/` pages only for serious tracked tasks.
+6. Run lint periodically to check links, sources, duplicate entities, stale pages, task consistency, and map pages.
 
 Ingest is gated by `system/evals/ingest-checklist.md`: the agent should preserve sources, declare routing, check existing pages and aliases, follow domain schemas, fix citations, update links, and log the mutation.
 
@@ -24,7 +26,12 @@ After an inbox item is ingested, the preserved copy lives under `sources/`; the 
 Important command split:
 
 - `inbox` / `暂存`: capture only; write to `inbox/` and stop.
+- `todo` / `待办` / `给我记一个 todo`: task capture; write to the task system, not `inbox/`. Lightweight one-off todos stay in `todo.md`; serious tracked tasks create or update `wiki/tasks/`.
 - `ingest` / `入库` / `沉淀到 wiki` / `处理 inbox`: archive to `sources/`, update `wiki/`, run checks, then clear processed inbox files.
+
+Todo management is a first-class workflow. Canonical task records live under `wiki/tasks/`; root `todo.md` is the active dashboard. Direct task capture should not require Ingest. If a task comes from an ingested source, the task page should cite that source; if it comes from a direct command, use the direct user request as evidence. Do not create a blank task when the user only says "给我记一个 todo" without the action.
+
+Task Granularity Gate: tiny one-off actions with no due date, no waiting/blocking state, no durable context, and no clear linked page should remain plain checkboxes in `todo.md`. Create `wiki/tasks/` pages only for serious tracked tasks: important, high priority, due/scheduled, multi-step, waiting/blocked, source-backed, review-worthy, report-worthy, or linked to a project, learning path, event, theme, source, or report. Multiple small todos with one shared goal should become a checklist under one parent task unless separate tracking is explicitly needed.
 
 Diary classification is explicit: use `Type: diary`, `日记`, `diary` in the title/filename, or direct wording like "按日记处理". Ingest must not infer diary from emotion, routine, first-person writing, or "today" alone.
 
@@ -77,6 +84,10 @@ Or use short command-style prompts:
 /wiki-report 生成本周学习报告
 ```
 
+```text
+/wiki-todo 给我记一个 todo：明天复盘 C++ 模板显式实例化
+```
+
 `START_HERE.md` remains as a manual fallback if the skill is unavailable in a future environment.
 
 The intended operating loop is:
@@ -88,7 +99,7 @@ Capture to inbox -> Explicit ingest -> Preserve source -> Enrich -> Link -> Cita
 For daily incremental use, the lifecycle is:
 
 ```text
-user input / cron -> Resolver -> inbox capture OR query OR ingest -> enrichment -> citation fixing -> maintenance -> report
+user input / cron -> Resolver -> inbox capture OR task capture/update OR query OR ingest -> enrichment -> citation fixing -> maintenance -> report
 ```
 
 For historical setup or migration, the lifecycle is:
@@ -98,6 +109,8 @@ setup / migration -> inventory -> mapping -> sample import -> validation -> full
 ```
 
 This wiki currently contains the scaffolding and operating system. It does not yet contain your full personal notes. Add raw materials under `inbox/` or `sources/`, then explicitly run the ingest workflow when you want knowledge organization. Processed inbox files are cleared after they are archived under `sources/`.
+
+For personal todo usage, start with `todo.md` or `wiki/tasks/任务.md`.
 
 ## Obsidian
 

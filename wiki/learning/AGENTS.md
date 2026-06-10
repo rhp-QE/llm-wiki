@@ -78,7 +78,7 @@ For new learning notes:
 3. Update the relevant `wiki/tech/` or domain concept page only when there is reusable technical knowledge.
 4. Add durable questions to `wiki/qa/`.
 5. Update this learning path. Saved-for-later material belongs in `Saved For Later`; only actual study, practice, application, or validation belongs in `Recently Learned`.
-6. Add review tasks to `todo.md` when useful.
+6. Add review tasks to `todo.md` when useful. Promote a practice item to `wiki/tasks/` only when the user wants it tracked as a serious todo.
 
 ## Anti-Patterns
 
@@ -86,3 +86,4 @@ For new learning notes:
 - Do not treat a saved link, not-started topic, or skimmed article as learning progress.
 - Do not apply learning progress fields to objective facts such as diary events, people, relationships, or ordinary life records.
 - Do not generate too many review tasks; focus on weak spots and high-value concepts.
+- Do not confuse learning exercises with tracked todos. Use `wiki/tasks/` only for practice work the user wants to execute and track.

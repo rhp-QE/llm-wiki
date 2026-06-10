@@ -140,6 +140,7 @@ Mapping examples:
 | `wiki/qa/` | `qa` |
 | `wiki/reflections/` | `reflection` |
 | `wiki/projects/` | `project` |
+| `wiki/tasks/` | `task`, `task_index` |
 | `wiki/reports/` | `report` |
 | `wiki/maps/` | `map`, `map_index` |
 | `wiki/logs/` | `monthly_log` |
@@ -169,12 +170,59 @@ Domain-specific status values:
 - Q&A: `answered`, `partial`, `open`, `example`
 - Reflections: `emerging`, `stable`, `challenged`, `needs-review`
 - Projects: `idea`, `active`, `paused`, `done`, `abandoned`
+- Tasks: `open`, `doing`, `waiting`, `scheduled`, `blocked`, `done`, `dropped`
+- Task indexes: `active`, `draft`, `retired`
 - Writing: `idea`, `draft`, `final`, `published`, `retired`
 - Reports: `draft`, `final`
 - Maps: `active`, `draft`, `retired`
 - Logs: `active`, `closed`
 
 Use `example` only for scaffold pages generated as demos. Example pages must explicitly say that they are not real personal progress.
+
+## Task Schema
+
+Use task fields for concrete personal todos and action items. A task is a commitment or action to track, not merely a source note, open question, saved link, or vague idea.
+
+Canonical task records live under `wiki/tasks/`. The root `todo.md` is the active dashboard. Serious tracked tasks should link to canonical task pages; lightweight one-off todos may live only as plain checkboxes in `todo.md`.
+
+Task frontmatter should use:
+
+- `type: task`
+- `title`
+- `status: open | doing | waiting | scheduled | blocked | done | dropped`
+- `priority: low | medium | high | unknown`
+- `area: life | learning | project | career | wiki | health | relationship | finance | other`
+- `due`
+- `scheduled`
+- `created`
+- `updated`
+- `completed`
+- `source`
+- `linked_pages: []`
+
+Rules:
+
+- A direct command such as `给我记一个 todo` creates or updates a task, not an inbox note and not an ingest.
+- Do not create an empty task when the user provides no action. Ask for the missing task text.
+- Do not invent priority, due date, or linked pages. Use `unknown`, blank fields, or `Needs review` when absent.
+- Resolve relative dates such as `今天`, `明天`, or `下周三` to absolute dates at capture time.
+- A task must have evidence: direct user request, an existing source path, or a linked wiki page that explains why the task exists.
+- Open questions are not automatically tasks. Convert them only when there is a concrete action.
+- Saved links and learning backlog items are not tasks unless the user explicitly asks to do something with them.
+- Completion, cancellation, deferral, or priority changes must update both the task page and `todo.md`.
+
+## Task Granularity Gate
+
+Before creating a canonical `wiki/tasks/` page, classify the candidate item:
+
+- `lightweight_todo`: small, one-step, one-off action; no explicit due/scheduled date; no waiting or blocked state; no durable context/history; no clear relationship to a project, learning path, event, theme, source, or report. Store as a plain checkbox in `todo.md` and do not create a task page.
+- `canonical_task`: serious tracked todo. Create or update a task page when the item is important, high priority, due/scheduled, multi-step, waiting/blocked, source-backed, review-worthy, report-worthy, or linked to a project, learning path, event, theme, source, or report.
+- `subtask`: small action that belongs to a larger tracked outcome. Add it to the parent task's checklist or next step instead of creating a separate task page.
+- `not_task`: vague idea, open question, saved link, reference, or learning backlog item without a concrete action.
+
+Multiple todos should map to one canonical task when they share the same goal, context, and review surface. Split them into separate canonical tasks only when they have different deadlines, owners, blocking states, domains, or the user explicitly asks for separate tracking.
+
+If the granularity is ambiguous, prefer the lighter representation unless that would lose a deadline, dependency, source-backed action, or important review context. Ask the user when the wrong granularity would be harmful.
 
 ## Link Rules
 
@@ -193,5 +241,6 @@ Schema lint should check:
 - `status` is allowed by this registry or the nearest domain `AGENTS.md`.
 - Skill-tree learning material records `learning_intent`, `learning_state`, and `counts_as_progress` when the source or page could otherwise be confused with real progress.
 - Saved-for-later or not-started material is not counted as `Recently Learned`, `applied`, or `validated`.
+- Task pages have valid task status, priority, area, evidence, and dashboard consistency with `todo.md`.
 - Short wikilinks are not ambiguous across `sources/` and `wiki/`.
 - Example pages are clearly marked as examples and excluded from real progress claims.

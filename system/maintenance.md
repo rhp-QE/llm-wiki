@@ -17,6 +17,7 @@ Run maintenance when:
 - `wiki/首页.md` exists for Obsidian browsing.
 - `wiki/maps/地图.md` and `wiki/maps/AGENTS.md` exist for visual maps.
 - `wiki/log.md` exists as the log index.
+- `todo.md` exists as the active task dashboard.
 - `wiki/logs/AGENTS.md` exists for monthly log rules.
 - The active monthly log under `wiki/logs/YYYY-MM.md` exists.
 - `system/schema.md` exists as the cross-domain type and status registry.
@@ -46,6 +47,10 @@ Run maintenance when:
 
 - Pages with `updated` older than the review horizon are inspected.
 - Active learning paths and projects have current status.
+- Open task pages and `todo.md` dashboard entries are consistent.
+- Canonical task pages are not being created for every tiny one-off action; lightweight dashboard-only todos remain in `todo.md` unless they need serious tracking.
+- Multi-step shared-goal todos are grouped under parent task checklists when appropriate.
+- Past-due, blocked, waiting, and stale tasks are visible for review.
 - Example pages marked `status: example` are not treated as real user progress.
 
 ### 6. Output
@@ -81,6 +86,7 @@ After migration or large ingest, rebuild:
 - Alias notes or alias frontmatter.
 - Timeline pages when event volume justifies them.
 - Review queues in `wiki/learning/`.
+- Task pages under `wiki/tasks/` and the root `todo.md` dashboard.
 - Reports under `wiki/reports/`.
 
 Log every rebuild in the active monthly log under `wiki/logs/YYYY-MM.md`.

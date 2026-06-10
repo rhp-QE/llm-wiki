@@ -27,6 +27,7 @@ For Obsidian browsing, graph, MOC, or visual navigation tasks, also read:
 For mutating workflows, also read the relevant audit checklist:
 
 - Ingest or query-derived update: `system/evals/ingest-checklist.md`
+- Task capture or task update: `system/evals/task-checklist.md`
 - Lint or health check: `system/evals/lint-checklist.md`
 - Migration or batch import: `system/lifecycle.md` plus `system/templates/migration-report.md`
 
@@ -45,6 +46,7 @@ Use the `llm-wiki` skill for:
 
 - `Ingest`: convert new materials into durable pages, links, and logs.
 - `Inbox Capture`: save raw fragments to `inbox/` only; do not create `sources/` or organize `wiki/` until explicit Ingest.
+- `Task Capture / Update`: create, update, complete, schedule, or review personal todos when the user says `todo`, `待办`, or asks to record a todo. Apply the Task Granularity Gate before creating canonical task pages.
 - `Query`: answer from wiki pages first, then sources if needed.
 - `Lint`: check health, links, citations, schema, duplicates, and stale pages.
 - `Setup / Migration`: import historical material through inventory, mapping, sample validation, full import, derived rebuild, health check, and migration report.
@@ -53,11 +55,12 @@ Use the `llm-wiki` skill for:
 
 - Keep original material in `sources/` intact. `inbox/` is only a temporary capture queue; after an inbox item is ingested and archived under `sources/`, remove the processed inbox file so the queue is clear.
 - Treat `inbox` / `暂存` as capture-only commands. Explicit `ingest`, `入库`, `沉淀到 wiki`, or `处理 inbox` is required before writing `sources/` or compiled `wiki/` pages.
+- Treat `todo` / `待办` / `给我记一个 todo` as task capture commands. They write to the task system, not to `inbox/`; use the Task Granularity Gate to decide whether the item becomes a canonical `wiki/tasks/` page, a lightweight `todo.md` checkbox, a subtask on an existing task, or no task.
 - Every non-trivial compiled claim should point to a source, log entry, or clearly marked inference.
 - Prefer `[[wikilink]]` style internal links in wiki content.
 - Update `wiki/index.md` when adding a new major page or domain.
 - Update `wiki/首页.md` or `wiki/maps/` when a new page changes Obsidian navigation.
-- Update the active monthly log under `wiki/logs/YYYY-MM.md` after each meaningful ingest, query-derived update, lint repair, report, migration step, or schema change.
+- Update the active monthly log under `wiki/logs/YYYY-MM.md` after each meaningful ingest, task capture/update, query-derived update, lint repair, report, migration step, or schema change.
 - Update `wiki/log.md` only as the log index when a new month starts or recent summary changes.
 - Avoid creating a new directory or page type before checking whether an existing domain owns it.
 

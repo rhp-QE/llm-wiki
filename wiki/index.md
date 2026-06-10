@@ -21,6 +21,7 @@ Read this page first, then deep-read the most relevant domain pages. Do not scan
 - [[wiki/qa/README|Q&A]]: durable question-answer pages extracted from conversations or study sessions.
 - [[wiki/reflections/README|Reflections]]: principles, values, self-observations, and meta-rules.
 - [[wiki/projects/README|Projects]]: projects, experiments, product ideas, and ongoing initiatives.
+- [[wiki/tasks/任务|Tasks]]: canonical personal todos, task dashboard, due items, waiting items, and task history.
 - [[wiki/reports/README|Reports]]: briefing, pulse, task report, weekly review, migration report, and health check output.
 
 ## Fast Query Map
@@ -36,6 +37,7 @@ Use these routing hints:
 | A new thing learned | `learning/`, `tech/`, `qa/` |
 | A writing task | `writing/`, then related `themes/`, `models/`, `craft/` |
 | A personal principle | `reflections/`, then linked `events/` |
+| Todos, tasks, due items, or "我今天该做什么" | `todo.md`, then `wiki/tasks/` |
 | A report, pulse, migration summary, or health check result | `reports/`, then linked source domains |
 | Obsidian browsing, graph, visual map, or MOC | `wiki/首页.md`, `wiki/maps/` |
 | Maintenance | `wiki/log.md`, `wiki/logs/`, `system/maintenance.md`, `system/evals/lint-checklist.md` |
@@ -49,4 +51,5 @@ Use these routing hints:
 - Example archived path: `sources/learning/go/2026-06-09-go-defer-example.md` -> `wiki/tech/go/syntax/defer.md`; the original `inbox/example-go-defer.md` drop was cleared after ingest.
 - First real learning sample: `sources/learning/cpp/2026-06-09-cpp-template-explicit-instantiation.md` -> `wiki/tech/cpp/templates/explicit-instantiation.md`
 - Obsidian entry: `wiki/首页.md` -> `wiki/maps/地图.md`
+- Task dashboard: `todo.md` -> `wiki/tasks/任务.md`
 - Next action: add more raw notes, then run `llm-wiki Ingest` to continue building durable learning paths
