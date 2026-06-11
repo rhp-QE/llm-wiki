@@ -12,8 +12,6 @@ Suggested subdomains:
 - `architecture/`
 - `tools/`
 
-## LLM / Agent
+## Current Pages
 
-- [[llm-wiki-pattern|LLM Wiki Pattern]]
-- [[loop-engineering|Loop Engineering]]
-- [[octopus-style-agent|Octopus-style Agent Architecture]]
+None yet. Add technical concept pages after ingesting real source material or writing explicit example pages marked `status: example`.

@@ -3,7 +3,7 @@ type: map_index
 title: 地图
 status: active
 created: 2026-06-10
-updated: 2026-06-10
+updated: 2026-06-12
 tags:
   - map
   - obsidian
@@ -19,9 +19,7 @@ For Obsidian graph browsing, use [[wiki/maps/地图|地图]] instead of this REA
 ## Available 地图
 
 - [[wiki/maps/地图|地图]]
-- [[wiki/maps/个人状态地图|个人状态地图]]
-- [[wiki/maps/学习与技术地图|学习与技术地图]]
-- [[wiki/maps/知识系统地图|知识系统地图]]
+- [[wiki/tasks/任务|任务]]
 
 ## Main Entry
 
@@ -33,6 +31,7 @@ For Obsidian graph browsing, use [[wiki/maps/地图|地图]] instead of this REA
 - Use maps when browsing visually in Obsidian.
 - Use domain README pages when looking for a specific type of page.
 - Use `wiki/index.md` when asking an agent to route a query.
+- Add focused maps only after real compiled pages exist.
 
 ## Graph Focus
 

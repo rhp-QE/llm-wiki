@@ -2,10 +2,10 @@
 name: llm-wiki
 version: 1.1.0
 description: >
-  Operate the user's local personal LLM-wiki. Use this whenever the user asks to
-  ingest notes, process inbox files, summarize or query the personal wiki, update
-  knowledge pages, manage personal todos, lint links/sources/schema, build a
-  personal knowledge base, or turn scattered notes into durable Markdown pages.
+  Operate a local Markdown-first LLM-wiki framework instance. Use this whenever
+  the user asks to ingest notes, process inbox files, summarize or query the
+  wiki, update knowledge pages, manage tracked todos, lint links/sources/schema,
+  build a knowledge base, or turn scattered notes into durable Markdown pages.
   Also use this for setup, migration, sample import, full import, health checks,
   and wiki reports. This skill owns Resolver, Inbox Capture, Task Capture /
   Update, Query, Ingest, Enrichment, Citation Fixing, Maintenance, Report, and
@@ -53,7 +53,7 @@ writes_to:
 
 # LLM Wiki Skill
 
-This skill operates a Markdown-first personal knowledge system inspired by LLM-wiki practice: source material is preserved, compiled knowledge is written once and reused many times, and agents consume `index.md` plus linked pages through progressive loading.
+This skill operates a Markdown-first knowledge system inspired by LLM-wiki practice: source material is preserved, compiled knowledge is written once and reused many times, and agents consume `index.md` plus linked pages through progressive loading.
 
 ## Contract
 

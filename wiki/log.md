@@ -3,7 +3,7 @@ type: log_index
 title: Wiki Log
 status: active
 created: 2026-06-09
-updated: 2026-06-10
+updated: 2026-06-12
 tags:
   - log
   - maintenance
@@ -34,17 +34,11 @@ Monthly logs use this entry format:
 
 ## Recent Operations
 
-- 2026-06-10: localized Obsidian entry and map pages into Chinese. See [[wiki/logs/2026-06|2026-06 Wiki Log]].
-- 2026-06-10: added clean Obsidian vault settings for opening `wiki/` directly. See [[wiki/logs/2026-06|2026-06 Wiki Log]].
-- 2026-06-10: decluttered Obsidian graph by adding a default graph filter, avoiding README/AGENTS/index nodes, and renaming learning path pages. See [[wiki/logs/2026-06|2026-06 Wiki Log]].
-- 2026-06-10: split monolithic wiki log into monthly logs. See [[wiki/logs/2026-06|2026-06 Wiki Log]].
-- 2026-06-10: added Obsidian navigation layer. See [[wiki/logs/2026-06|2026-06 Wiki Log]].
+- 2026-06-12: converted this branch into a generic framework seed by removing real source material and compiled personal pages. See [[wiki/logs/2026-06|2026-06 Wiki Log]].
 
 ## Open Questions
 
-- Sleep time notation in the 2026-06-09 diary remains ambiguous.
-- C++ explicit instantiation pattern needs validation in a real build.
-- Internal transfer target role and Agent development scope need clarification.
+- Decide whether this branch should be committed as a normal branch or rebuilt as an orphan/history-clean branch before public release.
 
 ## Maintenance
 

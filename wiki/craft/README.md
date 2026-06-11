@@ -1,6 +1,6 @@
 # Craft
 
-Craft pages store personal engineering practices and experience patterns.
+Craft pages store engineering practices and experience patterns.
 
 Use this domain for judgments that become more reliable through repeated use.
 

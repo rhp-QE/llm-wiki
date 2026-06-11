@@ -59,7 +59,7 @@ To focus on visual navigation:
 path:wiki/maps OR path:wiki/首页
 ```
 
-To focus on personal context:
+To focus on core knowledge domains:
 
 ```text
 path:wiki/themes OR path:wiki/projects OR path:wiki/events OR path:wiki/people OR path:wiki/maps
@@ -70,7 +70,7 @@ path:wiki/themes OR path:wiki/projects OR path:wiki/events OR path:wiki/people O
 - Use `[[wikilink]]` for conceptual links between compiled wiki pages.
 - Avoid linking README, AGENTS, and agent `index.md` files from Obsidian-facing maps.
 - Prefer path-qualified links for map targets, for example `[[wiki/maps/地图|地图]]`.
-- Short slug links are acceptable for durable canonical pages with unique filenames, for example `[[career-direction]]`.
+- Short slug links are acceptable for durable canonical pages with unique filenames.
 - Source evidence should usually stay as plain file paths in `Sources` sections unless the source itself is meant to be browsed as a graph node.
 
 ## Map Pages

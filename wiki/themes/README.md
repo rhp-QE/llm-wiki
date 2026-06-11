@@ -1,6 +1,6 @@
 # Themes
 
-Themes are long-running personal threads.
+Themes are long-running threads.
 
 Examples:
 

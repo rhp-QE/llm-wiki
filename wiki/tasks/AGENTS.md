@@ -2,7 +2,7 @@
 
 ## Contract
 
-Task pages are the canonical records for serious personal todos. `todo.md` is the active dashboard; `wiki/tasks/` stores durable task state, source, context, and links. Lightweight one-off todos may live only in `todo.md`. Source-worthy long-term task evidence must also be preserved under `sources/tasks/` and linked from task pages.
+Task pages are the canonical records for serious tracked todos. `todo.md` is the active dashboard; `wiki/tasks/` stores durable task state, source, context, and links. Lightweight one-off todos may live only in `todo.md`. Source-worthy long-term task evidence must also be preserved under `sources/tasks/` and linked from task pages.
 
 ## When To Use
 

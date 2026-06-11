@@ -1,8 +1,8 @@
 ---
 name: llm-wiki
 description: >
-  Operate the user's personal LLM-wiki knowledge base. Use this skill whenever
-  the user mentions llm_wiki, llm-wiki, personal wiki, knowledge base, inbox,
+  Operate a local Markdown-first LLM-wiki knowledge base. Use this skill whenever
+  the user mentions llm_wiki, llm-wiki, knowledge base, inbox,
   todo, 待办, "给我记一个 todo", ingest, query my wiki, lint/check wiki,
   migrate old notes, Obsidian notes, "沉淀到 wiki", "入库", "处理 inbox",
   "记录到我的知识库", or provides a new
@@ -19,7 +19,7 @@ description: >
 
 # LLM Wiki
 
-This skill operates the user's local personal LLM-wiki. It exists so the user does not need to paste a bootstrap prompt in every new Codex session.
+This skill operates a local LLM-wiki framework instance. It exists so the user does not need to paste a bootstrap prompt in every new Codex session.
 
 The installed bootstrap skill is intentionally shorter than the local workflow spec. After locating the wiki root, treat `system/skills/llm-wiki/SKILL.md` plus the local `AGENTS.md` files as the canonical operating instructions.
 

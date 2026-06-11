@@ -1,6 +1,6 @@
 # Tasks
 
-This domain stores canonical personal todo records for serious tracked tasks.
+This domain stores canonical todo records for serious tracked tasks.
 
 Use it for:
 

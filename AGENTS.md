@@ -1,6 +1,6 @@
-# LLM Wiki Operating Guide
+# LLM Wiki Framework Operating Guide
 
-This repository is a personal LLM-wiki. Treat it as a knowledge codebase: read the local rules, make small auditable changes, preserve sources, and keep the wiki useful to both the user and future agents.
+This repository is an LLM-wiki framework instance. Treat it as a knowledge codebase: read the local rules, make small auditable changes, preserve sources, and keep the wiki useful to both the user and future agents.
 
 ## Always Read First
 
@@ -46,7 +46,7 @@ Use the `llm-wiki` skill for:
 
 - `Ingest`: convert new materials into durable pages, links, and logs.
 - `Inbox Capture`: save raw fragments to `inbox/` only; do not create `sources/` or organize `wiki/` until explicit Ingest.
-- `Task Capture / Update`: create, update, complete, schedule, or review personal todos when the user says `todo`, `待办`, or asks to record a todo. Apply the Task Granularity Gate before creating canonical task pages, then apply the Task Evidence Gate for long-term/source-worthy task history.
+- `Task Capture / Update`: create, update, complete, schedule, or review tracked todos when the user says `todo`, `待办`, or asks to record a todo. Apply the Task Granularity Gate before creating canonical task pages, then apply the Task Evidence Gate for long-term/source-worthy task history.
 - `Query`: answer from wiki pages first, then sources if needed.
 - `Lint`: check health, links, citations, schema, duplicates, and stale pages.
 - `Setup / Migration`: import historical material through inventory, mapping, sample validation, full import, derived rebuild, health check, and migration report.

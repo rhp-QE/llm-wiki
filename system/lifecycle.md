@@ -1,6 +1,6 @@
 # Knowledge Lifecycle
 
-This document defines the operating lifecycle for this personal LLM-wiki. It is the shared model for agents, skills, cron jobs, and manual maintenance.
+This document defines the operating lifecycle for this LLM-wiki framework instance. It is the shared model for agents, skills, cron jobs, and manual maintenance.
 
 There are two core scenarios:
 
@@ -70,7 +70,7 @@ Rules:
 
 ### Task Capture / Update
 
-Task Capture / Update is for personal todo management. It distinguishes lightweight dashboard-only todos from serious tracked tasks.
+Task Capture / Update is for todo management. It distinguishes lightweight dashboard-only todos from serious tracked tasks.
 
 Rules:
 
