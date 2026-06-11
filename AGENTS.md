@@ -8,14 +8,15 @@ Before any wiki operation, read:
 
 1. `system/skills/llm-wiki/SKILL.md`
 2. `wiki/index.md`
-3. The nearest `AGENTS.md` in the target directory
+3. `system/resolver.md`
+4. The selected `system/workflows/*.md` file
+5. The nearest `AGENTS.md` in the target directory when writing compiled pages
 
 For broad tasks, also read:
 
 - `system/lifecycle.md`
 - `system/conventions.md`
 - `system/schema.md`
-- `system/resolver.md`
 - `system/maintenance.md`
 
 For Obsidian browsing, graph, MOC, or visual navigation tasks, also read:
@@ -29,7 +30,16 @@ For mutating workflows, also read the relevant audit checklist:
 - Ingest or query-derived update: `system/evals/ingest-checklist.md`
 - Task capture or task update: `system/evals/task-checklist.md`
 - Lint or health check: `system/evals/lint-checklist.md`
-- Migration or batch import: `system/lifecycle.md` plus `system/templates/migration-report.md`
+- Migration or batch import: `system/workflows/migration.md` plus `system/templates/migration-report.md`
+
+For reusable hard rules, read the relevant policy under `system/policies/`:
+
+- source preservation: `system/policies/source-preservation.md`
+- URL evidence: `system/policies/url-evidence.md`
+- task granularity: `system/policies/task-granularity.md`
+- task evidence: `system/policies/task-evidence.md`
+- ingest task impact: `system/policies/task-impact.md`
+- learning progress: `system/policies/learning-progress.md`
 
 ## Core Model
 
@@ -40,16 +50,31 @@ The wiki has three layers:
 - `wiki/`: compiled knowledge. This is the durable middle layer consumed by people and agents.
 - `system/`: rules, templates, evals, and workflows. Do not mix operational rules into content pages unless the nearest domain `AGENTS.md` says so.
 
+## Instruction Architecture
+
+Keep instruction layers separate:
+
+- `system/skills/llm-wiki/SKILL.md`: thin bootstrap and router only.
+- `system/resolver.md`: intent routing and domain routing only.
+- `system/workflows/`: executable workflow steps.
+- `system/policies/`: reusable hard rules shared across workflows.
+- `system/evals/`: audit checklists.
+- `system/schema.md`: shared types, statuses, and cross-domain fields.
+- domain `AGENTS.md`: page shapes and local anti-patterns.
+
+Do not paste full workflow bodies into `SKILL.md`. Do not duplicate policy bodies across workflow files unless a short reminder is needed.
+
 ## Main Workflows
 
 Use the `llm-wiki` skill for:
 
-- `Ingest`: convert new materials into durable pages, links, and logs.
-- `Inbox Capture`: save raw fragments to `inbox/` only; do not create `sources/` or organize `wiki/` until explicit Ingest.
-- `Task Capture / Update`: create, update, complete, schedule, or review tracked todos when the user says `todo`, `待办`, or asks to record a todo. Apply the Task Granularity Gate before creating canonical task pages, then apply the Task Evidence Gate for long-term/source-worthy task history.
-- `Query`: answer from wiki pages first, then sources if needed.
-- `Lint`: check health, links, citations, schema, duplicates, and stale pages.
-- `Setup / Migration`: import historical material through inventory, mapping, sample validation, full import, derived rebuild, health check, and migration report.
+- `system/workflows/inbox.md`: capture raw fragments to `inbox/` only.
+- `system/workflows/task.md`: create, update, complete, schedule, or review tracked todos.
+- `system/workflows/ingest.md`: convert new materials into durable pages, links, and logs.
+- `system/workflows/query.md`: answer from wiki pages first, then sources if needed.
+- `system/workflows/lint.md`: check health, links, citations, schema, duplicates, and stale pages.
+- `system/workflows/migration.md`: import historical material through inventory, mapping, sample validation, full import, derived rebuild, health check, and migration report.
+- `system/workflows/report.md`: generate briefings, pulse reports, task reports, and reviews.
 
 ## Write Rules
 

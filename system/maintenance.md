@@ -22,6 +22,9 @@ Run maintenance when:
 - `wiki/logs/AGENTS.md` exists for monthly log rules.
 - The active monthly log under `wiki/logs/YYYY-MM.md` exists.
 - `system/schema.md` exists as the cross-domain type and status registry.
+- `system/workflows/README.md` and all primary workflow files exist.
+- `system/policies/README.md` and all shared policy files exist.
+- `system/skills/llm-wiki/SKILL.md` remains a thin bootstrap/router and does not embed workflow bodies.
 - Each active domain has `README.md` and `AGENTS.md`.
 - Mutating workflow checklists exist under `system/evals/`.
 

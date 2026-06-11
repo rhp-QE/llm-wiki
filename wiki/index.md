@@ -44,6 +44,7 @@ Read this page first, then deep-read the most relevant domain pages. Do not scan
 ## Current Status
 
 - State: generic scaffold with no real source material and no real compiled personal pages.
+- Instruction architecture: thin skill + resolver + `system/workflows/` + `system/policies/` + eval checklists.
 - Source ingest: not started.
 - Task dashboard: empty scaffold at `todo.md` and `wiki/tasks/任务.md`.
 - Obsidian entry: `wiki/首页.md` -> `wiki/maps/地图.md`.

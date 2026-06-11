@@ -8,7 +8,7 @@ The framework separates evidence, compiled knowledge, operational rules, and act
 - `sources/` stores original materials as evidence after explicit ingest.
 - `wiki/` stores compiled knowledge pages that can be read, linked, queried, and maintained.
 - `todo.md` plus `wiki/tasks/` manage tracked work. Lightweight one-off todos can stay in `todo.md`; serious tracked tasks live under `wiki/tasks/`; source-worthy long-term task evidence lives under `sources/tasks/`.
-- `system/` stores operating rules, templates, evals, and the local `llm-wiki` skill.
+- `system/` stores the thin local `llm-wiki` skill, resolver, workflows, policies, templates, evals, and schemas.
 
 ## Start Here
 
@@ -21,12 +21,17 @@ The framework separates evidence, compiled knowledge, operational rules, and act
 
 ## Core Workflows
 
-- `inbox` / `暂存`: capture only. Write to `inbox/` and stop.
-- `todo` / `待办` / `给我记一个 todo`: task capture. Write to the task system, not `inbox/`.
-- `ingest` / `入库` / `沉淀到 wiki` / `处理 inbox`: archive to `sources/`, update `wiki/`, run checks, then clear processed inbox files.
-- `query`: answer from existing compiled pages first, then sources when evidence is needed.
-- `lint`: check structure, links, citations, schema, stale pages, duplicates, and task consistency.
-- `migration`: import historical material through inventory, mapping, sample validation, full import, derived rebuild, health check, and migration report.
+- `system/skills/llm-wiki/SKILL.md`: thin bootstrap and router.
+- `system/resolver.md`: intent and domain routing.
+- `system/workflows/inbox.md`: capture only. Write to `inbox/` and stop.
+- `system/workflows/task.md`: task capture/update. Write to the task system, not `inbox/`.
+- `system/workflows/ingest.md`: archive to `sources/`, update `wiki/`, run checks, then clear processed inbox files.
+- `system/workflows/query.md`: answer from existing compiled pages first, then sources when evidence is needed.
+- `system/workflows/lint.md`: check structure, links, citations, schema, stale pages, duplicates, and task consistency.
+- `system/workflows/migration.md`: import historical material through inventory, mapping, sample validation, full import, derived rebuild, health check, and migration report.
+- `system/workflows/report.md`: generate briefings, reviews, and persisted reports.
+
+Reusable hard rules live under `system/policies/`. Audit gates live under `system/evals/`.
 
 ## Source Discipline
 

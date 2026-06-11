@@ -14,6 +14,11 @@ Use this checklist during `llm-wiki Lint`.
 - [ ] `wiki/maps/AGENTS.md` exists.
 - [ ] Active domains have `README.md` and `AGENTS.md`.
 - [ ] `system/skills/llm-wiki/SKILL.md` exists.
+- [ ] `system/skills/llm-wiki/SKILL.md` is a thin bootstrap/router and does not embed full workflow bodies.
+- [ ] `system/workflows/README.md` exists.
+- [ ] Workflow files exist for inbox, task, ingest, query, lint, migration, and report.
+- [ ] `system/policies/README.md` exists.
+- [ ] Policy files exist for source preservation, URL evidence, task granularity, task evidence, task impact, and learning progress.
 - [ ] `system/schema.md` exists.
 - [ ] `system/evals/ingest-checklist.md` exists.
 - [ ] `system/evals/task-checklist.md` exists.
@@ -26,6 +31,8 @@ Use this checklist during `llm-wiki Lint`.
 ## Workflow Gates
 
 - [ ] Mutating instructions require `system/resolver.md` preflight.
+- [ ] Mutating instructions route to exactly one primary `system/workflows/*.md` file before writes.
+- [ ] Cross-workflow hard rules are referenced from `system/policies/` instead of duplicated into `SKILL.md`.
 - [ ] Ingest instructions require nearest domain `AGENTS.md` before writes.
 - [ ] Ingest instructions require checking existing pages and aliases.
 - [ ] Mutating final output includes files read, created, updated, sources, links, citations, maintenance, open questions, and review needs.

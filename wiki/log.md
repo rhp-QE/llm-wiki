@@ -34,6 +34,7 @@ Monthly logs use this entry format:
 
 ## Recent Operations
 
+- 2026-06-12: refactored framework instructions into thin skill, workflow files, and policy files. See [[wiki/logs/2026-06|2026-06 Wiki Log]].
 - 2026-06-12: converted this branch into a generic framework seed by removing real source material and compiled personal pages. See [[wiki/logs/2026-06|2026-06 Wiki Log]].
 
 ## Open Questions

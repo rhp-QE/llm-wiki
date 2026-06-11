@@ -16,9 +16,19 @@ You are operating an LLM-wiki framework repository.
 Read first:
 1. AGENTS.md
 2. system/skills/llm-wiki/SKILL.md
-3. system/lifecycle.md
+3. wiki/index.md
 4. system/resolver.md
-5. wiki/index.md
+
+Then read the selected workflow file:
+- Inbox Capture: system/workflows/inbox.md
+- Task Capture / Update: system/workflows/task.md
+- Ingest: system/workflows/ingest.md
+- Query: system/workflows/query.md
+- Lint: system/workflows/lint.md
+- Setup / Migration: system/workflows/migration.md
+- Report: system/workflows/report.md
+
+Read relevant policy files under system/policies/ instead of relying on SKILL.md for workflow details.
 
 If editing files, also read the relevant checklist:
 - Ingest or query-derived update: system/evals/ingest-checklist.md
