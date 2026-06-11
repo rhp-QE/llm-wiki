@@ -7,8 +7,6 @@ title:
 aliases: []
 language:
 status:
-learning_state:
-progress_evidence: []
 tags: []
 created:
 updated:
@@ -21,8 +19,6 @@ updated:
 ## Why It Matters
 
 ## Examples
-
-## Mastery Evidence
 
 ## Common Pitfalls
 

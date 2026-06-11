@@ -3,10 +3,8 @@ type: learning_path
 title: C++ Learning
 domain: cpp
 status: learning
-focus: unknown
-priority: unknown
 created: 2026-06-09
-updated: 2026-06-10
+updated: 2026-06-09
 ---
 
 # C++ Learning
@@ -14,10 +12,6 @@ updated: 2026-06-10
 ## Goal
 
 Build practical C++ language and compilation-model knowledge that helps with real implementation decisions.
-
-## Current Focus
-
-Focus priority is not explicitly stated. Existing evidence records one studied C++ template topic.
 
 ## Current Level
 
@@ -29,10 +23,6 @@ Early tracked learning signal. Current source evidence records one C++ template 
 - Translation units, headers, and linking
 - Ownership of implementation between `.h` and `.cc`
 - Compile-time cost and header hygiene
-
-## Saved For Later
-
-- None recorded.
 
 ## Recently Learned
 

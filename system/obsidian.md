@@ -1,39 +1,14 @@
 # Obsidian Integration
 
-This wiki can be opened as an Obsidian vault in either mode:
-
-- Full repository vault: `/root/llm_wiki`
-- Clean reading vault: `/root/llm_wiki/wiki`
-
-For daily reading, prefer `/root/llm_wiki/wiki`. It has its own `.obsidian/` settings that hide operational files from the file explorer.
+This wiki is safe to open as an Obsidian vault from `/root/llm_wiki`.
 
 ## Recommended Browsing Entry
 
 Start with:
 
-- `首页.md` when opening `/root/llm_wiki/wiki` as the vault.
-- `wiki/首页.md` when opening `/root/llm_wiki` as the vault.
-- `maps/地图.md` or `wiki/maps/地图.md` for visual maps.
-- `index.md` or `wiki/index.md` for agent routing and domain discovery.
-
-## File Explorer Cleanup
-
-Obsidian's graph filter does not hide files from the left file explorer. Use Excluded files for that.
-
-This repository provides two configs:
-
-- `.obsidian/app.json` for the full repository vault.
-- `wiki/.obsidian/app.json` for the clean `wiki/` vault.
-
-The clean `wiki/` vault hides:
-
-- `AGENTS.md`
-- `README.md`
-- `index.md`
-- `log.md`
-- `logs/`
-
-If Obsidian was already open before these files were added, restart Obsidian or close and reopen the vault.
+- `wiki/home.md` for human browsing.
+- `wiki/maps/maps.md` for visual maps.
+- `wiki/index.md` for agent routing and domain discovery.
 
 ## Graph Filters
 
@@ -43,20 +18,12 @@ Use this focused graph first:
 path:wiki -path:AGENTS -path:README -path:wiki/index -path:wiki/log -path:wiki/logs
 ```
 
-This is stored as the default global graph filter in `.obsidian/graph.json` for the full repository vault.
-
-If opening `/root/llm_wiki/wiki` as the vault, use:
-
-```text
--path:AGENTS -path:README -path:index -path:log -path:logs
-```
-
-This is stored in `wiki/.obsidian/graph.json`.
+This is also stored as the default global graph filter in `.obsidian/graph.json`.
 
 To focus on visual navigation:
 
 ```text
-path:wiki/maps OR path:wiki/首页
+path:wiki/maps OR path:wiki/home
 ```
 
 To focus on personal context:
@@ -69,13 +36,13 @@ path:wiki/themes OR path:wiki/projects OR path:wiki/events OR path:wiki/people O
 
 - Use `[[wikilink]]` for conceptual links between compiled wiki pages.
 - Avoid linking README, AGENTS, and agent `index.md` files from Obsidian-facing maps.
-- Prefer path-qualified links for map targets, for example `[[wiki/maps/地图|地图]]`.
+- Prefer path-qualified links for map targets, for example `[[wiki/maps/maps|Maps]]`.
 - Short slug links are acceptable for durable canonical pages with unique filenames, for example `[[career-direction]]`.
 - Source evidence should usually stay as plain file paths in `Sources` sections unless the source itself is meant to be browsed as a graph node.
 
 ## Map Pages
 
-`wiki/maps/` contains Obsidian-facing 内容地图.
+`wiki/maps/` contains Obsidian-facing Maps of Content.
 
 Map pages should:
 
@@ -94,7 +61,7 @@ Map pages should not:
 
 These are manual preferences, not repository requirements:
 
-- Pin `wiki/首页.md` as the first page.
+- Pin `wiki/home.md` as the first page.
 - Turn on Backlinks and Outgoing Links core plugins.
 - Use Local Graph from map pages for focused exploration.
 - Hide or visually ignore `system/`, `sources/`, and `inbox/` unless doing maintenance.

@@ -6,9 +6,7 @@ People pages should explain who the person is in relation to the user, not just 
 
 ## Page Location
 
-`wiki/people/{中文主名}.md`
-
-Use the person's stable Chinese name as the filename when the natural name is Chinese. Do not add mutable details such as job, location, school, or relationship to the filename. Keep pinyin, former typos, nicknames, and alternate names in `aliases`.
+`wiki/people/{slug}.md`
 
 ## Frontmatter
 
@@ -53,5 +51,3 @@ updated:
 - Do not merge people only because names look similar.
 - Do not describe a personally important person with a generic biography.
 - Do not omit aliases when the source uses nicknames or family terms.
-- Do not use pinyin as the primary filename for a Chinese person when the Chinese name is known.
-- Do not add mutable identity details such as workplace, location, or relationship to the filename.

@@ -21,24 +21,11 @@ title:
 aliases: []
 language:
 status: learning | understood | applied | validated
-learning_state: not-started | saved | skimmed | studied | practiced | applied | validated | unknown
-progress_evidence: []
 tags: []
 created:
 updated:
 ---
 ```
-
-Use `learning_state` and `progress_evidence` when a technical page is part of the user's skill tree. Do not add these fields for objective factual pages that are not tracking the user's mastery.
-
-Status rules:
-
-- `learning`: the user is learning, has notes, or the concept is newly captured but not yet applied.
-- `understood`: source evidence shows the user can explain the concept or has studied it with durable notes.
-- `applied`: source evidence shows exercises, demos, project use, or work use.
-- `validated`: source evidence shows repeated use, tests, review, or stable reproduction.
-
-Saved-for-later links, not-started topics, and skimmed articles must not raise a tech page to `understood`, `applied`, or `validated`.
 
 ## Body for Concepts / Syntax
 
@@ -48,8 +35,6 @@ Saved-for-later links, not-started topics, and skimmed articles must not raise a
 ## Why It Matters
 
 ## Examples
-
-## Mastery Evidence
 
 ## Common Pitfalls
 
@@ -74,4 +59,3 @@ If the user learns a Go syntax point such as `defer`, update or create:
 - Do not store raw copied docs as compiled truth.
 - Do not omit runnable examples when the topic is syntax.
 - Do not treat unverified blog claims as facts without marking them.
-- Do not confuse external reference value with the user's mastery. A useful saved article can be evidence for the source, but it is not proof that the user learned, practiced, or applied the topic.

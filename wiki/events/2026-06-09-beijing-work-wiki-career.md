@@ -4,7 +4,7 @@ title: 2026-06-09 Beijing work, personal wiki, and career anxiety
 date: 2026-06-09
 period:
 people:
-  - 郭若筠
+  - 郭若均
 themes:
   - career direction
   - sleep and routine
@@ -16,7 +16,7 @@ tags:
   - codex
   - interview
 created: 2026-06-10
-updated: 2026-06-11
+updated: 2026-06-10
 ---
 
 # 2026-06-09 Beijing work, personal wiki, and career anxiety
@@ -41,7 +41,7 @@ Source: `sources/diary/2026/2026-06-09-beijing-work-wiki-career.md`
 - Completed a first-frame optimization involving batch loading delay and remote first-frame rate.
 - Started using Codex at larger scale.
 - Left work around 21:45.
-- Did not play Honor of Kings with [[郭若筠]] after work. The raw diary used the typo "郭若均", corrected by the user on 2026-06-10.
+- Did not play Honor of Kings with [[guo-ruojun|郭若均]] after work.
 - Studied how to use a personal wiki and had Codex read other usage examples.
 - Produced an initial personal wiki shape: raw personal documents, skills that classify raw documents into wiki storage, and links back to prior knowledge.
 - Planned to wash up around 00:12, play two games, and sleep before the stated target.
@@ -58,7 +58,7 @@ This event connects three active threads:
 
 ## People Involved
 
-- [[郭若筠]]: friend, middle school classmate, high school classmate, and Honor of Kings game teammate.
+- [[guo-ruojun|郭若均]]: person the user considered playing Honor of Kings with after work.
 
 ## Consequences
 
@@ -66,12 +66,6 @@ This event connects three active threads:
 - Added and linked project pages for [[personal-llm-wiki]] and [[agent-development-internal-transfer]].
 - Added sleep and routine as a tracked theme.
 - Added a near-term task to prepare for the 2026-06-10 afternoon 小黑盒 client development interview.
-
-## Related Tasks
-
-- [[wiki/tasks/2026-06-10-prepare-xiaoheihe-interview|Prepare for the 2026-06-10 afternoon 小黑盒 client development interview]]: created from the upcoming interview signal.
-- [[wiki/tasks/2026-06-10-define-agent-development-plan|Define a 3-month Agent development learning plan]]: created from the three-month Agent development/internal-transfer direction.
-- [[wiki/tasks/2026-06-10-clarify-sleep-target-notation|Clarify whether sleep targets `13点` and `13.30` mean 01:00 and 01:30]]: created from ambiguous sleep target notation.
 
 ## Related Themes
 
@@ -99,4 +93,3 @@ This event connects three active threads:
 ## Sources
 
 - `sources/diary/2026/2026-06-09-beijing-work-wiki-career.md`
-- `sources/people/2026-06-10-郭若筠-name-correction.md`

@@ -39,8 +39,6 @@ updated:
 
 ## Consequences
 
-## Related Tasks
-
 ## Related Themes
 
 ## Evidence Timeline
@@ -55,4 +53,3 @@ updated:
 - Do not turn every small note into an event page.
 - Do not omit emotional or decision context when it is present in the source.
 - Do not detach events from people and themes.
-- Do not hide task impacts inside prose. If an event/source completes, advances, blocks, drops, or creates tracked work, list the affected tasks under `## Related Tasks` and update the task system through the Task Impact Pass.

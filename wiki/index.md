@@ -8,8 +8,8 @@ Read this page first, then deep-read the most relevant domain pages. Do not scan
 
 ## Domains
 
-- [[wiki/首页|首页]]: human-facing entry point for visual browsing.
-- [[wiki/maps/地图|地图]]: Obsidian-facing 内容地图 for cross-domain navigation.
+- [[wiki/home|Obsidian Home]]: human-facing entry point for visual browsing.
+- [[wiki/maps/maps|Maps]]: Obsidian-facing Maps of Content for cross-domain navigation.
 - [[wiki/people/README|People]]: family, friends, colleagues, mentors, important relationships, and aliases.
 - [[wiki/events/README|Events]]: life events, work changes, turning points, decisions, and memorable episodes.
 - [[wiki/themes/README|Themes]]: long-running personal themes such as career, learning, relationships, health, money, creativity, and self-understanding.
@@ -21,7 +21,6 @@ Read this page first, then deep-read the most relevant domain pages. Do not scan
 - [[wiki/qa/README|Q&A]]: durable question-answer pages extracted from conversations or study sessions.
 - [[wiki/reflections/README|Reflections]]: principles, values, self-observations, and meta-rules.
 - [[wiki/projects/README|Projects]]: projects, experiments, product ideas, and ongoing initiatives.
-- [[wiki/tasks/任务|Tasks]]: canonical personal todos, task dashboard, due items, waiting items, and task history.
 - [[wiki/reports/README|Reports]]: briefing, pulse, task report, weekly review, migration report, and health check output.
 
 ## Fast Query Map
@@ -37,21 +36,16 @@ Use these routing hints:
 | A new thing learned | `learning/`, `tech/`, `qa/` |
 | A writing task | `writing/`, then related `themes/`, `models/`, `craft/` |
 | A personal principle | `reflections/`, then linked `events/` |
-| Todos, tasks, due items, completion progress, or "我今天该做什么" | `todo.md` Progress Snapshot, then `wiki/tasks/任务.md`, then specific task pages only when needed |
 | A report, pulse, migration summary, or health check result | `reports/`, then linked source domains |
-| Obsidian browsing, graph, visual map, or MOC | `wiki/首页.md`, `wiki/maps/` |
+| Obsidian browsing, graph, visual map, or MOC | `wiki/home.md`, `wiki/maps/` |
 | Maintenance | `wiki/log.md`, `wiki/logs/`, `system/maintenance.md`, `system/evals/lint-checklist.md` |
-| Schema, type, status, or domain rule changes | `system/schema.md`, `system/conventions.md`, nearest domain `AGENTS.md` |
 
 ## Current Status
 
-- State: active scaffold with real diary, task, learning, and URL-reference ingest
+- State: active scaffold with first real learning ingest
 - Full personal source ingest: not started
 - First real diary ingest: `sources/diary/2026/2026-06-09-beijing-work-wiki-career.md` -> `wiki/events/2026-06-09-beijing-work-wiki-career.md`
-- Second diary ingest: `sources/diary/2026/2026-06-10-byte-ios-llm-wiki-xiaoheihe.md` -> `wiki/events/2026-06-10-byte-ios-llm-wiki-xiaoheihe.md`
-- Example archived path: `sources/learning/go/2026-06-09-go-defer-example.md` -> `wiki/tech/go/syntax/defer.md`; the original `inbox/example-go-defer.md` drop was cleared after ingest.
+- Example path: `inbox/example-go-defer.md` -> `sources/learning/go/2026-06-09-go-defer-example.md` -> `wiki/tech/go/syntax/defer.md`
 - First real learning sample: `sources/learning/cpp/2026-06-09-cpp-template-explicit-instantiation.md` -> `wiki/tech/cpp/templates/explicit-instantiation.md`
-- Saved LLM/Agent references: `sources/articles/2026-06-11-karpathy-llm-wiki.md`, `sources/articles/2026-06-11-agent-workflow-feishu-links.md` -> `wiki/tech/llm/`
-- Obsidian entry: `wiki/首页.md` -> `wiki/maps/地图.md`
-- Task dashboard: `todo.md` -> `wiki/tasks/任务.md`
+- Obsidian entry: `wiki/home.md` -> `wiki/maps/maps.md`
 - Next action: add more raw notes, then run `llm-wiki Ingest` to continue building durable learning paths

@@ -6,11 +6,8 @@ Copy this file when dropping new material into `inbox/`.
 # {Title}
 
 Date: YYYY-MM-DD
-Type: learning | diary | article | idea | project | qa | reflection | note | other
+Type: learning | diary | article | idea | project | qa | reflection | other
 Source: URL or original location if any
-Delivery: url | pasted-text | file | manual
-Importance: normal | important | very-important
-Context: why you saved this, if known
 
 ## Raw Note
 
@@ -33,9 +30,3 @@ Optional. For example:
 - Personal reflection
 - Person / event / theme
 ```
-
-Use `Type: diary` or put `日记` / `diary` in the title only when this should be treated as diary during later Ingest. If the type is omitted, later Ingest should not guess diary from the content.
-
-For URL-only inbox drops, it is enough to fill `Source` and optional `Context`. The agent should not fetch, summarize, classify, or route the URL until explicit Ingest.
-
-Use `Importance: important` / `very-important`, or words such as `important`, `importent`, `重要`, `非常重要`, when the later Ingest should preserve the core information more carefully. Very large important content still should not be saved in full by default; later Ingest should keep a 500 Chinese character core extraction plus evidence anchors.

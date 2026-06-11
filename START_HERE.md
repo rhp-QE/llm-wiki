@@ -2,9 +2,9 @@
 
 Use this file only as a fallback when the global `llm-wiki` Codex skill is not available.
 
-Normally, the global skill at `/root/.codex/skills/llm-wiki/SKILL.md` should bootstrap fresh sessions automatically when you mention `llm_wiki`, `inbox`, `暂存`, `todo`, `待办`, `处理 inbox`, `ingest`, `沉淀到 wiki`, or use shortcut prompts like `/wiki-inbox`, `/wiki-todo`, `/wiki-ingest`, `/wiki-query`, `/wiki-lint`, `/wiki-migrate`, or `/wiki-report`.
+Normally, the global skill at `/root/.codex/skills/llm-wiki/SKILL.md` should bootstrap fresh sessions automatically when you mention `llm_wiki`, `处理 inbox`, `ingest`, `沉淀到 wiki`, or use shortcut prompts like `/wiki-ingest`, `/wiki-query`, `/wiki-lint`, `/wiki-migrate`, or `/wiki-report`.
 
-For Obsidian browsing or visual graph work, start from `wiki/首页.md` and `wiki/maps/地图.md`.
+For Obsidian browsing or visual graph work, start from `wiki/home.md` and `wiki/maps/maps.md`.
 
 ## New Session Bootstrap Prompt
 
@@ -26,24 +26,17 @@ If the skill does not trigger, copy this into a new Codex session opened at `/ro
 
 如果我提到 Obsidian、图谱、MOC、地图页或可视化浏览，还要阅读：
 - system/obsidian.md
-- wiki/首页.md
+- wiki/home.md
 - wiki/maps/AGENTS.md
 
 之后根据我的请求选择：
 - Query：只读消费已有知识，不改文件
-- Inbox Capture：当我说 `inbox` / `暂存`，或只想先记录时，只写入 `inbox/`，不要写 `sources/`，不要整理 `wiki/`
-- Task Capture / Update：当我说 `todo` / `待办` / `给我记一个 todo`，或要求完成、推迟、关闭、阻塞、更新任务时，直接进入任务系统；不要走 `inbox`，也不需要 `ingest`。先应用 Task Granularity Gate：微小、一次性、无截止日期、无等待/阻塞、无长期上下文、无明确关联页面的 action，只放在根目录 `todo.md` 作为轻量 checkbox；重要、高优先级、有 due/scheduled、多步、等待/阻塞、有来源证据、需要复盘/报告、或关联项目/学习/事件/主题/source 的严肃任务，才创建或更新 `wiki/tasks/` canonical task page；同一目标下多个小 todo 应合并为一个父任务的 checklist，除非我明确要求分开追踪。如果我只说“给我记一个 todo”但没有任务内容，要追问，不要创建空任务。任务必须有状态、优先级、area、source；不要臆造 due date / priority / linked pages。相对日期要落成绝对日期。然后应用 Task Evidence Gate：长期/持续/周期性/routine/habit/重要/需要复盘的任务，或记录里程碑、实质进展、反复练习、未完成原因、阻塞、失败、放弃原因、完成结果、周/月复盘的任务更新，要在 `sources/tasks/` 保存原始用户表述并从任务页 `source_records` 链回；轻量 todo、dashboard 排序、纯状态变更、无上下文优先级调整、没有用户观察的日常 done/not done 不进 `sources/`。canonical task 还要维护进度缓存：任务页 frontmatter 的 `progress_state` / `progress_percent` / `progress_updated` / `progress_summary` 和 `## Progress Snapshot`，以及 `todo.md`、`wiki/tasks/任务.md` 的聚合快照；查询任务完成进度时先读快照，只有缺失/过期/模糊/需要证据时再深读任务页和相关领域页。
-- Ingest：只有我明确说 `ingest` / `入库` / `沉淀到 wiki` / `处理 inbox` 时，才沉淀到 sources/ 和 wiki/；如果来源是 inbox，入库验证完成后清空已处理的 inbox 文件
-- Task Impact Pass：每次 Ingest 日记、学习、项目、reflection、event 等来源时，归档原文后、最终写完报告前，必须检查这条来源是否影响现有任务：完成了目标、推进了 checklist、错过了 routine、出现 blocker/unblock、产生新的严肃 action、或改变任务优先级/状态。要先读 `todo.md`、`wiki/tasks/任务.md` 和相关 task 页进行匹配；有证据就更新 task 页、进度缓存、dashboard/index，并在编译页写 `## Related Tasks` 或等价任务反链；不确定就写入 `needs_user_review`，不要静默跳过或猜测。
-- Source 原文保真是硬约束：对于我直接粘贴、上传、导入、写到 inbox 的非小 todo 材料，Ingest 必须先在 `sources/` 的 `## Raw Material` 中原封不动保存原始 payload，再写 compiled `wiki/` 页面。必须保留措辞、换行、顺序和片段边界；不能在 raw block 内总结、翻译、规范化、清理、删减或改写。和个人成长/知识沉淀无关的小 task / 小 todo 不需要进 `sources/`，按 Task Granularity Gate 留在任务系统；但长期任务和有复盘价值的执行历史要按 Task Evidence Gate 进入 `sources/tasks/`。
-- 日记分类必须显式：只有 `Type: diary`、`source_type: diary`、标题/文件名含 `diary` / `日记`，或我明确说按日记处理时，才能归为日记。不要根据情绪、作息、第一人称或“今天”推断成日记。
-- Ingest 处理 inbox 时必须先归纳聚合片段，不要无脑一个片段一个 source；只合并同类型、同自然日期或主题、来源语境兼容的片段。不要把日记和 learning 合并。
-- URL / 链接投递在 Inbox Capture 阶段只保存 URL、时间和用户上下文，不抓取、不总结、不分类、不入库。显式 Ingest 时才尝试抓取或保存链接证据包；URL 只是 delivery/origin，不是 source_type。必须根据内容形态和 primary subject 判断是 article、chat、media、learning、note、project、qa、reflection 等，不能无脑归为 tech learning。纯 URL 不等于我已经提供了全文；`sources/` 不默认保存链接全文，应保存元数据、AI 核心提炼、关键 claims、少量可追溯摘录/anchor、coverage 和 fetch_status；只有短内容、特别重要且不庞大、别处不可得、用户提供或我明确要求时才保存全文。若我用 `important` / `importent` / `重要` / `非常重要` 标记链接或聊天，Ingest 要更认真保留核心信息；但如果链接下或抓取到的内容非常庞大，兜底策略仍然不要保存全文，只保存 500 字以内中文核心提炼加证据 anchor。如果我粘贴/上传了全文本身，则按 source 原文保真硬约束保存。后续 Query 默认使用本地 evidence package，不要每次实时重抓链接，除非我明确要求刷新/重读链接或本地证据缺失。
+- Ingest：处理 inbox 或我贴给你的新材料，沉淀到 sources/ 和 wiki/
 - Lint：检查断链、孤儿页、引用、重复实体、stale 信息
 - Setup / Migration：迁移历史资料，必须先 inventory、mapping、小样本导入、样本验证，再全量导入
 - Report：生成 briefing、pulse、task report、migration report 等产物
 
-对于 Ingest，不要跳过 source 保存、路由声明、已有页面/aliases 检查、引用修复、维护检查和当月 `wiki/logs/YYYY-MM.md` 记录。对于 Task Capture / Update，要读取 `wiki/tasks/AGENTS.md` 和 `system/evals/task-checklist.md`。对于 Inbox Capture，只写 `inbox/`。
+除非我明确要求，否则不要跳过 source 保存、路由声明、已有页面/aliases 检查、引用修复、维护检查和当月 `wiki/logs/YYYY-MM.md` 记录。
 ```
 
 ## Common Commands To Tell Codex
@@ -53,13 +46,6 @@ If the skill does not trigger, copy this into a new Codex session opened at `/ro
 ```text
 把下面这段内容按 llm-wiki ingest 沉淀入库：
 
-{paste content}
-```
-
-### Capture to inbox only
-
-```text
-inbox
 {paste content}
 ```
 
@@ -73,16 +59,6 @@ inbox
 
 ```text
 基于我的 llm_wiki，回答：{question}
-```
-
-### Todo
-
-```text
-给我记一个 todo：{action}
-```
-
-```text
-/wiki-todo 完成：{task}
 ```
 
 ### Lint
@@ -105,4 +81,4 @@ You can provide new material in three ways:
 2. Save a Markdown file under `inbox/`.
 3. Put raw historical files under `sources/` and ask for setup/migration.
 
-The safest default is `inbox/` first, then ask Codex to ingest. The `inbox` command is capture-only. After explicit ingest, the raw archive should live in `sources/`, and the processed inbox file should be removed.
+The safest default is `inbox/` first, then ask Codex to ingest.

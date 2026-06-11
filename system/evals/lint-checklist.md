@@ -6,22 +6,16 @@ Use this checklist during `llm-wiki Lint`.
 
 - [ ] Top-level `AGENTS.md` exists.
 - [ ] `wiki/index.md` exists.
-- [ ] `wiki/首页.md` exists.
+- [ ] `wiki/home.md` exists.
 - [ ] `wiki/log.md` exists.
 - [ ] `wiki/logs/AGENTS.md` exists.
 - [ ] Active monthly log exists under `wiki/logs/YYYY-MM.md`.
-- [ ] `wiki/maps/地图.md` exists.
+- [ ] `wiki/maps/maps.md` exists.
 - [ ] `wiki/maps/AGENTS.md` exists.
 - [ ] Active domains have `README.md` and `AGENTS.md`.
 - [ ] `system/skills/llm-wiki/SKILL.md` exists.
-- [ ] `system/schema.md` exists.
 - [ ] `system/evals/ingest-checklist.md` exists.
-- [ ] `system/evals/task-checklist.md` exists.
 - [ ] `system/templates/ingest-plan.md` exists.
-- [ ] `system/templates/task.md` exists.
-- [ ] `system/templates/task-evidence-source.md` exists.
-- [ ] `sources/tasks/README.md` exists.
-- [ ] `wiki/tasks/README.md` and `wiki/tasks/AGENTS.md` exist.
 
 ## Workflow Gates
 
@@ -34,41 +28,21 @@ Use this checklist during `llm-wiki Lint`.
 
 - [ ] New pages have internal links.
 - [ ] Domain README files are discoverable from `wiki/index.md`.
-- [ ] Task domain and task dashboard are discoverable from `wiki/index.md`.
-- [ ] Obsidian maps are discoverable from `wiki/首页.md` and `wiki/index.md`.
+- [ ] Obsidian maps are discoverable from `wiki/home.md` and `wiki/index.md`.
 - [ ] Important aliases point to canonical pages.
 - [ ] No obvious broken path links.
-- [ ] No ambiguous short wikilinks where `sources/` and `wiki/` share the same target stem.
 
 ## Sources
 
 - [ ] Compiled pages cite source paths, source titles, or explicit user input.
 - [ ] Inference is marked when evidence is incomplete.
 - [ ] Raw source files are preserved.
-- [ ] URL-backed sources record URL metadata, archive policy, coverage, and are routed by content form rather than treated as automatic tech/learning.
-- [ ] URL-backed sources do not store full linked content by default without a stated reason.
-- [ ] Very large important URL/chat sources use a bounded extraction policy, including a 500 Chinese character core extraction cap and evidence anchors.
-- [ ] Query rules prefer local URL snapshots over repeated live fetches.
-- [ ] Skill-tree sources distinguish `active-study`, `future-reference`, `background-reading`, `review`, `archive-only`, or `unknown` intent when relevant.
-- [ ] Saved-for-later, not-started, and skimmed skill materials use `counts_as_progress: false` and are not listed as real learning progress.
-- [ ] Source-worthy long-term task evidence is preserved under `sources/tasks/` with `source_type: task_evidence`.
-- [ ] Source-derived task evidence in diary, learning, project, event, or reflection sources links to affected tasks or is marked `needs-review`.
-- [ ] Lightweight task state, dashboard reordering, and mechanical status changes are not archived as sources.
 
 ## Schema
 
 - [ ] Frontmatter exists on durable pages.
 - [ ] `type` matches the owning domain.
-- [ ] Status fields use values allowed by `system/schema.md` or the nearest domain `AGENTS.md`.
-- [ ] Task pages use valid task status, priority, area, source, and linked page fields.
-- [ ] Task pages use valid `evidence_policy` values: `none`, `task-page-only`, or `source-backed`.
-- [ ] Source-backed task pages list existing `source_records` under `sources/tasks/`.
-- [ ] Source-derived pages with task-progress language have `Related Tasks` links or an explicit `needs_user_review` note.
-- [ ] Canonical `todo.md` dashboard entries link to task pages; lightweight one-off checkboxes are clearly dashboard-only or marked for migration.
-- [ ] Tiny one-off todos are not over-promoted into `wiki/tasks/`, and multi-step shared-goal todos are grouped under parent task checklists when appropriate.
-- [ ] Learning paths separate `Saved For Later` from `Recently Learned`.
-- [ ] Tech pages do not use `understood`, `applied`, or `validated` without source-backed mastery evidence.
-- [ ] Example pages marked `status: example` clearly say they are examples and are not counted as real personal progress.
+- [ ] Status fields use known values.
 
 ## Quality
 
@@ -76,5 +50,4 @@ Use this checklist during `llm-wiki Lint`.
 - [ ] Map pages act as navigation, not duplicate summaries.
 - [ ] The page is not a generic summary detached from the user.
 - [ ] Open questions are captured.
-- [ ] Open questions, saved references, learning practice tasks, and tracked todos are not conflated.
 - [ ] The active monthly log was updated.

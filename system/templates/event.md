@@ -27,8 +27,6 @@ updated:
 
 ## Consequences
 
-## Related Tasks
-
 ## Related Themes
 
 ## Evidence Timeline

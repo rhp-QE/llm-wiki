@@ -29,10 +29,10 @@ Use `[[wikilink]]` style for related pages. If exact Obsidian paths are useful, 
 
 ## Obsidian View Layer
 
-`wiki/首页.md` and `wiki/maps/` are human-facing navigation surfaces for Obsidian.
+`wiki/home.md` and `wiki/maps/` are human-facing navigation surfaces for Obsidian.
 
-- `wiki/首页.md` is the default human entry point.
-- `wiki/maps/` contains 内容地图 that connect existing pages across domains.
+- `wiki/home.md` is the default human entry point.
+- `wiki/maps/` contains Maps of Content that connect existing pages across domains.
 - Map pages should link to canonical domain pages instead of duplicating source summaries.
 - When a new page becomes a durable hub, active project, important theme, or useful learning path, update the relevant map.
 - Do not store agent workflow rules in map pages; keep operational rules in `system/`.

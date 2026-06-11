@@ -7,60 +7,24 @@ The core idea is simple:
 - `inbox/` receives low-friction notes and mobile drops.
 - `sources/` stores original materials as read-only evidence.
 - `wiki/` stores compiled knowledge pages that can be read, linked, queried, and maintained.
-- `todo.md` plus `wiki/tasks/` manage personal todos. Lightweight one-off todos can stay in `todo.md`; serious tracked tasks live under `wiki/tasks/`; source-worthy long-term task evidence lives under `sources/tasks/`.
 - `system/` stores the operating rules, templates, evals, and the local `llm-wiki` skill.
 
 Start here:
 
-1. Drop new material into `inbox/`, or tell the agent `inbox` / `暂存` with the raw content.
-2. Later, when you want knowledge organization, ask the agent: `处理 inbox，按 llm-wiki ingest 入库。`
-3. Browse in Obsidian from `wiki/首页.md`.
+1. Drop new material into `inbox/`.
+2. Ask the agent: `处理 inbox，按 llm-wiki ingest 入库。`
+3. Browse in Obsidian from `wiki/home.md`.
 4. Query through `wiki/index.md`, then deep-read linked pages.
-5. Record concrete todos with `给我记一个 todo：...`; the agent applies the Task Granularity Gate, then updates `todo.md` and creates `wiki/tasks/` pages only for serious tracked tasks. For long-term/source-worthy tasks, it also applies the Task Evidence Gate and preserves evidence under `sources/tasks/`.
-6. Run lint periodically to check links, sources, duplicate entities, stale pages, task consistency, and map pages.
+5. Run lint periodically to check links, sources, duplicate entities, stale pages, and map pages.
 
-Ingest is gated by `system/evals/ingest-checklist.md`: the agent should preserve sources, declare routing, check existing pages and aliases, follow domain schemas, fix citations, update links, and log the mutation. For user-provided non-task material, source preservation is a hard gate: the original payload must be saved verbatim in `sources/` before compiled `wiki/` pages are written.
-
-After an inbox item is ingested, the preserved copy lives under `sources/`; the processed file should be removed from `inbox/` so the inbox only contains unprocessed drops plus `README.md` and templates.
-
-`sources/` is the rebuild seed for future versions of the wiki. Pasted notes, imported files, diary, learning notes, chat excerpts, reflections, and other durable material must keep their exact raw wording, line breaks, order, and fragment boundaries in `## Raw Material`. Direct lightweight todos unrelated to durable personal growth or knowledge stay in the task system and do not need source archival. Long-term task goals and meaningful execution history are different: preserve source-worthy task events under `sources/tasks/`.
-
-Important command split:
-
-- `inbox` / `暂存`: capture only; write to `inbox/` and stop.
-- `todo` / `待办` / `给我记一个 todo`: task capture; write to the task system, not `inbox/`. Lightweight one-off todos stay in `todo.md`; serious tracked tasks create or update `wiki/tasks/`.
-- `ingest` / `入库` / `沉淀到 wiki` / `处理 inbox`: archive to `sources/`, update `wiki/`, run checks, then clear processed inbox files.
-
-Todo management is a first-class workflow. Canonical task records live under `wiki/tasks/`; root `todo.md` is the active dashboard. Direct task capture should not require Ingest. If a task comes from an ingested source, the task page should cite that source; if it comes from a direct command, use the direct user request as evidence. Do not create a blank task when the user only says "给我记一个 todo" without the action.
-
-Task Evidence Gate: after a task passes the Task Granularity Gate, decide whether it also belongs in `sources/tasks/`. Create or update a task evidence source when the user marks a task as long-term, recurring, routine, habit-forming, important, or review-worthy; when an update records a milestone, substantial progress, repeated practice, missed routine with reason, blocker, failure, abandonment reason, completion outcome, or weekly/monthly review; or when the execution history is needed to reconstruct a project, learning path, theme, event, or report. Do not create task evidence sources for lightweight one-off todos, dashboard reordering, simple status moves, typo fixes, priority changes without context, or daily done/not-done checkboxes with no user-provided observation.
-
-Task Granularity Gate: tiny one-off actions with no due date, no waiting/blocking state, no durable context, and no clear linked page should remain plain checkboxes in `todo.md`. Create `wiki/tasks/` pages only for serious tracked tasks: important, high priority, due/scheduled, multi-step, waiting/blocked, source-backed, review-worthy, report-worthy, or linked to a project, learning path, event, theme, source, or report. Multiple small todos with one shared goal should become a checklist under one parent task unless separate tracking is explicitly needed.
-
-Task progress cache: canonical task pages maintain `progress_state`, `progress_percent`, `progress_updated`, `progress_summary`, and `## Progress Snapshot`. The active dashboard `todo.md` and Obsidian index `wiki/tasks/任务.md` maintain aggregate progress snapshots. Query task progress from those snapshots first; deep-read task pages or linked domains only when the snapshot is stale, ambiguous, missing, or evidence is requested.
-
-Task Impact Pass during Ingest: after preserving raw sources and before finalizing compiled pages, the agent must check whether diary, learning, project, reflection, or event material changes any tracked task. If the source records completion, progress, missed routine, blocker, unblock condition, or a new serious action, update the matching task page, `todo.md`, and `wiki/tasks/任务.md`; add task backlinks in the compiled event/learning/project page. Ambiguous task impacts must be reported under `needs_user_review`, not silently skipped.
-
-Diary classification is explicit: use `Type: diary`, `日记`, `diary` in the title/filename, or direct wording like "按日记处理". Ingest must not infer diary from emotion, routine, first-person writing, or "today" alone.
-
-Inbox ingest aggregates before source creation. The agent should inventory pending fragments, group compatible fragments, then create or update sources. It should not blindly create one source per fragment. Do not merge different source types; diary and learning must stay separate unless explicitly instructed otherwise.
-
-URL capture is also shallow: during `inbox`, save only the URL, capture time, and any user context. During explicit Ingest, the agent should create a bounded evidence package when possible, classify by content form and primary subject, then route it. A link may be a chat record, article, documentation page, media transcript, project note, Q&A, reflection, or other source; it must not be treated as tech learning just because it is a link. A URL-only submission is not the full original linked text. `sources/` should not store full linked content by default; keep metadata, AI core extraction, key supported claims, selected short excerpts or anchors, coverage, and fetch status. If the user marks a link or chat as `important`, `importent`, `重要`, or `非常重要`, preserve core information carefully; if linked or fetched content is very large, use a 500 Chinese character core extraction plus evidence anchors instead of full archival. If the user pasted or uploaded the full content itself, preserve that user-provided payload verbatim. Later Query should use the preserved local evidence package first and should not re-fetch live URLs unless explicitly asked or local evidence is missing.
+Ingest is gated by `system/evals/ingest-checklist.md`: the agent should preserve sources, declare routing, check existing pages and aliases, follow domain schemas, fix citations, update links, and log the mutation.
 
 Global Codex skill installed:
 
-- Canonical local workflow spec: `system/skills/llm-wiki/SKILL.md`
-- Installed skill source in this repo: `system/codex-skills/llm-wiki/SKILL.md`
+- Skill source in this repo: `system/codex-skills/llm-wiki/SKILL.md`
 - Installed skill path: `/root/.codex/skills/llm-wiki/SKILL.md`
 
-The installed skill is a bootstrapper. It locates this wiki and then defers to the canonical local workflow spec plus nearby `AGENTS.md` files.
-
 In a fresh Codex session, you should not need to paste a bootstrap prompt. Use natural requests such as:
-
-```text
-inbox
-{paste content}
-```
 
 ```text
 处理 inbox，按 llm-wiki ingest 入库。
@@ -92,22 +56,18 @@ Or use short command-style prompts:
 /wiki-report 生成本周学习报告
 ```
 
-```text
-/wiki-todo 给我记一个 todo：明天复盘 C++ 模板显式实例化
-```
-
 `START_HERE.md` remains as a manual fallback if the skill is unavailable in a future environment.
 
 The intended operating loop is:
 
 ```text
-Capture to inbox -> Explicit ingest -> Preserve source -> Enrich -> Link -> Citation check -> Log -> Query -> Lint -> Refine
+Capture -> Ingest plan -> Preserve source -> Enrich -> Link -> Citation check -> Log -> Query -> Lint -> Refine
 ```
 
 For daily incremental use, the lifecycle is:
 
 ```text
-user input / cron -> Resolver -> inbox capture OR task capture/update OR query OR ingest -> enrichment -> citation fixing -> maintenance -> report
+user input / cron -> Resolver -> query OR ingest -> enrichment -> citation fixing -> maintenance -> report
 ```
 
 For historical setup or migration, the lifecycle is:
@@ -116,29 +76,23 @@ For historical setup or migration, the lifecycle is:
 setup / migration -> inventory -> mapping -> sample import -> validation -> full import -> rebuild -> health check -> migration report
 ```
 
-This wiki currently contains the scaffolding and operating system. It does not yet contain your full personal notes. Add raw materials under `inbox/` or `sources/`, then explicitly run the ingest workflow when you want knowledge organization. Processed inbox files are cleared after they are archived under `sources/`.
-
-For personal todo usage, start with `todo.md` or `wiki/tasks/任务.md`.
+This wiki currently contains the scaffolding and operating system. It does not yet contain your full personal notes. Add raw materials under `inbox/` or `sources/`, then run the ingest workflow.
 
 ## Obsidian
 
-For daily reading, open `/root/llm_wiki/wiki` as the vault. This is the cleaner Obsidian view.
-
-Open `/root/llm_wiki` as the vault only when you want to browse sources and system rules too.
+Open `/root/llm_wiki` as the vault.
 
 Use:
 
-- `首页.md` as the human-facing start page when using the clean `wiki/` vault.
-- `maps/地图.md` for 内容地图.
-- `index.md` for agent routing and domain discovery.
-- `log.md` for the log index; detailed operation logs live under `logs/YYYY-MM.md`.
-
-The `wiki/` vault has `wiki/.obsidian/app.json` configured to hide `AGENTS.md`, `README.md`, `index.md`, `log.md`, and `logs/` from Obsidian's file explorer.
+- `wiki/home.md` as the human-facing start page.
+- `wiki/maps/maps.md` for Maps of Content.
+- `wiki/index.md` for agent routing and domain discovery.
+- `wiki/log.md` for the log index; detailed operation logs live under `wiki/logs/YYYY-MM.md`.
 
 Recommended graph filters:
 
 ```text
--path:AGENTS -path:README -path:index -path:log -path:logs
+path:wiki -path:AGENTS -path:README -path:wiki/index -path:wiki/log -path:wiki/logs
 ```
 
 See `system/obsidian.md` for the full browsing convention.
