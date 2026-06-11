@@ -1,6 +1,6 @@
 # LLM Wiki Conventions
 
-These are cross-cutting rules for all wiki operations.
+This file owns cross-cutting writing, linking, naming, bulk-work, and logging conventions. It should stay short; domain-specific page shape belongs in domain `AGENTS.md`, and allowed field values belong in `system/schema.md`.
 
 ## Source Discipline
 

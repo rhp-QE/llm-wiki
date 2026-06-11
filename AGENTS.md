@@ -14,7 +14,6 @@ Before any wiki operation, read:
 
 For broad tasks, also read:
 
-- `system/lifecycle.md`
 - `system/conventions.md`
 - `system/schema.md`
 - `system/maintenance.md`

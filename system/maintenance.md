@@ -1,5 +1,7 @@
 # Maintenance Manual
 
+This file owns lint phases and derived-structure rebuild checks. It is the operational companion to `system/workflows/lint.md` and `system/evals/lint-checklist.md`.
+
 Run maintenance when:
 
 - The user asks for lint or health check.

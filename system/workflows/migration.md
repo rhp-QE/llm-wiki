@@ -6,7 +6,6 @@ Use for initialization, historical imports, old vault migration, many files, or 
 
 - `AGENTS.md`
 - `wiki/index.md`
-- `system/lifecycle.md`
 - `system/templates/migration-report.md`
 - `system/evals/lint-checklist.md`
 - `system/policies/source-preservation.md`
@@ -48,4 +47,3 @@ failures:
 needs_user_review:
 migration_report:
 ```
-
