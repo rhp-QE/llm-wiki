@@ -4,6 +4,19 @@
 
 Map pages are Obsidian-facing 内容地图. They organize navigation across existing wiki pages and should not become a second source of truth.
 
+## When To Use
+
+Use this domain for visual navigation, MOC-style pages, and human browsing paths across existing canonical pages.
+
+Do not use maps for fast retrieval indexes; use `wiki/indexes/` for that.
+
+## How To Update
+
+1. Link canonical domain pages, task indexes, or retrieval indexes.
+2. Keep maps short and navigational.
+3. Mark unsupported relationships as `Navigation inference`.
+4. Update maps when a new page changes visual navigation or an existing hub becomes stale.
+
 ## Page Location
 
 `wiki/maps/{slug}.md`

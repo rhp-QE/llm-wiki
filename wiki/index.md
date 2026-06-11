@@ -23,6 +23,7 @@ Read this page first, then deep-read the most relevant domain pages. Do not scan
 - [[wiki/projects/README|Projects]]: projects, experiments, product ideas, and ongoing initiatives.
 - [[wiki/tasks/任务|Tasks]]: canonical todos, task dashboard, due items, waiting items, and task history.
 - [[wiki/reports/README|Reports]]: briefings, pulse reports, task reports, weekly reviews, migration reports, and health checks.
+- [[wiki/indexes/索引|Indexes]]: retrieval indexes for entities, aliases, timelines, sources, and generated lookup surfaces.
 
 ## Fast Query Map
 
@@ -37,6 +38,7 @@ Read this page first, then deep-read the most relevant domain pages. Do not scan
 | A principle or self-observation | `reflections/`, then linked `events/` |
 | Todos, tasks, due items, or completion progress | `todo.md`, then `wiki/tasks/任务.md`, then specific task pages only when needed |
 | A report, pulse, migration summary, or health check | `reports/`, then linked source domains |
+| Fast lookup by entity, alias, source, or timeline | `wiki/indexes/索引.md`, then relevant generated index |
 | Obsidian browsing, graph, visual map, or MOC | `wiki/首页.md`, `wiki/maps/` |
 | Maintenance | `wiki/log.md`, `wiki/logs/`, `system/maintenance.md`, `system/evals/lint-checklist.md` |
 | Schema, type, status, or domain rule changes | `system/schema.md`, `system/conventions.md`, nearest domain `AGENTS.md` |
@@ -47,5 +49,6 @@ Read this page first, then deep-read the most relevant domain pages. Do not scan
 - Instruction architecture: thin skill + resolver + `system/workflows/` + `system/policies/` + eval checklists.
 - Source ingest: not started.
 - Task dashboard: empty scaffold at `todo.md` and `wiki/tasks/任务.md`.
+- Index architecture: scaffolded at `wiki/indexes/索引.md`.
 - Obsidian entry: `wiki/首页.md` -> `wiki/maps/地图.md`.
 - Next action: add raw materials under `inbox/` or `sources/`, then run explicit ingest when knowledge organization is desired.

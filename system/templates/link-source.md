@@ -5,7 +5,7 @@ Use this when an inbox item is a URL or a URL plus short user note. A URL is the
 ```markdown
 ---
 type: source
-source_type: article | book | chat | learning | media | note | idea | project | qa | reflection | other
+source_type: article | book | chat | diary | learning | media | note | idea | project | qa | reflection | task_evidence | other
 delivery: url
 original_payload: url-only | user-provided | fetched | manual
 raw_preservation: evidence-package | verbatim | metadata-only

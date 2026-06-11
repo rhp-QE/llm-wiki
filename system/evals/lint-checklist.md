@@ -12,6 +12,8 @@ Use this checklist during `llm-wiki Lint`.
 - [ ] Active monthly log exists under `wiki/logs/YYYY-MM.md`.
 - [ ] `wiki/maps/地图.md` exists.
 - [ ] `wiki/maps/AGENTS.md` exists.
+- [ ] `wiki/indexes/索引.md` exists.
+- [ ] `wiki/indexes/AGENTS.md` exists.
 - [ ] Active domains have `README.md` and `AGENTS.md`.
 - [ ] `system/skills/llm-wiki/SKILL.md` exists.
 - [ ] `system/skills/llm-wiki/SKILL.md` is a thin bootstrap/router and does not embed full workflow bodies.
@@ -23,8 +25,12 @@ Use this checklist during `llm-wiki Lint`.
 - [ ] `system/evals/ingest-checklist.md` exists.
 - [ ] `system/evals/task-checklist.md` exists.
 - [ ] `system/templates/ingest-plan.md` exists.
+- [ ] `system/templates/ingest-report.md` exists.
+- [ ] `system/templates/source-note.md` exists.
+- [ ] `system/templates/link-source.md` exists.
 - [ ] `system/templates/task.md` exists.
 - [ ] `system/templates/task-evidence-source.md` exists.
+- [ ] Common domain templates exist for person, event, concept, learning topic, Q&A, reflection, craft practice, project, theme, mental model, report, map, index page, and writing article.
 - [ ] `sources/tasks/README.md` exists.
 - [ ] `wiki/tasks/README.md` and `wiki/tasks/AGENTS.md` exist.
 
@@ -43,6 +49,7 @@ Use this checklist during `llm-wiki Lint`.
 - [ ] Domain README files are discoverable from `wiki/index.md`.
 - [ ] Task domain and task dashboard are discoverable from `wiki/index.md`.
 - [ ] Obsidian maps are discoverable from `wiki/首页.md` and `wiki/index.md`.
+- [ ] Retrieval indexes are discoverable from `wiki/index.md`.
 - [ ] Important aliases point to canonical pages.
 - [ ] No obvious broken path links.
 - [ ] No ambiguous short wikilinks where `sources/` and `wiki/` share the same target stem.
@@ -76,6 +83,7 @@ Use this checklist during `llm-wiki Lint`.
 - [ ] Learning paths separate `Saved For Later` from `Recently Learned`.
 - [ ] Tech pages do not use `understood`, `applied`, or `validated` without source-backed mastery evidence.
 - [ ] Example pages marked `status: example` clearly say they are examples and are not counted as real personal progress.
+- [ ] Index pages under `wiki/indexes/` link to canonical pages/source paths and do not become a second source of truth.
 
 ## Quality
 

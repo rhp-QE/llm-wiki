@@ -3,7 +3,7 @@
 ```markdown
 ---
 type: report
-report_type: task_report
+report_type: ingest_report
 title:
 period:
 status: final

@@ -16,6 +16,7 @@ Run maintenance when:
 - `wiki/index.md` links to major domains.
 - `wiki/首页.md` exists for Obsidian browsing.
 - `wiki/maps/地图.md` and `wiki/maps/AGENTS.md` exist for visual maps.
+- `wiki/indexes/索引.md` and `wiki/indexes/AGENTS.md` exist for retrieval indexes.
 - `wiki/log.md` exists as the log index.
 - `todo.md` exists as the active task dashboard.
 - `sources/tasks/README.md` exists for long-term task evidence.
@@ -52,6 +53,7 @@ Run maintenance when:
 ### 5. Staleness Check
 
 - Pages with `updated` older than the review horizon are inspected.
+- Retrieval indexes under `wiki/indexes/` are marked stale or rebuilt after large ingest or migration.
 - Active learning paths and projects have current status.
 - Open task pages and `todo.md` dashboard entries are consistent.
 - Task page `progress_*` fields, `## Progress Snapshot`, `todo.md`, and `wiki/tasks/任务.md` aggregate snapshots are consistent and not stale for the requested review horizon.
@@ -94,6 +96,7 @@ After migration or large ingest, rebuild:
 - Domain README/index pages.
 - Alias notes or alias frontmatter.
 - Timeline pages when event volume justifies them.
+- Retrieval indexes under `wiki/indexes/`, such as entities, aliases, timeline, and source manifest.
 - Review queues in `wiki/learning/`.
 - Task pages under `wiki/tasks/` and the root `todo.md` dashboard.
 - Reports under `wiki/reports/`.

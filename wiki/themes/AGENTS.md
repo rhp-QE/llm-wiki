@@ -4,6 +4,17 @@
 
 Theme pages should synthesize repeated patterns across sources. They are not folders of quotes.
 
+## When To Use
+
+Use this domain for long-running patterns, concerns, tensions, values, or recurring threads that appear across multiple sources or events.
+
+## How To Update
+
+1. Link representative events, people, projects, models, and sources.
+2. Preserve contradictions and changes over time.
+3. Mark unsupported synthesis as `Inference` or `Needs evidence`.
+4. Prefer updating an existing theme over creating a near-duplicate.
+
 ## Page Location
 
 `wiki/themes/{slug}.md`

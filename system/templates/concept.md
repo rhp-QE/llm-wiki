@@ -6,8 +6,8 @@ type: concept
 title:
 aliases: []
 language:
-status:
-learning_state:
+status: learning | understood | applied | validated | example
+learning_state: not-started | saved | skimmed | studied | practiced | applied | validated | unknown
 progress_evidence: []
 tags: []
 created:

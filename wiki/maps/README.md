@@ -19,11 +19,13 @@ For Obsidian graph browsing, use [[wiki/maps/地图|地图]] instead of this REA
 ## Available 地图
 
 - [[wiki/maps/地图|地图]]
+- [[wiki/indexes/索引|索引]]
 - [[wiki/tasks/任务|任务]]
 
 ## Main Entry
 
 - [[wiki/首页|首页]]
+- [[wiki/indexes/索引|索引]]
 - Agent routing entry: `wiki/index.md`
 
 ## How To Use

@@ -7,6 +7,7 @@ The framework separates evidence, compiled knowledge, operational rules, and act
 - `inbox/` receives low-friction notes and temporary drops.
 - `sources/` stores original materials as evidence after explicit ingest.
 - `wiki/` stores compiled knowledge pages that can be read, linked, queried, and maintained.
+- `wiki/indexes/` stores retrieval indexes for fast lookup by entity, alias, source, or timeline.
 - `todo.md` plus `wiki/tasks/` manage tracked work. Lightweight one-off todos can stay in `todo.md`; serious tracked tasks live under `wiki/tasks/`; source-worthy long-term task evidence lives under `sources/tasks/`.
 - `system/` stores the thin local `llm-wiki` skill, resolver, workflows, policies, templates, evals, and schemas.
 

@@ -10,13 +10,13 @@ Use this domain when the user says `todo`, `待办`, "给我记一个 todo", ask
 
 Do not use this domain for vague ideas, saved links, open questions, or learning backlog items unless the user explicitly wants a concrete action tracked.
 
-Before creating a task page, apply the Task Granularity Gate below.
+Before creating a task page, apply `system/policies/task-granularity.md`.
 
 ## How To Update
 
 1. Read `system/resolver.md` and `system/evals/task-checklist.md`.
-2. Apply the Task Granularity Gate.
-3. Apply the Task Evidence Gate for every canonical task or canonical task update.
+2. Apply `system/policies/task-granularity.md`.
+3. Apply `system/policies/task-evidence.md` for every canonical task or canonical task update.
 4. Check for similar open tasks before creating a new task.
 5. Create or update a canonical task page under `wiki/tasks/` only when the item passes the canonical-task threshold.
 6. For source-worthy long-term task evidence, create or update a `sources/tasks/` record before or alongside the task page update and link it in `source_records`.
@@ -109,36 +109,13 @@ tags:
 
 `## Progress Snapshot` is required for canonical task pages. Keep it short: current state, percent or `unknown`, last update date, and one supported sentence explaining the latest completion state.
 
-## Task Granularity Gate
+## Task Policies
 
-Classify every todo candidate before writing:
+- Granularity: `system/policies/task-granularity.md`
+- Evidence: `system/policies/task-evidence.md`
+- Ingest-derived task impact: `system/policies/task-impact.md`
 
-- `lightweight_todo`: small, one-step, one-off action with no due/scheduled date, no waiting/blocking state, no durable context/history, and no clear link to a project, learning path, event, theme, source, or report. Put it in `todo.md` as a plain checkbox. Do not create a `wiki/tasks/` page.
-- `canonical_task`: serious tracked todo. Create or update a task page when the item is important, high priority, due/scheduled, multi-step, waiting/blocked, source-backed, review-worthy, report-worthy, or linked to a project, learning path, event, theme, source, or report.
-- `subtask`: small action that belongs to a larger tracked outcome. Add it to the parent task's `## Checklist` or `## Next Step`; keep one dashboard item for the parent.
-- `not_task`: vague idea, open question, saved link, reference, or learning backlog item without a concrete action.
-
-If multiple todo items share one goal and context, prefer one canonical task with a checklist. Create separate canonical tasks only when the items have different deadlines, owners, blocking states, domains, or the user explicitly asks for separate tracking.
-
-If classification is ambiguous, prefer the lighter representation unless that would lose a deadline, dependency, important context, or future review value. Ask when the wrong granularity would be harmful.
-
-## Task Evidence Gate
-
-Run this gate after the Task Granularity Gate for every canonical task and every update to an existing canonical task.
-
-Create or update a `sources/tasks/` source record and set `evidence_policy: source-backed` when:
-
-- The user explicitly calls the task long-term, ongoing, recurring, routine, habit-forming, important, or review-worthy.
-- The task or update records durable life, health, career, relationship, project, or learning evidence.
-- The update records a meaningful execution event: check-in with observation, milestone, substantial progress, repeated practice, missed routine with reason, blocker, unblock condition, failure, abandonment reason, completion outcome, or weekly/monthly review.
-- The task is linked to a project, learning path, theme, event, report, or source whose future reconstruction depends on execution history.
-- The user asks to preserve the task/update as evidence, says `入库`, `沉淀`, `记录到 wiki`, or `记为证据`.
-
-Use `evidence_policy: task-page-only` when a canonical task is serious enough for `wiki/tasks/` but does not need a source record. Use `evidence_policy: none` only for examples or non-real operational placeholders.
-
-Do not create task evidence sources for lightweight one-off todos, dashboard reordering, simple status moves, typo fixes, priority changes without context, or daily done/not-done checkboxes with no user-provided observation.
-
-For repeated check-ins on the same long-term task, prefer one grouped monthly source under `sources/tasks/YYYY/` and preserve every raw update as a timestamped fragment.
+This file owns task page shape and task-domain anti-patterns. The policy files own classification rules.
 
 ## Dashboard Rules
 
@@ -160,11 +137,9 @@ For repeated check-ins on the same long-term task, prefer one grouped monthly so
 
 ## Ingest-Derived Task Updates
 
-- During Ingest, diary, learning, project, event, and reflection pages can update task progress even when the user did not issue a direct `todo` command.
-- Match source signals to tasks by explicit task name/link, linked project/learning/theme pages, task tags, source paths, and clear semantic overlap.
-- Clear matches must update the task page `## Progress Snapshot`, task log, `todo.md`, and `wiki/tasks/任务.md`.
-- Compiled source-derived pages that caused task updates should include `## Related Tasks` with the task link and the source-supported impact.
-- Ambiguous matches or ambiguous outcomes must be listed under `needs_user_review`; do not mark tasks done from vague wording.
+Ingest-derived task updates are governed by `system/policies/task-impact.md`.
+
+When that policy produces a clear task update, update the task page `## Progress Snapshot`, task log, `todo.md`, and `wiki/tasks/任务.md`. When the match or outcome is ambiguous, list it under `needs_user_review`.
 
 ## Anti-Patterns
 

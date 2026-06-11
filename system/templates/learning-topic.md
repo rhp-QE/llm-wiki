@@ -5,9 +5,9 @@
 type: learning_path
 title:
 domain:
-status:
-focus:
-priority:
+status: learning | active | paused | validated | retired | example
+focus: active-study | future-reference | background-reading | review | unknown
+priority: low | medium | high | unknown
 created:
 updated:
 ---

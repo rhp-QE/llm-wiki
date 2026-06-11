@@ -4,6 +4,17 @@
 
 Mental model pages should connect abstract models to the user's actual experiences and decisions.
 
+## When To Use
+
+Use this domain for thinking models, decision patterns, cognitive biases, reasoning frames, and reusable lenses for interpreting events or choices.
+
+## How To Update
+
+1. Define the model briefly.
+2. Link lived examples, events, themes, projects, or source paths.
+3. Mark unsupported application as `Inference` or `Needs evidence`.
+4. Link related models and failure modes.
+
 ## Page Location
 
 `wiki/models/{slug}.md`

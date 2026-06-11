@@ -6,6 +6,17 @@ Monthly log pages are the audit trail for meaningful wiki operations. They recor
 
 `wiki/log.md` is the log index. Do not append detailed operation entries directly to `wiki/log.md` except when updating the index summary.
 
+## When To Use
+
+Use this domain for operation logs after meaningful mutations, migrations, lint repairs, reports, schema changes, and task updates.
+
+## How To Update
+
+1. Append detailed entries to the active monthly log.
+2. Update `wiki/log.md` only when a new month starts or recent summary changes.
+3. Link persisted reports instead of duplicating report content.
+4. Preserve exact file paths for auditability.
+
 ## Page Location
 
 `wiki/logs/{YYYY-MM}.md`
@@ -25,7 +36,7 @@ tags:
 ---
 ```
 
-## Entry Format
+## Body
 
 ```markdown
 ## YYYY-MM-DD

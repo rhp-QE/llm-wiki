@@ -37,22 +37,12 @@ This is an audit gate. Each item must be satisfied, marked not applicable, or li
 - [ ] Related pages were linked only when the relationship is clear.
 - [ ] Similar open tasks were checked before creating a duplicate.
 
-## Granularity Gate
+## Policy Application
 
-- [ ] Candidate items were classified as `lightweight_todo`, `canonical_task`, `subtask`, or `not_task`.
-- [ ] Canonical task pages were created only for serious tracked tasks: important, high priority, due/scheduled, multi-step, waiting/blocked, source-backed, review-worthy, report-worthy, or linked to a project, learning path, event, theme, source, or report.
-- [ ] Micro-actions with no due date, no durable context, and no linked page were not promoted to `wiki/tasks/`.
-- [ ] Multiple small actions with one shared goal were grouped under one parent task checklist unless separate tracking was explicitly needed.
-- [ ] Ambiguous granularity was either resolved by a short question or handled with the lighter representation without losing deadlines, dependencies, or review context.
-
-## Task Evidence Gate
-
-- [ ] Canonical tasks marked long-term, ongoing, recurring, routine, habit-forming, important, or review-worthy were treated as source-backed unless there is an explicit reason not to.
-- [ ] Meaningful execution updates were archived as task evidence when they recorded a check-in with observation, milestone, substantial progress, repeated practice, missed routine with reason, blocker, unblock condition, failure, abandonment reason, completion outcome, or weekly/monthly review.
-- [ ] Source-worthy task records use `type: source`, `source_type: task_evidence`, and a path under `sources/tasks/`.
-- [ ] User-provided task/update wording was preserved verbatim in `## Raw Material`.
-- [ ] Repeated check-ins for the same long-term task were grouped by task/month when practical instead of creating one source per tiny update.
-- [ ] Agent-inferred outcomes or synthesized reviews were not stored as source evidence unless they cite existing source-backed records and are clearly marked.
+- [ ] `system/policies/task-granularity.md` was applied and the candidate class was recorded when useful: `lightweight_todo`, `canonical_task`, `subtask`, or `not_task`.
+- [ ] `system/policies/task-evidence.md` was applied and each canonical task/update has the correct evidence policy: `none`, `task-page-only`, or `source-backed`.
+- [ ] `system/policies/task-impact.md` was applied when task state was derived from an ingest source rather than a direct task command.
+- [ ] Policy decisions that could not be made safely were listed under `needs_user_review`.
 
 ## Dashboard Consistency
 

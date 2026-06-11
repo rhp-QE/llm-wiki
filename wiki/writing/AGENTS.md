@@ -51,7 +51,7 @@ For idea pools or voice rules, use `type: writing_idea` or `type: voice`.
 
 Do not automatically add ideas to `ideas.md` unless the user explicitly states an idea or asks to capture it. This protects the idea pool as user-originated material.
 
-## Article Page Body
+## Body
 
 ```markdown
 ## Thesis

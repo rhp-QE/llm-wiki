@@ -53,6 +53,7 @@ Detailed migration workflow: `system/workflows/migration.md`.
 | `sources/` | original evidence and rebuild seed |
 | `wiki/` | compiled knowledge and human/agent reading layer |
 | `todo.md` + `wiki/tasks/` | task dashboard and canonical task records |
+| `wiki/indexes/` | generated or curated retrieval indexes |
 | `system/` | workflows, policies, schema, templates, evals, and skills |
 
 ## Invariant Rules
@@ -64,6 +65,7 @@ Detailed migration workflow: `system/workflows/migration.md`.
 - `system/evals/` owns audit checklists.
 - Domain `AGENTS.md` files own page shape and local anti-patterns.
 - `system/schema.md` owns shared types, statuses, and cross-domain fields.
+- `wiki/indexes/` owns lookup surfaces and must not become a source of truth.
 
 ## Mutation Discipline
 
@@ -81,6 +83,7 @@ After large ingest or migration, rebuild as needed:
 
 - `wiki/index.md`
 - domain README/index pages
+- retrieval indexes under `wiki/indexes/`
 - Obsidian maps
 - task dashboard and task index
 - source manifests or indexes if present

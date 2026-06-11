@@ -4,6 +4,7 @@
 ---
 type: reflection
 title:
+aliases: []
 status: emerging
 tags: []
 created:
@@ -12,15 +13,21 @@ updated:
 
 # {Principle}
 
-## Summary
+## Executive Summary
 
-## Why It Matters
+## Principle / Observation
 
 ## Evidence
 
+## Lived Examples
+
 ## Related Events
+
+## Related Themes
 
 ## Tensions
 
 ## Open Questions
+
+## Sources
 ```

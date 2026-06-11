@@ -7,7 +7,7 @@ title:
 aliases: []
 relationship:
 importance:
-status:
+status: active | historical | unknown
 tags: []
 created:
 updated:

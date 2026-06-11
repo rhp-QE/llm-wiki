@@ -4,6 +4,25 @@
 
 Tech pages should be reusable during coding, learning, debugging, and writing. Prefer precise examples and common pitfalls over vague summaries.
 
+## When To Use
+
+Use this domain for durable technical truth: concepts, syntax, repos, implementation patterns, architecture notes, and debugging incidents.
+
+Do not use this domain as the only record of the user's learning progress; link learning paths when mastery state matters.
+
+## How To Update
+
+1. Archive or cite source evidence first through the active workflow.
+2. Use precise examples and pitfalls.
+3. Link related concepts, Q&A, learning paths, projects, and sources.
+4. Apply `system/policies/learning-progress.md` before changing mastery status.
+
+## Page Location
+
+- `wiki/tech/{topic}.md`
+- `wiki/tech/{language}/syntax/{topic}.md`
+- `wiki/tech/{area}/{slug}.md`
+
 ## Page Types
 
 - `concept`: durable technical concept
@@ -20,7 +39,7 @@ type: concept | syntax | repo | pattern | debug_case
 title:
 aliases: []
 language:
-status: learning | understood | applied | validated
+status: learning | understood | applied | validated | example
 learning_state: not-started | saved | skimmed | studied | practiced | applied | validated | unknown
 progress_evidence: []
 tags: []
@@ -37,6 +56,7 @@ Status rules:
 - `understood`: source evidence shows the user can explain the concept or has studied it with durable notes.
 - `applied`: source evidence shows exercises, demos, project use, or work use.
 - `validated`: source evidence shows repeated use, tests, review, or stable reproduction.
+- `example`: scaffold or demo page; does not count as real mastery.
 
 Saved-for-later links, not-started topics, and skimmed articles must not raise a tech page to `understood`, `applied`, or `validated`.
 

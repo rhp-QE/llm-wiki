@@ -5,7 +5,7 @@
 type: qa
 question:
 topics: []
-status:
+status: answered | partial | open | example
 created:
 updated:
 ---

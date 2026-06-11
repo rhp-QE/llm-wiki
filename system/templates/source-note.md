@@ -3,12 +3,12 @@
 ```markdown
 ---
 type: source
-source_type:
+source_type: article | book | chat | diary | learning | media | note | idea | project | qa | reflection | task_evidence | other
 title:
 origin:
 created:
 captured:
-status: new
+status: new | ingested | ignored | needs-review | example
 rating:
 delivery:
 original_payload:
@@ -16,19 +16,19 @@ raw_preservation:
 content_form:
 original_url:
 accessed:
-fetch_status:
-archive_policy:
-coverage:
-importance:
+fetch_status: fetched | partial | failed | manual
+archive_policy: metadata-only | excerpted | full
+coverage: full | partial | metadata-only
+importance: normal | important | very-important
 preservation_limit:
-learning_intent:
-learning_state:
-counts_as_progress:
-priority:
-progress_evidence:
+learning_intent: active-study | future-reference | background-reading | review | archive-only | unknown
+learning_state: not-started | saved | skimmed | studied | practiced | applied | validated | unknown
+counts_as_progress: true | false
+priority: low | medium | high | unknown
+progress_evidence: user-stated | source-note | exercise | project-use | repeated-use | assessment | inference | none
 task_page:
-task_event:
-task_evidence_scope:
+task_event: created | check-in | execution-log | milestone | missed | blocked | unblocked | review | completed | dropped
+task_evidence_scope: goal | routine | habit | project | learning | life | review | other
 tags: []
 ---
 
