@@ -21,9 +21,9 @@ User-stated for 2026-06-09: waking at 09:55 missed the intended target. The plan
 
 User-stated for 2026-06-10: woke at 10:00, worked and continued LLM-wiki work at night, then planned to wash up and sleep at the written time "13.".
 
-User-stated for 2026-06-11: the stable long-term routine target is to sleep before 01:30 and wake before 08:30.
+User-stated for 2026-06-11: the stable long-term routine target is to sleep before 01:30 and wake before 08:30. A later 2026-06-11 diary check-in records sleep at written time "13.29" and wake at 08:20; user correction confirms the accurate sleep time is 01:29, so this meets both targets.
 
-Sources: `sources/diary/2026/2026-06-09-beijing-work-wiki-career.md`, `sources/diary/2026/2026-06-10-byte-ios-llm-wiki-xiaoheihe.md`, `sources/tasks/2026/2026-06-11-maintain-early-sleep-early-wake-routine-created.md`
+Sources: `sources/diary/2026/2026-06-09-beijing-work-wiki-career.md`, `sources/diary/2026/2026-06-10-byte-ios-llm-wiki-xiaoheihe.md`, `sources/tasks/2026/2026-06-11-maintain-early-sleep-early-wake-routine-created.md`, `sources/diary/2026/2026-06-11-sleep-wake-company.md`
 
 ## Current Understanding
 
@@ -34,6 +34,7 @@ This is an emerging theme. The user is tracking wake time and sleep targets. As 
 - Two consecutive diary entries include wake time and a planned sleep target.
 - Both entries connect late-night personal activity with sleep timing.
 - The routine is now tracked as a long-term open task: [[wiki/tasks/2026-06-11-maintain-early-sleep-early-wake-routine|Maintain daily early sleep and wake routine]].
+- The first post-task check-in records confirmed 01:29 sleep and 08:20 wake, which supports a successful day under the clarified 01:30/08:30 target.
 
 ## Representative Events
 
@@ -58,6 +59,7 @@ This is an emerging theme. The user is tracking wake time and sleep targets. As 
 - 2026-06-09: woke at 09:55, missed target, and planned to sleep by the stated target after washing up and playing two games.
 - 2026-06-10: woke at 10:00, continued LLM-wiki work at night, and planned to wash up before sleeping at the written time "13.".
 - 2026-06-11: clarified stable target as sleep before 01:30 and wake before 08:30; created a long-term task to track it.
+- 2026-06-11: diary check-in recorded sleep at written time "13.29", wake at 08:20, washing up, and preparing to go to the company; user correction confirms the sleep time as 01:29, so this met both routine targets.
 
 ## Open Questions
 
@@ -69,3 +71,4 @@ This is an emerging theme. The user is tracking wake time and sleep targets. As 
 - `sources/diary/2026/2026-06-09-beijing-work-wiki-career.md`
 - `sources/diary/2026/2026-06-10-byte-ios-llm-wiki-xiaoheihe.md`
 - `sources/tasks/2026/2026-06-11-maintain-early-sleep-early-wake-routine-created.md`
+- `sources/diary/2026/2026-06-11-sleep-wake-company.md`
