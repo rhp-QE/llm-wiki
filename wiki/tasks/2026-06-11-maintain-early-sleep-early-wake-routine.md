@@ -7,7 +7,7 @@ area: health
 progress_state: in-progress
 progress_percent: unknown
 progress_updated: 2026-06-11
-progress_summary: "First post-creation sleep/wake check-in is recorded for 2026-06-11; user correction confirms sleep at 01:29 and wake at 08:20, meeting both targets."
+progress_summary: "Routine target is defined and source-backed; no actual post-creation sleep/wake check-ins are recorded yet."
 due:
 scheduled:
 created: 2026-06-11
@@ -17,7 +17,6 @@ source: direct user request 2026-06-11
 evidence_policy: source-backed
 source_records:
   - sources/tasks/2026/2026-06-11-maintain-early-sleep-early-wake-routine-created.md
-  - sources/diary/2026/2026-06-11-sleep-wake-company.md
 linked_pages:
   - [[sleep-and-routine]]
 tags:
@@ -47,7 +46,7 @@ Maintain a daily early sleep and wake routine:
 - State: in-progress
 - Percent: unknown
 - Updated: 2026-06-11
-- Summary: First post-creation sleep/wake check-in is recorded for 2026-06-11; user correction confirms sleep at 01:29 and wake at 08:20, meeting both targets.
+- Summary: Routine target is defined and source-backed; no actual post-creation sleep/wake check-ins are recorded yet.
 
 ## Context
 
@@ -71,7 +70,6 @@ Track actual sleep and wake times in diary or daily review entries, then use fut
 ## Source Records
 
 - `sources/tasks/2026/2026-06-11-maintain-early-sleep-early-wake-routine-created.md`
-- `sources/diary/2026/2026-06-11-sleep-wake-company.md`
 
 ## Linked Pages
 
@@ -81,4 +79,3 @@ Track actual sleep and wake times in diary or daily review entries, then use fut
 
 - 2026-06-11: Created as a long-term open health/routine task.
 - 2026-06-11: Marked source-backed under the Task Evidence Gate and linked the task creation evidence source.
-- 2026-06-11: Added first post-creation diary check-in. User wrote "今天凌晨 13.29 睡觉" and "早上 8.20"; later corrected that the accurate sleep time was 01:29. Under the active 01:30/08:30 target, this met both targets.
