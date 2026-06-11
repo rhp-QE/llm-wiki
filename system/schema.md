@@ -85,14 +85,17 @@ URL-backed source fields:
 - `delivery: url`
 - `original_payload: user-provided | inbox | imported-file | url-only | fetched | manual`
 - `raw_preservation: verbatim | evidence-package | metadata-only`
-- `content_form: article | chat | thread | documentation | gist | newsletter | video | podcast | transcript | post | other`
+- `content_form: article | chat | thread | documentation | gist | newsletter | video | podcast | transcript | post | markdown | note | diary | life-log | project-record | draft | export | other`
 - `original_url`
 - `accessed`
 - `fetch_status: fetched | partial | failed | manual`
+- `fetch_purpose: understand | preserve | refresh | metadata-only`
+- `source_ownership: user-owned | third-party | unknown`
 - `archive_policy: metadata-only | excerpted | full`
 - `coverage: full | partial | metadata-only`
 - `importance: normal | important | very-important`
 - `preservation_limit`
+- `archive_reason`
 - `primary_subject`
 - `target_domains`
 

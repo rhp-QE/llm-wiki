@@ -25,9 +25,15 @@ Do not finish an ingest unless these are true:
 - [ ] State the workflow: `ingest`, `query-derived update`, or `migration sample`.
 - [ ] Identify input type: diary, learning, article, book, chat, media, idea, project, or other.
 - [ ] URL-backed material is treated as `delivery: url`, not as a source type or automatic tech/learning signal.
+- [ ] URL-backed ingest separated reading/fetching, source archival, and compiled wiki updates instead of treating a URL as permission to do all three.
+- [ ] Accessible URL-backed material was read/fetched for understanding unless the user requested metadata-only handling or access was unavailable.
 - [ ] For URL-backed material, a bounded evidence package was created when possible, or fetch failure was recorded with URL and user context.
 - [ ] Full linked content was not stored by default; any full archive has a reason such as short, uniquely important, unavailable elsewhere, user-provided, or explicitly requested.
 - [ ] URL-only submissions were not treated as if the user had provided the full linked text; URL, user context, fetch status, and bounded evidence package were preserved according to URL policy.
+- [ ] Links identified by the user as their own durable material, such as diary Markdown, personal notes, project records, learning notes, reflections, drafts, or chat exports, were treated as user-provided durable material rather than ordinary URL-only submissions.
+- [ ] User-owned durable material delivered by URL was preserved verbatim in `## Raw Material` when accessible before any compiled `wiki/` pages were written.
+- [ ] Very large user-owned durable material was preserved through ordered chunks, a stable imported file path, or another auditable full-preservation method rather than replaced by a summary.
+- [ ] If user-owned durable material could not be fetched or preserved, URL/context were kept with `status: needs-review` and no personal facts were compiled from the URL alone.
 - [ ] Importance markers such as `important`, `importent`, `非常重要`, or `重要` were preserved in source metadata and affected preservation depth.
 - [ ] Very large important content was not fully archived by default; core extraction is capped at 500 Chinese characters plus evidence anchors.
 - [ ] URL-backed material was classified by content form and primary subject before routing to source directory and wiki domains.

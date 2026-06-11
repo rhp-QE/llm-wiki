@@ -59,9 +59,12 @@ Use this checklist during `llm-wiki Lint`.
 - [ ] Compiled pages cite source paths, source titles, or explicit user input.
 - [ ] Inference is marked when evidence is incomplete.
 - [ ] Raw source files are preserved.
-- [ ] URL-backed sources record URL metadata, archive policy, coverage, and are routed by content form rather than treated as automatic tech/learning.
+- [ ] URL-backed sources record URL metadata, fetch purpose, source ownership, archive policy, archive reason when needed, coverage, and are routed by content form rather than treated as automatic tech/learning.
 - [ ] URL-backed sources do not store full linked content by default without a stated reason.
+- [ ] User-owned durable URL-backed sources preserve accessible original payloads verbatim in `## Raw Material` before compiled pages are written.
+- [ ] Failed or inaccessible user-owned durable URL-backed sources are marked `needs-review` and do not produce compiled personal facts from URL metadata alone.
 - [ ] Very large important URL/chat sources use a bounded extraction policy, including a 500 Chinese character core extraction cap and evidence anchors.
+- [ ] Very large user-owned durable URL-backed sources use ordered chunks, stable imported file paths, or another auditable full-preservation method instead of summary-only preservation.
 - [ ] Query rules prefer local URL snapshots over repeated live fetches.
 - [ ] Skill-tree sources distinguish `active-study`, `future-reference`, `background-reading`, `review`, `archive-only`, or `unknown` intent when relevant.
 - [ ] Saved-for-later, not-started, and skimmed skill materials use `counts_as_progress: false` and are not listed as real learning progress.

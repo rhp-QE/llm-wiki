@@ -9,7 +9,7 @@ source_type: article | book | chat | diary | learning | media | note | idea | pr
 delivery: url
 original_payload: url-only | user-provided | fetched | manual
 raw_preservation: evidence-package | verbatim | metadata-only
-content_form: article | chat | thread | documentation | gist | newsletter | video | podcast | transcript | post | other
+content_form: article | chat | thread | documentation | gist | newsletter | video | podcast | transcript | post | markdown | note | diary | life-log | project-record | draft | export | other
 title:
 author:
 origin:
@@ -18,10 +18,13 @@ created:
 captured:
 accessed:
 fetch_status: fetched | partial | failed | manual
+fetch_purpose: understand | preserve | refresh | metadata-only
+source_ownership: user-owned | third-party | unknown
 archive_policy: metadata-only | excerpted | full
 coverage: full | partial | metadata-only
 importance: normal | important | very-important
 preservation_limit:
+archive_reason:
 learning_intent: active-study | future-reference | background-reading | review | archive-only | unknown
 learning_state: not-started | saved | skimmed | studied | practiced | applied | validated | unknown
 counts_as_progress: true | false
@@ -43,9 +46,13 @@ Original URL:
 
 ## Evidence Package
 
-Do not paste the full linked content by default. A URL-only submission is not the full original linked content. Preserve source metadata, user context, AI core extraction, key supported claims, selected short excerpts or anchors, and fetch status. If fetching failed, record the failure and keep the URL plus user-provided context.
+Separate reading/fetching, source archival, and compiled wiki updates. A URL-only submission is not the full original linked content.
 
-If the user marked the source as important (`important`, `importent`, `非常重要`, `重要`, or equivalent), preserve core information carefully. If URL-linked or fetched content is very large, keep `archive_policy: excerpted` and use `preservation_limit: core-extraction-500-zh-chars` instead of full text. If the user pasted or uploaded the linked content itself, preserve that user-provided payload verbatim in `## Raw Material` or use `system/templates/source-note.md`.
+For third-party or external material, read/fetch accessible content for understanding during Ingest, but do not paste full linked content by default. Preserve source metadata, user context, AI core extraction, key supported claims, selected short excerpts or anchors, and fetch status. If fetching failed, record the failure and keep the URL plus user-provided context.
+
+For user-owned durable material delivered by URL, such as diary Markdown, personal notes, project records, learning notes, reflections, drafts, or chat exports, preserve the accessible original payload verbatim in `## Raw Material` or use `system/templates/source-note.md` before compiled wiki pages are written. If it is too large for one practical source file, preserve ordered chunks or record a stable imported file path with coverage metadata.
+
+If the user marked the source as important (`important`, `importent`, `非常重要`, `重要`, or equivalent), preserve core information carefully. If third-party URL-linked or fetched content is very large, keep `archive_policy: excerpted` and use `preservation_limit: core-extraction-500-zh-chars` instead of full text.
 
 ## Content Form And Subject
 

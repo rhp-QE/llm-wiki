@@ -18,13 +18,14 @@ Use only when the user explicitly asks to process `inbox/`, says `ingest`, `入�
 ## Phases
 
 1. Intake: identify inputs, preserve source evidence, and stop if required source preservation cannot be satisfied.
-2. Route: choose source type, target domains, templates, and existing pages to update.
-3. Enrich: extract durable entities, relationships, questions, timeline entries, open loops, and task signals.
-4. Write: update compiled pages and indexes through domain schemas.
-5. Task Impact Pass: update affected task pages, `todo.md`, and `wiki/tasks/任务.md` when source evidence clearly supports it.
-6. Citation fixing: ensure source paths exist and claims are marked as sourced, user-stated, inference, or needs evidence.
-7. Maintenance: check links, frontmatter, aliases, duplicates, status, indexes, and processed inbox cleanup.
-8. Log: update the active monthly log.
+2. URL Handling: for URL-backed inputs, separate reading/fetching, source archival, and compiled wiki updates according to `system/policies/url-evidence.md`.
+3. Route: choose source type, target domains, templates, and existing pages to update.
+4. Enrich: extract durable entities, relationships, questions, timeline entries, open loops, and task signals.
+5. Write: update compiled pages and indexes through domain schemas.
+6. Task Impact Pass: update affected task pages, `todo.md`, and `wiki/tasks/任务.md` when source evidence clearly supports it.
+7. Citation fixing: ensure source paths exist and claims are marked as sourced, user-stated, inference, or needs evidence.
+8. Maintenance: check links, frontmatter, aliases, duplicates, status, indexes, and processed inbox cleanup.
+9. Log: update the active monthly log.
 
 ## Rules
 
@@ -32,7 +33,10 @@ Use only when the user explicitly asks to process `inbox/`, says `ingest`, `入�
 - User-provided durable material must be preserved verbatim in `sources/` before compiled pages are written.
 - Inbox ingest inventories and groups compatible fragments before source creation.
 - Do not merge different source types by convenience.
-- URL-only submissions use bounded local evidence packages by default, not full linked text.
+- URL-backed Ingest attempts to read accessible linked content for understanding, but full source archival depends on ownership, source type, size, and explicit user intent.
+- URL-only third-party or external submissions use bounded local evidence packages by default, not full linked text.
+- User-owned durable material delivered by URL must be preserved as raw source material when accessible before compiled pages are written.
+- If user-owned durable material cannot be fetched or preserved, keep the URL/context as `needs-review` and do not compile personal facts from it.
 - Learning progress updates require supported learning intent/state classification.
 - Prefer updating existing pages over creating duplicates.
 - Every non-trivial compiled claim needs a source path, explicit user statement, `Inference`, or `Needs evidence`.
@@ -61,4 +65,3 @@ open_questions:
 needs_user_review:
 next_actions:
 ```
-

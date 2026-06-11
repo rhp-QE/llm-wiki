@@ -8,11 +8,16 @@ mode: incremental | migration-sample | query-derived-update
 inputs:
 source_type:
 delivery:
-content_form:
+content_form: article | chat | thread | documentation | gist | newsletter | video | podcast | transcript | post | markdown | note | diary | life-log | project-record | draft | export | other
 primary_subject:
 url_fetch_strategy:
   original_url:
   fetch_status:
+  fetch_purpose:
+  source_ownership:
+  archive_policy:
+  archive_reason:
+  coverage:
   local_snapshot_planned:
   query_refetch_policy:
 source_destination:

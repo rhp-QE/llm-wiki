@@ -13,14 +13,17 @@ rating:
 delivery:
 original_payload:
 raw_preservation:
-content_form:
+content_form: article | chat | thread | documentation | gist | newsletter | video | podcast | transcript | post | markdown | note | diary | life-log | project-record | draft | export | other
 original_url:
 accessed:
 fetch_status: fetched | partial | failed | manual
+fetch_purpose: understand | preserve | refresh | metadata-only
+source_ownership: user-owned | third-party | unknown
 archive_policy: metadata-only | excerpted | full
 coverage: full | partial | metadata-only
 importance: normal | important | very-important
 preservation_limit:
+archive_reason:
 learning_intent: active-study | future-reference | background-reading | review | archive-only | unknown
 learning_state: not-started | saved | skimmed | studied | practiced | applied | validated | unknown
 counts_as_progress: true | false
@@ -40,9 +43,13 @@ For user-provided pasted text, uploaded file content, imported notes, inbox capt
 
 ## URL / Origin
 
-Use this when the source is URL-backed. Record original URL, access time, fetch status, archive policy, and coverage. A URL-only submission is not the full original linked content. Do not paste full linked content by default; prefer a bounded evidence package plus AI core extraction unless full archival is short, user-provided, explicitly requested, or otherwise justified.
+Use this when the source is URL-backed. Record original URL, access time, fetch status, fetch purpose, source ownership, archive policy, archive reason, and coverage. A URL-only submission is not the full original linked content.
 
-If user context marks the source as important (`important`, `importent`, `非常重要`, `重要`, or equivalent), preserve core information carefully. If URL-linked or fetched content is very large, use `preservation_limit: core-extraction-500-zh-chars` and do not paste the full content by default. If the user pasted or uploaded the full content itself, keep that user-provided payload verbatim in `## Raw Material`.
+For third-party or external material, read/fetch accessible content for understanding during Ingest, but do not paste full linked content by default. Prefer a bounded evidence package plus AI core extraction unless full archival is short, uniquely important, unavailable elsewhere, explicitly requested, or otherwise justified.
+
+For user-owned durable material delivered by URL, such as diary Markdown, personal notes, project records, learning notes, reflections, drafts, or chat exports, preserve the accessible original payload verbatim in `## Raw Material` before compiled wiki pages are written. If the content is too large for one practical source file, preserve ordered chunks or record a stable imported file path with coverage metadata. Do not substitute a summary for raw preservation.
+
+If user context marks the source as important (`important`, `importent`, `非常重要`, `重要`, or equivalent), preserve core information carefully. If third-party URL-linked or fetched content is very large, use `preservation_limit: core-extraction-500-zh-chars` and do not paste the full content by default. If the user pasted, uploaded, or identified the linked content as their own durable material, keep that user-provided payload verbatim in `## Raw Material` when accessible.
 
 ## AI Core Extraction
 
