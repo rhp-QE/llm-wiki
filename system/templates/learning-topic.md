@@ -6,6 +6,8 @@ type: learning_path
 title:
 domain:
 status:
+focus:
+priority:
 created:
 updated:
 ---
@@ -14,9 +16,13 @@ updated:
 
 ## Goal
 
+## Current Focus
+
 ## Current Level
 
 ## Map
+
+## Saved For Later
 
 ## Recently Learned
 
@@ -25,6 +31,8 @@ updated:
 ## Review Queue
 
 ## Practice Tasks
+
+## Related Tasks
 
 ## Linked Knowledge
 

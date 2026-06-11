@@ -13,15 +13,17 @@ These are cross-cutting rules for all wiki operations.
 - Use `[[wikilink]]` for internal knowledge links.
 - Every new durable page should have at least one incoming or outgoing link unless it is a deliberate orphan.
 - Prefer links between concepts, people, events, themes, and models over only linking source files.
-- For Obsidian browsing, maintain `wiki/home.md` and focused Maps of Content under `wiki/maps/`.
+- For Obsidian browsing, maintain `wiki/首页.md` and focused 内容地图 under `wiki/maps/`.
 - Avoid linking README, AGENTS, and agent `index.md` files from Obsidian-facing maps.
-- Prefer path-qualified wikilinks for map targets, for example `[[wiki/maps/maps|Maps]]`.
+- Prefer path-qualified wikilinks for map targets, for example `[[wiki/maps/地图|地图]]`.
 - Keep source evidence as plain paths unless the source should intentionally appear in the Obsidian graph.
 
 ## Naming
 
 - Use clear lowercase slugs for filenames when the title is English.
 - Use stable Chinese titles when the natural entity name is Chinese.
+- For Chinese person pages, use the stable Chinese name as the filename and keep pinyin, former typos, nicknames, or alternate spellings in frontmatter aliases.
+- Do not add mutable details such as workplace, location, school, or relationship to person filenames.
 - Keep aliases in frontmatter instead of creating duplicate pages.
 
 ## Status Values
@@ -37,6 +39,11 @@ Use status fields to avoid pretending the wiki is more certain than it is:
 - `partial`
 - `needs-review`
 - `retired`
+- `example`
+
+See `system/schema.md` for domain-specific statuses such as `ingested`, `answered`, `draft`, `final`, `historical`, `unknown`, and `closed`.
+
+Use `example` only for scaffold or demo material that should not count as real personal history, real learning progress, or validated knowledge.
 
 ## Bulk Work
 

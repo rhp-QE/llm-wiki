@@ -1,14 +1,16 @@
-# Maps Schema
+# 地图 Schema
 
 ## Contract
 
-Map pages are Obsidian-facing Maps of Content. They organize navigation across existing wiki pages and should not become a second source of truth.
+Map pages are Obsidian-facing 内容地图. They organize navigation across existing wiki pages and should not become a second source of truth.
 
 ## Page Location
 
 `wiki/maps/{slug}.md`
 
 ## Frontmatter
+
+For normal map pages:
 
 ```yaml
 ---
@@ -22,6 +24,8 @@ created:
 updated:
 ---
 ```
+
+For the map index page, use `type: map_index` with the same status values.
 
 ## Body
 

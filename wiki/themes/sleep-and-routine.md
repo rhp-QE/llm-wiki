@@ -10,7 +10,7 @@ tags:
   - routine
   - discipline
 created: 2026-06-10
-updated: 2026-06-10
+updated: 2026-06-11
 ---
 
 # Sleep and Routine
@@ -19,19 +19,27 @@ updated: 2026-06-10
 
 User-stated for 2026-06-09: waking at 09:55 missed the intended target. The planned routine was to sleep around the stated target and wake around 08:00.
 
-Source: `sources/diary/2026/2026-06-09-beijing-work-wiki-career.md`
+User-stated for 2026-06-10: woke at 10:00, worked and continued LLM-wiki work at night, then planned to wash up and sleep at the written time "13.".
+
+User-stated for 2026-06-11: the stable long-term routine target is to sleep before 01:30 and wake before 08:30. A later 2026-06-11 diary check-in records sleep at written time "13.29" and wake at 08:20; user correction confirms the accurate sleep time is 01:29, so this meets both targets.
+
+Sources: `sources/diary/2026/2026-06-09-beijing-work-wiki-career.md`, `sources/diary/2026/2026-06-10-byte-ios-llm-wiki-xiaoheihe.md`, `sources/tasks/2026/2026-06-11-maintain-early-sleep-early-wake-routine-created.md`, `sources/diary/2026/2026-06-11-sleep-wake-company.md`
 
 ## Current Understanding
 
-This is an emerging theme. The source suggests the user is tracking sleep/wake targets and notices when the target is missed.
+This is an emerging theme. The user is tracking wake time and sleep targets. As of 2026-06-11, the explicit target is sleep before 01:30 and wake before 08:30.
 
 ## Recurring Patterns
 
-- Needs more diary entries before calling this a repeated pattern.
+- Two consecutive diary entries include wake time and a planned sleep target.
+- Both entries connect late-night personal activity with sleep timing.
+- The routine is now tracked as a long-term open task: [[wiki/tasks/2026-06-11-maintain-early-sleep-early-wake-routine|Maintain daily early sleep and wake routine]].
+- The first post-task check-in records confirmed 01:29 sleep and 08:20 wake, which supports a successful day under the clarified 01:30/08:30 target.
 
 ## Representative Events
 
-- [[2026-06-09-beijing-work-wiki-career]]
+- [[wiki/events/2026-06-09-beijing-work-wiki-career|2026-06-09 Beijing work, personal wiki, and career anxiety]]
+- [[wiki/events/2026-06-10-byte-ios-llm-wiki-xiaoheihe|2026-06-10 ByteDance iOS work, LLM-wiki, and Xiaoheihe interview decision]]
 
 ## Related People
 
@@ -44,17 +52,23 @@ This is an emerging theme. The source suggests the user is tracking sleep/wake t
 ## Tensions / Contradictions
 
 - The diary includes a plan to play two games after 00:12 while also wanting to sleep before the stated target.
-- The written times "13点" and "13.30" are ambiguous in context and should be clarified before analyzing the routine quantitatively.
+- Late-night LLM-wiki work and gaming can conflict with the 01:30 sleep target.
 
 ## Timeline
 
 - 2026-06-09: woke at 09:55, missed target, and planned to sleep by the stated target after washing up and playing two games.
+- 2026-06-10: woke at 10:00, continued LLM-wiki work at night, and planned to wash up before sleeping at the written time "13.".
+- 2026-06-11: clarified stable target as sleep before 01:30 and wake before 08:30; created a long-term task to track it.
+- 2026-06-11: diary check-in recorded sleep at written time "13.29", wake at 08:20, washing up, and preparing to go to the company; user correction confirms the sleep time as 01:29, so this met both routine targets.
 
 ## Open Questions
 
-- Did the user mean 01:00/01:30 or 13:00/13:30?
-- What is the intended stable target: sleep time, wake time, or both?
+- What daily signal should count as success: actual sleep time, lights-out time, wake-up time, or all of them?
+- Should this routine be reviewed weekly or only through diary queries?
 
 ## Sources
 
 - `sources/diary/2026/2026-06-09-beijing-work-wiki-career.md`
+- `sources/diary/2026/2026-06-10-byte-ios-llm-wiki-xiaoheihe.md`
+- `sources/tasks/2026/2026-06-11-maintain-early-sleep-early-wake-routine-created.md`
+- `sources/diary/2026/2026-06-11-sleep-wake-company.md`

@@ -11,3 +11,9 @@ Suggested subdomains:
 - `repos/`
 - `architecture/`
 - `tools/`
+
+## LLM / Agent
+
+- [[llm-wiki-pattern|LLM Wiki Pattern]]
+- [[loop-engineering|Loop Engineering]]
+- [[octopus-style-agent|Octopus-style Agent Architecture]]

@@ -9,6 +9,11 @@ captured: 2026-06-10
 status: ingested
 location: Beijing
 weather: sunny
+task_impact: updates-existing
+related_tasks:
+  - wiki/tasks/2026-06-10-prepare-xiaoheihe-interview.md
+  - wiki/tasks/2026-06-10-define-agent-development-plan.md
+  - wiki/tasks/2026-06-10-clarify-sleep-target-notation.md
 tags:
   - diary
   - beijing
@@ -35,3 +40,4 @@ tags:
 - "锥型" may mean "雏形" in context; compiled pages use "初步雏形" and keep this as an inference.
 - Sleep target contains an ambiguity: "13点左右入睡" and "13.30之前睡觉" are preserved as written. Future review should clarify whether this meant 1:00/1:30 or 13:00/13:30.
 - User correction on 2026-06-10: this diary is for 2026-06-09, and the 小黑盒 client development interview was the next day, 2026-06-10 afternoon.
+- User correction on 2026-06-10: "郭若均" in the raw diary should be "郭若筠".

@@ -1,6 +1,6 @@
 ---
 type: map_index
-title: Maps
+title: 地图
 status: active
 created: 2026-06-10
 updated: 2026-06-10
@@ -10,22 +10,22 @@ tags:
   - navigation
 ---
 
-# Maps
+# 地图
 
-Maps are Obsidian-facing navigation pages. They connect existing domain pages into visual browsing paths.
+地图 are Obsidian-facing navigation pages. They connect existing domain pages into visual browsing paths.
 
-For Obsidian graph browsing, use [[wiki/maps/maps|Maps]] instead of this README. This file stays for filesystem and GitHub-style directory browsing.
+For Obsidian graph browsing, use [[wiki/maps/地图|地图]] instead of this README. This file stays for filesystem and GitHub-style directory browsing.
 
-## Available Maps
+## Available 地图
 
-- [[wiki/maps/maps|Maps]]
-- [[wiki/maps/personal-operating-map|Personal Operating Map]]
-- [[wiki/maps/learning-and-tech-map|Learning And Tech Map]]
-- [[wiki/maps/knowledge-system-map|Knowledge System Map]]
+- [[wiki/maps/地图|地图]]
+- [[wiki/maps/个人状态地图|个人状态地图]]
+- [[wiki/maps/学习与技术地图|学习与技术地图]]
+- [[wiki/maps/知识系统地图|知识系统地图]]
 
 ## Main Entry
 
-- [[wiki/home|Obsidian Home]]
+- [[wiki/首页|首页]]
 - Agent routing entry: `wiki/index.md`
 
 ## How To Use
