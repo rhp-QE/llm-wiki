@@ -24,7 +24,14 @@ Use the current working directory when it contains:
 - `AGENTS.md`
 - `system/skills/llm-wiki/SKILL.md`
 
-Otherwise, walk upward to find those files. If no wiki root is found, ask for the root path.
+Otherwise, walk upward to find those files.
+
+If no current or parent directory is a wiki root, use `/root/llm-wiki`
+when it contains both marker files above. This is the default wiki root
+for this machine.
+
+If no wiki root is found, ask for the root path. Do not recursively scan
+arbitrary child directories unless the user asks for discovery.
 
 ## Load Order
 
