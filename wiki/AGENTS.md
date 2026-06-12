@@ -25,7 +25,7 @@ Every page should make clear which parts are:
 
 ## Internal Links
 
-Use Obsidian wikilink style for conceptual relationships between durable pages. Use relative Markdown links on Obsidian-facing navigation and index pages that must work in both the full repository vault and the clean `wiki/` vault.
+Use relative Markdown links between durable pages. This keeps links safe in VS Code, GitHub-style viewers, and both supported Obsidian vault roots.
 
 ## Obsidian View Layer
 

@@ -46,6 +46,7 @@ Use this checklist during `llm-wiki Lint`.
 ## Links
 
 - [ ] `python3 system/scripts/lint-obsidian-links.py` passes.
+- [ ] Non-code compiled `wiki/` pages use relative Markdown links instead of wikilinks, so VS Code clicks do not create wrong files.
 - [ ] New pages have internal links.
 - [ ] Domain README files are discoverable from `wiki/index.md`.
 - [ ] Task domain and task dashboard are discoverable from `wiki/index.md`.

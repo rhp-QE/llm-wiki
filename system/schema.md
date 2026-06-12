@@ -241,7 +241,7 @@ Allowed `report_type` values:
 
 ## Link Rules
 
-- Use Obsidian wikilinks for conceptual relationships between compiled wiki pages when the target resolves in the active vault.
+- Use relative Markdown links for conceptual relationships between compiled wiki pages.
 - Use relative Markdown links on Obsidian-facing navigation and index pages that must work in both the full repository vault and the clean `wiki/` vault.
 - Prefer explicit relative Markdown paths when a target stem could be ambiguous.
 - Keep source evidence as plain paths in `Sources` sections unless the source is intentionally part of the Obsidian graph.
@@ -261,5 +261,5 @@ Schema lint should check:
 - Saved-for-later or not-started material is not counted as real learning progress.
 - Task pages have valid task status, priority, area, evidence policy, and dashboard consistency.
 - Source-backed tasks have existing `source_records`.
-- Short wikilinks are not ambiguous across layers.
+- Internal compiled wiki links use relative Markdown paths and are not ambiguous across layers.
 - Example pages are clearly marked as examples.

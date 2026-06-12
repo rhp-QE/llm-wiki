@@ -86,8 +86,8 @@ Use the `llm-wiki` skill for:
 - Task granularity, task evidence, and task impact are governed by `system/policies/task-granularity.md`, `system/policies/task-evidence.md`, and `system/policies/task-impact.md`.
 - Learning progress and mastery state are governed by `system/policies/learning-progress.md`.
 - Every non-trivial compiled claim should point to a source, log entry, or clearly marked inference.
-- Prefer Obsidian wikilink style internal links for conceptual relationships in wiki content.
-- Use relative Markdown links on Obsidian-facing navigation/index pages that must work in both the full repository vault and the clean `wiki/` vault.
+- Use relative Markdown links for compiled `wiki/` pages so links work in VS Code, GitHub-style viewers, and both Obsidian vault roots.
+- Do not use non-code `[[...]]` links in compiled `wiki/` pages; VS Code may treat unresolved wikilinks as new-file targets in the current directory.
 - Update `wiki/index.md` when adding a new major page or domain.
 - Update `wiki/indexes/` after large ingest, migration, or schema changes that affect lookup.
 - Update `wiki/首页.md` or `wiki/maps/` when a new page changes Obsidian navigation.
@@ -107,7 +107,7 @@ Before mutating files:
 After mutating files:
 
 - Run the relevant checklist from `system/evals/`.
-- Confirm source paths and wikilinks introduced by the change.
+- Confirm source paths and internal links introduced by the change.
 - Update the active monthly log under `wiki/logs/YYYY-MM.md`.
 - End with the auditable output fields required by the active workflow.
 

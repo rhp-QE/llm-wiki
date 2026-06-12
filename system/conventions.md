@@ -10,7 +10,7 @@ This file owns cross-cutting writing, linking, naming, bulk-work, and logging co
 
 ## Links
 
-- Use Obsidian wikilinks for internal conceptual knowledge links when they resolve in the active vault.
+- Use relative Markdown links for internal compiled `wiki/` links. They must work in VS Code, GitHub-style viewers, and both supported Obsidian vault roots.
 - Every new durable page should have at least one incoming or outgoing link unless it is a deliberate orphan.
 - Prefer links between concepts, people, events, themes, and models over only linking source files.
 - For Obsidian browsing, maintain `wiki/首页.md` and focused 内容地图 under `wiki/maps/`.

@@ -72,6 +72,11 @@ def check_wikilinks(errors: list[str]) -> None:
         for lineno, line in iter_content_lines(path):
             for match in WIKILINK_RE.finditer(line):
                 target = match.group(1).split("|", 1)[0].split("#", 1)[0].strip()
+                if path.is_relative_to(WIKI):
+                    errors.append(
+                        f"{rel}:{lineno}: use a relative Markdown link instead of [[{target}]] for VS Code-safe navigation"
+                    )
+                    continue
                 if target.startswith("wiki/"):
                     errors.append(
                         f"{rel}:{lineno}: use a clean-vault-safe link instead of [[{target}]]"
