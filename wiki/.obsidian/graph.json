@@ -8,7 +8,7 @@
   "collapse-color-groups": false,
   "colorGroups": [
     {
-      "query": "path:maps OR path:home",
+      "query": "path:maps OR path:首页",
       "color": {
         "a": 1,
         "rgb": 3447003

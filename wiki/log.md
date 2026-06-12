@@ -15,7 +15,7 @@ This is the index for wiki operation logs. Detailed audit entries live in monthl
 
 ## Active Log
 
-- [[wiki/logs/2026-06|2026-06 Wiki Log]]
+- [2026-06 Wiki Log](logs/2026-06.md)
 
 ## Format
 
@@ -34,10 +34,10 @@ Monthly logs use this entry format:
 
 ## Recent Operations
 
-- 2026-06-12: removed unused framework entry/lifecycle files and kept maintenance/conventions as active ownership docs. See [[wiki/logs/2026-06|2026-06 Wiki Log]].
-- 2026-06-12: reviewed and tightened framework responsibilities, domain schemas, and retrieval-index architecture. See [[wiki/logs/2026-06|2026-06 Wiki Log]].
-- 2026-06-12: refactored framework instructions into thin skill, workflow files, and policy files. See [[wiki/logs/2026-06|2026-06 Wiki Log]].
-- 2026-06-12: converted this branch into a generic framework seed by removing real source material and compiled personal pages. See [[wiki/logs/2026-06|2026-06 Wiki Log]].
+- 2026-06-12: removed unused framework entry/lifecycle files and kept maintenance/conventions as active ownership docs. See [2026-06 Wiki Log](logs/2026-06.md).
+- 2026-06-12: reviewed and tightened framework responsibilities, domain schemas, and retrieval-index architecture. See [2026-06 Wiki Log](logs/2026-06.md).
+- 2026-06-12: refactored framework instructions into thin skill, workflow files, and policy files. See [2026-06 Wiki Log](logs/2026-06.md).
+- 2026-06-12: converted this branch into a generic framework seed by removing real source material and compiled personal pages. See [2026-06 Wiki Log](logs/2026-06.md).
 
 ## Open Questions
 

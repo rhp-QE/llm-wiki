@@ -10,12 +10,12 @@ This file owns cross-cutting writing, linking, naming, bulk-work, and logging co
 
 ## Links
 
-- Use `[[wikilink]]` for internal knowledge links.
+- Use Obsidian wikilinks for internal conceptual knowledge links when they resolve in the active vault.
 - Every new durable page should have at least one incoming or outgoing link unless it is a deliberate orphan.
 - Prefer links between concepts, people, events, themes, and models over only linking source files.
 - For Obsidian browsing, maintain `wiki/首页.md` and focused 内容地图 under `wiki/maps/`.
 - Avoid linking README, AGENTS, and agent `index.md` files from Obsidian-facing maps.
-- Prefer path-qualified wikilinks for map targets, for example `[[wiki/maps/地图|地图]]`.
+- Obsidian-facing entry pages should use relative Markdown links when they must resolve in both the full repository vault and the clean `wiki/` vault.
 - Keep source evidence as plain paths unless the source should intentionally appear in the Obsidian graph.
 
 ## Naming

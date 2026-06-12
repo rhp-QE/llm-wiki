@@ -45,6 +45,7 @@ Use this checklist during `llm-wiki Lint`.
 
 ## Links
 
+- [ ] `python3 system/scripts/lint-obsidian-links.py` passes.
 - [ ] New pages have internal links.
 - [ ] Domain README files are discoverable from `wiki/index.md`.
 - [ ] Task domain and task dashboard are discoverable from `wiki/index.md`.
@@ -52,6 +53,7 @@ Use this checklist during `llm-wiki Lint`.
 - [ ] Retrieval indexes are discoverable from `wiki/index.md`.
 - [ ] Important aliases point to canonical pages.
 - [ ] No obvious broken path links.
+- [ ] No non-code `[[wiki/...]]` links that could create `wiki/wiki/...` in the clean `wiki/` vault.
 - [ ] No ambiguous short wikilinks where `sources/` and `wiki/` share the same target stem.
 
 ## Sources

@@ -14,18 +14,18 @@ tags:
 
 地图 are Obsidian-facing navigation pages. They connect existing domain pages into visual browsing paths.
 
-For Obsidian graph browsing, use [[wiki/maps/地图|地图]] instead of this README. This file stays for filesystem and GitHub-style directory browsing.
+For Obsidian graph browsing, use [地图](地图.md) instead of this README. This file stays for filesystem and GitHub-style directory browsing.
 
 ## Available 地图
 
-- [[wiki/maps/地图|地图]]
-- [[wiki/indexes/索引|索引]]
-- [[wiki/tasks/任务|任务]]
+- [地图](地图.md)
+- [索引](../indexes/索引.md)
+- [任务](../tasks/任务.md)
 
 ## Main Entry
 
-- [[wiki/首页|首页]]
-- [[wiki/indexes/索引|索引]]
+- [首页](../首页.md)
+- [索引](../indexes/索引.md)
 - Agent routing entry: `wiki/index.md`
 
 ## How To Use

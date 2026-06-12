@@ -25,7 +25,7 @@ Every page should make clear which parts are:
 
 ## Internal Links
 
-Use `[[wikilink]]` style for related pages. If exact Obsidian paths are useful, use relative links in addition to wikilinks.
+Use Obsidian wikilink style for conceptual relationships between durable pages. Use relative Markdown links on Obsidian-facing navigation and index pages that must work in both the full repository vault and the clean `wiki/` vault.
 
 ## Obsidian View Layer
 

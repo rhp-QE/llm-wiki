@@ -2,17 +2,17 @@
 
 This wiki can be opened as an Obsidian vault in either mode:
 
-- Full repository vault: `/root/llm_wiki`
-- Clean reading vault: `/root/llm_wiki/wiki`
+- Full repository vault: `/root/llm-wiki`
+- Clean reading vault: `/root/llm-wiki/wiki`
 
-For daily reading, prefer `/root/llm_wiki/wiki`. It has its own `.obsidian/` settings that hide operational files from the file explorer.
+For daily reading, prefer `/root/llm-wiki/wiki`. It has its own `.obsidian/` settings that hide operational files from the file explorer.
 
 ## Recommended Browsing Entry
 
 Start with:
 
-- `首页.md` when opening `/root/llm_wiki/wiki` as the vault.
-- `wiki/首页.md` when opening `/root/llm_wiki` as the vault.
+- `首页.md` when opening `/root/llm-wiki/wiki` as the vault.
+- `wiki/首页.md` when opening `/root/llm-wiki` as the vault.
 - `maps/地图.md` or `wiki/maps/地图.md` for visual maps.
 - `index.md` or `wiki/index.md` for agent routing and domain discovery.
 
@@ -45,7 +45,7 @@ path:wiki -path:AGENTS -path:README -path:wiki/index -path:wiki/log -path:wiki/l
 
 This is stored as the default global graph filter in `.obsidian/graph.json` for the full repository vault.
 
-If opening `/root/llm_wiki/wiki` as the vault, use:
+If opening `/root/llm-wiki/wiki` as the vault, use:
 
 ```text
 -path:AGENTS -path:README -path:index -path:log -path:logs
@@ -59,6 +59,12 @@ To focus on visual navigation:
 path:wiki/maps OR path:wiki/首页
 ```
 
+For the clean `wiki/` vault, use:
+
+```text
+path:maps OR path:首页
+```
+
 To focus on core knowledge domains:
 
 ```text
@@ -67,11 +73,19 @@ path:wiki/themes OR path:wiki/projects OR path:wiki/events OR path:wiki/people O
 
 ## Link Strategy
 
-- Use `[[wikilink]]` for conceptual links between compiled wiki pages.
+- Use relative Markdown links for Obsidian-facing entry and navigation pages that must work in both supported vault roots.
+- Use Obsidian wikilinks for conceptual links between compiled wiki pages when the target resolves in the active vault.
+- Do not use non-code `[[wiki/...]]` links; they resolve incorrectly when `/root/llm-wiki/wiki` is opened as the vault and can create `wiki/wiki/...` files.
 - Avoid linking README, AGENTS, and agent `index.md` files from Obsidian-facing maps.
-- Prefer path-qualified links for map targets, for example `[[wiki/maps/地图|地图]]`.
+- Obsidian-facing entry pages should use relative Markdown links, for example `[地图](maps/地图.md)`, when the link must work in both the full repository vault and the clean `wiki/` vault.
 - Short slug links are acceptable for durable canonical pages with unique filenames.
 - Source evidence should usually stay as plain file paths in `Sources` sections unless the source itself is meant to be browsed as a graph node.
+
+Run this before declaring Obsidian links healthy:
+
+```bash
+python3 system/scripts/lint-obsidian-links.py
+```
 
 ## Map Pages
 

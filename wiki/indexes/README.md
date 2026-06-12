@@ -12,4 +12,4 @@ Use this domain for:
 
 Indexes should link to canonical pages and source paths. They should not become a second source of truth.
 
-Start with [[wiki/indexes/索引|索引]].
+Start with [索引](索引.md).

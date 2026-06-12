@@ -85,7 +85,7 @@ Use `system/templates/ingest-plan.md` for complex or multi-domain ingest before 
 
 - [ ] Existing pages are updated instead of creating duplicates.
 - [ ] New pages use the nearest domain `AGENTS.md` and the closest template in `system/templates/`.
-- [ ] Cross-domain pages link to each other with `[[wikilink]]` where it helps future queries.
+- [ ] Cross-domain pages link to each other with Obsidian wikilinks where it helps future queries.
 - [ ] Compiled source-derived pages that affect tasks include `## Related Tasks` or equivalent task backlinks.
 - [ ] Existing canonical tasks affected by the source have updated progress cache, task log, `todo.md`, and `wiki/tasks/任务.md`.
 - [ ] New durable pages have at least one incoming or outgoing internal link unless deliberately orphaned.

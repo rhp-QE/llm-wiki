@@ -241,8 +241,9 @@ Allowed `report_type` values:
 
 ## Link Rules
 
-- Use `[[wikilink]]` for relationships between compiled wiki pages.
-- Prefer path-qualified wikilinks when a target stem could be ambiguous.
+- Use Obsidian wikilinks for conceptual relationships between compiled wiki pages when the target resolves in the active vault.
+- Use relative Markdown links on Obsidian-facing navigation and index pages that must work in both the full repository vault and the clean `wiki/` vault.
+- Prefer explicit relative Markdown paths when a target stem could be ambiguous.
 - Keep source evidence as plain paths in `Sources` sections unless the source is intentionally part of the Obsidian graph.
 - Map pages are for visual navigation.
 - Index pages are for fast retrieval and generated or semi-generated lookup.

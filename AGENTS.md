@@ -86,7 +86,8 @@ Use the `llm-wiki` skill for:
 - Task granularity, task evidence, and task impact are governed by `system/policies/task-granularity.md`, `system/policies/task-evidence.md`, and `system/policies/task-impact.md`.
 - Learning progress and mastery state are governed by `system/policies/learning-progress.md`.
 - Every non-trivial compiled claim should point to a source, log entry, or clearly marked inference.
-- Prefer `[[wikilink]]` style internal links in wiki content.
+- Prefer Obsidian wikilink style internal links for conceptual relationships in wiki content.
+- Use relative Markdown links on Obsidian-facing navigation/index pages that must work in both the full repository vault and the clean `wiki/` vault.
 - Update `wiki/index.md` when adding a new major page or domain.
 - Update `wiki/indexes/` after large ingest, migration, or schema changes that affect lookup.
 - Update `wiki/首页.md` or `wiki/maps/` when a new page changes Obsidian navigation.

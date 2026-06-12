@@ -33,8 +33,11 @@ Run maintenance when:
 
 ### 2. Link Check
 
+- Run `python3 system/scripts/lint-obsidian-links.py` before declaring Obsidian links healthy.
 - Internal wikilinks point to existing or intentionally planned pages.
 - Short wikilinks are not ambiguous across `sources/` and `wiki/` when a path-qualified link would be clearer.
+- No non-code `[[wiki/...]]` links remain; they can resolve to `wiki/wiki/...` when `wiki/` is opened as the vault.
+- Obsidian-facing Markdown links use relative paths that resolve from the file location.
 - New pages have at least one relevant link.
 - Important people/events/themes have backlinks.
 - Map pages link to canonical domain pages and avoid duplicating source summaries.

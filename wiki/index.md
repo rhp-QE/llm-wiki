@@ -8,22 +8,22 @@ Read this page first, then deep-read the most relevant domain pages. Do not scan
 
 ## Domains
 
-- [[wiki/首页|首页]]: human-facing entry point for visual browsing.
-- [[wiki/maps/地图|地图]]: Obsidian-facing navigation maps.
-- [[wiki/people/README|People]]: people, relationships, aliases, and interaction context.
-- [[wiki/events/README|Events]]: time-bound events, decisions, turning points, and episodes.
-- [[wiki/themes/README|Themes]]: long-running themes such as career, learning, relationships, health, money, creativity, and self-understanding.
-- [[wiki/models/README|Mental Models]]: thinking models, decision patterns, cognitive biases, and long-term reasoning frames.
-- [[wiki/tech/README|Tech]]: technical concepts, tools, repos, syntax, architecture, and implementation knowledge.
-- [[wiki/learning/README|Learning]]: learning paths, practice plans, progress, and review loops.
-- [[wiki/writing/README|Writing]]: ideas, drafts, published pieces, platform variants, and voice rules.
-- [[wiki/craft/README|Craft]]: engineering practices and experience patterns.
-- [[wiki/qa/README|Q&A]]: durable question-answer pages extracted from conversations or study sessions.
-- [[wiki/reflections/README|Reflections]]: principles, values, self-observations, and meta-rules.
-- [[wiki/projects/README|Projects]]: projects, experiments, product ideas, and ongoing initiatives.
-- [[wiki/tasks/任务|Tasks]]: canonical todos, task dashboard, due items, waiting items, and task history.
-- [[wiki/reports/README|Reports]]: briefings, pulse reports, task reports, weekly reviews, migration reports, and health checks.
-- [[wiki/indexes/索引|Indexes]]: retrieval indexes for entities, aliases, timelines, sources, and generated lookup surfaces.
+- [首页](首页.md): human-facing entry point for visual browsing.
+- [地图](maps/地图.md): Obsidian-facing navigation maps.
+- [People](people/README.md): people, relationships, aliases, and interaction context.
+- [Events](events/README.md): time-bound events, decisions, turning points, and episodes.
+- [Themes](themes/README.md): long-running themes such as career, learning, relationships, health, money, creativity, and self-understanding.
+- [Mental Models](models/README.md): thinking models, decision patterns, cognitive biases, and long-term reasoning frames.
+- [Tech](tech/README.md): technical concepts, tools, repos, syntax, architecture, and implementation knowledge.
+- [Learning](learning/README.md): learning paths, practice plans, progress, and review loops.
+- [Writing](writing/README.md): ideas, drafts, published pieces, platform variants, and voice rules.
+- [Craft](craft/README.md): engineering practices and experience patterns.
+- [Q&A](qa/README.md): durable question-answer pages extracted from conversations or study sessions.
+- [Reflections](reflections/README.md): principles, values, self-observations, and meta-rules.
+- [Projects](projects/README.md): projects, experiments, product ideas, and ongoing initiatives.
+- [Tasks](tasks/任务.md): canonical todos, task dashboard, due items, waiting items, and task history.
+- [Reports](reports/README.md): briefings, pulse reports, task reports, weekly reviews, migration reports, and health checks.
+- [Indexes](indexes/索引.md): retrieval indexes for entities, aliases, timelines, sources, and generated lookup surfaces.
 
 ## Fast Query Map
 

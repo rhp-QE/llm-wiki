@@ -2,7 +2,6 @@
   "userIgnoreFilters": [
     "AGENTS.md",
     "README.md",
-    "START_HERE.md",
     "system/",
     "sources/",
     "inbox/",
