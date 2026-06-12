@@ -73,13 +73,14 @@ path:wiki/themes OR path:wiki/projects OR path:wiki/events OR path:wiki/people O
 
 ## Link Strategy
 
-- Use relative Markdown links for Obsidian-facing entry pages, navigation pages, and compiled wiki pages.
+- Use standard relative Markdown links (`[label](relative/path.md)`) for Obsidian-facing entry pages, navigation pages, compiled wiki pages, source references, and source-to-wiki target references.
+- Obsidian can navigate standard Markdown links. Prefer Markdown links over wikilinks for durable content because they also work in VS Code and GitHub-style viewers.
 - Avoid non-code wikilinks in compiled `wiki/` pages; VS Code can treat unresolved wikilinks as new-file targets in the current directory.
 - Do not use non-code `[[wiki/...]]` links; they resolve incorrectly when `/root/llm-wiki/wiki` is opened as the vault and can create `wiki/wiki/...` files.
 - Avoid linking README, AGENTS, and agent `index.md` files from Obsidian-facing maps.
 - Obsidian-facing entry pages should use relative Markdown links, for example `[地图](maps/地图.md)`, when the link must work in both the full repository vault and the clean `wiki/` vault.
 - Short slug wikilinks are not used in compiled wiki pages; use explicit relative Markdown paths instead.
-- Source evidence should usually stay as plain file paths in `Sources` sections unless the source itself is meant to be browsed as a graph node.
+- Source evidence that points to a local Markdown file should be a clickable Markdown link, not a plain code path, whenever the reader is expected to jump to it.
 
 Run this before declaring Obsidian links healthy:
 

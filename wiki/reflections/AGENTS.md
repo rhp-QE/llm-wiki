@@ -13,7 +13,7 @@ Do not use this domain to fabricate introspection from weak evidence. If the sou
 ## How To Update
 
 1. Preserve the user's original phrasing when it carries meaning.
-2. Link each reflection to lived examples such as events, projects, themes, or source paths.
+2. Link each reflection to lived examples such as events, projects, themes, or source files with standard relative Markdown links.
 3. Mark unsupported synthesis as `Inference` or `Needs evidence`.
 4. Prefer updating an existing reflection page over creating a one-off principle page.
 

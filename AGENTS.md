@@ -86,8 +86,9 @@ Use the `llm-wiki` skill for:
 - Task granularity, task evidence, and task impact are governed by `system/policies/task-granularity.md`, `system/policies/task-evidence.md`, and `system/policies/task-impact.md`.
 - Learning progress and mastery state are governed by `system/policies/learning-progress.md`.
 - Every non-trivial compiled claim should point to a source, log entry, or clearly marked inference.
-- Use relative Markdown links for compiled `wiki/` pages so links work in VS Code, GitHub-style viewers, and both Obsidian vault roots.
-- Do not use non-code `[[...]]` links in compiled `wiki/` pages; VS Code may treat unresolved wikilinks as new-file targets in the current directory.
+- Use standard relative Markdown links (`[label](relative/path.md)`) for associated document references by default, including wiki-to-wiki, wiki-to-source, source-to-wiki, maps, indexes, reports, and `Sources` sections.
+- Do not leave associated document references as non-clickable code paths such as ``sources/...`` or ``wiki/...`` when the target is a local Markdown file. Use code paths only for audit inventories, command examples, or literal file ownership notes where navigation is not the purpose.
+- Do not use non-code `[[...]]` links as the default compiled-page format. Reserve wikilinks only for explicit Obsidian-only experiments and prefer path-qualified Markdown links for durable pages.
 - Update `wiki/index.md` when adding a new major page or domain.
 - Update `wiki/indexes/` after large ingest, migration, or schema changes that affect lookup.
 - Update `wiki/首页.md` or `wiki/maps/` when a new page changes Obsidian navigation.
@@ -107,7 +108,7 @@ Before mutating files:
 After mutating files:
 
 - Run the relevant checklist from `system/evals/`.
-- Confirm source paths and internal links introduced by the change.
+- Confirm source and wiki references introduced by the change are clickable Markdown links when they are intended for navigation.
 - Update the active monthly log under `wiki/logs/YYYY-MM.md`.
 - End with the auditable output fields required by the active workflow.
 

@@ -2,7 +2,7 @@
 
 ## Contract
 
-Index pages are retrieval accelerators over canonical wiki pages and source paths. They are not sources of truth and should not replace domain pages, map pages, or reports.
+Index pages are retrieval accelerators over canonical wiki pages and source files. They are not sources of truth and should not replace domain pages, map pages, or reports.
 
 ## When To Use
 
@@ -13,7 +13,7 @@ Do not use this domain for narrative synthesis. Put narrative synthesis in domai
 ## How To Update
 
 1. Identify the canonical domains included in the index.
-2. Link to canonical wiki pages and source paths; do not duplicate long summaries.
+2. Link to canonical wiki pages and source files with standard relative Markdown links; do not duplicate long summaries.
 3. Mark whether the index is generated or manually curated.
 4. Refresh indexes after migration, large ingest, schema changes, or lint repairs that affect discoverability.
 5. Mark stale indexes with `status: stale` when source pages changed but the index was not rebuilt.

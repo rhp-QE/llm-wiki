@@ -35,6 +35,8 @@ Run maintenance when:
 
 - Run `python3 system/scripts/lint-obsidian-links.py` before declaring Obsidian links healthy.
 - Internal compiled wiki links use relative Markdown paths and point to existing pages.
+- Source evidence links and source-to-wiki target links use relative Markdown paths when the target is a local Markdown file and navigation is intended.
+- Associated local Markdown documents are not left as non-clickable code paths such as ``sources/...`` or ``wiki/...`` except in audit inventories, command examples, or literal path documentation.
 - Non-code compiled `wiki/` pages use relative Markdown links instead of wikilinks, so VS Code clicks do not create wrong files.
 - Short wikilinks are not ambiguous across `sources/` and `wiki/` when a path-qualified link would be clearer.
 - No non-code `[[wiki/...]]` links remain; they can resolve to `wiki/wiki/...` when `wiki/` is opened as the vault.
@@ -93,6 +95,7 @@ After meaningful ingest, also check `system/evals/ingest-checklist.md`:
 - Existing pages and aliases were checked.
 - New pages followed domain schemas and templates.
 - Source paths, internal links, and the active monthly log were updated.
+- Source and wiki references intended for navigation are clickable Markdown links.
 - Failed, skipped, or subjective items are listed under `needs_user_review`.
 
 ## Derived Structure Rebuild

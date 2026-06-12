@@ -224,7 +224,7 @@ Common index fields:
 - `sources: []`
 - `tags: []`
 
-Index pages should link to canonical pages and source paths. They should not duplicate long summaries.
+Index pages should link to canonical pages and source files using standard relative Markdown links. They should not duplicate long summaries.
 
 ## Report Schema
 
@@ -241,10 +241,13 @@ Allowed `report_type` values:
 
 ## Link Rules
 
+- Use standard relative Markdown links (`[label](relative/path.md)`) for associated document references by default.
 - Use relative Markdown links for conceptual relationships between compiled wiki pages.
+- Use relative Markdown links for source evidence references when the target is a local Markdown source file.
 - Use relative Markdown links on Obsidian-facing navigation and index pages that must work in both the full repository vault and the clean `wiki/` vault.
 - Prefer explicit relative Markdown paths when a target stem could be ambiguous.
-- Keep source evidence as plain paths in `Sources` sections unless the source is intentionally part of the Obsidian graph.
+- Do not leave source evidence as plain code paths in `Sources` sections when the source is a local Markdown file and navigation is expected.
+- Use code-form file paths only for audit inventories, literal path examples, command examples, or non-Markdown files that are not meant to be opened as knowledge nodes.
 - Map pages are for visual navigation.
 - Index pages are for fast retrieval and generated or semi-generated lookup.
 
@@ -261,5 +264,5 @@ Schema lint should check:
 - Saved-for-later or not-started material is not counted as real learning progress.
 - Task pages have valid task status, priority, area, evidence policy, and dashboard consistency.
 - Source-backed tasks have existing `source_records`.
-- Internal compiled wiki links use relative Markdown paths and are not ambiguous across layers.
+- Internal compiled wiki links and source evidence links use relative Markdown paths and are not ambiguous across layers.
 - Example pages are clearly marked as examples.

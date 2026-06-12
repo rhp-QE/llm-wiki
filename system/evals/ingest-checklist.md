@@ -17,7 +17,7 @@ Do not finish an ingest unless these are true:
 - [ ] Task Impact Pass was run: task progress/completion/blocker signals in the source were matched to existing tasks, promoted to tasks, or listed under `needs_user_review`.
 - [ ] Existing pages and aliases were checked before creating new person, concept, event, project, or theme pages.
 - [ ] Every new durable `wiki/` page has frontmatter matching its domain schema.
-- [ ] Every non-trivial compiled claim has a source path, explicit user statement, `Inference`, or `Needs evidence` marker.
+- [ ] Every non-trivial compiled claim has a clickable source Markdown link when local source material exists, explicit user statement, `Inference`, or `Needs evidence` marker.
 - [ ] The active monthly log under `wiki/logs/YYYY-MM.md` was updated for meaningful mutations.
 
 ## Preflight
@@ -87,6 +87,7 @@ Use `system/templates/ingest-plan.md` for complex or multi-domain ingest before 
 - [ ] Existing pages are updated instead of creating duplicates.
 - [ ] New pages use the nearest domain `AGENTS.md` and the closest template in `system/templates/`.
 - [ ] Cross-domain pages link to each other with relative Markdown links where it helps future queries.
+- [ ] Wiki-to-source and source-to-wiki references use relative Markdown links when the target is a local Markdown file and navigation is intended.
 - [ ] Compiled source-derived pages that affect tasks include `## Related Tasks` or equivalent task backlinks.
 - [ ] Existing canonical tasks affected by the source have updated progress cache, task log, `todo.md`, and `wiki/tasks/任务.md`.
 - [ ] New durable pages have at least one incoming or outgoing internal link unless deliberately orphaned.
@@ -94,8 +95,8 @@ Use `system/templates/ingest-plan.md` for complex or multi-domain ingest before 
 
 ## Citation Fixing
 
-- [ ] Every source path in `Sources` exists.
-- [ ] Source references are specific enough for a future agent to trace the claim.
+- [ ] Every local source Markdown link in `Sources` exists.
+- [ ] Source references are specific enough for a future agent to trace the claim and are clickable when the target is a local Markdown file.
 - [ ] Inference is marked where evidence is incomplete.
 - [ ] `Needs evidence` is used where a page needs user confirmation or source material.
 - [ ] Quotes are short and necessary; prefer summaries plus source pointers.

@@ -23,7 +23,7 @@ Use only when the user explicitly asks to process `inbox/`, says `ingest`, `入�
 4. Enrich: extract durable entities, relationships, questions, timeline entries, open loops, and task signals.
 5. Write: update compiled pages and indexes through domain schemas.
 6. Task Impact Pass: update affected task pages, `todo.md`, and `wiki/tasks/任务.md` when source evidence clearly supports it.
-7. Citation fixing: ensure source paths exist and claims are marked as sourced, user-stated, inference, or needs evidence.
+7. Citation fixing: ensure local source Markdown links resolve and claims are marked as sourced, user-stated, inference, or needs evidence.
 8. Maintenance: check links, frontmatter, aliases, duplicates, status, indexes, and processed inbox cleanup.
 9. Log: update the active monthly log.
 

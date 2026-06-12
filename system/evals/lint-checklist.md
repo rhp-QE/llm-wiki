@@ -48,6 +48,9 @@ Use this checklist during `llm-wiki Lint`.
 - [ ] `python3 system/scripts/lint-obsidian-links.py` passes.
 - [ ] `python3 system/scripts/lint-source-format.py` passes.
 - [ ] Non-code compiled `wiki/` pages use relative Markdown links instead of wikilinks, so VS Code clicks do not create wrong files.
+- [ ] Associated local Markdown documents use clickable standard Markdown links (`[label](relative/path.md)`) by default.
+- [ ] Source evidence references and source-to-wiki target references are clickable Markdown links when the target is a local Markdown file and navigation is intended.
+- [ ] Code-form paths such as ``sources/...`` or ``wiki/...`` are used only for audit inventories, command examples, or literal path documentation, not for navigational associations.
 - [ ] New pages have internal links.
 - [ ] Domain README files are discoverable from `wiki/index.md`.
 - [ ] Task domain and task dashboard are discoverable from `wiki/index.md`.
@@ -60,7 +63,7 @@ Use this checklist during `llm-wiki Lint`.
 
 ## Sources
 
-- [ ] Compiled pages cite source paths, source titles, or explicit user input.
+- [ ] Compiled pages cite source Markdown links, source titles, or explicit user input.
 - [ ] Inference is marked when evidence is incomplete.
 - [ ] Raw source files are preserved.
 - [ ] Markdown-like `## Raw Material` sections are not hidden inside added outer code fences.
@@ -91,7 +94,7 @@ Use this checklist during `llm-wiki Lint`.
 - [ ] Learning paths separate `Saved For Later` from `Recently Learned`.
 - [ ] Tech pages do not use `understood`, `applied`, or `validated` without source-backed mastery evidence.
 - [ ] Example pages marked `status: example` clearly say they are examples and are not counted as real personal progress.
-- [ ] Index pages under `wiki/indexes/` link to canonical pages/source paths and do not become a second source of truth.
+- [ ] Index pages under `wiki/indexes/` link to canonical pages/source files with standard Markdown links and do not become a second source of truth.
 
 ## Quality
 

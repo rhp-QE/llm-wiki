@@ -10,13 +10,15 @@ This file owns cross-cutting writing, linking, naming, bulk-work, and logging co
 
 ## Links
 
-- Use relative Markdown links for internal compiled `wiki/` links. They must work in VS Code, GitHub-style viewers, and both supported Obsidian vault roots.
+- Use standard relative Markdown links (`[label](relative/path.md)`) for associated document references by default. This includes wiki-to-wiki, wiki-to-source, source-to-wiki, maps, indexes, reports, and `Sources` sections.
+- Do not leave associated local Markdown documents as non-clickable code paths such as ``sources/...`` or ``wiki/...`` when the reader is expected to jump to them.
+- Code-form file paths are acceptable for audit inventories, command examples, literal directory ownership notes, or other cases where navigation is not the purpose.
+- Avoid `[[...]]` as the default durable-page link format. Obsidian can follow standard Markdown links, and Markdown links are safer across VS Code, GitHub-style viewers, and both supported Obsidian vault roots.
 - Every new durable page should have at least one incoming or outgoing link unless it is a deliberate orphan.
 - Prefer links between concepts, people, events, themes, and models over only linking source files.
 - For Obsidian browsing, maintain `wiki/首页.md` and focused 内容地图 under `wiki/maps/`.
 - Avoid linking README, AGENTS, and agent `index.md` files from Obsidian-facing maps.
 - Obsidian-facing entry pages should use relative Markdown links when they must resolve in both the full repository vault and the clean `wiki/` vault.
-- Keep source evidence as plain paths unless the source should intentionally appear in the Obsidian graph.
 
 ## Naming
 

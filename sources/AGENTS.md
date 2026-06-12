@@ -53,7 +53,7 @@ When a source is ingested:
 - Do not summarize, translate, normalize, clean up, omit, or rewrite inside the raw block.
 - Do not add an outer triple-backtick fence around Markdown-like raw material. Diary, note, reflection, project, chat, and article sources should render naturally under `## Raw Material`; only preserve code fences that were present in the original payload.
 - Create or update compiled pages under `wiki/`.
-- Link compiled pages back to the source path.
+- Link compiled pages back to the source using standard relative Markdown links when the source is a local Markdown file.
 - Update source `status` when frontmatter exists.
 - Log the ingest in the active monthly log under `wiki/logs/YYYY-MM.md`. Keep `wiki/log.md` as the log index.
 

@@ -10,6 +10,6 @@ Use this domain for:
 - Source manifests
 - Generated indexes by task, project, learning path, or report type
 
-Indexes should link to canonical pages and source paths. They should not become a second source of truth.
+Indexes should link to canonical pages and source files with standard relative Markdown links. They should not become a second source of truth.
 
 Start with [索引](索引.md).
