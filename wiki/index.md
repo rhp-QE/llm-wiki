@@ -45,10 +45,10 @@ Read this page first, then deep-read the most relevant domain pages. Do not scan
 
 ## Current Status
 
-- State: generic scaffold with no real source material and no real compiled personal pages.
+- State: active personal wiki branch with real source-backed seed pages in `sources/` and `wiki/`.
 - Instruction architecture: thin skill + resolver + `system/workflows/` + `system/policies/` + eval checklists.
-- Source ingest: not started.
+- Source ingest: started, including diary and personal-profile notes.
 - Task dashboard: empty scaffold at `todo.md` and `wiki/tasks/任务.md`.
 - Index architecture: scaffolded at `wiki/indexes/索引.md`.
 - Obsidian entry: `wiki/首页.md` -> `wiki/maps/地图.md`.
-- Next action: add raw materials under `inbox/` or `sources/`, then run explicit ingest when knowledge organization is desired.
+- Next action: continue adding raw materials under `inbox/` or `sources/`, then run explicit ingest when knowledge organization is desired.
