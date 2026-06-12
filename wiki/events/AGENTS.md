@@ -15,7 +15,8 @@ Do not create an event page for every small note.
 1. Preserve or cite the source first through the active workflow.
 2. Record chronology, involved people, related themes, consequences, and open questions.
 3. Link people, themes, projects, tasks, or reports when the relationship is supported.
-4. Run the Task Impact Pass when the event affects tracked work.
+4. Use standard relative Markdown links for local wiki and source references.
+5. Run the Task Impact Pass when the event affects tracked work.
 
 ## Page Location
 

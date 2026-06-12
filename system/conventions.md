@@ -7,6 +7,14 @@ This file owns cross-cutting writing, linking, naming, bulk-work, and logging co
 - Sources are evidence; wiki pages are compiled understanding.
 - Do not silently discard source context.
 - Mark unsupported claims as `Inference` or `Needs evidence`.
+- For incremental updates, reuse an existing same-day, same-primary-subject, same-semantic-topic source when source type/content form and origin are compatible. Append a new fragment/section with fragment metadata instead of creating a duplicate source file.
+- Keep fragment metadata outside `## Raw Material`; the raw section must preserve only original payload text and fragment boundaries.
+
+## Time-Sensitive Updates
+
+- Time-varying facts such as current location, job, status, relationship state, progress, availability, and preferences must carry a captured/effective date.
+- Compiled pages should say "as of {date}" or add a timeline entry for time-varying facts instead of presenting them as timeless truth.
+- When newer evidence supersedes older time-varying information, preserve the older claim in source/timeline context instead of silently deleting it.
 
 ## Links
 
@@ -19,6 +27,7 @@ This file owns cross-cutting writing, linking, naming, bulk-work, and logging co
 - For Obsidian browsing, maintain `wiki/首页.md` and focused 内容地图 under `wiki/maps/`.
 - Avoid linking README, AGENTS, and agent `index.md` files from Obsidian-facing maps.
 - Obsidian-facing entry pages should use relative Markdown links when they must resolve in both the full repository vault and the clean `wiki/` vault.
+- After every mutating update, validate that newly added or changed local Markdown links resolve to the intended files.
 
 ## Naming
 

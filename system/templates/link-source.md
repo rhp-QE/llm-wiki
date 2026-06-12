@@ -16,6 +16,11 @@ origin:
 original_url:
 created:
 captured:
+primary_subject:
+semantic_topic:
+source_group:
+grouping_key:
+fragments: []
 accessed:
 fetch_status: fetched | partial | failed | manual
 fetch_purpose: understand | preserve | refresh | metadata-only
@@ -39,6 +44,13 @@ tags: []
 ## User Context
 
 Why the user saved this link, if provided.
+
+## Source Grouping
+
+- Grouping key:
+- Existing sources checked:
+- Decision: appended existing source | created new source | needs-review
+- Reason:
 
 ## URL
 

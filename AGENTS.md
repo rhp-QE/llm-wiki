@@ -81,11 +81,13 @@ Use the `llm-wiki` skill for:
 - `inbox` / `暂存` is capture-only. It writes only to `inbox/`.
 - Explicit `ingest`, `入库`, `沉淀到 wiki`, or `处理 inbox` is required before writing `sources/` or compiled `wiki/` pages.
 - User-provided durable material must be preserved verbatim before compiled pages are written. Use `system/policies/source-preservation.md`.
+- Before creating a new source file for an incremental update, check existing sources for the same date, primary subject, semantic topic, source type/content form, and compatible origin. If they match, append a new fragment/section to the existing source file with fragment metadata; do not create a duplicate source file.
 - URL-only submissions preserve URL/context and bounded evidence by default. Use `system/policies/url-evidence.md`.
 - Direct `todo` / `待办` commands use the task system, not `inbox/`. Use `system/workflows/task.md`.
 - Task granularity, task evidence, and task impact are governed by `system/policies/task-granularity.md`, `system/policies/task-evidence.md`, and `system/policies/task-impact.md`.
 - Learning progress and mastery state are governed by `system/policies/learning-progress.md`.
 - Every non-trivial compiled claim should point to a source, log entry, or clearly marked inference.
+- Time-varying updates such as "currently", location, job, status, relationship state, progress, availability, or preference must carry a captured/effective date in source metadata and an "as of" qualifier or timeline entry in compiled pages.
 - Use standard relative Markdown links (`[label](relative/path.md)`) for associated document references by default, including wiki-to-wiki, wiki-to-source, source-to-wiki, maps, indexes, reports, and `Sources` sections.
 - Do not leave associated document references as non-clickable code paths such as ``sources/...`` or ``wiki/...`` when the target is a local Markdown file. Use code paths only for audit inventories, command examples, or literal file ownership notes where navigation is not the purpose.
 - Do not use non-code `[[...]]` links as the default compiled-page format. Reserve wikilinks only for explicit Obsidian-only experiments and prefer path-qualified Markdown links for durable pages.
@@ -103,12 +105,14 @@ Before mutating files:
 - Use `system/resolver.md` to declare the workflow and target domains.
 - Read each nearest target-domain `AGENTS.md`.
 - Check existing pages and aliases before creating new pages.
+- Check existing source files before creating a new source for an incremental update; append to a same-day, same-subject, same-topic source when compatible.
 - For complex or multi-domain ingest, sketch the route with `system/templates/ingest-plan.md`.
 
 After mutating files:
 
 - Run the relevant checklist from `system/evals/`.
 - Confirm source and wiki references introduced by the change are clickable Markdown links when they are intended for navigation.
+- Run or otherwise satisfy link validation for every local Markdown link introduced or touched by the update.
 - Update the active monthly log under `wiki/logs/YYYY-MM.md`.
 - End with the auditable output fields required by the active workflow.
 

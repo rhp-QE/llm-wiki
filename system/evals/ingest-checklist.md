@@ -10,6 +10,8 @@ Do not finish an ingest unless these are true:
 
 - [ ] Raw material is preserved under `sources/`; `inbox/` is only acceptable as a temporary holding place when ingest stops before completion.
 - [ ] For user-provided non-task material, the original payload is preserved verbatim in `## Raw Material` before compiled `wiki/` pages are written.
+- [ ] Before any new source file was created, existing sources were checked for same date, primary subject, semantic topic, source type/content form, and compatible origin.
+- [ ] Same-day, same-subject, same-topic incremental updates were appended as fragments/sections in the existing source file instead of creating duplicate source files.
 - [ ] Processed `inbox/` files are removed after their raw material is archived under `sources/`; only unprocessed drops, `README.md`, and templates remain in `inbox/`.
 - [ ] `system/resolver.md` was used to choose workflow and target domains.
 - [ ] The nearest target-domain `AGENTS.md` files were read before writing compiled pages.
@@ -18,6 +20,8 @@ Do not finish an ingest unless these are true:
 - [ ] Existing pages and aliases were checked before creating new person, concept, event, project, or theme pages.
 - [ ] Every new durable `wiki/` page has frontmatter matching its domain schema.
 - [ ] Every non-trivial compiled claim has a clickable source Markdown link when local source material exists, explicit user statement, `Inference`, or `Needs evidence` marker.
+- [ ] Time-varying facts have captured/effective dates and compiled-page "as of" qualifiers, current-state timestamps, or timeline entries.
+- [ ] Newly added or edited local Markdown links were checked for correct targets, not just syntactic validity.
 - [ ] The active monthly log under `wiki/logs/YYYY-MM.md` was updated for meaningful mutations.
 
 ## Preflight
@@ -47,6 +51,8 @@ Do not finish an ingest unless these are true:
 - [ ] Different source types were not merged. In particular, diary and learning fragments were kept separate unless the user explicitly instructed otherwise.
 - [ ] Grouped sources preserve original fragment boundaries with fragment IDs, capture timestamps when available, and original inbox paths.
 - [ ] Choose one source destination or confirm the material is already archived.
+- [ ] Existing sources checked for append target using grouping key: date + primary subject + semantic topic + source type/content form + origin.
+- [ ] Source grouping decision recorded: append existing source, create new source, or `needs_user_review`.
 - [ ] List target domains and why each domain owns part of the knowledge.
 - [ ] List existing pages checked for duplicates, aliases, or natural update targets.
 - [ ] List templates to use from `system/templates/`.
@@ -68,6 +74,8 @@ Use `system/templates/ingest-plan.md` for complex or multi-domain ingest before 
 - [ ] If the source came from user text, uploaded content, imported notes, or inbox capture, the preserved source keeps the exact original payload, not merely the meaning or important phrasing.
 - [ ] If the source came from `inbox/`, the source file records the original inbox path and the inbox copy is cleared after verification.
 - [ ] If multiple inbox fragments were grouped, each fragment body remains verbatim and is labeled with fragment ID, capture timestamp when available, original inbox path, and original order.
+- [ ] If incremental updates were appended to an existing source, each appended fragment has a fragment ID, captured date, effective/valid-as-of date when relevant, origin/context, and verbatim raw payload.
+- [ ] Fragment timing and grouping metadata live outside `## Raw Material`.
 - [ ] Direct lightweight todos unrelated to durable personal growth, knowledge, projects, events, or sources were not forced into `sources/`; they were routed to the task system.
 - [ ] If a source is skipped, the reason is recorded in the report or log.
 
@@ -77,6 +85,7 @@ Use `system/templates/ingest-plan.md` for complex or multi-domain ingest before 
 - [ ] Durable relationships are extracted: person-event, concept-concept, theme-event, model-example, project-task.
 - [ ] Task impact signals are extracted: completed goals, partial progress, missed routines, blockers, unblock conditions, failures, dropped work, and new serious actions.
 - [ ] Timeline entries are captured when chronology matters.
+- [ ] Time-varying facts such as current location, job, status, relationship state, progress, availability, or preference are extracted with effective/captured dates.
 - [ ] Aliases and nicknames are added to frontmatter instead of creating duplicate pages.
 - [ ] Durable questions are routed to `wiki/qa/` only when they are reusable.
 - [ ] Open questions are captured instead of filled with model guesses.
@@ -88,6 +97,7 @@ Use `system/templates/ingest-plan.md` for complex or multi-domain ingest before 
 - [ ] New pages use the nearest domain `AGENTS.md` and the closest template in `system/templates/`.
 - [ ] Cross-domain pages link to each other with relative Markdown links where it helps future queries.
 - [ ] Wiki-to-source and source-to-wiki references use relative Markdown links when the target is a local Markdown file and navigation is intended.
+- [ ] Time-varying updates are written into a dated timeline/current-state section or schema field, not only an undated summary sentence.
 - [ ] Compiled source-derived pages that affect tasks include `## Related Tasks` or equivalent task backlinks.
 - [ ] Existing canonical tasks affected by the source have updated progress cache, task log, `todo.md`, and `wiki/tasks/任务.md`.
 - [ ] New durable pages have at least one incoming or outgoing internal link unless deliberately orphaned.
@@ -97,6 +107,7 @@ Use `system/templates/ingest-plan.md` for complex or multi-domain ingest before 
 
 - [ ] Every local source Markdown link in `Sources` exists.
 - [ ] Source references are specific enough for a future agent to trace the claim and are clickable when the target is a local Markdown file.
+- [ ] Every newly added or changed wiki/source Markdown link resolves from the file where it appears to the intended target.
 - [ ] Inference is marked where evidence is incomplete.
 - [ ] `Needs evidence` is used where a page needs user confirmation or source material.
 - [ ] Quotes are short and necessary; prefer summaries plus source pointers.
@@ -104,8 +115,10 @@ Use `system/templates/ingest-plan.md` for complex or multi-domain ingest before 
 ## Maintenance
 
 - [ ] Check obvious broken internal links introduced by the ingest.
+- [ ] Run `python3 system/scripts/lint-obsidian-links.py` or manually verify every touched local Markdown link if the script is unavailable.
 - [ ] Check new frontmatter `type` and status values against the owning domain schema.
 - [ ] Check duplicate entity risk for people, concepts, projects, events, and themes.
+- [ ] Check duplicate source-file risk for same-day, same-subject, same-topic updates.
 - [ ] Check whether `todo.md`, learning review queues, or project tasks need updates.
 - [ ] Check whether any extracted serious todos need canonical `wiki/tasks/` pages and `todo.md` dashboard entries.
 - [ ] Check whether source-derived task impacts updated task pages and aggregate task progress snapshots, or were explicitly listed under `needs_user_review`.

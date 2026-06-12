@@ -41,6 +41,7 @@ Use this checklist during `llm-wiki Lint`.
 - [ ] Cross-workflow hard rules are referenced from `system/policies/` instead of duplicated into `SKILL.md`.
 - [ ] Ingest instructions require nearest domain `AGENTS.md` before writes.
 - [ ] Ingest instructions require checking existing pages and aliases.
+- [ ] Ingest instructions require checking existing compatible sources before creating new source files.
 - [ ] Mutating final output includes files read, created, updated, sources, links, citations, maintenance, open questions, and review needs.
 
 ## Links
@@ -58,6 +59,7 @@ Use this checklist during `llm-wiki Lint`.
 - [ ] Retrieval indexes are discoverable from `wiki/index.md`.
 - [ ] Important aliases point to canonical pages.
 - [ ] No obvious broken path links.
+- [ ] Link checks cover wiki pages, source pages, reports, maps, indexes, and source-to-wiki target links touched by the update.
 - [ ] No non-code `[[wiki/...]]` links that could create `wiki/wiki/...` in the clean `wiki/` vault.
 - [ ] No ambiguous short wikilinks where `sources/` and `wiki/` share the same target stem.
 
@@ -66,6 +68,8 @@ Use this checklist during `llm-wiki Lint`.
 - [ ] Compiled pages cite source Markdown links, source titles, or explicit user input.
 - [ ] Inference is marked when evidence is incomplete.
 - [ ] Raw source files are preserved.
+- [ ] Same-day, same-subject, same-topic incremental updates are appended to existing compatible source files, not split into duplicate files.
+- [ ] Appended source fragments preserve raw payloads with fragment IDs and timing metadata outside `## Raw Material`.
 - [ ] Markdown-like `## Raw Material` sections are not hidden inside added outer code fences.
 - [ ] URL-backed sources record URL metadata, fetch purpose, source ownership, archive policy, archive reason when needed, coverage, and are routed by content form rather than treated as automatic tech/learning.
 - [ ] URL-backed sources do not store full linked content by default without a stated reason.
@@ -89,6 +93,7 @@ Use this checklist during `llm-wiki Lint`.
 - [ ] Task pages use valid `evidence_policy` values: `none`, `task-page-only`, or `source-backed`.
 - [ ] Source-backed task pages list existing `source_records` under `sources/tasks/`.
 - [ ] Source-derived pages with task-progress language have `Related Tasks` links or an explicit `needs_user_review` note.
+- [ ] Time-varying facts have captured/effective dates and compiled-page timeline, current-state timestamp, or "as of" qualifier.
 - [ ] Canonical `todo.md` dashboard entries link to task pages; lightweight one-off checkboxes are clearly dashboard-only or marked for migration.
 - [ ] Tiny one-off todos are not over-promoted into `wiki/tasks/`, and multi-step shared-goal todos are grouped under parent task checklists when appropriate.
 - [ ] Learning paths separate `Saved For Later` from `Recently Learned`.

@@ -11,6 +11,8 @@ This is a hard gate for Ingest and Migration.
 - Metadata, archival notes, AI extraction, and compiled summaries may appear outside the raw block.
 - If the payload cannot be preserved, stop the ingest or keep the material in `inbox/` / `sources/notes/` with `status: needs-review`.
 - Source files are evidence, not polished wiki pages.
+- For incremental updates with the same date, primary subject, semantic topic, compatible source type/content form, and compatible origin, append a new fragment to the existing source file instead of creating a duplicate source file.
+- Preserve each appended fragment's raw payload verbatim and record fragment timing/context metadata outside `## Raw Material`.
 
 ## Durable Material
 
@@ -40,6 +42,20 @@ If linked durable material cannot be accessed or preserved, do not write compile
 - Lightweight one-off todos unrelated to durable growth, knowledge, projects, events, or sources stay in the task system.
 - URL-only submissions preserve URL/context and usually a bounded evidence package; they are not treated as if the user provided full linked text.
 - Third-party or external URL-backed material is usually preserved as bounded evidence, not full text, unless the full archive is explicitly justified.
+
+## Source Grouping
+
+Before creating a new source file for any ingest or update, check whether an existing source should receive the new fragment.
+
+Append to an existing source when all are true:
+
+- same natural date or update date
+- same primary subject
+- same semantic topic or thought thread
+- same explicit source type/content form
+- compatible origin/context
+
+Create a new source only when source type/content form differs, the topic differs, the natural date differs, origin/context is incompatible, or the grouping would risk merging distinct entities or topics.
 
 ## Inbox Grouping
 

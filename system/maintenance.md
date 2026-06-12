@@ -34,6 +34,7 @@ Run maintenance when:
 ### 2. Link Check
 
 - Run `python3 system/scripts/lint-obsidian-links.py` before declaring Obsidian links healthy.
+- Local Markdown links across `wiki/`, `sources/`, `reports`, maps, indexes, and system docs resolve from the file where they appear.
 - Internal compiled wiki links use relative Markdown paths and point to existing pages.
 - Source evidence links and source-to-wiki target links use relative Markdown paths when the target is a local Markdown file and navigation is intended.
 - Associated local Markdown documents are not left as non-clickable code paths such as ``sources/...`` or ``wiki/...`` except in audit inventories, command examples, or literal path documentation.
@@ -51,6 +52,8 @@ Run maintenance when:
 - Compiled claims have sources or are marked as inference.
 - Source pages are not rewritten as polished wiki pages.
 - Markdown-like raw material under `## Raw Material` is not wrapped in an added outer code fence, so diary/note sources remain readable as Markdown.
+- Same-day, same-subject, same-topic incremental updates are appended to compatible existing source files, not split into duplicate files.
+- Appended source fragments have fragment IDs and timing/context metadata outside `## Raw Material`.
 - Ingested sources are marked or logged.
 - Source-worthy long-term task evidence is archived under `sources/tasks/` with `source_type: task_evidence`.
 - Lightweight task state and mechanical task status changes are not archived as sources.
@@ -63,6 +66,7 @@ Run maintenance when:
 ### 5. Staleness Check
 
 - Pages with `updated` older than the review horizon are inspected.
+- Time-varying facts have captured/effective dates and compiled-page timeline entries, current-state timestamps, or "as of" qualifiers.
 - Retrieval indexes under `wiki/indexes/` are marked stale or rebuilt after large ingest or migration.
 - Active learning paths and projects have current status.
 - Open task pages and `todo.md` dashboard entries are consistent.
@@ -96,6 +100,9 @@ After meaningful ingest, also check `system/evals/ingest-checklist.md`:
 - New pages followed domain schemas and templates.
 - Source paths, internal links, and the active monthly log were updated.
 - Source and wiki references intended for navigation are clickable Markdown links.
+- Same-day, same-subject, same-topic updates appended to compatible existing source files instead of creating duplicate source files.
+- Time-varying facts include captured/effective dates and compiled-page timeline or "as of" context.
+- `python3 system/scripts/lint-obsidian-links.py` was run or touched local Markdown links were manually verified.
 - Failed, skipped, or subjective items are listed under `needs_user_review`.
 
 ## Derived Structure Rebuild

@@ -56,6 +56,7 @@ When a source is ingested:
 - Link compiled pages back to the source using standard relative Markdown links when the source is a local Markdown file.
 - Update source `status` when frontmatter exists.
 - Log the ingest in the active monthly log under `wiki/logs/YYYY-MM.md`. Keep `wiki/log.md` as the log index.
+- Before creating a new source file for an incremental update, check existing sources for a compatible same-day, same-primary-subject, same-semantic-topic source. Append a fragment there when source type/content form and origin are compatible.
 
 ## URL-Backed Sources
 
@@ -82,12 +83,13 @@ For URL-backed material:
 
 ## Source Aggregation
 
-For `inbox/` ingest, do not create one source per small fragment by default. First inventory the inbox and group compatible fragments.
+For `inbox/` ingest or direct incremental updates, do not create one source per small fragment by default. First inventory compatible existing sources and group compatible fragments.
 
 Allowed grouping requires all of:
 
 - Same explicit source type.
 - Same natural date or topic.
+- Same primary subject and semantic topic.
 - Compatible origin/context.
 - Preserved fragment boundaries inside the source.
 
@@ -95,6 +97,7 @@ Never merge different source types just because they arrived in the same inbox b
 
 Grouped source files should preserve each fragment with an ID and original path, for example `f001` from `inbox/...`.
 Each grouped fragment's raw content must remain verbatim; grouping may add headings and metadata, but must not rewrite fragment bodies.
+For direct updates, preserve each fragment with an ID, captured date, effective/valid-as-of date when relevant, origin/context, and original order. Put this metadata outside `## Raw Material`.
 
 ## Diary Classification
 

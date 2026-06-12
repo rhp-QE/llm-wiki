@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Lint Obsidian links that must work in both supported vault roots."""
+"""Lint Obsidian and local Markdown links that must resolve in this wiki."""
 
 from __future__ import annotations
 
@@ -84,14 +84,14 @@ def check_wikilinks(errors: list[str]) -> None:
 
 
 def check_markdown_links(errors: list[str]) -> None:
-    for path in sorted(WIKI.rglob("*.md")):
+    for path in iter_markdown_files():
         rel = path.relative_to(ROOT)
         for lineno, line in iter_content_lines(path):
             for match in MDLINK_RE.finditer(line):
                 target = clean_markdown_target(match.group(2))
                 if is_external_or_anchor(target):
                     continue
-                if target.startswith("wiki/") or target.startswith("/wiki/"):
+                if path.is_relative_to(WIKI) and (target.startswith("wiki/") or target.startswith("/wiki/")):
                     errors.append(
                         f"{rel}:{lineno}: use a relative link without a wiki/ prefix: {target}"
                     )

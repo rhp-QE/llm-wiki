@@ -14,6 +14,7 @@ Use this domain for family members, friends, colleagues, mentors, public thinker
 2. Prefer stable names and keep nicknames or alternate spellings in `aliases`.
 3. Link related events, themes, projects, and network pages when supported.
 4. Mark uncertain identity or relationship facts as `Needs evidence`.
+5. Time-varying person facts such as current location, job, relationship state, availability, or preference must include an "as of" date and a timeline entry or current-context timestamp.
 
 ## Page Location
 

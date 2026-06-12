@@ -25,7 +25,7 @@ Every page should make clear which parts are:
 
 ## Internal Links
 
-Use relative Markdown links between durable pages. This keeps links safe in VS Code, GitHub-style viewers, and both supported Obsidian vault roots.
+Use standard relative Markdown links (`[label](relative/path.md)`) between durable pages and to local source files. This keeps links safe in VS Code, GitHub-style viewers, and both supported Obsidian vault roots.
 
 ## Obsidian View Layer
 
@@ -43,4 +43,6 @@ When updating a page:
 
 - Preserve useful prior conclusions unless evidence contradicts them.
 - Move obsolete conclusions to a history or timeline section instead of silently deleting them.
+- Add "as of" dates, current-state timestamps, or timeline entries for time-varying facts.
+- Verify changed local Markdown links resolve to the intended page or source file.
 - Add a log entry for meaningful changes.

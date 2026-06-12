@@ -77,8 +77,31 @@ Common source fields:
 - `origin`
 - `created`
 - `captured`
+- `primary_subject`
+- `semantic_topic`
+- `source_group`
+- `grouping_key`
+- `fragments`
 - `status`
 - `tags`
+
+Fragment metadata fields, used outside `## Raw Material` when multiple updates share one source file:
+
+- `fragment_id`
+- `captured`
+- `effective`
+- `valid_as_of`
+- `origin`
+- `raw_label`
+
+Time-sensitive fields, used for source metadata, fragment metadata, or compiled page frontmatter/sections when facts can change:
+
+- `captured`
+- `effective`
+- `valid_as_of`
+- `supersedes`
+- `superseded_by`
+- `updated`
 
 URL-backed source fields:
 
@@ -248,8 +271,22 @@ Allowed `report_type` values:
 - Prefer explicit relative Markdown paths when a target stem could be ambiguous.
 - Do not leave source evidence as plain code paths in `Sources` sections when the source is a local Markdown file and navigation is expected.
 - Use code-form file paths only for audit inventories, literal path examples, command examples, or non-Markdown files that are not meant to be opened as knowledge nodes.
+- Validate newly added or changed local Markdown links after each mutating update.
 - Map pages are for visual navigation.
 - Index pages are for fast retrieval and generated or semi-generated lookup.
+
+## Source Grouping Rules
+
+- Before creating a source file for an incremental update, check existing sources for the same date, primary subject, semantic topic, source type/content form, and compatible origin.
+- If the grouping key matches, append a new fragment/section to the existing source file and preserve the new raw payload verbatim with fragment boundaries.
+- Do not create duplicate source files for same-day, same-subject, same-topic updates unless source type/content form differs, origin is incompatible, or the identity/topic merge is ambiguous.
+- Keep fragment timing and grouping metadata outside `## Raw Material`.
+
+## Time-Sensitive Fact Rules
+
+- Claims using "current", "currently", "now", location, job, status, relationship state, progress, availability, or preference must include a captured/effective date in source metadata or fragment metadata.
+- Compiled pages must express time-sensitive facts with an "as of {date}" qualifier, a timeline entry, or a dedicated current-state section with a timestamp.
+- Newer time-sensitive claims supersede older claims only when the source clearly supports that; otherwise keep both with dates.
 
 ## Lint Expectations
 
@@ -265,4 +302,6 @@ Schema lint should check:
 - Task pages have valid task status, priority, area, evidence policy, and dashboard consistency.
 - Source-backed tasks have existing `source_records`.
 - Internal compiled wiki links and source evidence links use relative Markdown paths and are not ambiguous across layers.
+- Incremental source updates reuse same-day, same-subject, same-topic source files when compatible.
+- Time-sensitive facts have captured/effective dates and compiled-page timeline or "as of" qualifiers.
 - Example pages are clearly marked as examples.

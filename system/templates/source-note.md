@@ -8,6 +8,11 @@ title:
 origin:
 created:
 captured:
+primary_subject:
+semantic_topic:
+source_group:
+grouping_key:
+fragments: []
 status: new | ingested | ignored | needs-review | example
 rating:
 delivery:
@@ -43,6 +48,19 @@ For user-provided pasted text, uploaded file content, imported notes, inbox capt
 
 Do not wrap Markdown-like raw material in an extra triple-backtick fence. Preserve diary, note, reflection, project, chat, and article Markdown directly so it remains readable when viewing the source. Only include code fences that were already present in the original payload.
 
+For multiple compatible fragments in one source, use fragment headings such as `### f001`, `### f002`, then place the verbatim payload below each heading. Do not put generated metadata inside the raw payload text.
+
+## Fragment Metadata
+
+Use this section when appending same-day, same-subject, same-topic updates to one source file.
+
+- f001:
+  - captured:
+  - effective:
+  - valid_as_of:
+  - origin:
+  - context:
+
 ## URL / Origin
 
 Use this when the source is URL-backed. Record original URL, access time, fetch status, fetch purpose, source ownership, archive policy, archive reason, and coverage. A URL-only submission is not the full original linked content.
@@ -58,6 +76,13 @@ If user context marks the source as important (`important`, `importent`, `非常
 ## Evidence Excerpts / Anchors
 
 ## Why It Was Captured
+
+## Source Grouping
+
+- Grouping key:
+- Existing sources checked:
+- Decision: appended existing source | created new source | needs-review
+- Reason:
 
 ## Learning / Skill Progress
 

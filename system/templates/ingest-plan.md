@@ -21,6 +21,11 @@ url_fetch_strategy:
   local_snapshot_planned:
   query_refetch_policy:
 source_destination:
+existing_sources_checked:
+same_day_same_topic_source_decision:
+  grouping_key:
+  append_target:
+  new_source_reason:
 target_domains:
   - domain:
     reason:
@@ -39,6 +44,12 @@ source_grouping_strategy:
 planned_pages_created:
 planned_pages_updated:
 planned_links:
+time_sensitive_updates:
+  - fact:
+    captured:
+    effective:
+    compiled_page_location:
+link_validation_plan:
 citation_strategy:
 maintenance_checks:
 ambiguities:
