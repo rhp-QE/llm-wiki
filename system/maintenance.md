@@ -45,8 +45,10 @@ Run maintenance when:
 
 ### 3. Source Check
 
+- Run `python3 system/scripts/lint-source-format.py` before declaring source formatting healthy.
 - Compiled claims have sources or are marked as inference.
 - Source pages are not rewritten as polished wiki pages.
+- Markdown-like raw material under `## Raw Material` is not wrapped in an added outer code fence, so diary/note sources remain readable as Markdown.
 - Ingested sources are marked or logged.
 - Source-worthy long-term task evidence is archived under `sources/tasks/` with `source_type: task_evidence`.
 - Lightweight task state and mechanical task status changes are not archived as sources.

@@ -59,6 +59,7 @@ Use `system/templates/ingest-plan.md` for complex or multi-domain ingest before 
 - [ ] Source content is not rewritten into polished wiki prose.
 - [ ] User-provided source content is preserved exactly in `## Raw Material`, including wording, line breaks, order, and fragment boundaries.
 - [ ] No summarization, translation, normalization, cleanup, omission, or paraphrase replaced the verbatim raw payload.
+- [ ] Markdown-like raw material is not wrapped in an added outer code fence; diary/note/reflection/project/chat/article sources render as Markdown unless the original payload itself contained code fences.
 - [ ] Source frontmatter records source type, title, origin, created/captured date, status, and tags when useful.
 - [ ] Source frontmatter records `original_payload` and `raw_preservation` when useful.
 - [ ] URL-backed source frontmatter records `delivery`, `original_url`, `accessed`, and `fetch_status` when useful.

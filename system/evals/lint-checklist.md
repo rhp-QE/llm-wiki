@@ -46,6 +46,7 @@ Use this checklist during `llm-wiki Lint`.
 ## Links
 
 - [ ] `python3 system/scripts/lint-obsidian-links.py` passes.
+- [ ] `python3 system/scripts/lint-source-format.py` passes.
 - [ ] Non-code compiled `wiki/` pages use relative Markdown links instead of wikilinks, so VS Code clicks do not create wrong files.
 - [ ] New pages have internal links.
 - [ ] Domain README files are discoverable from `wiki/index.md`.
@@ -62,6 +63,7 @@ Use this checklist during `llm-wiki Lint`.
 - [ ] Compiled pages cite source paths, source titles, or explicit user input.
 - [ ] Inference is marked when evidence is incomplete.
 - [ ] Raw source files are preserved.
+- [ ] Markdown-like `## Raw Material` sections are not hidden inside added outer code fences.
 - [ ] URL-backed sources record URL metadata, fetch purpose, source ownership, archive policy, archive reason when needed, coverage, and are routed by content form rather than treated as automatic tech/learning.
 - [ ] URL-backed sources do not store full linked content by default without a stated reason.
 - [ ] User-owned durable URL-backed sources preserve accessible original payloads verbatim in `## Raw Material` before compiled pages are written.

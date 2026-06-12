@@ -7,6 +7,7 @@ This is a hard gate for Ingest and Migration.
 - User-provided durable material must be preserved in `sources/` before compiled `wiki/` pages are written.
 - The `## Raw Material` block must preserve wording, line breaks, order, and fragment boundaries.
 - Do not summarize, translate, normalize, clean up, omit, or rewrite inside `## Raw Material`.
+- Do not wrap Markdown-like diary, note, reflection, project, chat, or article raw material in an extra code fence. Preserve it directly under `## Raw Material` so it remains readable as Markdown. Only keep code fences that were part of the original payload.
 - Metadata, archival notes, AI extraction, and compiled summaries may appear outside the raw block.
 - If the payload cannot be preserved, stop the ingest or keep the material in `inbox/` / `sources/notes/` with `status: needs-review`.
 - Source files are evidence, not polished wiki pages.

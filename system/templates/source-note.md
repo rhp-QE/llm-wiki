@@ -41,6 +41,8 @@ tags: []
 
 For user-provided pasted text, uploaded file content, imported notes, inbox captures, diary, learning notes, chat excerpts, reflections, project notes, and other durable material, paste the original payload here verbatim. Preserve wording, line breaks, order, and fragment boundaries. Do not summarize, translate, normalize, clean up, omit, or rewrite inside this section.
 
+Do not wrap Markdown-like raw material in an extra triple-backtick fence. Preserve diary, note, reflection, project, chat, and article Markdown directly so it remains readable when viewing the source. Only include code fences that were already present in the original payload.
+
 ## URL / Origin
 
 Use this when the source is URL-backed. Record original URL, access time, fetch status, fetch purpose, source ownership, archive policy, archive reason, and coverage. A URL-only submission is not the full original linked content.

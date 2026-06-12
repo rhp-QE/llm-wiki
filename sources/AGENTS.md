@@ -51,6 +51,7 @@ When a source is ingested:
 - Archive user-provided raw material before writing compiled pages.
 - Preserve wording, line breaks, order, and fragment boundaries inside `## Raw Material`.
 - Do not summarize, translate, normalize, clean up, omit, or rewrite inside the raw block.
+- Do not add an outer triple-backtick fence around Markdown-like raw material. Diary, note, reflection, project, chat, and article sources should render naturally under `## Raw Material`; only preserve code fences that were present in the original payload.
 - Create or update compiled pages under `wiki/`.
 - Link compiled pages back to the source path.
 - Update source `status` when frontmatter exists.
