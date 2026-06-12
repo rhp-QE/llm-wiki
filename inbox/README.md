@@ -6,6 +6,8 @@ Good inbox items can be messy. Prefer capture over formatting.
 
 When the user invokes `inbox`, `暂存`, or asks to put material here, only save the material in `inbox/`. Do not archive it to `sources/`, do not organize `wiki/`, and do not enrich it until the user explicitly calls `ingest`, `入库`, `沉淀到 wiki`, or `处理 inbox`.
 
+When capturing a new fragment, reuse an existing pending inbox note only when it is from the same day, same topic, and same thought-thread extension. Append the new fragment with its own capture timestamp and preserve the raw wording. Create a new inbox note for different topics, different days, different thought threads, or incompatible explicit type/context.
+
 `inbox/` is not an archive. After an item is ingested, its raw material must be preserved under `sources/`, and the processed inbox file must be removed. For user-provided material, the later source must preserve the original inbox payload verbatim in `## Raw Material`; grouping may add fragment headings and metadata, but must not rewrite fragment bodies. A clean inbox should contain only unprocessed drops plus `README.md` and templates.
 
 Useful fields when available:
