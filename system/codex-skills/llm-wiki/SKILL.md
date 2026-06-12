@@ -2,12 +2,15 @@
 name: llm-wiki
 description: >
   Bootstrap and route a local Markdown-first LLM-wiki framework instance. Use
-  this when the user mentions llm_wiki, llm-wiki, knowledge base, inbox, todo,
-  待办, ingest, query my wiki, lint/check wiki, migrate old notes, Obsidian
-  notes, 沉淀到 wiki, 入库, or 处理 inbox. This bootstrap skill is intentionally
-  thin; the canonical local skill and workflow files live under system/.
-  Shortcut commands: /wiki-todo, /wiki-ingest, /wiki-query, /wiki-lint,
-  /wiki-migrate, /wiki-report.
+  this only when the request explicitly targets the user's wiki, for example
+  llm_wiki, llm-wiki, my wiki, 我的 wiki, personal wiki, 查询我的 wiki, 检查我的
+  wiki, 记录到我的知识库, 沉淀到 wiki, 入库到 wiki, 处理 wiki inbox, wiki inbox,
+  wiki todo, wiki ingest, wiki lint, wiki migration, or the shortcut commands
+  /wiki-todo, /wiki-ingest, /wiki-query, /wiki-lint, /wiki-migrate, and
+  /wiki-report. Avoid triggering on generic words such as inbox, todo, ingest,
+  knowledge base, or Obsidian unless the wiki context is explicit. This
+  bootstrap skill is intentionally thin; the canonical local skill and workflow
+  files live under system/.
 ---
 
 # LLM Wiki Bootstrap Skill
