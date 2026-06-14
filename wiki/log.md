@@ -3,7 +3,7 @@ type: log_index
 title: Wiki Log
 status: active
 created: 2026-06-09
-updated: 2026-06-12
+updated: 2026-06-14
 tags:
   - log
   - maintenance
@@ -34,14 +34,14 @@ Monthly logs use this entry format:
 
 ## Recent Operations
 
+- 2026-06-14: ingested the Feishu Docx diary for 2026-06-14 and added source-backed event, Agentara project, work-performance-anxiety theme, and navigation updates. See [2026-06 Wiki Log](logs/2026-06.md).
+- 2026-06-13: ingested personal profile and 郭若筠 relationship/profile supplements, creating source-backed people pages and relationship context. See [2026-06 Wiki Log](logs/2026-06.md).
+- 2026-06-13: ingested the 2026-06-11 diary and created the first source-backed diary event. See [2026-06 Wiki Log](logs/2026-06.md).
 - 2026-06-12: removed unused framework entry/lifecycle files and kept maintenance/conventions as active ownership docs. See [2026-06 Wiki Log](logs/2026-06.md).
-- 2026-06-12: reviewed and tightened framework responsibilities, domain schemas, and retrieval-index architecture. See [2026-06 Wiki Log](logs/2026-06.md).
-- 2026-06-12: refactored framework instructions into thin skill, workflow files, and policy files. See [2026-06 Wiki Log](logs/2026-06.md).
-- 2026-06-12: converted this branch into a generic framework seed by removing real source material and compiled personal pages. See [2026-06 Wiki Log](logs/2026-06.md).
 
 ## Open Questions
 
-- Decide whether this branch should be committed as a normal branch or rebuilt as an orphan/history-clean branch before public release.
+- Decide when generated entity/source/timeline indexes should be added instead of maintaining only the curated [索引](indexes/索引.md).
 
 ## Maintenance
 

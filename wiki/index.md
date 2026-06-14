@@ -48,6 +48,8 @@ Read this page first, then deep-read the most relevant domain pages. Do not scan
 - State: active personal wiki branch with real source-backed seed pages in `sources/` and `wiki/`.
 - Instruction architecture: thin skill + resolver + `system/workflows/` + `system/policies/` + eval checklists.
 - Source ingest: started, including diary and personal-profile notes.
+- Active project seed: [Agentara](projects/Agentara.md), currently source-backed by the 2026-06-14 diary milestone that scheduled tasks were running.
+- Emerging theme seed: [工作绩效焦虑](themes/工作绩效焦虑.md), based on repeated work收益/performance concern in the 2026-06-11 and 2026-06-14 diaries.
 - Task dashboard: empty scaffold at `todo.md` and `wiki/tasks/任务.md`.
 - Index architecture: scaffolded at `wiki/indexes/索引.md`.
 - Obsidian entry: `wiki/首页.md` -> `wiki/maps/地图.md`.
