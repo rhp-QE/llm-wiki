@@ -15,4 +15,4 @@ Examples:
 
 ## Pages
 
-- [工作绩效焦虑](工作绩效焦虑.md): emerging work收益/performance anxiety pattern across the 2026-06-11 and 2026-06-14 diaries.
+- [工作绩效焦虑](工作绩效焦虑.md): emerging work收益/performance anxiety pattern across the 2026-06-11, 2026-06-14, and 2026-06-15 diaries.
