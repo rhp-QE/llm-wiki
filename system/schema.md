@@ -150,6 +150,7 @@ Use policies for behavior:
 | Domain | Allowed `type` |
 | --- | --- |
 | `wiki/people/` | `person` |
+| `wiki/self/` | `self_profile` |
 | `wiki/events/` | `event` |
 | `wiki/themes/` | `theme` |
 | `wiki/models/` | `mental_model` |
@@ -186,6 +187,7 @@ General compiled statuses:
 Domain-specific statuses:
 
 - People: `active`, `historical`, `unknown`
+- Self profiles: `emerging`, `active`, `stable`, `needs-review`
 - Tech: `learning`, `understood`, `applied`, `validated`, `example`
 - Learning paths: `learning`, `active`, `paused`, `validated`, `retired`, `example`
 - Q&A: `answered`, `partial`, `open`, `example`

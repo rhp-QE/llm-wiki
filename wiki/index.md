@@ -11,6 +11,7 @@ Read this page first, then deep-read the most relevant domain pages. Do not scan
 - [首页](首页.md): human-facing entry point for visual browsing.
 - [地图](maps/地图.md): Obsidian-facing navigation maps.
 - [People](people/README.md): people, relationships, aliases, and interaction context.
+- [Self](self/README.md): compiled self-profile, identity snapshot, values, drivers, pressure patterns, and current direction.
 - [Events](events/README.md): time-bound events, decisions, turning points, and episodes.
 - [Themes](themes/README.md): long-running themes such as career, learning, relationships, health, money, creativity, and self-understanding.
 - [Mental Models](models/README.md): thinking models, decision patterns, cognitive biases, and long-term reasoning frames.
@@ -29,7 +30,7 @@ Read this page first, then deep-read the most relevant domain pages. Do not scan
 
 | User asks about | Read first |
 | --- | --- |
-| Identity, direction, or long-term change | `themes/`, `reflections/`, `events/` |
+| Identity, direction, self-profile, or long-term change | `self/`, then `themes/`, `reflections/`, `events/` |
 | A person or relationship | `people/`, then linked `events/` and `themes/` |
 | A life or project event | `events/`, then linked `people/`, `projects/`, and `themes/` |
 | A technical concept | `tech/`, then `qa/` and `learning/` |
@@ -53,5 +54,6 @@ Read this page first, then deep-read the most relevant domain pages. Do not scan
 - Emerging reflection seed: [内在驱动源](reflections/内在驱动源.md), based on the 2026-06-15 diary's 王阳明心学落地 question.
 - Task dashboard: empty scaffold at `todo.md` and `wiki/tasks/任务.md`.
 - Index architecture: scaffolded at `wiki/indexes/索引.md`.
+- Self-profile domain: scaffolded at `wiki/self/`; create `wiki/self/自我画像.md` only after source-backed personal material exists.
 - Obsidian entry: `wiki/首页.md` -> `wiki/maps/地图.md`.
 - Next action: continue adding raw materials under `inbox/` or `sources/`, then run explicit ingest when knowledge organization is desired.
