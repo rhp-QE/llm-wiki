@@ -52,8 +52,9 @@ Read this page first, then deep-read the most relevant domain pages. Do not scan
 - Active project seed: [Agentara](projects/Agentara.md), currently source-backed by the 2026-06-14 diary milestone that scheduled tasks were running.
 - Emerging theme seed: [工作绩效焦虑](themes/工作绩效焦虑.md), based on repeated work收益/performance concern in the 2026-06-11, 2026-06-14, and 2026-06-15 diaries.
 - Emerging reflection seed: [内在驱动源](reflections/内在驱动源.md), based on the 2026-06-15 diary's 王阳明心学落地 question.
+- Self-profile page: [自我画像](self/自我画像.md), compiled from current source-backed identity, diary, theme, reflection, and project pages.
 - Task dashboard: empty scaffold at `todo.md` and `wiki/tasks/任务.md`.
 - Index architecture: scaffolded at `wiki/indexes/索引.md`.
-- Self-profile domain: scaffolded at `wiki/self/`; create `wiki/self/自我画像.md` only after source-backed personal material exists.
+- Self-profile domain: active at [Self](self/README.md), with [自我画像](self/自我画像.md) as the canonical compiled profile.
 - Obsidian entry: `wiki/首页.md` -> `wiki/maps/地图.md`.
 - Next action: continue adding raw materials under `inbox/` or `sources/`, then run explicit ingest when knowledge organization is desired.

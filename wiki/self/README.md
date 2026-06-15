@@ -15,4 +15,4 @@ This domain should synthesize from source-backed pages such as people, events, t
 
 ## Pages
 
-- `自我画像.md`: default canonical self-profile page when real source material exists.
+- [自我画像](自我画像.md): default canonical self-profile page compiled from source-backed personal material.
