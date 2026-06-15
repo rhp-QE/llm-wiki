@@ -112,6 +112,7 @@ After migration or large ingest, rebuild:
 - `wiki/index.md` domain links and current status.
 - `wiki/首页.md` and `wiki/maps/` when Obsidian navigation changes.
 - Domain README/index pages.
+- Self-profile pages under `wiki/self/` when identity, values, drivers, pressure patterns, or current direction change materially.
 - Alias notes or alias frontmatter.
 - Timeline pages when event volume justifies them.
 - Retrieval indexes under `wiki/indexes/`, such as entities, aliases, timeline, and source manifest.

@@ -48,6 +48,7 @@ This file owns routing only. Workflow execution lives in `system/workflows/`; re
 
 | Signal | Domain |
 | --- | --- |
+| Self-profile, identity snapshot, personal operating pattern, "what kind of person am I", values/drivers synthesis | `wiki/self/` |
 | Person, nickname, family term, colleague, thinker | `wiki/people/` |
 | Time-bound episode, decision, turning point | `wiki/events/` |
 | Repeated pattern or long-running concern | `wiki/themes/` |

@@ -30,7 +30,7 @@ Use this checklist during `llm-wiki Lint`.
 - [ ] `system/templates/link-source.md` exists.
 - [ ] `system/templates/task.md` exists.
 - [ ] `system/templates/task-evidence-source.md` exists.
-- [ ] Common domain templates exist for person, event, concept, learning topic, Q&A, reflection, craft practice, project, theme, mental model, report, map, index page, and writing article.
+- [ ] Common domain templates exist for person, self profile, event, concept, learning topic, Q&A, reflection, craft practice, project, theme, mental model, report, map, index page, and writing article.
 - [ ] `sources/tasks/README.md` exists.
 - [ ] `wiki/tasks/README.md` and `wiki/tasks/AGENTS.md` exist.
 
